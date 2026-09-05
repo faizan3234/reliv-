@@ -3,65 +3,65 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://relivcare.com/</loc>
+    <loc>https://relivkiosk.vercel.app/</loc>
     <lastmod>2026-09-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     
     <!-- High-Ranking Google Images SEO for Reliv Health Kiosks & Health ATMs -->
     <image:image>
-      <image:loc>https://relivcare.com/assets/reliv-health-kiosk-kolkata.jpg</image:loc>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg</image:loc>
       <image:title>Reliv Smart Health Kiosk and Health ATM Kolkata</image:title>
       <image:caption>Reliv smart health kiosk and Health ATM in Kolkata providing quick body-parameter screening and personalised digital health reports</image:caption>
       <image:geo_location>Kolkata, West Bengal, India</image:geo_location>
     </image:image>
     <image:image>
-      <image:loc>https://relivcare.com/assets/reliv-smart-health-atm-india.jpg</image:loc>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-smart-health-atm-india.jpg</image:loc>
       <image:title>Reliv Smart Health ATM India Preventive Healthcare</image:title>
       <image:caption>Smart automated health ATM machine in India for colleges, gyms, workplaces, and public health checks</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://relivcare.com/assets/reliv-medical-kiosk-body-parameter-check.jpg</image:loc>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-medical-kiosk-body-parameter-check.jpg</image:loc>
       <image:title>Reliv Medical Kiosk Body Parameter Checkup Machine</image:title>
       <image:caption>100+ body parameters, BP blood pressure, pulse rate, oxygen SpO2, and BMI screening kiosk</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://relivcare.com/assets/reliv-wellness-kiosk-for-colleges.jpg</image:loc>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-wellness-kiosk-for-colleges.jpg</image:loc>
       <image:title>Reliv Wellness Kiosk for Colleges and Universities</image:title>
       <image:caption>Self-service campus health ATM for students and faculty at IEM Kolkata, Gurukul, and institutes</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://relivcare.com/assets/reliv-fitness-health-kiosk-for-gyms.jpg</image:loc>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-fitness-health-kiosk-for-gyms.jpg</image:loc>
       <image:title>Reliv Fitness and Health Kiosk for Gyms</image:title>
       <image:caption>Gym health kiosk for body fitness analysis, body composition, BMI, and vital health assessment</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://relivcare.com/assets/screens/reliv-digital-health-report.webp</image:loc>
+      <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-digital-health-report.webp</image:loc>
       <image:title>Reliv Instant Digital Health Report &amp; Registration Screen</image:title>
       <image:caption>Personalised paperless and QR-based digital wellness report preview</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://relivcare.com/assets/screens/reliv-health-atm-user-experience.webp</image:loc>
+      <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-health-atm-user-experience.webp</image:loc>
       <image:title>Reliv Health ATM User Experience Screen</image:title>
       <image:caption>Multilingual touch screen interface in English, Hindi, and Bengali</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://relivcare.com/assets/screens/reliv-medicine-dispensing-kiosk.webp</image:loc>
+      <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-medicine-dispensing-kiosk.webp</image:loc>
       <image:title>Reliv Medicine Dispensing Kiosk &amp; Healthcare Kit Vending</image:title>
       <image:caption>Automated medicine dispenser and emergency first-aid kit vending machine</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://relivcare.com/assets/logo.jpg</image:loc>
+      <image:loc>https://relivkiosk.vercel.app/assets/logo.jpg</image:loc>
       <image:title>Reliv Official Healthcare Startup Brand Logo</image:title>
       <image:caption>Reliv Care - You matter. Reliv cares.</image:caption>
     </image:image>
 
     <!-- Google Video SEO Indexing -->
     <video:video>
-      <video:thumbnail_loc>https://relivcare.com/assets/demo-poster.jpg</video:thumbnail_loc>
+      <video:thumbnail_loc>https://relivkiosk.vercel.app/assets/demo-poster.jpg</video:thumbnail_loc>
       <video:title>Reliv Health Kiosk &amp; Health ATM Live Demonstration</video:title>
       <video:description>See a real checkup on Reliv health kiosk in Kolkata: body parameters, touchscreen walkthrough, and wellness report.</video:description>
-      <video:content_loc>https://relivcare.com/assets/demonstration.mp4</video:content_loc>
+      <video:content_loc>https://relivkiosk.vercel.app/assets/demonstration.mp4</video:content_loc>
       <video:duration>98</video:duration>
       <video:tag>Reliv</video:tag>
       <video:tag>Health ATM</video:tag>
@@ -74,27 +74,27 @@
     </video:video>
   </url>
   <url>
-    <loc>https://relivcare.com/#how-to</loc>
+    <loc>https://relivkiosk.vercel.app/#how-to</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://relivcare.com/#experience</loc>
+    <loc>https://relivkiosk.vercel.app/#experience</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://relivcare.com/#demonstration</loc>
+    <loc>https://relivkiosk.vercel.app/#demonstration</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://relivcare.com/#report</loc>
+    <loc>https://relivkiosk.vercel.app/#report</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://relivcare.com/#own-reliv</loc>
+    <loc>https://relivkiosk.vercel.app/#own-reliv</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
