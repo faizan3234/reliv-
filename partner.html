@@ -229,7 +229,7 @@
     .menu-toggle {
       display: block;
     }
-    header nav {
+    header nav { display: none !important;
       display: none;
       position: absolute;
       top: 100%;
@@ -241,7 +241,7 @@
       box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       z-index: 1000;
     }
-    header nav a {
+    header nav a { display: block !important;
       margin: 10px 0;
       font-size: 18px;
       border-bottom: 1px solid #eee;
@@ -250,7 +250,7 @@
     header nav a:last-child {
       border-bottom: none;
     }
-    header.menu-open nav {
+    header.menu-open nav { display: flex !important;
       display: flex;
     }
     .whatsapp-cta {
