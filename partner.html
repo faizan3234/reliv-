@@ -214,7 +214,52 @@
 
   gtag('config', 'G-LZDEVCWW3M');
 </script>
+
+<style>
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #111;
+    margin-left: auto;
+  }
+  @media (max-width: 800px) {
+    .menu-toggle {
+      display: block;
+    }
+    header nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    header nav a {
+      margin: 10px 0;
+      font-size: 18px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+    header nav a:last-child {
+      border-bottom: none;
+    }
+    header.menu-open nav {
+      display: flex;
+    }
+    .whatsapp-cta {
+      display: none; /* Hide the top-right CTA button on small phones to save space for hamburger */
+    }
+  }
+</style>
 </head><body><header><a class="brand" href="#" aria-label="Reliv home"><img src="assets/logo.jpg" alt="Reliv Care official brand logo" title="Reliv Health Kiosk & Health ATM"></a>
+<button id="menuToggle" class="menu-toggle" aria-label="Toggle Menu">☰</button>
 <nav aria-label="Main navigation">
   <a href="index.html">Home</a>
   <a href="simulator.html">Try Reliv</a>
@@ -407,4 +452,17 @@
       <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
     </a>
   </div>
-</footer><script src="app.js"></script><script src="kiosk.js"></script></body></html>
+</footer><script src="app.js"></script><script src="kiosk.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('menuToggle');
+    const header = document.querySelector('header');
+    if(toggle) {
+      toggle.addEventListener('click', function() {
+        header.classList.toggle('menu-open');
+      });
+    }
+  });
+</script>
+</body>
+</html>
