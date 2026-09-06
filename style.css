@@ -49,3 +49,41 @@
   .kiosk-location-preview .sm-btn{width:100%}
 }
 
+
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    color: #202020;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.social-link:hover {
+    border-color: #f16600;
+    color: #f16600;
+}
+.mock-warning {
+    background: #fff3cd;
+    color: #856404;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: 15px;
+    text-align: left;
+    border: 1px solid #ffeeba;
+    display: flex;
+    flex-direction: column;
+}
