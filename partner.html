@@ -9,6 +9,12 @@
   gtag('config', 'AW-16647775272');
   gtag('config', 'G-LZDEVCWW3M');
 </script>
+<!-- Google tag (gtag.js) event -->
+<script>
+  gtag('event', 'ads_conversion_Contact_1', {
+    // <event_parameters>
+  });
+</script>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#cf420a">
 <title>Partner with Reliv — Buy, Rent, or Join as Student</title>
 <meta name="description" content="Reliv is India's leading smart health checkup kiosk and Health ATM. Instant vital signs monitoring, 100+ body parameters, body composition analysis, voice-guided touchscreen navigation, and instant digital health reports. Ideal for colleges, gyms, workplaces, and clinics in Kolkata and across India.">
@@ -442,6 +448,9 @@
     const form = document.getElementById(formId);
     if(form) {
       form.addEventListener('submit', function(e) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'ads_conversion_Contact_1', {});
+        }
         const fd = new FormData(this);
         const name = fd.get('Name');
         let msg = '';
