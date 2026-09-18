@@ -368,7 +368,12 @@
           <p class="body-secondary">Share your institution details and deployment goals. Our team will prepare a customized proposal within 24 hours.</p>
         </div>
 
-        <form action="https://formspree.io/f/xyzkqabp" method="POST">
+        <div id="orgFormContainer">
+        <form id="orgForm" action="https://formsubmit.co/relivcustomercare.in@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="New Reliv Commercial / Institutional Enquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://relivkiosk.vercel.app/organisations.html?submitted=true">
           <div class="form-row">
             <div class="form-group">
               <label for="contactName">Your Name *</label>
@@ -428,6 +433,7 @@
             Submit Commercial Request
           </button>
         </form>
+      </div>
 
         <div style="margin-top: 24px; text-align: center; font-size: 13.5px; color: var(--muted);">
           Prefer direct communication? Call or WhatsApp our partnerships desk at 
@@ -519,5 +525,60 @@
     </a>
   </nav>
 
+
+  <script>
+    const orgForm = document.getElementById('orgForm');
+    const orgContainer = document.getElementById('orgFormContainer');
+
+    if (orgForm) {
+      orgForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const submitBtn = orgForm.querySelector('button[type="submit"]');
+        const origBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting your request...';
+
+        const formData = new FormData(orgForm);
+        const name = formData.get('name') || '';
+        const org = formData.get('organization') || '';
+        const model = formData.get('model') || '';
+        const phone = formData.get('phone') || '';
+
+        const waText = encodeURIComponent(`Hello Reliv! I just submitted a commercial partnership request on your website.\n\nName: ${name}\nOrganisation: ${org}\nPreferred Model: ${model}\nPhone: ${phone}\n\nPlease share commercial details.`);
+        const waUrl = `https://wa.me/919163606455?text=${waText}`;
+
+        try {
+          const res = await fetch('https://formsubmit.co/ajax/relivcustomercare.in@gmail.com', {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          orgContainer.innerHTML = `
+            <div style="text-align:center; padding:36px 20px; background:#f0fdf4; border:1.5px solid #86efac; border-radius:var(--radius-lg);">
+              <div style="width:64px; height:64px; border-radius:50%; background:#22c55e; color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:32px;">✓</div>
+              <h3 style="font-size:24px; color:#14532d; margin-bottom:8px;">Request Submitted Successfully!</h3>
+              <p style="font-size:15px; color:#166534; max-width:500px; margin:0 auto 20px; line-height:1.5;">
+                Thank you, <strong>${name}</strong>. Your commercial enquiry has been delivered to our team at <strong>relivcustomercare.in@gmail.com</strong>. We will review your details and contact you within 24 hours.
+              </p>
+              <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+                <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn-primary" style="background:#25D366; border-color:#25D366;">
+                  Connect on WhatsApp with Team ↗
+                </a>
+                <a href="index.html" class="btn btn-secondary">Return to Home</a>
+              </div>
+            </div>
+          `;
+
+          // Also trigger WhatsApp in a new window
+          window.open(waUrl, '_blank');
+        } catch(err) {
+          // Fallback to normal form submit if AJAX is blocked
+          orgForm.submit();
+        }
+      });
+    }
+  </script>
 </body>
+
 </html>
