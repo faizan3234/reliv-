@@ -2,100 +2,167 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- Homepage -->
   <url>
     <loc>https://relivkiosk.vercel.app/</loc>
-    <lastmod>2026-09-05</lastmod>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    
-    <!-- High-Ranking Google Images SEO for Reliv Health Kiosks & Health ATMs -->
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg</image:loc>
-      <image:title>Reliv Smart Health Kiosk and Health ATM Kolkata</image:title>
-      <image:caption>Reliv smart health kiosk and Health ATM in Kolkata providing quick body-parameter screening and personalised digital health reports</image:caption>
+      <image:title>Reliv Smart Health Kiosk — Kolkata Campus Installation</image:title>
+      <image:caption>Reliv smart health kiosk providing rapid 3-minute vital screening and personalized digital health summaries</image:caption>
       <image:geo_location>Kolkata, West Bengal, India</image:geo_location>
     </image:image>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/reliv-smart-health-atm-india.jpg</image:loc>
-      <image:title>Reliv Smart Health ATM India Preventive Healthcare</image:title>
-      <image:caption>Smart automated health ATM machine in India for colleges, gyms, workplaces, and public health checks</image:caption>
+      <image:title>Reliv Smart Health ATM India</image:title>
+      <image:caption>Preventive healthcare kiosk for colleges, corporate offices, gyms, and public spaces</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://relivkiosk.vercel.app/assets/reliv-medical-kiosk-body-parameter-check.jpg</image:loc>
-      <image:title>Reliv Medical Kiosk Body Parameter Checkup Machine</image:title>
-      <image:caption>100+ body parameters, BP blood pressure, pulse rate, oxygen SpO2, and BMI screening kiosk</image:caption>
+      <image:loc>https://relivkiosk.vercel.app/icons/reliv-wordmark.svg</image:loc>
+      <image:title>Reliv Official Healthcare Logo</image:title>
+      <image:caption>Reliv Care — You matter. Reliv cares.</image:caption>
     </image:image>
-    <image:image>
-      <image:loc>https://relivkiosk.vercel.app/assets/reliv-wellness-kiosk-for-colleges.jpg</image:loc>
-      <image:title>Reliv Wellness Kiosk for Colleges and Universities</image:title>
-      <image:caption>Self-service campus health ATM for students and faculty at IEM Kolkata, Gurukul, and institutes</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://relivkiosk.vercel.app/assets/reliv-fitness-health-kiosk-for-gyms.jpg</image:loc>
-      <image:title>Reliv Fitness and Health Kiosk for Gyms</image:title>
-      <image:caption>Gym health kiosk for body fitness analysis, body composition, BMI, and vital health assessment</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-digital-health-report.webp</image:loc>
-      <image:title>Reliv Instant Digital Health Report &amp; Registration Screen</image:title>
-      <image:caption>Personalised paperless and QR-based digital wellness report preview</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-health-atm-user-experience.webp</image:loc>
-      <image:title>Reliv Health ATM User Experience Screen</image:title>
-      <image:caption>Multilingual touch screen interface in English, Hindi, and Bengali</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-medicine-dispensing-kiosk.webp</image:loc>
-      <image:title>Reliv Medicine Dispensing Kiosk &amp; Healthcare Kit Vending</image:title>
-      <image:caption>Automated medicine dispenser and emergency first-aid kit vending machine</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://relivkiosk.vercel.app/assets/logo.jpg</image:loc>
-      <image:title>Reliv Official Healthcare Startup Brand Logo</image:title>
-      <image:caption>Reliv Care - You matter. Reliv cares.</image:caption>
-    </image:image>
-
-    <!-- Google Video SEO Indexing -->
     <video:video>
       <video:thumbnail_loc>https://relivkiosk.vercel.app/assets/demo-poster.jpg</video:thumbnail_loc>
       <video:title>Reliv Health Kiosk &amp; Health ATM Live Demonstration</video:title>
-      <video:description>See a real checkup on Reliv health kiosk in Kolkata: body parameters, touchscreen walkthrough, and wellness report.</video:description>
+      <video:description>See a real checkup on Reliv health kiosk in Kolkata: body parameters, touchscreen walkthrough, and wellness report in 3 minutes.</video:description>
       <video:content_loc>https://relivkiosk.vercel.app/assets/demonstration.mp4</video:content_loc>
       <video:duration>98</video:duration>
       <video:tag>Reliv</video:tag>
+      <video:tag>Health Kiosk</video:tag>
       <video:tag>Health ATM</video:tag>
-      <video:tag>Reliv Health Kiosk</video:tag>
-      <video:tag>Health ATM Kolkata</video:tag>
-      <video:tag>Health ATM India</video:tag>
-      <video:tag>Preventive Healthcare</video:tag>
-      <video:tag>Medical Kiosk</video:tag>
-      <video:tag>reliv_care</video:tag>
+      <video:tag>Preventive Healthcare India</video:tag>
     </video:video>
   </url>
+
+  <!-- Simulator / Try Reliv -->
   <url>
-    <loc>https://relivkiosk.vercel.app/#how-to</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://relivkiosk.vercel.app/simulator.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-health-atm-user-experience.webp</image:loc>
+      <image:title>Reliv Multilingual Touchscreen Interface</image:title>
+      <image:caption>Language selection and voice guidance in English, Hindi, and Bengali</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-digital-health-report.webp</image:loc>
+      <image:title>Instant Digital Wellness Report Preview</image:title>
+      <image:caption>Paperless and QR-based wellness summary format</image:caption>
+    </image:image>
   </url>
+
+  <!-- Locations -->
   <url>
-    <loc>https://relivkiosk.vercel.app/#experience</loc>
+    <loc>https://relivkiosk.vercel.app/locations.html</loc>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg</image:loc>
+      <image:title>Reliv Kiosk Location Sector V Kolkata</image:title>
+      <image:caption>Near IEM Gurukul Campus, Salt Lake, Kolkata</image:caption>
+    </image:image>
   </url>
+
+  <!-- For Organisations -->
   <url>
-    <loc>https://relivkiosk.vercel.app/#demonstration</loc>
+    <loc>https://relivkiosk.vercel.app/organisations.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-wellness-kiosk-for-colleges.jpg</image:loc>
+      <image:title>Reliv Kiosk for Organisations &amp; Campuses</image:title>
+      <image:caption>Outright purchase, monthly plan, and revenue partnership models for institutions</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Careers -->
+  <url>
+    <loc>https://relivkiosk.vercel.app/careers.html</loc>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- About -->
   <url>
-    <loc>https://relivkiosk.vercel.app/#report</loc>
+    <loc>https://relivkiosk.vercel.app/about.html</loc>
+    <lastmod>2026-09-18</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
   </url>
+
+  <!-- Media Center -->
   <url>
-    <loc>https://relivkiosk.vercel.app/#own-reliv</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://relivkiosk.vercel.app/media.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Semantic SEO Keyword Pages -->
+  <url>
+    <loc>https://relivkiosk.vercel.app/health-kiosk.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <url>
+    <loc>https://relivkiosk.vercel.app/health-atm.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Solutions -->
+  <url>
+    <loc>https://relivkiosk.vercel.app/solutions/colleges.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://relivkiosk.vercel.app/solutions/offices.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://relivkiosk.vercel.app/solutions/gyms.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Legal -->
+  <url>
+    <loc>https://relivkiosk.vercel.app/legal/privacy.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://relivkiosk.vercel.app/legal/terms.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://relivkiosk.vercel.app/legal/disclaimer.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
 </urlset>

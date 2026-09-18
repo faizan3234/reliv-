@@ -3,64 +3,456 @@ const root=document.querySelector('#simulator'),status=document.querySelector('#
 const L={
 en:{locale:'en-IN',welcome:'Hello, welcome to Reliv. Choose your language to begin.',about:'Tell us about you',sub:'Personalise your sample checkup and report',name:'Full name',placeholder:'Enter your name',age:'Age',years:'years',gender:'Gender',genders:['Male','Female','Other'],sample:'Use sample details',mic:'Speak your name',micNote:'Optional: your browser may send microphone audio to its speech service. You can type instead.',next:'Proceed',back:'Back',choose:'Great! How can we help you today?',select:'Please select one option below',health:'Health Checkup',healthSub:'Blood pressure · Oxygen · Temperature · Height & weight',meds:'Medicine Dispensing',medsSub:'Explore a sample first-aid kit purchase',profileVoice:'Please enter your name, or tap Use sample details. Then select Proceed.',serviceVoice:'Choose Health Checkup for a sample wellness report, or Medicine Dispensing for a sample kit and receipt.',begin:'Start sample checkup',checkTitle:'Let’s explore your health numbers',checkSub:'At a real kiosk, follow the device instructions. Here, tap each step to see a sample reading.',show:'Show sample reading',continue:'Next check',report:'View sample report',sampleLabel:'SAMPLE · NOT YOUR MEASUREMENTS',summary:'Your body, a little better understood',summarySub:'These values are from a demonstration. Tap a reading below for its meaning.',reportNote:'A wellness summary, not a diagnosis. The demo does not measure your body.',download:'Download sample summary',explore:'Explore all 18 report values',kitTitle:'Choose a health-essential kit',kitName:'First-aid essentials',kitDesc:'Illustrative kit: adhesive dressings, gauze and medical tape. Actual contents and availability are confirmed at the kiosk.',price:'Illustrative price',quantity:'Quantity',review:'Review sample order',order:'Review your sample order',pay:'Simulate payment',payNote:'Demo only. No money is charged and no real order is placed.',collect:'Sample dispensing complete',collectSub:'At a real kiosk, collect the dispensed item from the indicated collection area. Nothing is dispensed by this website.',receipt:'View sample receipt',receiptTitle:'Purchase receipt',receiptSub:'SAMPLE ONLY · NO PAYMENT TAKEN',item:'Item',total:'Illustrative total',billed:'Sample customer',downloadReceipt:'Download sample receipt',again:'Try another service',enterError:'Enter a name or use sample details to continue.',listening:'Listening… say your name.',micError:'Microphone unavailable or access denied. Please type your name.',noVoice:'No recognised female voice is available for this language. Follow the text on screen.',female:'Female guidance',on:'on',off:'off',repeat:'Repeat instruction',restart:'Restart',read:'Read aloud',details:'Details stay in this demo; nothing is submitted to Reliv.',healthLabels:['Blood pressure','Blood oxygen','Temperature','Height & weight'],meaning:['The first number is pressure when your heart beats. The second is pressure between beats.','SpO₂ estimates how much of your haemoglobin is carrying oxygen.','This is the temperature reading in the sample report. °F means Fahrenheit.','The sample height is 1.83 metres and the weight is 68 kilograms.'],progress:'Check'},
 hi:{locale:'hi-IN',welcome:'नमस्ते। रिलिव में आपका स्वागत है। शुरू करने के लिए अपनी भाषा चुनें।',about:'अपने बारे में बताएं',sub:'अपनी नमूना स्वास्थ्य जांच और रिपोर्ट देखें',name:'पूरा नाम',placeholder:'अपना नाम लिखें',age:'उम्र',years:'वर्ष',gender:'लिंग',genders:['पुरुष','महिला','अन्य'],sample:'नमूना जानकारी भरें',mic:'अपना नाम बोलें',micNote:'वैकल्पिक: आपका ब्राउज़र आवाज़ को ऑनलाइन सेवा पर भेज सकता है। आप टाइप भी कर सकते हैं।',next:'आगे बढ़ें',back:'वापस',choose:'बहुत बढ़िया! हम आपकी कैसे मदद करें?',select:'नीचे एक विकल्प चुनें',health:'स्वास्थ्य जांच',healthSub:'रक्तचाप · ऑक्सीजन · तापमान · लंबाई और वजन',meds:'दवा वितरण',medsSub:'नमूना प्राथमिक उपचार किट की खरीद देखें',profileVoice:'अपना नाम लिखें या नमूना जानकारी भरें पर टैप करें। फिर आगे बढ़ें।',serviceVoice:'नमूना रिपोर्ट के लिए स्वास्थ्य जांच चुनें। किट और रसीद देखने के लिए दवा वितरण चुनें।',begin:'नमूना जांच शुरू करें',checkTitle:'अपने स्वास्थ्य के आंकड़े समझें',checkSub:'असली कियोस्क पर उपकरण के निर्देश मानें। यहां नमूना रीडिंग देखने के लिए टैप करें।',show:'नमूना रीडिंग दिखाएं',continue:'अगली जांच',report:'नमूना रिपोर्ट देखें',sampleLabel:'नमूना · आपकी वास्तविक रीडिंग नहीं',summary:'अपने शरीर को थोड़ा बेहतर समझें',summarySub:'ये नमूना आंकड़े हैं। अर्थ जानने के लिए किसी रीडिंग पर टैप करें।',reportNote:'यह स्वास्थ्य सारांश है, निदान नहीं। यह डेमो आपके शरीर की जांच नहीं करता।',download:'नमूना सारांश डाउनलोड करें',explore:'सभी 18 रीडिंग समझें',kitTitle:'स्वास्थ्य संबंधी किट चुनें',kitName:'प्राथमिक उपचार किट',kitDesc:'नमूना किट: चिपकने वाली पट्टियां, गॉज़ और मेडिकल टेप। असली सामग्री और उपलब्धता कियोस्क पर देखें।',price:'नमूना कीमत',quantity:'संख्या',review:'नमूना ऑर्डर देखें',order:'अपना नमूना ऑर्डर जांचें',pay:'नमूना भुगतान करें',payNote:'केवल डेमो। कोई पैसा नहीं कटेगा और कोई असली ऑर्डर नहीं बनेगा।',collect:'नमूना वितरण पूरा हुआ',collectSub:'असली कियोस्क पर दिखाई गई जगह से सामान लें। यह वेबसाइट कोई सामान नहीं देती।',receipt:'नमूना रसीद देखें',receiptTitle:'खरीद की रसीद',receiptSub:'केवल नमूना · कोई भुगतान नहीं हुआ',item:'सामान',total:'नमूना कुल राशि',billed:'नमूना ग्राहक',downloadReceipt:'नमूना रसीद डाउनलोड करें',again:'दूसरी सेवा आज़माएं',enterError:'आगे बढ़ने के लिए नाम लिखें या नमूना जानकारी भरें।',listening:'सुन रही हूं… अपना नाम बोलें।',micError:'माइक्रोफोन उपलब्ध नहीं है या अनुमति नहीं मिली। नाम टाइप करें।',noVoice:'इस भाषा में पहचानी गई महिला आवाज़ उपलब्ध नहीं है। स्क्रीन पर निर्देश पढ़ें।',female:'महिला आवाज़',on:'चालू',off:'बंद',repeat:'फिर से सुनें',restart:'दोबारा शुरू करें',read:'सुनें',details:'जानकारी केवल इस डेमो में रहती है; रिलिव को नहीं भेजी जाती।',healthLabels:['रक्तचाप','रक्त में ऑक्सीजन','तापमान','लंबाई और वजन'],meaning:['पहला अंक दिल धड़कने के समय का दबाव है। दूसरा दो धड़कनों के बीच का दबाव है।','एस पी ओ टू बताता है कि हीमोग्लोबिन का कितना हिस्सा ऑक्सीजन ले जा रहा है।','यह नमूना रिपोर्ट का तापमान है। यह फारेनहाइट में दिया गया है।','नमूने में लंबाई 1.83 मीटर और वजन 68 किलोग्राम है।'],progress:'जांच'},
-bn:{locale:'bn-IN',welcome:'নমস্কার। রিলিভে আপনাকে স্বাগতম। শুরু করতে আপনার ভাষা বেছে নিন।',about:'আপনার সম্পর্কে বলুন',sub:'আপনার নমুনা স্বাস্থ্য পরীক্ষা ও রিপোর্ট দেখুন',name:'পুরো নাম',placeholder:'আপনার নাম লিখুন',age:'বয়স',years:'বছর',gender:'লিঙ্গ',genders:['পুরুষ','মহিলা','অন্যান্য'],sample:'নমুনা তথ্য ব্যবহার করুন',mic:'আপনার নাম বলুন',micNote:'ঐচ্ছিক: আপনার ব্রাউজার অনলাইন পরিষেবায় কণ্ঠস্বর পাঠাতে পারে। আপনি টাইপও করতে পারেন।',next:'এগিয়ে যান',back:'ফিরে যান',choose:'দারুণ! আজ কীভাবে সাহায্য করতে পারি?',select:'নিচে একটি বিকল্প বেছে নিন',health:'স্বাস্থ্য পরীক্ষা',healthSub:'রক্তচাপ · অক্সিজেন · তাপমাত্রা · উচ্চতা ও ওজন',meds:'ওষুধ বিতরণ',medsSub:'নমুনা প্রাথমিক চিকিৎসার কিট কেনার ধাপ দেখুন',profileVoice:'আপনার নাম লিখুন অথবা নমুনা তথ্য ব্যবহার করুন বেছে নিন। তারপর এগিয়ে যান।',serviceVoice:'নমুনা রিপোর্টের জন্য স্বাস্থ্য পরীক্ষা বেছে নিন। কিট এবং রসিদ দেখতে ওষুধ বিতরণ বেছে নিন।',begin:'নমুনা পরীক্ষা শুরু করুন',checkTitle:'আপনার স্বাস্থ্যের সংখ্যাগুলি বুঝুন',checkSub:'আসল কিয়স্কে যন্ত্রের নির্দেশ মেনে চলুন। এখানে নমুনা ফল দেখতে ট্যাপ করুন।',show:'নমুনা ফল দেখুন',continue:'পরের পরীক্ষা',report:'নমুনা রিপোর্ট দেখুন',sampleLabel:'নমুনা · আপনার আসল ফল নয়',summary:'নিজের শরীরকে একটু ভালো করে বুঝুন',summarySub:'এগুলি নমুনা তথ্য। অর্থ জানতে একটি ফলের উপর ট্যাপ করুন।',reportNote:'এটি স্বাস্থ্যের সারাংশ, রোগ নির্ণয় নয়। এই ডেমো আপনার শরীর পরীক্ষা করে না।',download:'নমুনা সারাংশ ডাউনলোড করুন',explore:'রিপোর্টের ১৮টি ফল বুঝুন',kitTitle:'স্বাস্থ্যের প্রয়োজনীয় কিট বেছে নিন',kitName:'প্রাথমিক চিকিৎসার কিট',kitDesc:'নমুনা কিট: আঠাযুক্ত ব্যান্ডেজ, গজ এবং মেডিকেল টেপ। আসল সামগ্রী ও প্রাপ্যতা কিয়স্কে দেখুন।',price:'নমুনা দাম',quantity:'সংখ্যা',review:'নমুনা অর্ডার দেখুন',order:'আপনার নমুনা অর্ডার যাচাই করুন',pay:'নমুনা পেমেন্ট করুন',payNote:'শুধু ডেমো। কোনও টাকা কাটা হবে না এবং আসল অর্ডার হবে না।',collect:'নমুনা বিতরণ সম্পূর্ণ',collectSub:'আসল কিয়স্কে নির্দেশিত স্থান থেকে সামগ্রী নিন। এই ওয়েবসাইট কোনও সামগ্রী বিতরণ করে না।',receipt:'নমুনা রসিদ দেখুন',receiptTitle:'কেনাকাটার রসিদ',receiptSub:'শুধু নমুনা · কোনও পেমেন্ট হয়নি',item:'সামগ্রী',total:'নমুনা মোট দাম',billed:'নমুনা গ্রাহক',downloadReceipt:'নমুনা রসিদ ডাউনলোড করুন',again:'অন্য পরিষেবা দেখুন',enterError:'এগিয়ে যেতে নাম লিখুন অথবা নমুনা তথ্য ব্যবহার করুন।',listening:'শুনছি… আপনার নাম বলুন।',micError:'মাইক্রোফোন পাওয়া যাচ্ছে না বা অনুমতি নেই। নাম টাইপ করুন।',noVoice:'এই ভাষায় শনাক্ত করা মহিলা কণ্ঠস্বর নেই। পর্দার নির্দেশ পড়ুন।',female:'মহিলা কণ্ঠস্বর',on:'চালু',off:'বন্ধ',repeat:'আবার শুনুন',restart:'আবার শুরু করুন',read:'শুনুন',details:'তথ্য শুধু এই ডেমোতে থাকে; রিলিভে পাঠানো হয় না।',healthLabels:['রক্তচাপ','রক্তে অক্সিজেন','তাপমাত্রা','উচ্চতা ও ওজন'],meaning:['প্রথম সংখ্যা হৃদস্পন্দনের সময়ের চাপ। দ্বিতীয়টি দুই স্পন্দনের মাঝের চাপ।','এস পি ও টু অনুমান করে হিমোগ্লোবিনের কত অংশ অক্সিজেন বহন করছে।','এটি নমুনা রিপোর্টের তাপমাত্রা। এটি ফারেনহাইটে দেওয়া হয়েছে।','নমুনায় উচ্চতা ১.৮৩ মিটার এবং ওজন ৬৮ কিলোগ্রাম।'],progress:'পরীক্ষা'}
+bn:{locale:'bn-IN',welcome:'নমস্কার। রিলিভে আপনাকে স্বাগতম। শুরু করতে আপনার ভাষা বেছে নিন।',about:'আপনার সম্পর্কে বলুন',sub:'আপনার নমুনা স্বাস্থ্য পরীক্ষা ও রিপোর্ট দেখুন',name:'পুরো নাম',placeholder:'আপনার নাম লিখুন',age:'বয়স',years:'বছর',gender:'লিঙ্গ',genders:['পুরুষ','মহিলা','অন্যান্য'],sample:'নমুনা তথ্য ব্যবহার করুন',mic:'আপনার নাম বলুন',micNote:'ঐচ্ছিক: আপনার ব্রাউজার অনলাইন পরিষেবায় কণ্ঠস্বর পাঠাতে পারে। আপনি টাইপও করতে পারেন।',next:'এগিয়ে যান',back:'ফিরে যান',choose:'দারুণ! আজ কীভাবে সাহায্য করতে পারি?',select:'নিচে একটি বিকল্প বেছে নিন',health:'স্বাস্থ্য পরীক্ষা',healthSub:'রক্তচাপ · অক্সিজেন · তাপমাত্রা · উচ্চতা ও ওজন',meds:'ওষুধ বিতরণ',medsSub:'নমুনা প্রাথমিক চিকিৎসার কিট কেনার ধাপ দেখুন',profileVoice:'আপনার নাম লিখুন অথবা নমুনা তথ্য ব্যবহার করুন বেছে নিন। তারপর এগিয়ে যান।',serviceVoice:'নমুনা রিপোর্টের জন্য স্বাস্থ্য পরীক্ষা বেছে নিন। কিট এবং রসিদ দেখতে ওষুধ বিতরণ বেছে নিন।',begin:'নমুনা পরীক্ষা শুরু করুন',checkTitle:'আপনার স্বাস্থ্যের সংখ্যাগুলি বুঝুন',checkSub:'আসল কিয়স্কে যন্ত্রের নির্দেশ মেনে চলুন। এখানে নমুনা ফল দেখতে ট্যাপ করুন।',show:'নমুনা ফল দেখুন',continue:'পরের পরীক্ষা',report:'নমুনা রিপোর্ট দেখুন',sampleLabel:'নমুনা · আপনার আসল ফল নয়',summary:'নিজের শরীরকে একটু ভালো করে বুঝুন',summarySub:'এগুলি নমুনা তথ্য। অর্থ জানতে একটি ফলের উপর ট্যাপ করুন।',reportNote:'এটি স্বাস্থ্যের সারাংশ, রোগ নির্ণয় নয়। এই ডেমো আপনার শরীর পরীক্ষা করে না।',download:'নমুনা সারাংশ ডাউনলোড করুন',explore:'রিপোর্টের ১৮টি ফল বুঝুন',kitTitle:'স্বাস্থ্যের প্রয়োজনীয় কিট বেছে নিন',kitName:'প্রাথমিক চিকিৎসার কিট',kitDesc:'নমুনা কিট: আঠাযুক্ত ব্যান্ডেজ, গজ এবং মেডিকেল টেপ। আসল সামগ্রী ও প্রাপ্যতা কিয়স্কে দেখুন।',price:'নমুনা দাম',quantity:'সংখ্যা',review:'নমুনা অর্ডার দেখুন',order:'আপনার নমুনা অর্ডার যাচাই করুন',pay:'নমুনা পেমেন্ট করুন',payNote:'শুধু ডেমো। কোনও টাকা কাটা হবে না এবং আসল অর্ডার হবে না।',collect:'নমুনা বিতরণ সম্পূর্ণ',collectSub:'আসল কিয়স্কে নির্দেশিত স্থান থেকে সামগ্রী নিন। এই ওয়েবসাইট কোনও সামগ্রী বিতরণ করে না।',receipt:'নমুনা রসিদ দেখুন',receiptTitle:'কেনাকাটার রসিদ',receiptSub:'শুধু নমুনা · কোনও পেমেন্ট হয়নি',item:'সামগ্রী',total:'নমুনা মোট দাম',billed:'নমুনা গ্রাহক',downloadReceipt:'নমুনা রসিদ ডাউনলোড করুন',again:'অন্য পরিষেবা দেখুন',enterError:'এগিয়ে যেতে নাম লিখুন অথবা নমুনা তথ্য ব্যবহার করুন।',listening:'শুনছি… আপনার নাম বলুন।',micError:'মাইক্রোফোন পাওয়া যাচ্ছে না বা অনুমতি নেই। নাম টাইপ করুন।',noVoice:'এই ভাষায় শনাক্ত করা মহিলা কণ্ঠস্বর নেই। পর্দার নির্দেশ পড়ুন।',female:'মহিলা কণ্ঠস্বর',on:'চালু',off:'বন্ধ',repeat:'আবার শুনুন',restart:'আবার শুরু করুন',read:'শুনুন',details:'তথ্য শুধু এই ডেমোতে থাকে; রিলিভে পাঠানো হয় না।',healthLabels:['রক্তচাপ','রক্তে অক্সিজেন','तापमान','উচ্চতা ও ওজন'],meaning:['প্রথম সংখ্যা হৃদস্পন্দনের সময়ের চাপ। দ্বিতীয়টি দুই স্পন্দনের মাঝের চাপ।','এস পি ও টু অনুমান করে হিমোগ্লোবিনের কত অংশ অক্সিজেন বহন করছে।','এটি নমুনা রিপোর্টের তাপমাত্রা। এটি ফারেনহাইটে দেওয়া হয়েছে।','নমুনায় উচ্চতা ১.৮৩ মিটার এবং ওজন ৬৮ কিলোগ্রাম।'],progress:'পরীক্ষা'}
 };
-let lang='en',screen='welcome',name='',age=22,gender=0,service='health',check=0,revealed=false,quantity=1,sound=true,lastSpeech='',recognition=null,reportFocus=0;
-const values=['124 / 81 mmHg','97%','98.4 °F','183 cm / 68 kg'];
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-// Only known female names or an explicit Female marker are eligible.
-// Natural/Premium alone do not establish a voice's gender.
-function femaleVoice(locale){const all=window.speechSynthesis?.getVoices()||[],prefix=locale.split('-')[0];const valid=all.filter(v=>v.lang.toLowerCase().startsWith(prefix)&&(/Swara|Tanishaa|Neerja|Ananya|Zira|Heera|Aditi|Samantha|Victoria|Karen|Moira|Veena|Susan|Hazel|female/i.test(v.name))&&!/\bmale\b/i.test(v.name));const priority=['Swara','Tanishaa','Neerja','Ananya','Zira'];return valid.sort((a,b)=>{const rank=v=>{const i=priority.findIndex(p=>v.name.includes(p));return (i<0?20:i)-(/Natural|Premium/i.test(v.name)?.5:0)};return rank(a)-rank(b)})[0]}
-function stop(){clearTimeout(voiceRetry);window.speechSynthesis?.cancel();recognition?.abort();recognition=null}
-let voiceRetry=null;window.relivSpeak=(text,locale=L[lang].locale,retried=false)=>{if(!sound)return;lastSpeech=text;const v=femaleVoice(locale);if(!v){status.textContent=L[lang].noVoice;if(!retried){clearTimeout(voiceRetry);voiceRetry=setTimeout(()=>window.relivSpeak(text,locale,true),700)}return}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.voice=v;u.lang=locale;u.rate=.92;u.onstart=()=>status.textContent=`${L[lang].female}: ${v.name}`;u.onerror=()=>status.textContent=L[lang].noVoice;window.speechSynthesis.speak(u)};
-function welcomeSequence(){stop();const entries=['en','hi','bn'].map(k=>({text:L[k].welcome,locale:L[k].locale,voice:femaleVoice(L[k].locale)})).filter(x=>x.voice);if(!entries.length){status.textContent=L[lang].noVoice;return}for(const e of entries){const u=new SpeechSynthesisUtterance(e.text);u.voice=e.voice;u.lang=e.locale;u.rate=.92;window.speechSynthesis.speak(u)}lastSpeech=L[lang].welcome}function say(text){lastSpeech=text;window.relivSpeak(text)}
-const btn=(label,action,cls='primary')=>`<button class="${cls}" data-action="${action}">${label}</button>`;
-function go(next){stop();screen=next;render()}
-function chrome(content,t){return `<div class="sim-head">${btn('← '+t.back,'back','sim-back')}<img src="assets/logo.jpg" alt="Reliv"><span>${lang==='en'?'Demo':lang==='hi'?'डेमो':'ডেমো'}</span></div>${content}`}
-function render(){
-  if(!root) return;
-  const t=L[lang];
-  root.lang=lang;
+
+// State initialization with language memory
+let savedLang = 'en';
+try { savedLang = localStorage.getItem('reliv_kiosk_lang') || 'en'; } catch(e){}
+if(!L[savedLang]) savedLang = 'en';
+
+let lang = savedLang, screen = 'welcome', name = '', age = 22, gender = 0, service = 'health', check = 0, revealed = false, quantity = 1, sound = true, lastSpeech = '', recognition = null, reportFocus = 0;
+const values = ['124 / 81 mmHg', '97%', '98.4 °F', '183 cm / 68 kg'];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function femaleVoice(locale) {
+  const all = window.speechSynthesis?.getVoices() || [], prefix = locale.split('-')[0];
+  const valid = all.filter(v => v.lang.toLowerCase().startsWith(prefix) && (/Swara|Tanishaa|Neerja|Ananya|Zira|Heera|Aditi|Samantha|Victoria|Karen|Moira|Veena|Susan|Hazel|female/i.test(v.name)) && !/\bmale\b/i.test(v.name));
+  const priority = ['Swara', 'Tanishaa', 'Neerja', 'Ananya', 'Zira'];
+  return valid.sort((a,b) => {
+    const rank = v => {
+      const i = priority.findIndex(p => v.name.includes(p));
+      return (i < 0 ? 20 : i) - (/Natural|Premium/i.test(v.name) ? 0.5 : 0);
+    };
+    return rank(a) - rank(b);
+  })[0];
+}
+
+// Single Speech Controller (Cancels active speech, no stacking, no collisions)
+let voiceRetry = null;
+function stop() {
+  clearTimeout(voiceRetry);
+  if ('speechSynthesis' in window) {
+    try { window.speechSynthesis.cancel(); } catch(e) {}
+  }
+  recognition?.abort();
+  recognition = null;
+}
+
+window.relivSpeak = (text, locale = L[lang].locale, retried = false) => {
+  if (!sound || !('speechSynthesis' in window)) return;
+  stop(); // Always cancel previous speech first
+  lastSpeech = text;
+  const v = femaleVoice(locale);
+  if (!v) {
+    if (status) status.textContent = L[lang].noVoice;
+    if (!retried) {
+      clearTimeout(voiceRetry);
+      voiceRetry = setTimeout(() => window.relivSpeak(text, locale, true), 700);
+    }
+    return;
+  }
+  try {
+    const u = new SpeechSynthesisUtterance(text);
+    u.voice = v;
+    u.lang = locale;
+    u.rate = 0.92;
+    u.onstart = () => { if (status) status.textContent = `${L[lang].female}: ${v.name}`; };
+    u.onerror = () => { if (status) status.textContent = L[lang].noVoice; };
+    window.speechSynthesis.speak(u);
+  } catch(e) {}
+};
+
+function say(text) {
+  lastSpeech = text;
+  window.relivSpeak(text, L[lang].locale);
+}
+
+const btn = (label, action, cls = 'primary') => `<button class="${cls}" data-action="${action}">${label}</button>`;
+
+function go(next) {
+  stop();
+  screen = next;
+  render();
+}
+
+function chrome(content, t) {
+  return `<div class="sim-head">${btn('← ' + t.back, 'back', 'sim-back')}<img src="icons/reliv-wordmark.svg" alt="Reliv"><span>${lang === 'en' ? 'Demo' : lang === 'hi' ? 'डेमो' : 'ডেমো'}</span></div>${content}`;
+}
+
+function render() {
+  if (!root) return;
+  const t = L[lang];
+  root.lang = lang;
+  
   const soundEl = document.querySelector('#soundToggle');
-  if(soundEl) soundEl.textContent=`${t.female}: ${sound?t.on:t.off}`;
+  if (soundEl) {
+    soundEl.setAttribute('aria-pressed', String(sound));
+    const span = soundEl.querySelector('span');
+    if (span) span.textContent = sound ? 'Voice: On' : 'Voice: Off';
+  }
   const replayEl = document.querySelector('#replayVoice');
-  if(replayEl) replayEl.textContent=t.repeat;
+  if (replayEl) {
+    const span = replayEl.querySelector('span');
+    if (span) span.textContent = t.repeat;
+  }
   const restartEl = document.querySelector('#restart');
-  if(restartEl) restartEl.textContent=t.restart;
-  let content='',voiceText='';
-  if(screen==='welcome'){content=`<div class="actual-screen welcome-actual"><img class="actual-image" src="assets/screens/actual-0.png" alt="Actual Reliv welcome screen with orange wave and language selection"><div class="actual-controls"><p class="actual-demo-note">Interactive sample · No real payment or measurements</p><div class="actual-languages"><button data-lang="en">English</button><button data-lang="hi" lang="hi">हिन्दी</button><button data-lang="bn" lang="bn">বাংলা</button></div><button class="welcome-listen" data-action="welcome-listen">Listen to welcome</button></div></div>`}
-  if(screen==='profile'){const n=lang==='en'?1:lang==='hi'?2:3;content=`<div class="actual-screen profile-actual ${lang==='bn'?'profile-bn':''}"><img class="actual-image" src="assets/screens/actual-${n}.png" alt="${t.about} — actual Reliv customer details screen"><button class="image-back" data-action="back">← ${t.back}</button><form id="profileForm" class="image-profile"><label class="mobile-label" for="customerName">${t.name}</label><input id="customerName" autocomplete="off" maxlength="60" value="${esc(name)}" placeholder="${t.placeholder}" required><div class="image-age"><button data-action="minus" aria-label="${t.age} −">−</button><strong>${age} <small>${t.years}</small></strong><button data-action="plus" aria-label="${t.age} +">+</button></div><div class="image-genders">${t.genders.map((g,i)=>`<button type="button" data-gender="${i}" aria-pressed="${gender===i}">${g}</button>`).join('')}</div><p class="form-error" id="formError" role="alert"></p><button type="submit" class="image-proceed">${t.next} →</button></form></div><div class="image-assistance"><div>${btn(t.sample,'sample','secondary')}${btn(t.mic,'mic','secondary')}</div><p>${t.micNote}</p><div class="mock-warning"><strong>⚠️ DEMO ONLY:</strong> You are not submitting real data. This simulator just shows how the real kiosk works. No real medical data is being processed here.</div></div>`;voiceText=t.profileVoice}
-  if(screen==='service'){const n=lang==='hi'?5:4;content=`<div class="actual-screen service-actual ${lang==='bn'?'service-bn':''} ${lang==='hi'?'service-hi':''}"><img class="actual-image" src="assets/screens/actual-${n}.png" alt="Actual Reliv service screen: health checkup and medicine dispensing"><button class="image-back" data-action="back">← ${t.back}</button>${lang==='bn'?`<div class="bn-service-title"><h3>${t.choose}</h3><p>${t.select}</p></div>`:''}<div class="image-services"><button data-service="health" aria-pressed="${service==='health'}"><span><b>${t.health}</b><small>${t.healthSub}</small></span><i class="radio-mark"></i></button><button data-service="meds" aria-pressed="${service==='meds'}"><span><b>${t.meds}</b><small>${t.medsSub}</small></span><i class="radio-mark"></i></button></div><button class="image-service-next" data-action="service-next">${t.next} →</button></div>`;voiceText=t.serviceVoice}
-  if(screen==='check'){content=chrome(`<div class="service-card check-card"><p class="demo-badge">${t.sampleLabel}</p><h3>${t.healthLabels[check]}</h3><p>${t.checkSub}</p><div class="check-progress">${t.healthLabels.map((x,i)=>`<span class="${i<=check?'done':''}">${i+1}</span>`).join('')}</div>${revealed?`<div class="result-number">${values[check]}</div><p class="result-meaning">${t.meaning[check]}</p>${btn(check===3?t.report:t.continue,'check-next')}`:`<div class="measure-label">${t.progress} ${check+1} / 4</div>${btn(t.show,'reveal')}`}</div>`,t);voiceText=revealed?`${t.healthLabels[check]}. ${values[check]}. ${t.meaning[check]}`:`${t.healthLabels[check]}. ${t.checkSub}`}
-  if(screen==='report'){content=chrome(`<div class="service-card result-card"><p class="demo-badge">${t.sampleLabel}</p><h3>${t.summary}</h3><p>${esc(name)} · ${age} ${t.years}</p><p>${t.summarySub}</p><div class="summary-grid">${values.map((v,i)=>`<button data-result="${i}" aria-pressed="${reportFocus===i}"><span>${t.healthLabels[i]}</span><strong>${v}</strong></button>`).join('')}</div><div class="report-explainer"><b>${t.healthLabels[reportFocus]}</b><p>${t.meaning[reportFocus]}</p>${btn(t.read,'read-result','secondary')}</div><div class="result-actions">${btn(t.download,'download-report')}<a class="secondary" href="#report">${t.explore} ↗</a></div><p class="legal-note">${t.reportNote}</p>${btn(t.again,'again','secondary')}</div>`,t);voiceText=t.summary+'. '+t.summarySub}
-  if(screen==='kits'){content=chrome(`<div class="service-card"><h3>${t.kitTitle}</h3><p class="demo-badge">${t.payNote}</p><article class="kit-card"><span class="kit-tag">RELIV / SAMPLE</span><h4>${t.kitName}</h4><p>${t.kitDesc}</p><div class="kit-price">₹49 <small>${t.price}</small></div><div class="age-control">${btn('−','qty-minus','secondary')}<strong>${t.quantity}: ${quantity}</strong>${btn('+','qty-plus','secondary')}</div></article>${btn(t.review,'review')}</div>`,t);voiceText=t.kitTitle+'. '+t.kitDesc+'. '+t.payNote}
-  if(screen==='order'){content=chrome(`<div class="service-card"><p class="demo-badge">${t.receiptSub}</p><h3>${t.order}</h3><div class="order-line"><span>${t.kitName} × ${quantity}</span><b>₹${49*quantity}</b></div><p>${t.payNote}</p>${btn(t.pay,'pay')}</div>`,t);voiceText=t.order+'. '+t.payNote}
-  if(screen==='collect'){content=chrome(`<div class="service-card"><p class="demo-badge">${t.receiptSub}</p><h3>${t.collect}</h3><p>${t.collectSub}</p>${btn(t.receipt,'receipt')}</div>`,t);voiceText=t.collect+'. '+t.collectSub}
-  if(screen==='receipt'){content=chrome(`<div class="service-card receipt-card"><div class="receipt-heading"><img src="assets/logo.jpg" alt="Reliv"><h3>${t.receiptTitle}</h3></div><p class="demo-badge">${t.receiptSub}</p><p>${t.billed}: ${esc(name)}</p><div class="receipt-table"><div><b>${t.item}</b><b>${t.quantity}</b><b>${t.total}</b></div><div><span>${t.kitName}</span><span>${quantity}</span><span>₹${49*quantity}</span></div></div><div class="order-line"><b>${t.total}</b><strong>₹${49*quantity}</strong></div><p>${t.payNote}</p><div class="result-actions">${btn(t.downloadReceipt,'download-receipt')}${btn(t.again,'again','secondary')}</div></div>`,t);voiceText=t.receiptTitle+'. '+t.receiptSub}
-  root.innerHTML=content;
-  root.querySelectorAll('button:not([type])').forEach(b=>b.type='button');
+  if (restartEl) {
+    const span = restartEl.querySelector('span');
+    if (span) span.textContent = t.restart;
+  }
+
+  let content = '', voiceText = '';
+
+  if (screen === 'welcome') {
+    content = `<div class="actual-screen welcome-actual">
+      <img class="actual-image" src="assets/screens/actual-0.png" alt="Actual Reliv welcome screen with language selection">
+      <div class="actual-controls">
+        <p class="actual-demo-note">Interactive sample · No real payment or measurements</p>
+        <div class="actual-languages">
+          <button data-lang="en">English</button>
+          <button data-lang="hi" lang="hi">हिन्दी</button>
+          <button data-lang="bn" lang="bn">বাংলা</button>
+        </div>
+        <button class="welcome-listen" data-action="welcome-listen">Listen to welcome</button>
+      </div>
+    </div>`;
+  }
+
+  if (screen === 'profile') {
+    const n = lang === 'en' ? 1 : lang === 'hi' ? 2 : 3;
+    content = `<div class="actual-screen profile-actual ${lang === 'bn' ? 'profile-bn' : ''}">
+      <img class="actual-image" src="assets/screens/actual-${n}.png" alt="${t.about} — customer details screen">
+      <button class="image-back" data-action="back">← ${t.back}</button>
+      <form id="profileForm" class="image-profile">
+        <label class="mobile-label" for="customerName">${t.name}</label>
+        <input id="customerName" autocomplete="off" maxlength="60" value="${esc(name)}" placeholder="${t.placeholder}" required>
+        <div class="image-age">
+          <button data-action="minus" aria-label="${t.age} −">−</button>
+          <strong>${age} <small>${t.years}</small></strong>
+          <button data-action="plus" aria-label="${t.age} +">+</button>
+        </div>
+        <div class="image-genders">
+          ${t.genders.map((g, i) => `<button type="button" data-gender="${i}" aria-pressed="${gender === i}">${g}</button>`).join('')}
+        </div>
+        <p class="form-error" id="formError" role="alert"></p>
+        <button type="submit" class="image-proceed">${t.next} →</button>
+      </form>
+    </div>
+    <div class="image-assistance">
+      <div>${btn(t.sample, 'sample', 'secondary')}${btn(t.mic, 'mic', 'secondary')}</div>
+      <p>${t.micNote}</p>
+      <div style="font-size:12px; color:#9a3412; margin-top:8px;"><strong>⚠️ DEMO ONLY:</strong> Illustrative sample session. No real health data recorded.</div>
+    </div>`;
+    voiceText = t.profileVoice;
+  }
+
+  if (screen === 'service') {
+    const n = lang === 'hi' ? 5 : 4;
+    content = `<div class="actual-screen service-actual ${lang === 'bn' ? 'service-bn' : ''} ${lang === 'hi' ? 'service-hi' : ''}">
+      <img class="actual-image" src="assets/screens/actual-${n}.png" alt="Reliv service screen">
+      <button class="image-back" data-action="back">← ${t.back}</button>
+      ${lang === 'bn' ? `<div class="bn-service-title"><h3>${t.choose}</h3><p>${t.select}</p></div>` : ''}
+      <div class="image-services">
+        <button data-service="health" aria-pressed="${service === 'health'}">
+          <span><b>${t.health}</b><small>${t.healthSub}</small></span>
+          <i class="radio-mark"></i>
+        </button>
+        <button data-service="meds" aria-pressed="${service === 'meds'}">
+          <span><b>${t.meds}</b><small>${t.medsSub}</small></span>
+          <i class="radio-mark"></i>
+        </button>
+      </div>
+      <button class="image-service-next" data-action="service-next">${t.next} →</button>
+    </div>`;
+    voiceText = t.serviceVoice;
+  }
+
+  if (screen === 'check') {
+    content = chrome(`<div class="service-card check-card">
+      <p class="demo-badge">${t.sampleLabel}</p>
+      <h3>${t.healthLabels[check]}</h3>
+      <p>${t.checkSub}</p>
+      <div class="check-progress">
+        ${t.healthLabels.map((x, i) => `<span class="${i <= check ? 'done' : ''}">${i + 1}</span>`).join('')}
+      </div>
+      ${revealed ? `
+        <div class="result-number">${values[check]}</div>
+        <p class="result-meaning">${t.meaning[check]}</p>
+        ${btn(check === 3 ? t.report : t.continue, 'check-next')}
+      ` : `
+        <div class="measure-label" style="font-size:15px; color:var(--muted); margin:18px 0;">${t.progress} ${check + 1} / 4</div>
+        ${btn(t.show, 'reveal')}
+      `}
+    </div>`, t);
+    voiceText = revealed ? `${t.healthLabels[check]}. ${values[check]}. ${t.meaning[check]}` : `${t.healthLabels[check]}. ${t.checkSub}`;
+  }
+
+  if (screen === 'report') {
+    content = chrome(`<div class="service-card result-card">
+      <p class="demo-badge">${t.sampleLabel}</p>
+      <h3>${t.summary}</h3>
+      <p>${esc(name || 'Sample User')} · ${age} ${t.years}</p>
+      <p>${t.summarySub}</p>
+      <div class="summary-grid">
+        ${values.map((v, i) => `<button data-result="${i}" aria-pressed="${reportFocus === i}"><span>${t.healthLabels[i]}</span><strong>${v}</strong></button>`).join('')}
+      </div>
+      <div class="report-explainer">
+        <b>${t.healthLabels[reportFocus]}</b>
+        <p>${t.meaning[reportFocus]}</p>
+        ${btn(t.read, 'read-result', 'secondary')}
+      </div>
+      <div class="result-actions">
+        ${btn(t.download, 'download-report')}
+        <a class="secondary btn" style="min-height:36px; padding:0 14px;" href="#sample-report">${t.explore} ↗</a>
+      </div>
+      <p class="legal-note">${t.reportNote}</p>
+      <div style="margin-top:16px;">${btn(t.again, 'again', 'secondary')}</div>
+    </div>`, t);
+    voiceText = t.summary + '. ' + t.summarySub;
+  }
+
+  if (screen === 'kits') {
+    content = chrome(`<div class="service-card">
+      <h3>${t.kitTitle}</h3>
+      <p class="demo-badge">${t.payNote}</p>
+      <article class="kit-card" style="border:1px solid var(--border); border-radius:14px; padding:20px; margin:20px 0; background:#f9fafc;">
+        <span class="kit-tag" style="font-size:11px; font-weight:700; color:var(--orange); text-transform:uppercase;">RELIV / SAMPLE</span>
+        <h4 style="margin:8px 0 4px; font-size:18px;">${t.kitName}</h4>
+        <p style="font-size:13.5px; color:var(--ink-secondary); margin-bottom:12px;">${t.kitDesc}</p>
+        <div class="kit-price" style="font-size:24px; font-weight:700; color:var(--ink);">₹49 <small style="font-size:13px; font-weight:normal; color:var(--muted);">${t.price}</small></div>
+        <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-top:16px;">
+          ${btn('−', 'qty-minus', 'secondary')}
+          <strong>${t.quantity}: ${quantity}</strong>
+          ${btn('+', 'qty-plus', 'secondary')}
+        </div>
+      </article>
+      ${btn(t.review, 'review')}
+    </div>`, t);
+    voiceText = t.kitTitle + '. ' + t.kitDesc + '. ' + t.payNote;
+  }
+
+  if (screen === 'order') {
+    content = chrome(`<div class="service-card">
+      <p class="demo-badge">${t.receiptSub}</p>
+      <h3>${t.order}</h3>
+      <div style="display:flex; justify-content:space-between; padding:16px; background:#f8fafc; border-radius:12px; margin:20px 0; font-size:16px;">
+        <span>${t.kitName} × ${quantity}</span>
+        <b>₹${49 * quantity}</b>
+      </div>
+      <p style="font-size:13.5px; color:var(--muted); margin-bottom:20px;">${t.payNote}</p>
+      ${btn(t.pay, 'pay')}
+    </div>`, t);
+    voiceText = t.order + '. ' + t.payNote;
+  }
+
+  if (screen === 'collect') {
+    content = chrome(`<div class="service-card">
+      <p class="demo-badge">${t.receiptSub}</p>
+      <h3>${t.collect}</h3>
+      <p style="margin:16px 0 24px; color:var(--ink-secondary); line-height:1.5;">${t.collectSub}</p>
+      ${btn(t.receipt, 'receipt')}
+    </div>`, t);
+    voiceText = t.collect + '. ' + t.collectSub;
+  }
+
+  if (screen === 'receipt') {
+    content = chrome(`<div class="service-card receipt-card">
+      <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:12px;">
+        <img src="icons/reliv-wordmark.svg" alt="Reliv" width="80">
+        <h3 style="margin:0;">${t.receiptTitle}</h3>
+      </div>
+      <p class="demo-badge">${t.receiptSub}</p>
+      <p style="font-size:14px; color:var(--muted);">${t.billed}: ${esc(name || 'Sample User')}</p>
+      <div style="margin:20px 0; border-top:1px dashed var(--border); border-bottom:1px dashed var(--border); padding:16px 0;">
+        <div style="display:flex; justify-content:space-between; margin-bottom:8px; font-weight:600; font-size:14px;">
+          <span>${t.item}</span>
+          <span>${t.quantity}</span>
+          <span>${t.total}</span>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:15px;">
+          <span>${t.kitName}</span>
+          <span>${quantity}</span>
+          <span>₹${49 * quantity}</span>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-size:18px; margin-bottom:24px;">
+        <b>${t.total}</b>
+        <strong style="color:var(--orange);">₹${49 * quantity}</strong>
+      </div>
+      <div class="result-actions">
+        ${btn(t.downloadReceipt, 'download-receipt')}
+        ${btn(t.again, 'again', 'secondary')}
+      </div>
+    </div>`, t);
+    voiceText = t.receiptTitle + '. ' + t.receiptSub;
+  }
+
+  root.innerHTML = content;
+  root.querySelectorAll('button:not([type])').forEach(b => b.type = 'button');
   bind();
-  if(voiceText)say(voiceText);
+
+  // Speak solely from render to eliminate duplicate calls
+  if (voiceText) say(voiceText);
 }
-function bind(){
-  if(!root) return;
-  root.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{lang=b.dataset.lang;screen='profile';render();say(L[lang].welcome+' '+L[lang].profileVoice)});
-  root.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>action(b.dataset.action));
-  root.querySelectorAll('[data-gender]').forEach(b=>b.onclick=()=>{sync();gender=+b.dataset.gender;render()});
-  root.querySelectorAll('[data-service]').forEach(b=>b.onclick=()=>{service=b.dataset.service;render()});
-  root.querySelectorAll('[data-result]').forEach(b=>b.onclick=()=>{reportFocus=+b.dataset.result;render()});
-  const form=root.querySelector('#profileForm');
-  if(form)form.onsubmit=e=>{e.preventDefault();sync();if(!name.trim()){const fe=root.querySelector('#formError');if(fe)fe.textContent=L[lang].enterError;return}go('service')};
-  const input=root.querySelector('#customerName');
-  if(input)input.oninput=()=>name=input.value;
+
+function bind() {
+  if (!root) return;
+  root.querySelectorAll('[data-lang]').forEach(b => {
+    b.onclick = () => {
+      stop();
+      lang = b.dataset.lang;
+      try { localStorage.setItem('reliv_kiosk_lang', lang); } catch(e){}
+      screen = 'profile';
+      render();
+    };
+  });
+  root.querySelectorAll('[data-action]').forEach(b => b.onclick = () => action(b.dataset.action));
+  root.querySelectorAll('[data-gender]').forEach(b => b.onclick = () => { sync(); gender = +b.dataset.gender; render(); });
+  root.querySelectorAll('[data-service]').forEach(b => b.onclick = () => { service = b.dataset.service; render(); });
+  root.querySelectorAll('[data-result]').forEach(b => b.onclick = () => { reportFocus = +b.dataset.result; render(); });
+
+  const form = root.querySelector('#profileForm');
+  if (form) {
+    form.onsubmit = e => {
+      e.preventDefault();
+      sync();
+      if (!name.trim()) {
+        const fe = root.querySelector('#formError');
+        if (fe) fe.textContent = L[lang].enterError;
+        return;
+      }
+      go('service');
+    };
+  }
+  const input = root.querySelector('#customerName');
+  if (input) input.oninput = () => name = input.value;
 }
-function sync(){if(!root)return;const el=root.querySelector('#customerName');if(el)name=el.value.trim().slice(0,60)}
-function action(a){sync();if(a==='welcome-listen'){sound=true;welcomeSequence();return}if(a==='sample'){name=lang==='en'?'Aditi':lang==='hi'?'अदिति':'অদিতি';age=22;gender=1;render()}if(a==='minus'||a==='plus'){age=Math.min(100,Math.max(1,age+(a==='plus'?1:-1)));render()}if(a==='mic')microphone();if(a==='service-next'){check=0;revealed=false;go(service==='health'?'check':'kits')}if(a==='reveal'){revealed=true;render()}if(a==='check-next'){if(check===3)go('report');else{check++;revealed=false;render()}}if(a==='read-result')say(L[lang].meaning[reportFocus]);if(a==='qty-minus'||a==='qty-plus'){quantity=Math.min(5,Math.max(1,quantity+(a==='qty-plus'?1:-1)));render()}if(a==='review')go('order');if(a==='pay')go('collect');if(a==='receipt')go('receipt');if(a==='again')go('service');if(a==='download-report')download(false);if(a==='download-receipt')download(true);if(a==='back'){const back={profile:'welcome',service:'profile',check:'service',report:'check',kits:'service',order:'kits',collect:'order',receipt:'collect'};go(back[screen]||'welcome')}}
-function microphone(){const C=window.SpeechRecognition||window.webkitSpeechRecognition;if(!C){if(status)status.textContent=L[lang].micError;return}stop();recognition=new C();recognition.lang=L[lang].locale;recognition.interimResults=false;recognition.maxAlternatives=1;if(status)status.textContent=L[lang].listening;recognition.onresult=e=>{name=e.results[0][0].transcript.slice(0,60);const el=root?.querySelector('#customerName');if(el)el.value=name;if(status)status.textContent=L[lang].details};recognition.onerror=()=>{if(status)status.textContent=L[lang].micError};recognition.onend=()=>{recognition=null};try{recognition.start()}catch{if(status)status.textContent=L[lang].micError}}
-function download(receipt){const t=L[lang];const rows=receipt?`<tr><td>${t.kitName}</td><td>${quantity}</td><td>₹${49*quantity}</td></tr>`:values.map((v,i)=>`<tr><td>${t.healthLabels[i]}</td><td>${v}</td><td>${t.meaning[i]}</td></tr>`).join('');const html=`<!doctype html><html lang="${lang}"><meta charset="utf-8"><title>Reliv sample ${receipt?'receipt':'report'}</title><style>body{font:18px Arial,sans-serif;max-width:900px;margin:45px auto;padding:24px;color:#202020}h1{color:#d84c00}td{padding:16px;border-bottom:1px solid #ddd}table{width:100%;border-collapse:collapse}.note{padding:15px;background:#fff2e5}button{padding:12px}@media print{button{display:none}}</style><h1>Reliv · ${receipt?t.receiptTitle:t.summary}</h1><p class="note">${receipt?t.receiptSub:t.sampleLabel}</p><p>${esc(name)} · ${age} ${t.years}</p><table>${rows}</table><p>${receipt?t.payNote:t.reportNote}</p><button onclick="window.print()">Print / Save as PDF</button></html>`;const url=URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download=receipt?'Reliv-Sample-Receipt.html':'Reliv-Sample-Report.html';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
-const st = document.querySelector('#soundToggle'); if(st) st.onclick=()=>{sound=!sound;stop();st.setAttribute('aria-pressed',sound);st.textContent=`${L[lang].female}: ${sound?L[lang].on:L[lang].off}`;if(sound)say(lastSpeech||L[lang].welcome)};
-const rv = document.querySelector('#replayVoice'); if(rv) rv.onclick=()=>say(lastSpeech||L[lang].welcome);
-const rs = document.querySelector('#restart'); if(rs) rs.onclick=()=>{stop();screen='welcome';name='';age=22;gender=0;service='health';quantity=1;render()};
-document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
-if(root) { render(); }
+
+function sync() {
+  if (!root) return;
+  const el = root.querySelector('#customerName');
+  if (el) name = el.value.trim().slice(0, 60);
+}
+
+function action(a) {
+  sync();
+  if (a === 'welcome-listen') {
+    sound = true;
+    say(L[lang].welcome);
+    return;
+  }
+  if (a === 'sample') {
+    name = lang === 'en' ? 'Aditi' : lang === 'hi' ? 'अदिति' : 'অদিতি';
+    age = 22;
+    gender = 1;
+    render();
+  }
+  if (a === 'minus' || a === 'plus') {
+    age = Math.min(100, Math.max(1, age + (a === 'plus' ? 1 : -1)));
+    render();
+  }
+  if (a === 'mic') microphone();
+  if (a === 'service-next') {
+    check = 0;
+    revealed = false;
+    go(service === 'health' ? 'check' : 'kits');
+  }
+  if (a === 'reveal') {
+    revealed = true;
+    render();
+  }
+  if (a === 'check-next') {
+    if (check === 3) go('report');
+    else {
+      check++;
+      revealed = false;
+      render();
+    }
+  }
+  if (a === 'read-result') say(L[lang].meaning[reportFocus]);
+  if (a === 'qty-minus' || a === 'qty-plus') {
+    quantity = Math.min(5, Math.max(1, quantity + (a === 'qty-plus' ? 1 : -1)));
+    render();
+  }
+  if (a === 'review') go('order');
+  if (a === 'pay') go('collect');
+  if (a === 'receipt') go('receipt');
+  if (a === 'again') go('service');
+  if (a === 'download-report') download(false);
+  if (a === 'download-receipt') download(true);
+  if (a === 'back') {
+    const back = { profile: 'welcome', service: 'profile', check: 'service', report: 'check', kits: 'service', order: 'kits', collect: 'order', receipt: 'collect' };
+    go(back[screen] || 'welcome');
+  }
+}
+
+function microphone() {
+  const C = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!C) {
+    if (status) status.textContent = L[lang].micError;
+    return;
+  }
+  stop();
+  recognition = new C();
+  recognition.lang = L[lang].locale;
+  recognition.interimResults = false;
+  recognition.maxAlternatives = 1;
+  if (status) status.textContent = L[lang].listening;
+  recognition.onresult = e => {
+    name = e.results[0][0].transcript.slice(0, 60);
+    const el = root?.querySelector('#customerName');
+    if (el) el.value = name;
+    if (status) status.textContent = L[lang].details;
+  };
+  recognition.onerror = () => { if (status) status.textContent = L[lang].micError; };
+  recognition.onend = () => { recognition = null; };
+  try { recognition.start(); } catch(e) { if (status) status.textContent = L[lang].micError; }
+}
+
+function download(receipt) {
+  const t = L[lang];
+  const rows = receipt ? `<tr><td>${t.kitName}</td><td>${quantity}</td><td>₹${49 * quantity}</td></tr>` : values.map((v, i) => `<tr><td>${t.healthLabels[i]}</td><td>${v}</td><td>${t.meaning[i]}</td></tr>`).join('');
+  const html = `<!doctype html><html lang="${lang}"><meta charset="utf-8"><title>Reliv sample ${receipt ? 'receipt' : 'report'}</title><style>body{font:18px Arial,sans-serif;max-width:900px;margin:45px auto;padding:24px;color:#202020}h1{color:#cf420a}td{padding:16px;border-bottom:1px solid #ddd}table{width:100%;border-collapse:collapse}.note{padding:15px;background:#fff2e5}button{padding:12px}@media print{button{display:none}}</style><h1>Reliv · ${receipt ? t.receiptTitle : t.summary}</h1><p class="note">${receipt ? t.receiptSub : t.sampleLabel}</p><p>${esc(name || 'Sample User')} · ${age} ${t.years}</p><table>${rows}</table><p>${receipt ? t.payNote : t.reportNote}</p><button onclick="window.print()">Print / Save as PDF</button></html>`;
+  const url = URL.createObjectURL(new Blob([html], { type: 'text/html;charset=utf-8' }));
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = receipt ? 'Reliv-Sample-Receipt.html' : 'Reliv-Sample-Report.html';
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+const st = document.querySelector('#soundToggle');
+if (st) st.onclick = () => {
+  sound = !sound;
+  stop();
+  st.setAttribute('aria-pressed', String(sound));
+  const span = st.querySelector('span');
+  if (span) span.textContent = sound ? 'Voice: On' : 'Voice: Off';
+  if (sound) say(lastSpeech || L[lang].welcome);
+};
+
+const rv = document.querySelector('#replayVoice');
+if (rv) rv.onclick = () => {
+  stop();
+  say(lastSpeech || L[lang].welcome);
+};
+
+const rs = document.querySelector('#restart');
+if (rs) rs.onclick = () => {
+  stop();
+  screen = 'welcome';
+  name = '';
+  age = 22;
+  gender = 0;
+  service = 'health';
+  quantity = 1;
+  render();
+};
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stop();
+});
+
+if (root) { render(); }
 })();
