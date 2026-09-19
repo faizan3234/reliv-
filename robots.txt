@@ -3,4 +3,9 @@ Allow: /
 Disallow: /scratch/
 Disallow: /.git/
 
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /icons/
+Allow: /
+
 Sitemap: https://relivkiosk.vercel.app/sitemap.xml
