@@ -101,9 +101,25 @@
   <!-- Media Center -->
   <url>
     <loc>https://relivkiosk.vercel.app/media.html</loc>
-    <lastmod>2026-09-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg</image:loc>
+      <image:title>Reliv Smart Health Kiosk — Reliv Medicare First Station Photo</image:title>
+      <image:caption>Official photograph of Reliv Smart Health Kiosk founded by Faizan Ullah Khan, installed in Kolkata</image:caption>
+      <image:geo_location>Kolkata, West Bengal, India</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/icons/reliv-wordmark.svg</image:loc>
+      <image:title>Reliv Official Vector Logo Wordmark</image:title>
+      <image:caption>Official SVG brand logo of Reliv and Reliv Medicare</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/icons/icon-512.png</image:loc>
+      <image:title>Reliv Health Kiosk App Icon 512x512</image:title>
+      <image:caption>High resolution 512x512 icon mark for Reliv Health Kiosk</image:caption>
+    </image:image>
   </url>
 
   <!-- Semantic SEO Keyword Pages -->
