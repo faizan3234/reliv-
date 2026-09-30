@@ -1,3 +1,5 @@
 scratch/
 .DS_Store
 Thumbs.db
+node_modules/
+reliv-mobile-fixes/

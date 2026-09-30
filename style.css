@@ -904,3 +904,38 @@ label {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* Responsive surfaces: zoom, keyboard space and scrolling are essential controls. */
+html, body { overscroll-behavior-y: auto; }
+.app-shell, .card, .modal-card, .quick-log-card, .progress-drilldown-content { min-width: 0; }
+.modal-overlay { padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)); overflow-y: auto; }
+.modal-card, .quick-log-card, .streak-break-card, .progress-drilldown-content {
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)) !important;
+  overflow-y: auto; overscroll-behavior-y: contain; -webkit-overflow-scrolling: touch;
+}
+input, textarea, select { min-width: 0; max-width: 100%; scroll-margin-block: 80px; }
+button, summary { min-height: 44px; }
+button { overflow-wrap: anywhere; }
+button:focus-visible, summary:focus-visible, a:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
+.toast { max-width: calc(100vw - 24px); width: max-content; border-radius: 18px; overflow-wrap: anywhere; bottom: calc(90px + env(safe-area-inset-bottom, 0px)); }
+.meal-memory { margin: 14px 0; border: 1px solid var(--border); border-radius: 18px; background: var(--bg); padding: 12px; }
+.meal-memory summary { cursor: pointer; font-weight: 700; display: list-item; padding-block: 8px; line-height: 1.5; }
+.meal-memory p, .meal-memory-hint { color: var(--muted); font-size: .84rem; line-height: 1.55; }
+.meal-memory form { display: grid; gap: 10px; }
+.meal-memory label { font-size: .88rem; font-weight: 600; }
+.meal-memory textarea, .meal-memory select { width: 100%; padding: 12px; color: var(--text); background: var(--card); border: 1px solid var(--border); border-radius: 12px; }
+.meal-memory-check { display: flex; align-items: center; gap: 10px; min-height: 44px; }
+.meal-memory-check input { flex: 0 0 20px; height: 20px; }
+.meal-memory-note { margin-top: 12px; padding: 12px; border-radius: 12px; background: var(--card); overflow-wrap: anywhere; }
+.meal-memory-note small { color: var(--muted); line-height: 1.5; }
+@media (max-width: 360px) {
+  .modal-card, .quick-log-card { padding: 14px; }
+  #custom-food-form { flex-wrap: wrap; }
+  #custom-food-form input { flex-basis: 100% !important; }
+  #custom-food-form button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
