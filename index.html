@@ -194,6 +194,17 @@
           "name": "Reliv"
         },
         "category": "Healthcare Devices & Health ATMs"
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://relivkiosk.vercel.app/#explainer-video",
+        "name": "What is Reliv? — Reliv Smart Health Kiosk Explainer",
+        "description": "A short animated explainer of the Reliv Smart Health Kiosk: instant health checks, essential health kits, awards, and where Reliv kiosks are installed.",
+        "thumbnailUrl": "https://relivkiosk.vercel.app/assets/videos/reliv-explainer-poster.jpg",
+        "contentUrl": "https://relivkiosk.vercel.app/assets/videos/reliv-explainer.mp4",
+        "uploadDate": "2026-10-16",
+        "duration": "PT1M47S",
+        "publisher": { "@id": "https://relivkiosk.vercel.app/#organization" }
       }
     ]
   }
@@ -210,7 +221,7 @@
     </a>
 
     <nav class="main-nav" aria-label="Main Navigation">
-      <a href="simulator.html" class="active">Try Reliv</a>
+      <a href="how-it-works.html">How It Works</a>
       <a href="#find">Find Kiosk</a>
       <a href="organisations.html">For Organisations</a>
       <a href="about.html">About</a>
@@ -218,7 +229,7 @@
     </nav>
 
     <div class="nav-actions">
-      <a class="btn btn-primary" href="simulator.html">Try Reliv</a>
+      <a class="btn btn-primary" href="#app">Get the App</a>
     </div>
   </header>
 
@@ -231,7 +242,10 @@
         <p class="body-lead">Blood pressure, SpO₂, temperature, body metrics and more — with an instant digital wellness summary.</p>
         
         <div class="hero-cta-group">
-          <a class="btn btn-primary btn-lg" href="simulator.html">Try Reliv</a>
+          <a class="btn btn-primary btn-lg" href="#watch" data-play-target="#explainerVideo" id="heroWatchBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            Watch: What is Reliv?
+          </a>
           <a class="btn btn-secondary btn-lg" href="#find">Find a Kiosk</a>
         </div>
       </div>
@@ -317,6 +331,45 @@
       </div>
     </section>
 
+    <!-- SECTION 2B: WATCH — WHAT IS RELIV (animated explainer video) -->
+    <section id="watch" class="watch-section" aria-labelledby="watchTitle">
+      <div class="container watch-grid">
+        <div class="watch-info">
+          <span class="eyebrow">WATCH · UNDER 2 MINUTES</span>
+          <h2 id="watchTitle">What is Reliv?</h2>
+          <p class="body-lead">A quick animated explainer of the Reliv kiosk — what it checks, what it carries, and where you'll find one.</p>
+          <ul class="watch-points">
+            <li><span><strong>Instant health checks</strong> — blood pressure, SpO₂, temperature and body metrics in about 3 minutes.</span></li>
+            <li><span><strong>Essential health kits</strong> — first-aid, women's and travel kits available right at the kiosk.</span></li>
+            <li><span><strong>Built for busy places</strong> — colleges, schools, offices, malls, metro stations and airports.</span></li>
+          </ul>
+          <div class="watch-cta-row">
+            <button class="btn btn-primary btn-lg" type="button" data-play-target="#explainerVideo" id="watchPlayBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              Play video
+            </button>
+            <a class="btn btn-secondary btn-lg" href="#app">Get the Reliv app</a>
+          </div>
+        </div>
+
+        <div class="phone-stage">
+          <div class="phone-glow" aria-hidden="true"></div>
+          <div class="phone-frame">
+            <div class="video-shell">
+              <video id="explainerVideo" playsinline preload="none" poster="assets/videos/reliv-explainer-poster.jpg" title="What is Reliv? — Animated explainer" width="478" height="850">
+                <source src="assets/videos/reliv-explainer.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+              <button class="video-play" type="button" aria-label="Play the What is Reliv explainer video, 1 minute 47 seconds">
+                <span class="video-play-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+                <span class="video-play-label">What is Reliv? · 1:47</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- SECTION 3: HOW RELIV WORKS -->
     <section class="how-section container">
       <div class="section-header">
@@ -344,18 +397,42 @@
       </div>
     </section>
 
-    <!-- SECTION 4: TRY RELIV (APP TEASER) -->
-    <section class="try-teaser-section">
+    <!-- SECTION 4: GET THE RELIV APP (PWA install guides for iPhone / Android) -->
+    <section id="app" class="app-section" aria-labelledby="appTitle">
       <div class="container">
-        <div class="teaser-card">
-          <div class="teaser-info">
-            <span class="eyebrow">INTERACTIVE DEMO</span>
-            <h2>Try the actual Reliv interface</h2>
-            <p class="body-secondary">Experience a sample kiosk session right in your browser without payment or physical measurements. Practice navigating the multilingual screens and reading sample wellness metrics.</p>
-            <a class="btn btn-primary btn-lg" href="simulator.html">Start Demo →</a>
+        <div class="app-panel">
+          <span class="eyebrow">RELIV APP · FREE · NO APP STORE NEEDED</span>
+          <h2 id="appTitle">Pay at the kiosk, straight from your phone.</h2>
+          <p class="app-panel-lead">The Reliv app is your secure payment companion. Add it to your home screen once — then simply scan the QR code on any Reliv kiosk to pay and start your check-up.</p>
+
+          <div class="app-panel-grid">
+            <a class="platform-card" href="how-it-works.html#iphone" id="homeIphoneGuide">
+              <div class="platform-card-top">
+                <span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg></span>
+                <h3>iPhone</h3>
+              </div>
+              <p>Open in Safari → tap the <strong>⋯</strong> menu → <strong>Add to Home Screen</strong> → Add.</p>
+              <span class="platform-link">▶ Watch the iPhone guide (0:56) →</span>
+            </a>
+
+            <a class="platform-card" href="how-it-works.html#android" id="homeAndroidGuide">
+              <div class="platform-card-top">
+                <span class="platform-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.523 15.341c-.551 0-.999-.448-.999-.999s.448-.999.999-.999c.551 0 .999.448.999.999s-.448.999-.999.999m-11.046 0c-.551 0-.999-.448-.999-.999s.448-.999.999-.999c.551 0 .999.448.999.999s-.448.999-.999.999m11.405-6.02l1.997-3.459a.416.416 0 00-.152-.568.416.416 0 00-.568.152l-2.022 3.503C15.59 8.244 13.853 7.851 12 7.851s-3.59.393-5.137 1.099L4.841 5.447a.416.416 0 00-.568-.152.416.416 0 00-.152.568l1.997 3.459C2.689 11.187.343 14.659 0 18.761h24c-.344-4.102-2.689-7.574-6.118-9.44"/></svg></span>
+                <h3>Android</h3>
+              </div>
+              <p>Open in Chrome → tap <strong>Install</strong> → then use <strong>Scan kiosk payment QR</strong> at the kiosk.</p>
+              <span class="platform-link">▶ Watch the Android guide (1:31) →</span>
+            </a>
+
+            <div class="qr-card">
+              <img src="assets/videos/reliv-app-qr.png" alt="QR code that opens the Reliv app at reliv7.vercel.app" width="132" height="132" loading="lazy">
+              <span>On a computer?<br>Scan to open on your phone</span>
+            </div>
           </div>
-          <div class="teaser-preview">
-            <img src="assets/screens/reliv-health-atm-user-experience.webp" alt="Reliv Touchscreen User Experience Interface" width="480" height="320" loading="lazy">
+
+          <div class="app-panel-actions">
+            <a class="btn btn-primary btn-lg" href="https://reliv7.vercel.app/" target="_blank" rel="noopener" id="homeOpenApp">Open the Reliv app ↗</a>
+            <a class="btn btn-ghost-light btn-lg" href="how-it-works.html#app">Step-by-step guide</a>
           </div>
         </div>
       </div>
@@ -409,7 +486,8 @@
         <div class="footer-col">
           <h4>Product</h4>
           <ul>
-            <li><a href="simulator.html">Try Reliv</a></li>
+            <li><a href="how-it-works.html">How It Works (Video)</a></li>
+            <li><a href="how-it-works.html#app">Get the Reliv App</a></li>
             <li><a href="#find">Find Kiosk</a></li>
             <li><a href="health-kiosk.html">Health Kiosk</a></li>
             <li><a href="health-atm.html">Health ATM</a></li>
@@ -463,9 +541,9 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span>Home</span>
     </a>
-    <a href="simulator.html" class="mobile-nav-item">
+    <a href="how-it-works.html" class="mobile-nav-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-      <span>Try</span>
+      <span>Watch</span>
     </a>
     <a href="#find" class="mobile-nav-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -502,6 +580,7 @@
   </div>
 
   <script src="app.js"></script>
+  <script src="videos.js" defer></script>
   <script>
     // Location detection
     const locBtn = document.getElementById('btnUseMyLocation');

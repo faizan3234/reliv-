@@ -1,16 +1,19 @@
-const CACHE_NAME = 'reliv-cache-v1';
+const CACHE_NAME = 'reliv-cache-v2';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
+  '/how-it-works.html',
   '/simulator.html',
   '/style.css',
   '/app.js',
+  '/videos.js',
   '/kiosk.js',
   '/site.webmanifest',
   '/icons/favicon.svg',
   '/icons/icon-192.png',
   '/icons/icon-512.png',
   '/icons/reliv-wordmark.svg',
+  '/assets/videos/reliv-app-qr.png',
   '/assets/screens/actual-0.png',
   '/assets/screens/actual-1.png',
   '/assets/screens/actual-2.png',

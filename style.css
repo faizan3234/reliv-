@@ -489,44 +489,476 @@ nav.main-nav a:hover, nav.main-nav a.active {
   }
 }
 
-/* Try Reliv App Teaser */
-.try-teaser-section {
-  padding: clamp(60px, 8vw, 90px) 0;
-  background: var(--bg-alt);
+/* =========================================================
+   VIDEO + APP GUIDE COMPONENTS
+   (Replaces the old "Try Reliv" simulator teaser)
+   ========================================================= */
+
+/* --- Explainer video section --- */
+.watch-section {
+  padding: clamp(60px, 8vw, 96px) 0;
+  background:
+    radial-gradient(900px 420px at 85% 10%, rgba(207, 66, 10, 0.07), transparent 70%),
+    var(--bg-alt);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
-.teaser-card {
+.watch-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+.watch-info h2 {
+  margin-bottom: 14px;
+}
+.watch-info .body-lead {
+  margin-bottom: 24px;
+}
+.watch-points {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+  display: grid;
+  gap: 12px;
+}
+.watch-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15.5px;
+  color: var(--ink-secondary);
+  line-height: 1.45;
+}
+.watch-points li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: var(--orange-light) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23cf420a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center / 12px no-repeat;
+  border: 1px solid #ffd8cc;
+}
+.watch-points strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.watch-cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+@media (max-width: 860px) {
+  .watch-grid {
+    grid-template-columns: 1fr;
+  }
+  .watch-grid .phone-frame {
+    order: -1;
+  }
+}
+
+/* --- Vertical phone-style video frame --- */
+.phone-frame {
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 42px;
+  background: linear-gradient(160deg, #1f2937, #0b0f17);
+  box-shadow:
+    0 30px 60px -18px rgba(17, 24, 39, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+.phone-frame::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 84px;
+  height: 22px;
+  border-radius: 999px;
+  background: #05070b;
+  z-index: 3;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.phone-frame.is-playing::before {
+  opacity: 0;
+}
+.phone-frame .video-shell {
+  border-radius: 33px;
+  aspect-ratio: 478 / 850;
+}
+.phone-glow {
+  position: absolute;
+  inset: 12% -18% -6%;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgba(207, 66, 10, 0.28), transparent);
+  filter: blur(30px);
+  pointer-events: none;
+}
+
+/* --- Shared video shell with custom play overlay --- */
+.video-shell {
+  position: relative;
+  overflow: hidden;
+  background: #0b0f17;
+  isolation: isolate;
+}
+.video-shell video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #0b0f17;
+}
+.video-play {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.5));
+  transition: opacity 0.25s ease, visibility 0.25s;
+}
+.video-play-icon {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--orange);
+  box-shadow: 0 10px 30px rgba(207, 66, 10, 0.45);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+.video-play-icon::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  animation: playPulse 2.2s ease-out infinite;
+}
+.video-play-icon svg {
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+}
+.video-play:hover .video-play-icon {
+  transform: scale(1.08);
+}
+.video-play-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(17, 24, 39, 0.62);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.video-shell.is-playing .video-play {
+  opacity: 0;
+  visibility: hidden;
+}
+@keyframes playPulse {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* --- Landscape video card --- */
+.video-card {
   background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  padding: clamp(32px, 5vw, 60px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px -20px rgba(17, 24, 39, 0.25);
+}
+.video-card .video-shell {
+  aspect-ratio: 16 / 9;
+}
+.video-card .video-shell video {
+  object-fit: contain;
+}
+.video-card-meta {
+  display: flex;
   align-items: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  font-size: 13.5px;
+  color: var(--muted);
 }
-.teaser-info h2 {
-  margin-bottom: 14px;
+.video-card-meta strong {
+  display: block;
+  font-size: 15px;
+  color: var(--ink);
 }
-.teaser-info p {
+
+/* --- "Get the app" section --- */
+.app-section {
+  padding: clamp(60px, 8vw, 96px) 0;
+}
+.app-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  padding: clamp(28px, 5vw, 56px);
+  color: #fff;
+  background:
+    radial-gradient(700px 360px at 100% 0%, rgba(255, 122, 48, 0.35), transparent 65%),
+    radial-gradient(600px 300px at 0% 100%, rgba(207, 66, 10, 0.25), transparent 70%),
+    linear-gradient(150deg, #151b26 0%, #0c1017 100%);
+  box-shadow: 0 30px 60px -25px rgba(17, 24, 39, 0.55);
+}
+.app-panel .eyebrow {
+  color: #ff9a62;
+}
+.app-panel h2 {
+  color: #fff;
+  margin-bottom: 12px;
+}
+.app-panel-lead {
+  color: rgba(255, 255, 255, 0.74);
+  font-size: clamp(16px, 1.8vw, 18px);
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+.app-panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 18px;
+  align-items: stretch;
+}
+.platform-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s, background 0.25s;
+}
+.platform-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 154, 98, 0.6);
+  background: rgba(255, 255, 255, 0.09);
+}
+.platform-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.platform-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+.platform-icon svg {
+  width: 22px;
+  height: 22px;
+}
+.platform-card h3 {
+  color: #fff;
+  font-size: 18px;
+  margin: 0;
+}
+.platform-card p {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+.platform-card .platform-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff9a62;
+}
+.qr-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 20px;
+  background: #fff;
+  color: var(--ink);
+  text-align: center;
+  min-width: 180px;
+}
+.qr-card img {
+  width: 132px;
+  height: 132px;
+  image-rendering: pixelated;
+}
+.qr-card span {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  line-height: 1.35;
+}
+.app-panel-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+.btn-ghost-light {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.28);
+}
+.btn-ghost-light:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+@media (max-width: 900px) {
+  .app-panel-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .qr-card {
+    display: none; /* QR is for desktop visitors only */
+  }
+}
+@media (max-width: 600px) {
+  .app-panel-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- OS tabs + step list (how-it-works page) --- */
+.os-tabs {
+  display: inline-flex;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  border: 1px solid var(--border);
   margin-bottom: 28px;
 }
-.teaser-preview {
-  background: #f1f5f9;
-  border-radius: var(--radius-lg);
-  padding: 16px;
-  border: 1px solid #cbd5e1;
-  text-align: center;
+.os-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 20px;
+  min-height: 44px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-secondary);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
-.teaser-preview img {
-  border-radius: var(--radius-md);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+.os-tab svg {
+  width: 18px;
+  height: 18px;
 }
-@media (max-width: 840px) {
-  .teaser-card {
+.os-tab[aria-selected="true"] {
+  background: #fff;
+  color: var(--ink);
+  box-shadow: 0 2px 10px rgba(17, 24, 39, 0.1);
+}
+.os-panel[hidden] {
+  display: none;
+}
+.os-panel {
+  animation: fadeUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.guide-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .guide-grid {
     grid-template-columns: 1fr;
-    gap: 30px;
   }
+}
+.step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+  display: grid;
+  gap: 14px;
+}
+.step-list li {
+  counter-increment: step;
+  position: relative;
+  padding: 16px 18px 16px 64px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  font-size: 15px;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+}
+.step-list li::before {
+  content: counter(step);
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--orange);
+  background: var(--orange-light);
+  border: 1px solid #ffd8cc;
+}
+.step-list strong {
+  display: block;
+  color: var(--ink);
+  font-size: 15.5px;
+  margin-bottom: 2px;
+}
+.kbd-chip {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Find Reliv Section */

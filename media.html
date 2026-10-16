@@ -113,13 +113,13 @@
     </a>
     <nav class="main-nav" aria-label="Main Navigation">
       <a href="index.html">Home</a>
-      <a href="simulator.html">Try Reliv</a>
+      <a href="how-it-works.html">How It Works</a>
       <a href="locations.html">Find Kiosk</a>
       <a href="organisations.html">For Organisations</a>
       <a href="media.html" class="active">Media</a>
     </nav>
     <div class="nav-actions">
-      <a href="simulator.html" class="btn btn-primary" style="min-height:40px; padding:0 18px; font-size:14px;">Try Reliv</a>
+      <a href="how-it-works.html#app" class="btn btn-primary" style="min-height:40px; padding:0 18px; font-size:14px;">Get the App</a>
     </div>
   </header>
 
@@ -381,25 +381,98 @@
         </div>
       </div>
     </section>
-<!-- Video Showcase Section -->
+    <!-- Video Showcase Section -->
     <section class="wrap" style="padding-bottom: 60px;">
       <div class="section-header">
-        <span class="eyebrow">VIDEO DEMONSTRATION</span>
-        <h2>How the Reliv Kiosk works</h2>
-        <p class="body-secondary">Full walkthrough of the screening journey in Kolkata.</p>
+        <span class="eyebrow">OFFICIAL VIDEOS &amp; WALKTHROUGHS</span>
+        <h2>How Reliv Works — Product &amp; App Videos</h2>
+        <p class="body-secondary">Official animated explainers, mobile PWA guides, and real checkup demonstration footage.</p>
       </div>
 
-      <div style="max-width: 840px; margin: 0 auto; border: 1px solid var(--border); border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.06);">
-        <video controls playsinline preload="none" poster="assets/demo-poster.jpg" style="width:100%; display:block;" title="Reliv Smart Health Kiosk 3-Minute Walkthrough">
-          <source src="assets/demonstration.mp4" type="video/mp4">
-          Your browser does not support HTML5 video.
-        </video>
-        <div style="padding: 20px 24px; background: #ffffff;">
-          <h3 style="font-size: 18px; margin-bottom: 6px;">Reliv Health ATM Kolkata — Full Walkthrough (1:38)</h3>
-          <p style="font-size: 14px; color: var(--ink-secondary); line-height: 1.5;">
-            Shows language selection in Bengali, Hindi, and English; non-invasive blood pressure and pulse oximetry check; body composition analysis; and instant paperless QR summary generation.
-          </p>
-        </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; max-width: 1100px; margin: 0 auto;">
+        <!-- Video 1: Explainer -->
+        <article class="video-card">
+          <div class="video-shell" style="aspect-ratio: 16/9; background:#0b0f17;">
+            <video playsinline preload="none" poster="assets/videos/reliv-explainer-poster.jpg" title="What is Reliv? — Official Explainer Video">
+              <source src="assets/videos/reliv-explainer.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <button class="video-play" type="button" aria-label="Play What is Reliv explainer video">
+              <span class="video-play-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              <span class="video-play-label">What is Reliv? · 1:47</span>
+            </button>
+          </div>
+          <div class="video-card-meta">
+            <div>
+              <strong>What is Reliv? (1:47)</strong>
+              <span>Animated explainer of kiosk vitals, kits, and locations</span>
+            </div>
+            <a href="how-it-works.html#explainer" class="btn btn-secondary" style="min-height:36px; padding:0 14px; font-size:13px;">View Guide →</a>
+          </div>
+        </article>
+
+        <!-- Video 2: Kolkata Live Demo -->
+        <article class="video-card">
+          <div class="video-shell" style="aspect-ratio: 16/9; background:#0b0f17;">
+            <video playsinline preload="none" poster="assets/demo-poster.jpg" title="Reliv Smart Health Kiosk Kolkata Walkthrough">
+              <source src="assets/demonstration.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <button class="video-play" type="button" aria-label="Play Kolkata Live Walkthrough video">
+              <span class="video-play-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              <span class="video-play-label">Live Kiosk Demo · 1:38</span>
+            </button>
+          </div>
+          <div class="video-card-meta">
+            <div>
+              <strong>Kolkata Deployment Walkthrough (1:38)</strong>
+              <span>Real checkup at Sector V near IEM Gurukul Campus</span>
+            </div>
+            <a href="locations.html" class="btn btn-secondary" style="min-height:36px; padding:0 14px; font-size:13px;">Find Station →</a>
+          </div>
+        </article>
+
+        <!-- Video 3: iPhone PWA Guide -->
+        <article class="video-card">
+          <div class="video-shell" style="aspect-ratio: 16/9; background:#0b0f17;">
+            <video playsinline preload="none" poster="assets/videos/reliv-app-iphone-guide-poster.jpg" title="How to Access Reliv on iPhone">
+              <source src="assets/videos/reliv-app-iphone-guide.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <button class="video-play" type="button" aria-label="Play iPhone app guide video">
+              <span class="video-play-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              <span class="video-play-label">iPhone Setup Guide · 0:56</span>
+            </button>
+          </div>
+          <div class="video-card-meta">
+            <div>
+              <strong>iPhone Setup &amp; QR Payment (0:56)</strong>
+              <span>Safari Add to Home Screen walkthrough</span>
+            </div>
+            <a href="how-it-works.html#iphone" class="btn btn-secondary" style="min-height:36px; padding:0 14px; font-size:13px;">Step Guide →</a>
+          </div>
+        </article>
+
+        <!-- Video 4: Android PWA Guide -->
+        <article class="video-card">
+          <div class="video-shell" style="aspect-ratio: 16/9; background:#0b0f17;">
+            <video playsinline preload="none" poster="assets/videos/reliv-app-android-guide-poster.jpg" title="How to Install & Scan with Reliv on Android">
+              <source src="assets/videos/reliv-app-android-guide.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <button class="video-play" type="button" aria-label="Play Android app guide video">
+              <span class="video-play-icon"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+              <span class="video-play-label">Android Setup Guide · 1:31</span>
+            </button>
+          </div>
+          <div class="video-card-meta">
+            <div>
+              <strong>Android Install &amp; Scan (1:31)</strong>
+              <span>Chrome installation &amp; kiosk payment scan</span>
+            </div>
+            <a href="how-it-works.html#android" class="btn btn-secondary" style="min-height:36px; padding:0 14px; font-size:13px;">Step Guide →</a>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -476,7 +549,8 @@
         <div class="footer-col">
           <h4>Product</h4>
           <ul>
-            <li><a href="simulator.html">Try Reliv Demo</a></li>
+            <li><a href="how-it-works.html">How It Works (Video)</a></li>
+            <li><a href="how-it-works.html#app">Get the Reliv App</a></li>
             <li><a href="locations.html">Find a Kiosk</a></li>
             <li><a href="media.html">Photos & Videos</a></li>
           </ul>
@@ -519,9 +593,9 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
       <span>Home</span>
     </a>
-    <a href="simulator.html" class="mobile-nav-item">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-      <span>Try</span>
+    <a href="how-it-works.html" class="mobile-nav-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+      <span>Watch</span>
     </a>
     <a href="locations.html" class="mobile-nav-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -533,5 +607,6 @@
     </a>
   </nav>
 
+  <script src="videos.js" defer></script>
 </body>
 </html>

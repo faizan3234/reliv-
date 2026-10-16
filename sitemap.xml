@@ -38,12 +38,54 @@
     </video:video>
   </url>
 
-  <!-- Simulator / Try Reliv -->
+  <!-- How It Works & Video Guides -->
+  <url>
+    <loc>https://relivkiosk.vercel.app/how-it-works.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.98</priority>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/videos/reliv-explainer-poster.jpg</image:loc>
+      <image:title>What is Reliv Animated Explainer Poster</image:title>
+      <image:caption>Official animated video guide explaining Reliv Smart Health Kiosk features, kits, and locations</image:caption>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://relivkiosk.vercel.app/assets/videos/reliv-explainer-poster.jpg</video:thumbnail_loc>
+      <video:title>What is Reliv? — Smart Health Kiosk Explainer</video:title>
+      <video:description>An animated explainer introducing Reliv Smart Health Kiosk: 3-minute vital screening, essential health kits, and campus setups.</video:description>
+      <video:content_loc>https://relivkiosk.vercel.app/assets/videos/reliv-explainer.mp4</video:content_loc>
+      <video:duration>107</video:duration>
+      <video:tag>Reliv</video:tag>
+      <video:tag>Health Kiosk</video:tag>
+      <video:tag>Health ATM</video:tag>
+      <video:tag>How Reliv Works</video:tag>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://relivkiosk.vercel.app/assets/videos/reliv-app-iphone-guide-poster.jpg</video:thumbnail_loc>
+      <video:title>How to Access and Install Reliv App on iPhone</video:title>
+      <video:description>Video tutorial showing how to add the Reliv PWA payment companion to your iPhone home screen with Safari.</video:description>
+      <video:content_loc>https://relivkiosk.vercel.app/assets/videos/reliv-app-iphone-guide.mp4</video:content_loc>
+      <video:duration>56</video:duration>
+      <video:tag>Reliv iPhone App</video:tag>
+      <video:tag>Reliv PWA</video:tag>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://relivkiosk.vercel.app/assets/videos/reliv-app-android-guide-poster.jpg</video:thumbnail_loc>
+      <video:title>How to Install and Scan with Reliv App on Android</video:title>
+      <video:description>Step-by-step video guide explaining how to install Reliv on Android and scan kiosk payment QR codes.</video:description>
+      <video:content_loc>https://relivkiosk.vercel.app/assets/videos/reliv-app-android-guide.mp4</video:content_loc>
+      <video:duration>91</video:duration>
+      <video:tag>Reliv Android App</video:tag>
+      <video:tag>Reliv Payment Companion</video:tag>
+    </video:video>
+  </url>
+
+  <!-- Simulator / Prototype Demo -->
   <url>
     <loc>https://relivkiosk.vercel.app/simulator.html</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-health-atm-user-experience.webp</image:loc>
       <image:title>Reliv Multilingual Touchscreen Interface</image:title>
