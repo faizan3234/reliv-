@@ -273,6 +273,20 @@
     update();
   }
 
+  
+  /* ---------- Card mouse spotlight (The Collective feel) ---------- */
+  function initCardSpotlights() {
+    if (!finePointer || reduced) return;
+    var cards = $$('.step-card, .platform-card, .award-card, .recog-card, .partner-associate-card, .location-card-clean');
+    cards.forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--mouse-y', (e.clientY - r.top) + 'px');
+      }, { passive: true });
+    });
+  }
+
   /* ---------- 9. Magnetic buttons ---------- */
   function initMagnetic() {
     if (!finePointer || reduced) return;
@@ -429,6 +443,7 @@
     initTransitions();
     initCursor();
     initMagnetic();
+    initCardSpotlights();
     initReveals();
     initParallax();
     runPreloader(function () {});
