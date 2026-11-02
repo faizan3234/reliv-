@@ -292,31 +292,7 @@ h3 {
 }
 
 /* Floating Left Navigation Button for Desktop */
-.floating-left-nav {
-  position: fixed;
-  left: 20px;
-  bottom: 24px;
-  z-index: 95;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 42px;
-  padding: 0 16px;
-  border-radius: var(--radius-full);
-  background: rgba(17, 24, 39, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-}
+.floating-left-nav { display: none !important; }
 .floating-left-nav:hover {
   background: #111827;
   border-color: var(--orange, #cf420a);
@@ -602,22 +578,7 @@ nav.main-nav a:hover, nav.main-nav a.active {
 }
 
 /* Mobile Bottom Navigation (Native App feel) */
-.mobile-bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: calc(58px + env(safe-area-inset-bottom, 0px));
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  display: none;
-  z-index: 100;
-  justify-content: space-around;
-  align-items: center;
-}
+.mobile-bottom-nav { display: none !important; }
 
 .mobile-nav-item {
   flex: 1;
@@ -658,9 +619,7 @@ nav.main-nav a:hover, nav.main-nav a.active {
   .left-nav-label {
     font-size: 12px;
   }
-  .floating-left-nav {
-    display: none;
-  }
+  .floating-left-nav { display: none !important; }
 
   .brand img {
     width: 95px;
@@ -668,11 +627,9 @@ nav.main-nav a:hover, nav.main-nav a.active {
   nav.main-nav {
     display: none;
   }
-  .mobile-bottom-nav {
-    display: flex;
-  }
+  .mobile-bottom-nav { display: none !important; }
   body {
-    padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: 0;
   }
 }
 

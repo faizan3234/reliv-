@@ -8,7 +8,7 @@
   function initNavDrawer() {
     const drawer = document.getElementById('navDrawer');
     const backdrop = document.getElementById('navDrawerBackdrop');
-    const openBtns = document.querySelectorAll('.left-nav-btn, [data-open-drawer], .open-drawer-btn, #floatingLeftNav');
+    const openBtns = document.querySelectorAll('.left-nav-btn, #leftNavBtn, [data-open-drawer]');
     const closeBtns = document.querySelectorAll('#navDrawerClose, .nav-drawer-close');
 
     if (!drawer || !backdrop) return;
@@ -65,15 +65,6 @@
         }
       });
     });
-
-    // Hook mobile bottom nav "More" link if present
-    const mobileMoreBtn = document.querySelector('.mobile-bottom-nav a[href*="organisations.html"], .mobile-bottom-nav a.mobile-nav-item:last-child');
-    if (mobileMoreBtn) {
-      mobileMoreBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        openDrawer();
-      });
-    }
   }
 
   if (document.readyState === 'loading') {
