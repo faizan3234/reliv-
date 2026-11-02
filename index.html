@@ -211,6 +211,11 @@
   </script>
 
   <link rel="stylesheet" href="style.css">
+  <!-- Premium experience layer -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="premium.css">
 </head>
 <body>
 
@@ -244,99 +249,127 @@
   </header>
 
   <main>
-    <!-- SECTION 1: HERO -->
-    <section class="hero-section container">
-      <div class="hero-content">
-        <span class="eyebrow">RELIV SMART HEALTH KIOSK</span>
-        <h1>Your health, clearer in 3 minutes.</h1>
-        <p class="body-lead">Blood pressure, SpO₂, temperature, body metrics and more — with an instant digital wellness summary.</p>
-        
-        <div class="hero-cta-group">
-          <a class="btn btn-primary btn-lg" href="#watch" data-play-target="#explainerVideo" id="heroWatchBtn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-            Watch: What is Reliv?
-          </a>
-          <a class="btn btn-secondary btn-lg" href="#find">Find a Kiosk</a>
+    <!-- SECTION 1: IMMERSIVE HERO -->
+    <section class="hx" aria-labelledby="heroTitle">
+      <div class="hx-glow" aria-hidden="true"><span class="g1"></span><span class="g2"></span></div>
+      <div class="container hx-inner">
+        <div class="hx-copy">
+          <span class="hx-tag"><span class="live" aria-hidden="true"></span>Live in Kolkata &middot; DPIIT Recognised</span>
+          <h1 id="heroTitle" class="hx-title">Your health, <em>clearer</em> in three minutes.</h1>
+          <p class="hx-lead">Blood pressure, SpO&#8322;, temperature and body metrics &mdash; measured by a self-service kiosk, with an instant digital summary on your phone.</p>
+          <div class="hero-cta-group">
+            <a class="btn btn-primary btn-lg" href="#watch" data-play-target="#explainerVideo" id="heroWatchBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              Watch the film
+            </a>
+            <a class="btn btn-secondary btn-lg" href="#find">Find a kiosk <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+          <div class="hx-scroll" aria-hidden="true"><span></span>Scroll to explore</div>
         </div>
-      </div>
 
-      <div class="hero-media-wrap">
-        <img src="assets/reliv-health-kiosk-kolkata.jpg" alt="Reliv Smart Health Kiosk — Reliv Medicare health checkup station and machine in Kolkata, India" title="Reliv Medicare Smart Health Kiosk — First Official Station Kolkata" width="880" height="520" fetchpriority="high">
+        <div class="hx-stage">
+          <div class="hx-ring" aria-hidden="true"></div>
+          <div class="hx-disc" aria-hidden="true" data-parallax="0.06"></div>
+          <img class="hx-kiosk" data-parallax="-0.05" src="assets/reliv-health-kiosk-transparent.png" alt="Reliv Smart Health Kiosk — Reliv Medicare health checkup station in Kolkata, India" title="Reliv Medicare Smart Health Kiosk — First Official Station Kolkata" width="640" height="1280" fetchpriority="high">
+          <div class="hx-chip c1" aria-hidden="true"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/><path d="M3.5 12h4l2-3 3 6 2-3h6"/></svg></i><div><small>Blood pressure</small><b>118/76</b></div></div>
+          <div class="hx-chip c2" aria-hidden="true"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.3 6 11.3a6 6 0 0 1-12 0c0-5 6-11.3 6-11.3z"/></svg></i><div><small>SpO&#8322;</small><b>98%</b></div></div>
+          <div class="hx-chip c3" aria-hidden="true"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><div><small>Full check</small><b>3:00 min</b></div></div>
+        </div>
       </div>
     </section>
 
-    <!-- SECTION 2: PRODUCT PROOF & RECOGNITION -->
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group"><span class="marquee-item ">Blood pressure</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">SpO&#8322;</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item ">Heart rate</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">Temperature</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item ">Height &amp; BMI</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">Eye test</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item ">Instant report</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">English &middot; हिंदी &middot; বাংলা</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg></div>
+        <div class="marquee-group"><span class="marquee-item ">Blood pressure</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">SpO&#8322;</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item ">Heart rate</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">Temperature</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item ">Height &amp; BMI</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">Eye test</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item ">Instant report</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">English &middot; हिंदी &middot; বাংলা</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg></div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: PROOF -->
     <section class="proof-section">
       <div class="container">
         <div class="proof-grid">
           <div class="proof-item">
-            <strong>3 min</strong>
-            <span>Typical check</span>
+            <strong><span data-count="3">3</span><span class="unit">min</span></strong>
+            <span>Typical full check</span>
           </div>
           <div class="proof-item">
-            <strong>100+</strong>
+            <strong><span data-count="100">100</span><span class="unit">+</span></strong>
             <span>Measured &amp; derived metrics</span>
           </div>
           <div class="proof-item">
-            <strong>3 languages</strong>
-            <span>English · हिंदी · বাংলা</span>
+            <strong><span data-count="3">3</span><span class="unit">languages</span></strong>
+            <span>English &middot; हिंदी &middot; বাংলা</span>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Official Accreditation & Awards Highlight Showcase -->
-        <div style="margin-top: 32px; padding: clamp(20px, 3vw, 28px); background: #ffffff; border: 1.5px solid #ffd8cc; border-radius: var(--radius-xl); box-shadow: 0 8px 24px rgba(207,66,10,0.05); text-align: left;">
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 16px;">
-            <div style="display: flex; align-items: center; gap: 14px;">
-              <div style="width: 44px; height: 44px; border-radius: 50%; background: var(--orange); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; font-weight: 700;">✓</div>
-              <div>
-                <strong style="display: block; font-size: 16px; color: var(--ink);">Govt. of India DPIIT Recognized Startup &amp; Salem MedTech Excellence Winner</strong>
-                <span style="font-size: 13.5px; color: var(--ink-secondary);">RELIV MEDICARE PRIVATE LIMITED (Cert: DIPP287544) · The Oscars of Healthcare Winner</span>
-              </div>
+    <!-- SECTION 2A: SCROLLYTELLING — WHAT RELIV CHECKS -->
+    <section class="vitals" aria-labelledby="vitalsTitle">
+      <div class="vitals-sticky">
+        <div class="container vitals-grid">
+          <div class="vitals-intro">
+            <span class="eyebrow">What Reliv checks</span>
+            <h2 id="vitalsTitle" data-no-split>Six vitals. <em>One</em> calm minute each.</h2>
+            <ol class="vitals-list">
+              <li>Blood pressure</li>
+              <li>SpO&#8322;</li>
+              <li>Heart rate</li>
+              <li>Temperature</li>
+              <li>Height &amp; BMI</li>
+              <li>Your report</li>
+            </ol>
+            <p class="vitals-foot">Sample readings shown for illustration only.</p>
+          </div>
+          <div class="vitals-card" role="status" aria-live="polite">
+            <div class="vc-top"><span>Reliv kiosk &middot; live check</span><span class="vc-step">01 / 06</span></div>
+            <div class="vc-ring">
+              <svg viewBox="0 0 110 110" aria-hidden="true"><circle class="track" cx="55" cy="55" r="48"/><circle class="bar" cx="55" cy="55" r="48"/></svg>
+              <div class="vc-icon" aria-hidden="true"></div>
             </div>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-              <a href="certificate.pdf" target="_blank" class="btn btn-secondary" style="min-height: 38px; padding: 0 14px; font-size: 13px;">View DPIIT Certificate (PDF) ↗</a>
-              <a href="about.html#awards" class="btn btn-primary" style="min-height: 38px; padding: 0 16px; font-size: 13px;">Explore All Honors →</a>
+            <div class="vc-body vc-swap">
+              <div class="vc-label">Blood pressure</div>
+              <div class="vc-value">118/76<small>mmHg</small></div>
+              <p class="vc-note">Rest your arm in the cuff. The kiosk guides you by voice.</p>
             </div>
           </div>
+        </div>
+      </div>
+      <script type="application/json" id="vitalsData">[{"label": "Blood pressure", "value": "118/76", "unit": "mmHg", "note": "Rest your arm in the cuff. The kiosk guides you by voice.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z\"/><path d=\"M3.5 12h4l2-3 3 6 2-3h6\"/><\/svg>"}, {"label": "SpO₂", "value": "98", "unit": "%", "note": "Place a finger on the sensor. Oxygen saturation in seconds.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2.7s6 6.3 6 11.3a6 6 0 0 1-12 0c0-5 6-11.3 6-11.3z\"/><\/svg>"}, {"label": "Heart rate", "value": "72", "unit": "bpm", "note": "Measured alongside SpO₂, so there is nothing extra to do.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 12h4l3-8 4 16 3-8h4\"/><\/svg>"}, {"label": "Temperature", "value": "36.7", "unit": "°C", "note": "Contactless infrared reading. No probe, no waiting.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z\"/><\/svg>"}, {"label": "Height & BMI", "value": "22.4", "unit": "BMI", "note": "Stand tall. Height is captured and your BMI is calculated.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2v20M8 6l4-4 4 4M8 18l4 4 4-4\"/><\/svg>"}, {"label": "Your report", "value": "3:00", "unit": "min", "note": "Scan the QR code and your colour-coded summary lands on your phone.", "icon": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v5l3 2\"/><\/svg>"}]</script>
+    </section>
 
-          <!-- Verified Real Honors Tiles -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px;">
-            <!-- Tile 1: DPIIT -->
-            <a href="certificate.pdf" target="_blank" style="text-decoration:none; display:flex; align-items:center; gap:12px; padding:12px 14px; background:#fcfdfe; border:1px solid var(--border); border-radius:var(--radius-md); transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--border)'">
-              <img src="assets/dpiit-recognition-certificate.jpg" alt="Reliv Medicare DPIIT Certificate" width="52" height="52" style="width:52px; height:52px; object-fit:cover; border-radius:6px; border:1px solid var(--border); flex-shrink:0;">
-              <div>
-                <span style="font-size:10.5px; font-weight:700; color:var(--orange); text-transform:uppercase; display:block;">DPIIT Govt. of India</span>
-                <strong style="font-size:13px; color:var(--ink); display:block; line-height:1.3;">Cert: DIPP287544</strong>
-              </div>
-            </a>
-
-            <!-- Tile 2: Oscars Trophy -->
-            <a href="assets/awards/medverse-oscars-of-healthcare-trophy.jpg" target="_blank" style="text-decoration:none; display:flex; align-items:center; gap:12px; padding:12px 14px; background:#fcfdfe; border:1px solid var(--border); border-radius:var(--radius-md); transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--border)'">
-              <img src="assets/awards/medverse-oscars-of-healthcare-trophy.jpg" alt="The Oscars of Healthcare Trophy" width="52" height="52" style="width:52px; height:52px; object-fit:cover; border-radius:6px; border:1px solid var(--border); flex-shrink:0;">
-              <div>
-                <span style="font-size:10.5px; font-weight:700; color:var(--orange); text-transform:uppercase; display:block;">Salem Medverse</span>
-                <strong style="font-size:13px; color:var(--ink); display:block; line-height:1.3;">Oscars Trophy</strong>
-              </div>
-            </a>
-
-            <!-- Tile 3: Oscars Certificate -->
-            <a href="assets/awards/medverse-oscars-of-healthcare-certificate.jpg" target="_blank" style="text-decoration:none; display:flex; align-items:center; gap:12px; padding:12px 14px; background:#fcfdfe; border:1px solid var(--border); border-radius:var(--radius-md); transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--border)'">
-              <img src="assets/awards/medverse-oscars-of-healthcare-certificate.jpg" alt="The Oscars of Healthcare Certificate Citation" width="52" height="52" style="width:52px; height:52px; object-fit:cover; border-radius:6px; border:1px solid var(--border); flex-shrink:0;">
-              <div>
-                <span style="font-size:10.5px; font-weight:700; color:var(--orange); text-transform:uppercase; display:block;">IMA Salem &amp; Medverse</span>
-                <strong style="font-size:13px; color:var(--ink); display:block; line-height:1.3;">Award Citation</strong>
-              </div>
-            </a>
-
-            <!-- Tile 4: Bengal E-Summit -->
-            <a href="assets/awards/bengal-e-summit-investopia-trophy.jpg" target="_blank" style="text-decoration:none; display:flex; align-items:center; gap:12px; padding:12px 14px; background:#fcfdfe; border:1px solid var(--border); border-radius:var(--radius-md); transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--orange)'" onmouseout="this.style.borderColor='var(--border)'">
-              <img src="assets/awards/bengal-e-summit-investopia-trophy.jpg" alt="Bengal E-Summit Trophy" width="52" height="52" style="width:52px; height:52px; object-fit:cover; border-radius:6px; border:1px solid var(--border); flex-shrink:0;">
-              <div>
-                <span style="font-size:10.5px; font-weight:700; color:var(--orange); text-transform:uppercase; display:block;">IEM Bengal E-Summit</span>
-                <strong style="font-size:13px; color:var(--ink); display:block; line-height:1.3;">1st Runner Up</strong>
-              </div>
-            </a>
+    <!-- SECTION 2C: RECOGNITION -->
+    <section class="recog">
+      <div class="container">
+        <div class="recog-head">
+          <div>
+            <span class="eyebrow">Recognised &amp; awarded</span>
+            <h2>Trusted by those who <em>judge</em> healthcare.</h2>
           </div>
+          <div class="hero-cta-group" style="margin:0">
+            <a href="certificate.pdf" target="_blank" rel="noopener" class="btn btn-secondary">DPIIT certificate <span class="arrow" aria-hidden="true">&nearr;</span></a>
+            <a href="about.html#awards" class="btn btn-primary">All honours <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
+        <div class="recog-grid">
+          <a class="recog-card" href="certificate.pdf" target="_blank" rel="noopener" data-cursor="View">
+            <div class="recog-media"><img src="assets/dpiit-recognition-certificate.jpg" alt="Reliv Medicare DPIIT Certificate of Recognition DIPP287544" loading="lazy" width="600" height="750"></div>
+            <div class="recog-meta"><small>Govt. of India &middot; DPIIT</small><b>Recognised startup</b></div>
+          </a>
+          <a class="recog-card" href="assets/awards/medverse-oscars-of-healthcare-trophy.jpg" target="_blank" rel="noopener" data-cursor="View">
+            <div class="recog-media"><img src="assets/awards/medverse-oscars-of-healthcare-trophy.jpg" alt="The Oscars of Healthcare trophy awarded to Reliv Medicare" loading="lazy" width="600" height="750"></div>
+            <div class="recog-meta"><small>Medverse 2026 &middot; Salem</small><b>MedTech Excellence</b></div>
+          </a>
+          <a class="recog-card" href="assets/awards/medverse-oscars-of-healthcare-certificate.jpg" target="_blank" rel="noopener" data-cursor="View">
+            <div class="recog-media"><img src="assets/awards/medverse-oscars-of-healthcare-certificate.jpg" alt="Medverse and IMA Salem award citation for Reliv Medicare" loading="lazy" width="600" height="750"></div>
+            <div class="recog-meta"><small>IMA Salem &amp; Medverse</small><b>Award citation</b></div>
+          </a>
+          <a class="recog-card" href="assets/awards/bengal-e-summit-investopia-trophy.jpg" target="_blank" rel="noopener" data-cursor="View">
+            <div class="recog-media"><img src="assets/awards/bengal-e-summit-investopia-trophy.jpg" alt="Bengal E-Summit 2026 Investopia 1st Runner Up trophy won by Reliv" loading="lazy" width="600" height="750"></div>
+            <div class="recog-meta"><small>IEM &middot; Bengal E-Summit</small><b>1st Runner Up</b></div>
+          </a>
         </div>
       </div>
     </section>
@@ -346,7 +379,7 @@
       <div class="container watch-grid">
         <div class="watch-info">
           <span class="eyebrow">WATCH · UNDER 2 MINUTES</span>
-          <h2 id="watchTitle">What is Reliv?</h2>
+          <h2 id="watchTitle">What is <em>Reliv</em>?</h2>
           <p class="body-lead">A quick animated explainer of the Reliv kiosk — what it checks, what it carries, and where you'll find one.</p>
           <ul class="watch-points">
             <li><span><strong>Instant health checks</strong> — blood pressure, SpO₂, temperature and body metrics in about 3 minutes.</span></li>
@@ -362,7 +395,7 @@
           </div>
         </div>
 
-        <div class="phone-stage">
+        <div class="phone-stage" data-cursor="Play">
           <div class="phone-glow" aria-hidden="true"></div>
           <div class="phone-frame">
             <div class="video-shell">
@@ -384,7 +417,7 @@
     <section class="how-section container">
       <div class="section-header">
         <span class="eyebrow">SIMPLE 3-STEP EXPERIENCE</span>
-        <h2>How it works</h2>
+        <h2>Three steps. <em>Zero</em> paperwork.</h2>
         <p class="body-secondary">Autonomous, non-invasive vital screening designed for everyone.</p>
       </div>
 
@@ -452,7 +485,7 @@
     <section id="find" class="find-section container">
       <div class="section-header">
         <span class="eyebrow">CURRENT LOCATION</span>
-        <h2>Find Reliv</h2>
+        <h2>Find a <em>Reliv</em> near you.</h2>
         <p class="body-secondary">Locate an active Smart Health Kiosk near you.</p>
       </div>
 
@@ -477,9 +510,9 @@
     <section class="org-cta-section">
       <div class="container org-cta-box">
         <span class="eyebrow">INSTITUTIONAL PARTNERSHIPS</span>
-        <h2>Bring Reliv to your campus, gym or workplace.</h2>
+        <h2>Bring Reliv to your <em>campus</em>, gym or workplace.</h2>
         <p class="body-secondary">Empower your students, employees, or members with autonomous 3-minute preventive health screening. Flexible purchase, monthly rental, and revenue-sharing options available.</p>
-        <a class="btn btn-primary btn-lg" href="organisations.html">For Organisations →</a>
+        <a class="btn btn-primary btn-lg" href="organisations.html">Partner with us <span class="arrow" aria-hidden="true">&rarr;</span></a>
       </div>
     </section>
   </main>
@@ -732,5 +765,6 @@
   </aside>
   <script src="nav.js" defer></script>
 
+  <script src="premium.js" defer></script>
 </body>
 </html>
