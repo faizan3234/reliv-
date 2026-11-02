@@ -230,6 +230,327 @@ h3 {
   width: 100%;
 }
 
+
+/* =========================================================
+   LEFT NAVIGATION BUTTON & SLIDE-OUT DRAWER
+   ========================================================= */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.left-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: var(--radius-full);
+  background: var(--bg-subtle, #f8f9fa);
+  border: 1.5px solid var(--border, #e5e7eb);
+  color: var(--ink, #111827);
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.left-nav-btn:hover {
+  background: #fff5ee;
+  border-color: var(--orange, #cf420a);
+  color: var(--orange, #cf420a);
+  box-shadow: 0 2px 10px rgba(207, 66, 10, 0.12);
+  transform: translateY(-1px);
+}
+.left-nav-btn:active {
+  transform: translateY(0);
+}
+
+/* 3-dots icon */
+.three-dots-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5px;
+  width: 14px;
+  height: 18px;
+}
+.three-dots-icon .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: currentColor;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.left-nav-btn:hover .three-dots-icon .dot:nth-child(2) {
+  transform: scale(1.35);
+}
+
+/* Floating Left Navigation Button for Desktop */
+.floating-left-nav {
+  position: fixed;
+  left: 20px;
+  bottom: 24px;
+  z-index: 95;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 16px;
+  border-radius: var(--radius-full);
+  background: rgba(17, 24, 39, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.floating-left-nav:hover {
+  background: #111827;
+  border-color: var(--orange, #cf420a);
+  color: #fed7aa;
+  box-shadow: 0 10px 28px rgba(207, 66, 10, 0.28);
+  transform: translateY(-2px);
+}
+.floating-left-nav .three-dots-icon .dot {
+  background-color: currentColor;
+}
+
+/* Drawer Backdrop */
+.nav-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.52);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.nav-drawer-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Drawer Sidebar */
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(350px, 88vw);
+  background: #ffffff;
+  z-index: 1001;
+  box-shadow: 12px 0 36px rgba(0, 0, 0, 0.16);
+  transform: translateX(-100%);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  overflow: hidden;
+}
+.nav-drawer.is-open {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Drawer Header */
+.nav-drawer-header {
+  height: 72px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  background: #ffffff;
+  flex-shrink: 0;
+}
+.drawer-brand img {
+  width: 104px;
+  height: auto;
+  display: block;
+}
+.nav-drawer-close {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  background: var(--bg-subtle, #f8f9fa);
+  color: var(--ink-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.nav-drawer-close:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #dc2626;
+  transform: rotate(90deg);
+}
+
+/* Drawer Body */
+.nav-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 18px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.drawer-section {
+  margin-bottom: 24px;
+}
+.drawer-section-title {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  padding-left: 8px;
+}
+
+.drawer-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.drawer-link:hover, .drawer-link.active {
+  background: #fff5ee;
+  color: var(--orange);
+}
+.drawer-link-icon {
+  font-size: 18px;
+  line-height: 1;
+  width: 22px;
+  text-align: center;
+}
+.drawer-tag {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  background: #f1f5f9;
+  color: var(--ink-secondary);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+.drawer-tag-gold {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #92400e;
+  border: 1px solid #f59e0b;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+
+/* Drawer Quick Contacts */
+.drawer-quick-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.drawer-contact-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  background: #fcfdfe;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.drawer-contact-card:hover {
+  border-color: var(--orange);
+  background: #fffaf5;
+  transform: translateY(-1px);
+}
+.drawer-contact-card.whatsapp:hover {
+  border-color: #25d366;
+  background: #f0fdf4;
+}
+.drawer-contact-card .contact-icon {
+  font-size: 20px;
+}
+.drawer-contact-card .contact-details {
+  display: flex;
+  flex-direction: column;
+}
+.drawer-contact-card .contact-details strong {
+  font-size: 13px;
+  color: var(--ink);
+}
+.drawer-contact-card .contact-details span {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+/* Drawer Accreditation */
+.drawer-accreditation {
+  padding: 12px 14px;
+  background: #fffdfa;
+  border: 1px solid #fde68a;
+  border-radius: var(--radius-md);
+}
+.drawer-acc-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.drawer-acc-badge span {
+  font-size: 20px;
+}
+.drawer-acc-badge strong {
+  display: block;
+  font-size: 12px;
+  color: #92400e;
+}
+.drawer-acc-badge span:last-child {
+  display: block;
+  font-size: 10.5px;
+  color: var(--muted);
+}
+
+/* Drawer Footer */
+.nav-drawer-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  background: #ffffff;
+  flex-shrink: 0;
+}
+
 /* Header & Top Navigation */
 header {
   height: 74px;
@@ -326,6 +647,21 @@ nav.main-nav a:hover, nav.main-nav a.active {
     height: 64px;
     padding: 0 16px;
   }
+  .header-left {
+    gap: 8px;
+  }
+  .left-nav-btn {
+    height: 36px;
+    padding: 0 10px;
+    gap: 6px;
+  }
+  .left-nav-label {
+    font-size: 12px;
+  }
+  .floating-left-nav {
+    display: none;
+  }
+
   .brand img {
     width: 95px;
   }
