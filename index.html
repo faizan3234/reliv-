@@ -307,104 +307,11 @@
     </section>
 
     <!-- SECTION 2A: SCROLLYTELLING — WHAT RELIV CHECKS -->
-        <!-- SECTION: SIGNATURE SENSOR EXPLORER (Lando Norris style) -->
-    <section id="sensors" class="sensor-explorer-section container" aria-labelledby="sensorsTitle">
-      <div class="section-header" style="text-align: center; margin: 0 auto clamp(36px, 5vw, 64px);">
-        <span class="eyebrow">SIGNATURE HARDWARE ARCHITECTURE · 5 SENSORS</span>
-        <h2 id="sensorsTitle">The Kiosk. <em>Engineered</em> for three minutes.</h2>
-        <p class="body-lead" style="max-width: 680px; margin: 0 auto;">
-          The authentic Reliv physical checkup station. Tap any sensor hotspot or chapter to inspect the physical hardware component and its synchronized touchscreen measurement interface.
-        </p>
-      </div>
-
-      <div class="sensor-explorer-grid">
-        <!-- Left: Physical Kiosk Stage with Synchronized HUD & Hotspots -->
-        <div class="sensor-stage-box" id="sensorStageBox">
-          <!-- Synchronized Screen HUD -->
-          <div class="sensor-screen-hud" id="sensorScreenHud" title="Synchronized Kiosk Touchscreen">
-            <img id="kioskScreenImg" src="assets/screens/actual-1.png" alt="Reliv synchronized measurement screen" width="220" height="124">
-            <span class="sensor-screen-badge" id="sensorScreenBadge">Synchronized Screen</span>
-          </div>
-
-          <div class="sensor-kiosk-wrapper" id="sensorKioskWrapper">
-            <img class="sensor-kiosk-img" src="assets/reliv-health-kiosk-transparent.png" alt="Reliv Health Kiosk physical hardware station" width="380" height="520">
-            <!-- 5 Physical Hotspot Targets -->
-            <button class="sensor-hotspot hotspot-height active" data-sensor="0" aria-label="Height and Weight sensor hotspot" title="Height &amp; Weight Sensor"></button>
-            <button class="sensor-hotspot hotspot-bp" data-sensor="1" aria-label="Blood Pressure wrist cuff hotspot" title="Blood Pressure Cuff"></button>
-            <button class="sensor-hotspot hotspot-spo2" data-sensor="2" aria-label="SpO2 and Pulse sensor hotspot" title="SpO2 &amp; Pulse Sensor"></button>
-            <button class="sensor-hotspot hotspot-eyes" data-sensor="3" aria-label="Snellen eye chart LCD hotspot" title="Snellen Eye Chart"></button>
-            <button class="sensor-hotspot hotspot-temp" data-sensor="4" aria-label="Infrared thermometer hotspot" title="Forehead Thermometer"></button>
-          </div>
-        </div>
-
-        <!-- Right: Sensor Chapter Controller & Data Panel -->
-        <div class="sensor-controls-panel">
-          <span class="sensor-chapter-counter" id="sensorChapterCounter">Chapter 01 / 05</span>
-          
-          <div class="sensor-tabs-list" role="tablist" aria-label="Kiosk Sensors">
-            <button class="sensor-tab-btn active" role="tab" data-sensor="0" aria-selected="true">
-              <div>
-                <strong>01 &middot; Height &amp; Body Composition</strong>
-                <span>Overhead ultrasonic sensor &amp; platform scale</span>
-              </div>
-              <span class="arrow">&rarr;</span>
-            </button>
-            <button class="sensor-tab-btn" role="tab" data-sensor="1" aria-selected="false">
-              <div>
-                <strong>02 &middot; Blood Pressure &amp; Pulse</strong>
-                <span>Automated wrist cuff hanging on side hook</span>
-              </div>
-              <span class="arrow">&rarr;</span>
-            </button>
-            <button class="sensor-tab-btn" role="tab" data-sensor="2" aria-selected="false">
-              <div>
-                <strong>03 &middot; Blood Oxygen (SpO₂)</strong>
-                <span>Optical fingertip sensor on front console</span>
-              </div>
-              <span class="arrow">&rarr;</span>
-            </button>
-            <button class="sensor-tab-btn" role="tab" data-sensor="3" aria-selected="false">
-              <div>
-                <strong>04 &middot; Snellen Eye Checkup</strong>
-                <span>Digital visual acuity test on LCD touchscreen</span>
-              </div>
-              <span class="arrow">&rarr;</span>
-            </button>
-            <button class="sensor-tab-btn" role="tab" data-sensor="4" aria-selected="false">
-              <div>
-                <strong>05 &middot; Contactless Temperature</strong>
-                <span>Medical-grade infrared sensor upper right</span>
-              </div>
-              <span class="arrow">&rarr;</span>
-            </button>
-          </div>
-
-          <!-- Dynamic Sensor Detail Card -->
-          <div class="sensor-detail-card" id="sensorDetailCard">
-            <div class="sensor-detail-header">
-              <h3 id="sensorDetailTitle">Height &amp; Body Composition</h3>
-              <span class="sensor-metric-badge" id="sensorMetricBadge">BMI &middot; Weight</span>
-            </div>
-            <p id="sensorDetailDesc">
-              Stand tall on the scale base. Overhead ultrasonic sensors measure precise height while the platform scale captures weight and automatically computes Body Mass Index (BMI).
-            </p>
-            <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
-              <button class="sensor-lock-btn" id="sensorLockBtn" type="button">
-                <span>🔒 Tap to lock focus</span>
-              </button>
-              <a href="simulator.html" class="btn btn-secondary" style="font-size: 13px; min-height: 38px; padding: 0 16px;">
-                Try in Simulator &rarr;
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- SECTION: TWO-WORLD EDITORIAL SPLIT ("On Track / Off Track" style) -->
     <section class="two-worlds-section container" aria-label="Two Healthcare Pathways">
       <div class="two-worlds-grid">
-        <a class="world-card world-card-checkup" href="#sensors">
+        <a class="world-card world-card-checkup" href="#vitals">
           <div>
             <span class="world-tag">WORLD 01 &middot; DIAGNOSTIC SCREENING</span>
             <h2 class="world-title">HEALTH<br><em>CHECKUP.</em></h2>
@@ -413,7 +320,7 @@
             </p>
           </div>
           <div class="world-cta-row">
-            <span>Explore 5 Sensors</span>
+            <span>Explore Vitals</span>
             <div class="world-cta-circle">&darr;</div>
           </div>
         </a>

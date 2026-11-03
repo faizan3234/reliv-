@@ -39,7 +39,7 @@
 
     const previewMap = {
       'index.html': { src: 'assets/reliv-health-kiosk-kolkata.jpg', title: 'Reliv Smart Health Kiosk', meta: 'First Official Station · Kolkata, India' },
-      '#sensors': { src: 'assets/reliv-health-kiosk-transparent.png', title: '5-Sensor Kiosk Architecture', meta: 'Height · BP · SpO₂ · Eyes · Temp' },
+      '#vitals': { src: 'assets/reliv-health-kiosk-transparent.png', title: '5-Sensor Kiosk Architecture', meta: 'Height · BP · SpO₂ · Eyes · Temp' },
       'about.html': { src: 'assets/about-reliv-ecosystem.jpg', title: 'Reliv Preventive Health Ecosystem', meta: 'DPIIT Recognised Startup · DIPP287544' },
       'how-it-works.html': { src: 'assets/videos/reliv-explainer-poster.jpg', title: 'How Reliv Works (Explainer Film)', meta: 'Autonomous 3-Minute Screening Guide' },
       'locations.html': { src: 'assets/reliv-smart-health-atm-india.jpg', title: 'Live Kiosk Locations', meta: 'IEM Gurukul Campus, Salt Lake Sector V' },
