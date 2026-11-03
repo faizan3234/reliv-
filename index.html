@@ -216,8 +216,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="premium.css">
+  <link rel="stylesheet" href="experience.css">
 </head>
-<body>
+<body class="reliv-home">
+  <a class="r-skip" href="#metrics">Skip to health parameters</a>
 
   <!-- Top Desktop Header -->
   <header>
@@ -244,47 +246,98 @@
     </nav>
 
     <div class="nav-actions">
+      <label class="r-language"><span class="r-sr">Website language</span><select id="siteLanguage" aria-label="Website language"></select></label>
       <a class="btn btn-primary" href="#app">Get the App</a>
     </div>
   </header>
 
   <main>
-    <!-- SECTION 1: IMMERSIVE HERO -->
-    <section class="hx" aria-labelledby="heroTitle">
-      <div class="hx-glow" aria-hidden="true"><span class="g1"></span><span class="g2"></span></div>
-      <div class="container hx-inner">
-        <div class="hx-copy">
-          <span class="hx-tag"><span class="live" aria-hidden="true"></span>Live in Kolkata &middot; DPIIT Recognised</span>
-          <h1 id="heroTitle" class="hx-title">Your health, <em>clearer</em> in three minutes.</h1>
-          <p class="hx-lead">Blood pressure, SpO&#8322;, temperature and body metrics &mdash; measured by a self-service kiosk, with an instant digital summary on your phone.</p>
-          <div class="hero-cta-group">
-            <a class="btn btn-primary btn-lg" href="#watch" data-play-target="#explainerVideo" id="heroWatchBtn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-              Watch the film
-            </a>
-            <a class="btn btn-secondary btn-lg" href="#find">Find a kiosk <span class="arrow" aria-hidden="true">&rarr;</span></a>
-          </div>
-          <div class="hx-scroll" aria-hidden="true"><span></span>Scroll to explore</div>
+    <!-- SECTION 1: IMMERSIVE EDITORIAL HERO (Lando Norris style) -->
+    <section class="r-hero" aria-labelledby="heroTitle">
+      <div class="r-hero-top">
+        <span>A LITTLE MOMENT. A BIGGER PICTURE.</span>
+        <span>RELIV / 01</span>
+      </div>
+      <h1 id="heroTitle">
+        <span data-i18n="hello">Hello,</span><br>
+        <em data-i18n="health">healthier you.</em>
+      </h1>
+      <div class="r-orbit" aria-hidden="true"></div>
+      <div class="r-product">
+        <img src="assets/reliv-health-kiosk-transparent.png" width="640" height="1280" fetchpriority="high" alt="Orange and white Reliv health screening kiosk station">
+      </div>
+      <span class="r-float r-one">FFMI ↗</span>
+      <span class="r-float r-two" data-i18n="water">Body water</span>
+      <span class="r-float r-three" data-i18n="age">Metabolic age</span>
+      <div class="r-hero-bottom">
+        <p data-i18n="intro">Step in. Check in with yourself. Discover your vitals, body composition and wellness insights in one connected experience.</p>
+        <div class="r-actions">
+          <a class="r-pill" href="#metrics" data-i18n="explore">Explore your health ↗</a>
+          <a class="r-link" href="#watch" data-i18n="film">Watch the film ↗</a>
         </div>
-
-        <div class="hx-stage">
-          <div class="hx-ring" aria-hidden="true"></div>
-          <div class="hx-disc" aria-hidden="true" data-parallax="0.06"></div>
-          <img class="hx-kiosk" data-parallax="-0.05" src="assets/reliv-health-kiosk-transparent.png" alt="Reliv Smart Health Kiosk — Reliv Medicare health checkup station in Kolkata, India" title="Reliv Medicare Smart Health Kiosk — First Official Station Kolkata" width="640" height="1280" fetchpriority="high">
-          <div class="hx-chip c1" aria-hidden="true"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/><path d="M3.5 12h4l2-3 3 6 2-3h6"/></svg></i><div><small>Blood pressure</small><b>118/76</b></div></div>
-          <div class="hx-chip c2" aria-hidden="true"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s6 6.3 6 11.3a6 6 0 0 1-12 0c0-5 6-11.3 6-11.3z"/></svg></i><div><small>SpO&#8322;</small><b>98%</b></div></div>
-          <div class="hx-chip c3" aria-hidden="true"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><div><small>Full check</small><b>3:00 min</b></div></div>
-        </div>
+        <span class="r-scroll" aria-hidden="true">SCROLL TO FEEL BETTER &darr;</span>
       </div>
     </section>
 
-    <!-- MARQUEE -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <div class="marquee-group"><span class="marquee-item ">Blood pressure</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">SpO&#8322;</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item ">Heart rate</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">Temperature</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item ">Height &amp; BMI</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">Eye test</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item ">Instant report</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">English &middot; हिंदी &middot; বাংলা</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg></div>
-        <div class="marquee-group"><span class="marquee-item ">Blood pressure</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">SpO&#8322;</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item ">Heart rate</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">Temperature</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item ">Height &amp; BMI</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">Eye test</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item ">Instant report</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg><span class="marquee-item alt">English &middot; हिंदी &middot; বাংলা</span><svg class="marquee-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.6 5.4 11.4 12 12-6.6.6-11.4 5.4-12 12-.6-6.6-5.4-11.4-12-12C6.6 11.4 11.4 6.6 12 0z"/></svg></div>
+    <!-- SECTION 2: 102+ PARAMETERS MARQUEE BAND -->
+    <section class="r-band" aria-label="Health parameters">
+      <div class="r-band-track">
+        <div>102+ parameters &amp; insights <i>✳</i> FFMI <i>✳</i> Body water <i>✳</i> Water volume <i>✳</i> Metabolic age <i>✳</i> Heart rate <i>✳</i> SpO₂ <i>✳</i> Temperature <i>✳</i></div>
+        <div aria-hidden="true">102+ parameters &amp; insights <i>✳</i> FFMI <i>✳</i> Body water <i>✳</i> Water volume <i>✳</i> Metabolic age <i>✳</i> Heart rate <i>✳</i> SpO₂ <i>✳</i> Temperature <i>✳</i></div>
       </div>
-    </div>
+      <button class="r-motion" type="button" aria-pressed="false">Pause motion</button>
+    </section>
+
+    <!-- SECTION 3: EDITORIAL INTRO — BEYOND THE BASICS -->
+    <section class="r-intro container" id="metrics" aria-labelledby="metricsTitle">
+      <div>
+        <span class="eyebrow">BEYOND THE BASICS</span>
+        <h2 id="metricsTitle" data-no-split>
+          <span data-i18n="picture">A fuller picture.</span><br>
+          <em data-i18n="you">All about you.</em>
+        </h2>
+      </div>
+      <div>
+        <p class="body-lead">102+ parameters and insights across vital signs, body composition and calculated wellness indicators.</p>
+        <p class="r-note">Available outputs depend on the kiosk configuration. Body composition and metabolic indicators include estimates; they are not 102 separate sensor tests.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 4: INTERACTIVE 102+ PARAMETERS EXPLORER -->
+    <section class="r-explorer container" aria-label="Explore health parameters">
+      <div class="r-categories" role="group" aria-label="Parameter categories">
+        <button type="button" data-group="body" aria-pressed="true" data-i18n="body">Body composition</button>
+        <button type="button" data-group="vitals" aria-pressed="false" data-i18n="vitals">Vital signs</button>
+        <button type="button" data-group="insights" aria-pressed="false" data-i18n="insights">Wellness insights</button>
+      </div>
+      <div class="r-metric-layout">
+        <div id="metricChoices" class="r-metric-choices"></div>
+        <article class="r-metric-detail" aria-live="polite">
+          <span id="metricKind" class="eyebrow">Calculated index</span>
+          <h3 id="metricName">FFMI</h3>
+          <div class="r-signal" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <p id="metricDescription">Fat-free mass index relates estimated fat-free mass to height, adding context beyond body weight alone.</p>
+          <a href="simulator.html" class="r-link" data-i18n="sample">Explore a sample report ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 5: 10-SECOND CINEMATIC KIOSK FILM -->
+    <section class="r-cinema container" aria-label="Reliv kiosk film">
+      <div>
+        <span class="eyebrow">MEET YOUR EVERYDAY HEALTH COMPANION</span>
+        <h2 data-i18n="care" data-no-split>Care that fits into life.</h2>
+        <a href="#vitals" class="r-pill" data-i18n="tour">Take a closer look ↗</a>
+      </div>
+      <div class="r-film-wrap">
+        <video id="introFilm" muted loop playsinline preload="none" poster="assets/demo-poster.jpg" aria-label="Reliv kiosk demonstration">
+          <source data-src="assets/reliv-intro.mp4" type="video/mp4">
+        </video>
+        <button id="introFilmToggle" type="button" class="r-film-toggle">Play film</button>
+      </div>
+    </section>
 
     <!-- SECTION 2: PROOF -->
     <section class="proof-section">
@@ -299,8 +352,8 @@
             <span>Measured &amp; derived metrics</span>
           </div>
           <div class="proof-item">
-            <strong><span data-count="3">3</span><span class="unit">languages</span></strong>
-            <span>English &middot; हिंदी &middot; বাংলা</span>
+            <strong><span data-count="12">12</span><span class="unit">languages</span></strong>
+            <span>Pan-India Voice &amp; UI</span>
           </div>
         </div>
       </div>
@@ -314,7 +367,7 @@
         <a class="world-card world-card-checkup" href="#vitals">
           <div>
             <span class="world-tag">WORLD 01 &middot; DIAGNOSTIC SCREENING</span>
-            <h2 class="world-title">HEALTH<br><em>CHECKUP.</em></h2>
+            <h2 class="world-title" data-no-split>HEALTH<br><em>CHECKUP.</em></h2>
             <p class="world-desc">
               Autonomous 3-minute vital screening: Blood pressure, oxygen saturation, temperature, BMI, and vision acuity with instant multilingual voice guidance.
             </p>
@@ -328,7 +381,7 @@
         <a class="world-card world-card-essentials" href="how-it-works.html#explainer">
           <div>
             <span class="world-tag">WORLD 02 &middot; AUTOMATED WELLNESS</span>
-            <h2 class="world-title">HEALTH<br><em>ESSENTIALS.</em></h2>
+            <h2 class="world-title" data-no-split>HEALTH<br><em>ESSENTIALS.</em></h2>
             <p class="world-desc">
               24/7 automated medicine &amp; health kit dispensing: First-Aid kits, women's wellness essentials, and emergency hygiene packs for campuses and workplaces.
             </p>
@@ -799,6 +852,7 @@
   </aside>
   <script src="nav.js" defer></script>
 
+  <script src="experience.js" defer></script>
   <script src="premium.js" defer></script>
 </body>
 </html>

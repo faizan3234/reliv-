@@ -1,10 +1,14 @@
-const CACHE_NAME = 'reliv-cache-v2';
+const CACHE_NAME = 'reliv-cache-v3';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/how-it-works.html',
   '/simulator.html',
   '/style.css',
+  '/premium.css',
+  '/premium.js',
+  '/experience.css',
+  '/experience.js',
   '/app.js',
   '/videos.js',
   '/kiosk.js',

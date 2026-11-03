@@ -28,6 +28,7 @@ $$('[data-category]').forEach((b,i,all)=>{b.onclick=()=>{category=b.dataset.cate
 const rm=$('#readMetric'); if(rm) rm.onclick=()=>{const m=metrics[category][selected];speak(`${m[0]}. ${m[1]} ${m[2]}. ${m[3]} ${m[4]}`)};
 renderReport();
 const video=$('#demoVideo'); if(video) { video.muted=true;function playAt(time){if('speechSynthesis'in window)speechSynthesis.cancel();video.currentTime=time;video.play().catch(()=>{});video.scrollIntoView({block:'center',behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})}$('#playDemo').onclick=()=>playAt(video.currentTime);$$('[data-time]').forEach(b=>b.onclick=()=>playAt(+b.dataset.time));video.addEventListener('play',()=>{if('speechSynthesis'in window)speechSynthesis.cancel()});document.addEventListener('visibilitychange',()=>{if(document.hidden){video.pause();if('speechSynthesis'in window)speechSynthesis.cancel()}});
+}
 // A bounded image cache keeps decoded frames from accumulating on phones.
 const canvas=$('#sequence'); let ctx, track, stage; let reduced=matchMedia('(prefers-reduced-motion: reduce)'); if(canvas) { ctx=canvas.getContext('2d'); track=$('#film'); stage=$('.film-stage'); } let frameCount=289,target=0,drawn=-1,active=false,running=0;const cache=new Map(),pending=new Set(),blobs=new Map(),failed=new Set();let warmed=false;const chapters=[['Meet your health kiosk.','Scroll to explore the checks, one at a time.'],['Everyday health numbers.','Blood pressure and oxygen saturation.'],['A moment for your temperature.','Follow the guidance at the kiosk.'],['Your body, in perspective.','Height, weight and calculated metrics.'],['Your readings, together.','Explore the available measurements and estimates.'],['A clearer picture of you.','Continue below to try a sample checkup.']];
 function draw(i){const img=cache.get(i);if(!img||!ctx)return;const box=canvas.getBoundingClientRect(),ratio=Math.min(devicePixelRatio||1,1.5);if(!box.width||!box.height)return;const w=Math.round(box.width*ratio),h=Math.round(box.height*ratio);if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h}ctx.clearRect(0,0,w,h);const scale=Math.min(w/img.width,h/img.height);ctx.drawImage(img,(w-img.width*scale)/2,(h-img.height*scale)/2,img.width*scale,img.height*scale);drawn=i;$('#filmFallback').style.visibility='hidden'}
@@ -124,5 +125,3 @@ let scheduled=false;function requestUpdate(){if(!track)return;if(scheduled)retur
     });
   }
 })();
-
-}
