@@ -387,6 +387,124 @@
     f.appendChild(m);
   }
 
+  
+  /* ---------- 14. Signature Sensor Explorer (Lando Norris style) ---------- */
+  function initSensorExplorer() {
+    var stage = document.getElementById('sensorStageBox');
+    if (!stage) return;
+
+    var kioskWrapper = document.getElementById('sensorKioskWrapper');
+    var screenImg = document.getElementById('kioskScreenImg');
+    var chapterCounter = document.getElementById('sensorChapterCounter');
+    var detailTitle = document.getElementById('sensorDetailTitle');
+    var metricBadge = document.getElementById('sensorMetricBadge');
+    var detailDesc = document.getElementById('sensorDetailDesc');
+    var lockBtn = document.getElementById('sensorLockBtn');
+
+    var hotspots = Array.prototype.slice.call(stage.querySelectorAll('.sensor-hotspot'));
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.sensor-tab-btn'));
+
+    var sensorsData = [
+      {
+        id: 0,
+        title: "Height & Body Composition",
+        metric: "BMI · Body Weight",
+        desc: "Stand tall on the scale base. Overhead ultrasonic sensors measure precise height while the platform scale captures weight and computes Body Mass Index (BMI).",
+        screen: "assets/screens/actual-1.png",
+        transform: "scale(1.08) translateY(24px)"
+      },
+      {
+        id: 1,
+        title: "Blood Pressure & Pulse",
+        metric: "118/76 mmHg · 72 BPM",
+        desc: "Rest your arm in the automated cuff hanging on the side hook. Guided voice assistance inflates the cuff to measure Systolic & Diastolic pressure safely in 45 seconds.",
+        screen: "assets/screens/actual-2.png",
+        transform: "scale(1.15) translate(40px, -20px)"
+      },
+      {
+        id: 2,
+        title: "Blood Oxygen (SpO₂)",
+        metric: "98% Saturation",
+        desc: "Insert your index finger into the optical pulse oximeter on the front console. Dual-wavelength infrared light measures arterial blood oxygenation in seconds.",
+        screen: "assets/screens/actual-3.png",
+        transform: "scale(1.15) translate(-40px, -40px)"
+      },
+      {
+        id: 3,
+        title: "Snellen Eye Checkup",
+        metric: "6/6 Visual Acuity",
+        desc: "Stand at the marked floor footprint. The high-contrast touchscreen displays interactive directional Snellen optotypes to evaluate vision acuity.",
+        screen: "assets/screens/actual-4.png",
+        transform: "scale(1.12) translateY(-20px)"
+      },
+      {
+        id: 4,
+        title: "Contactless Temperature",
+        metric: "36.7 °C Normal",
+        desc: "Align your forehead with the medical-grade infrared sensor on the upper right canopy. Provides instant calibrated surface temperature without skin contact.",
+        screen: "assets/screens/actual-5.png",
+        transform: "scale(1.15) translate(-30px, 10px)"
+      }
+    ];
+
+    var isLocked = false;
+
+    function activateSensor(index) {
+      var data = sensorsData[index];
+      if (!data) return;
+
+      if (chapterCounter) chapterCounter.textContent = "Chapter 0" + (index + 1) + " / 05";
+      if (detailTitle) detailTitle.textContent = data.title;
+      if (metricBadge) metricBadge.textContent = data.metric;
+      if (detailDesc) detailDesc.textContent = data.desc;
+
+      if (screenImg) {
+        screenImg.style.opacity = '0.3';
+        setTimeout(function() {
+          screenImg.src = data.screen;
+          screenImg.style.opacity = '1';
+        }, 120);
+      }
+
+      if (kioskWrapper && !reduced) {
+        kioskWrapper.style.transform = isLocked ? data.transform : data.transform;
+      }
+
+      hotspots.forEach(function(h) {
+        h.classList.toggle('active', parseInt(h.getAttribute('data-sensor')) === index);
+      });
+      tabs.forEach(function(t) {
+        var active = parseInt(t.getAttribute('data-sensor')) === index;
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    }
+
+    hotspots.forEach(function(h) {
+      h.addEventListener('click', function() {
+        var idx = parseInt(h.getAttribute('data-sensor'));
+        activateSensor(idx);
+      });
+    });
+
+    tabs.forEach(function(t) {
+      t.addEventListener('click', function() {
+        var idx = parseInt(t.getAttribute('data-sensor'));
+        activateSensor(idx);
+      });
+    });
+
+    if (lockBtn) {
+      lockBtn.addEventListener('click', function() {
+        isLocked = !isLocked;
+        lockBtn.innerHTML = isLocked ? '<span>🔓 Back to overview</span>' : '<span>🔒 Tap to lock focus</span>';
+        if (!isLocked && kioskWrapper) {
+          kioskWrapper.style.transform = '';
+        }
+      });
+    }
+  }
+
   /* ---------- 13. Scrollytelling: what Reliv checks ---------- */
   function initVitals() {
     var sec = $('.vitals');
@@ -440,6 +558,7 @@
     initProgress();
     initCounters();
     initVitals();
+    initSensorExplorer();
     initTransitions();
     initCursor();
     initMagnetic();
