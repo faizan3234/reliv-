@@ -217,6 +217,10 @@ a {
   box-shadow: 0 0 6px rgba(226, 90, 12, 0.6);
 }
 
+.back-text-mobile {
+  display: none;
+}
+
 .back-link {
   font-size: 12px;
   font-weight: 700;
@@ -1429,23 +1433,30 @@ a {
   white-space: nowrap;
 }
 
+.stop,
+.outro,
+.intro-hero {
+  scroll-margin-top: 80px;
+}
+
 /* =====================================================================
    RESPONSIVE DESIGN
    ===================================================================== */
 @media (max-width: 920px) {
   .topbar-inner {
-    padding: 0 20px;
+    padding: 0 16px;
   }
-  .brand-subtitle {
-    display: none;
+  .brand-subtitle,
+  .brand-divider {
+    display: none !important;
   }
   .stop {
-    padding: 28px 18px;
+    padding: 24px 16px;
   }
   .stop-card {
     grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 24px;
+    gap: 20px;
+    padding: 20px;
   }
   .stop-copy {
     align-items: center;
@@ -1458,36 +1469,67 @@ a {
     justify-content: center;
   }
   .stop-title {
-    font-size: clamp(28px, 6vw, 38px);
+    font-size: clamp(26px, 6vw, 36px);
   }
   .stop-lead {
-    margin: 0 auto 20px;
+    margin: 0 auto 16px;
   }
 }
 
 @media (max-width: 720px) {
   .topbar {
-    height: 64px;
+    height: 60px;
+  }
+  .topbar-inner {
+    padding: 0 12px;
+    gap: 6px;
+  }
+  .brand img {
+    width: 76px;
+    height: auto;
+  }
+  .route-switcher {
+    padding: 2px;
+    gap: 2px;
   }
   .route-pill {
-    padding: 6px 12px;
-    font-size: 11.5px;
+    padding: 5px 8px;
+    font-size: 10.5px;
+    min-height: 28px;
   }
-  .back-link span:first-child {
-    display: none;
+  .back-link {
+    padding: 5px 10px;
+    font-size: 11px;
+    border-radius: 100px;
+    background: rgba(243, 108, 33, 0.08);
+    border: 1px solid rgba(243, 108, 33, 0.22);
+    color: var(--brand-orange);
+    font-weight: 700;
+    gap: 4px;
+    white-space: nowrap;
+  }
+  .back-text-desktop {
+    display: none !important;
+  }
+  .back-text-mobile {
+    display: inline-block !important;
   }
   .intro-hero {
-    padding: 110px 20px 40px;
+    padding: 95px 16px 36px;
   }
   .intro-title {
-    font-size: clamp(38px, 10vw, 56px);
+    font-size: clamp(34px, 9vw, 48px);
+  }
+  .intro-lead {
+    font-size: 15px;
+    margin-bottom: 24px;
   }
   .stop-card {
     border-radius: 20px;
-    padding: 16px;
+    padding: 18px 14px;
   }
   .stop-media {
-    min-height: 220px;
+    min-height: 200px;
     aspect-ratio: 16 / 11;
   }
   .campus-options-bar {
@@ -1497,34 +1539,99 @@ a {
   }
   .campus-btn {
     min-height: 34px;
-    padding: 6px 12px;
+    padding: 6px 10px;
     font-size: 11px;
   }
   .runway {
-    height: clamp(140px, 20vh, 180px);
+    height: clamp(120px, 18vh, 160px);
   }
   .traveler {
-    width: clamp(85px, 22vw, 110px) !important;
+    width: clamp(75px, 20vw, 95px) !important;
     z-index: 1 !important;
     pointer-events: none !important;
   }
+  .traveler-card {
+    border-radius: 14px;
+    padding: 4px;
+  }
   .traveler-img {
-    max-height: 120px !important;
+    max-height: 90px !important;
   }
   .traveler-badge {
-    font-size: 8.5px;
-    padding: 3px 8px;
-    margin-top: 6px;
+    font-size: 8px;
+    padding: 2px 7px;
+    margin-top: 5px;
   }
   .progress-rail {
     display: none;
   }
   .mode-indicator {
-    bottom: 14px;
-    left: 14px;
-    right: 14px;
-    max-width: none;
-    font-size: 11px;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    margin: 0 auto;
+    width: fit-content;
+    max-width: calc(100vw - 24px);
+    font-size: 10.5px;
+    padding: 7px 14px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 18px rgba(67, 39, 22, 0.15);
+  }
+
+  /* Outro Mobile Polish */
+  .outro {
+    padding-top: 50px;
+    padding-bottom: 120px;
+  }
+  .outro-title {
+    font-size: clamp(32px, 8.5vw, 44px);
+  }
+  .outro-lead {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+  .outro-app-box {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 14px;
+    gap: 18px;
+    max-width: 100%;
+  }
+  .outro-app-info {
+    order: 1;
+    width: 100%;
+    text-align: center;
+  }
+  .outro-download-grid {
+    width: 100%;
+    gap: 10px;
+  }
+  .platform-chip.direct-chip {
+    padding: 10px 14px;
+    min-height: 48px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .direct-chip-text {
+    text-align: left;
+    flex: 1;
+  }
+  .outro-qr-col {
+    order: 2;
+    width: 100%;
+    padding-top: 14px;
+    border-top: 1px dashed var(--thin-line);
+  }
+  .outro-actions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .outro-actions .btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
   }
 }
 

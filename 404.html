@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+  <meta name="theme-color" content="#FFF9F4"/>
+  <meta name="color-scheme" content="light"/>
+  <title>404 — Route Unresolved · Reliv Smart Health Kiosk</title>
+  <meta name="description" content="The page or station you are looking for has moved or does not exist. Explore the Reliv health journey or find an active screening station."/>
+  <link rel="icon" type="image/svg+xml" href="icons/reliv-icon.svg"/>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="premium.css"/>
+
+  <style>
+    :root {
+      --orange: #F36C21;
+      --burnt-orange: #B64417;
+      --cream: #FFF9F4;
+      --ink: #181B20;
+      --muted: #6C7179;
+      --border: #EAE2D9;
+      --radius-card: 20px;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--ink);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Warm Glow */
+    .r-ambient-glow {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: clamp(340px, 70vw, 860px);
+      height: 480px;
+      background: radial-gradient(circle, rgba(243, 108, 33, 0.12) 0%, rgba(255, 249, 244, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* 404 Hero Container */
+    .error-hero-section {
+      position: relative;
+      z-index: 1;
+      padding: clamp(90px, 12vw, 130px) 20px 60px;
+      max-width: 980px;
+      margin: 0 auto;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Diagnostic Telemetry Badge */
+    .diagnostic-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: #FFFFFF;
+      border: 1px solid rgba(243, 108, 33, 0.28);
+      box-shadow: 0 2px 10px rgba(243, 108, 33, 0.08);
+      font-family: 'Manrope', monospace, sans-serif;
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 22px;
+    }
+
+    .diagnostic-pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 8px rgba(243, 108, 33, 0.7);
+      animation: diagPulse 1.8s infinite ease-in-out;
+    }
+
+    @keyframes diagPulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.5; }
+    }
+
+    /* Big Editorial 404 Display */
+    .error-code-watermark {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(84px, 18vw, 150px);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: rgba(243, 108, 33, 0.12);
+      user-select: none;
+      margin-bottom: -20px;
+    }
+
+    .error-heading {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(34px, 7vw, 54px);
+      font-weight: 850;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin: 0 0 16px;
+    }
+
+    .error-heading em {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--orange);
+      letter-spacing: 0;
+    }
+
+    .error-lead {
+      font-size: clamp(15.5px, 2.5vw, 18px);
+      line-height: 1.6;
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 32px;
+    }
+
+    /* Auto-detect Path Suggestion Box */
+    .path-suggestion-box {
+      display: none;
+      background: #FFFFFF;
+      border: 1px solid rgba(243, 108, 33, 0.3);
+      border-radius: 14px;
+      padding: 10px 18px;
+      font-size: 13.5px;
+      color: var(--ink);
+      margin-bottom: 28px;
+      box-shadow: 0 4px 14px rgba(67, 39, 22, 0.05);
+    }
+    .path-suggestion-box strong {
+      color: var(--orange);
+      font-family: monospace;
+    }
+    .path-suggestion-box a {
+      color: var(--orange);
+      font-weight: 700;
+      text-decoration: underline;
+      margin-left: 6px;
+    }
+
+    /* Primary Action Buttons */
+    .error-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .btn-return-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 100px;
+      background: var(--orange);
+      color: #FFFFFF !important;
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(243, 108, 33, 0.35);
+      transition: all 0.25s var(--ease-out);
+    }
+    .btn-return-home:hover {
+      background: var(--burnt-orange);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(182, 68, 23, 0.4);
+    }
+
+    .btn-journey-alt {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(243, 108, 33, 0.28);
+      color: var(--orange) !important;
+      font-family: 'Manrope', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.25s var(--ease-out);
+    }
+    .btn-journey-alt:hover {
+      background: #FFFFFF;
+      border-color: var(--orange);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(243, 108, 33, 0.15);
+    }
+
+    /* Grab & Go Quick Reroute Cards Grid */
+    .reroute-section-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .reroute-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      width: 100%;
+      max-width: 860px;
+      text-align: left;
+    }
+
+    .reroute-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px;
+      border-radius: 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--ink);
+      transition: all 0.25s var(--ease-out);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reroute-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(243, 108, 33, 0.4);
+      box-shadow: 0 8px 24px rgba(67, 39, 22, 0.08);
+    }
+
+    .reroute-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .reroute-card-icon {
+      font-size: 22px;
+    }
+
+    .reroute-card-arrow {
+      font-size: 16px;
+      color: var(--orange);
+      font-weight: 700;
+      transition: transform 0.2s ease;
+    }
+
+    .reroute-card:hover .reroute-card-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    .reroute-card-title {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      font-weight: 750;
+      color: var(--ink);
+      margin: 0 0 4px;
+    }
+
+    .reroute-card-desc {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .reroute-card.featured {
+      background: linear-gradient(135deg, #FFFFFF 0%, #FFF5ED 100%);
+      border-color: rgba(243, 108, 33, 0.35);
+    }
+
+    /* Minimal Bottom Status */
+    .error-footer-bar {
+      border-top: 1px solid var(--border);
+      padding: 20px;
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--muted);
+      background: rgba(255, 249, 244, 0.6);
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-curtain, .preloader, .cursor-dot, .cursor-ring {
+      display: none !important;
+    }
+      .error-hero-section {
+        padding: 85px 16px 40px;
+      }
+      .error-cta-row {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn-return-home,
+      .btn-journey-alt {
+        width: 100%;
+        justify-content: center;
+      }
+      .reroute-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="r-ambient-glow" aria-hidden="true"></div>
+
+  <!-- Main Website Sticky Header -->
+  <header>
+    <div class="header-left">
+      <button class="left-nav-btn" id="leftNavBtn" aria-label="Open Navigation Menu" data-open-drawer>
+        <span class="left-nav-dots" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span class="left-nav-label">Navigation</span>
+      </button>
+      <a class="brand" href="index.html" aria-label="Reliv Home">
+        <img src="icons/reliv-wordmark.svg" alt="Reliv" width="104" height="30">
+      </a>
+    </div>
+
+    <nav class="main-nav" aria-label="Main Navigation">
+      <a href="Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/index.html" class="nav-journey-pill">✦ Experience the Journey</a>
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="locations.html">Find Kiosk</a>
+      <a href="organisations.html">For Organisations</a>
+      <a href="about.html">About</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary" href="index.html#app">Get the App</a>
+    </div>
+  </header>
+
+  <!-- 404 Hero Section -->
+  <main class="error-hero-section" id="mainContent">
+    <div class="diagnostic-badge">
+      <span class="diagnostic-pulse" aria-hidden="true"></span>
+      <span>DIAGNOSTIC: 404 // ROUTE_UNRESOLVED</span>
+    </div>
+
+    <div class="error-code-watermark" aria-hidden="true">404</div>
+
+    <h1 class="error-heading">
+      You seem a little<br/>
+      <em>off the map.</em>
+    </h1>
+
+    <p class="error-lead">
+      The route or health station you're looking for has moved, been upgraded, or isn't on our grid yet. But don't worry — all Reliv preventive screening stations and digital reports remain fully active.
+    </p>
+
+    <!-- Auto-Detected Suggestion (dynamic via JS) -->
+    <div id="pathSuggestionBox" class="path-suggestion-box" role="status">
+      <span>Did you mean to visit: </span>
+      <a id="pathSuggestionLink" href="index.html">Reliv Homepage ↗</a>
+    </div>
+
+    <!-- Primary Action Buttons -->
+    <div class="error-cta-row">
+      <a href="index.html" class="btn-return-home">
+        <span>Return to Homepage</span>
+        <span aria-hidden="true">&rarr;</span>
+      </a>
+      <a href="Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/index.html" class="btn-journey-alt">
+        <span>✦ Experience the Journey</span>
+        <span aria-hidden="true">&nearr;</span>
+      </a>
+    </div>
+
+    <!-- Grab & Go Quick Reroute Grid -->
+    <span class="reroute-section-title">Verified Destinations · Select to Continue</span>
+    <div class="reroute-grid">
+      <a href="Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/index.html" class="reroute-card featured">
+        <div class="reroute-card-top">
+          <span class="reroute-card-icon">✦</span>
+          <span class="reroute-card-arrow">&nearr;</span>
+        </div>
+        <h2 class="reroute-card-title">Experience the Journey</h2>
+        <p class="reroute-card-desc">Interactive scroll story following your vitals from the campus station to your phone.</p>
+      </a>
+
+      <a href="locations.html" class="reroute-card">
+        <div class="reroute-card-top">
+          <span class="reroute-card-icon">📍</span>
+          <span class="reroute-card-arrow">&nearr;</span>
+        </div>
+        <h2 class="reroute-card-title">Find a Health Kiosk</h2>
+        <p class="reroute-card-desc">Locate our live screening station at IEM Gurukul Campus, Salt Lake Sector V, Kolkata.</p>
+      </a>
+
+      <a href="how-it-works.html" class="reroute-card">
+        <div class="reroute-card-top">
+          <span class="reroute-card-icon">🎬</span>
+          <span class="reroute-card-arrow">&nearr;</span>
+        </div>
+        <h2 class="reroute-card-title">How It Works (Video)</h2>
+        <p class="reroute-card-desc">Watch our 3-minute screening walkthrough and explore 102+ health parameters.</p>
+      </a>
+
+      <a href="organisations.html" class="reroute-card">
+        <div class="reroute-card-top">
+          <span class="reroute-card-icon">🏢</span>
+          <span class="reroute-card-arrow">&nearr;</span>
+        </div>
+        <h2 class="reroute-card-title">For Organisations</h2>
+        <p class="reroute-card-desc">Zero-Capex and revenue-sharing health ATM installations for colleges and workplaces.</p>
+      </a>
+    </div>
+  </main>
+
+  <!-- Left Slide-Out Navigation Drawer -->
+  <div class="nav-drawer-backdrop" id="navDrawerBackdrop" aria-hidden="true"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-label="Main Navigation Drawer" aria-hidden="true">
+    <div class="nav-drawer-header">
+      <a class="drawer-brand" href="index.html" aria-label="Reliv Home">
+        <img src="icons/reliv-wordmark.svg" alt="Reliv" width="104" height="30">
+      </a>
+      <button class="nav-drawer-close" id="navDrawerClose" aria-label="Close navigation menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="nav-drawer-body">
+      <div class="drawer-section">
+        <span class="drawer-section-title">Navigation</span>
+        <ul class="drawer-nav-list">
+          <li>
+            <a href="Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/index.html" class="drawer-link drawer-link-featured">
+              <span class="drawer-link-icon">✦</span>
+              <span>Experience the Journey</span>
+              <span class="drawer-tag-gold">Interactive</span>
+            </a>
+          </li>
+          <li>
+            <a href="index.html" class="drawer-link">
+              <span class="drawer-link-icon">🏠</span>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="about.html" class="drawer-link">
+              <span class="drawer-link-icon">✨</span>
+              <span>About Us</span>
+              <span class="drawer-tag-gold">Story</span>
+            </a>
+          </li>
+          <li>
+            <a href="how-it-works.html" class="drawer-link">
+              <span class="drawer-link-icon">🎬</span>
+              <span>How It Works</span>
+              <span class="drawer-tag">3 Min</span>
+            </a>
+          </li>
+          <li>
+            <a href="locations.html" class="drawer-link">
+              <span class="drawer-link-icon">📍</span>
+              <span>Find a Kiosk</span>
+            </a>
+          </li>
+          <li>
+            <a href="organisations.html" class="drawer-link">
+              <span class="drawer-link-icon">🏢</span>
+              <span>For Organisations</span>
+            </a>
+          </li>
+          <li>
+            <a href="careers.html" class="drawer-link">
+              <span class="drawer-link-icon">💼</span>
+              <span>Careers &amp; Students</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="drawer-section">
+        <span class="drawer-section-title">Products &amp; Tech</span>
+        <ul class="drawer-nav-list">
+          <li>
+            <a href="health-kiosk.html" class="drawer-link">
+              <span class="drawer-link-icon">🩺</span>
+              <span>Smart Health Kiosk</span>
+            </a>
+          </li>
+          <li>
+            <a href="health-atm.html" class="drawer-link">
+              <span class="drawer-link-icon">🏧</span>
+              <span>Health ATM</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="drawer-accreditation">
+        <div class="drawer-acc-badge">
+          <span>🏛️</span>
+          <div>
+            <strong>DPIIT Certified &middot; DIPP287544</strong>
+            <span>Govt. of India &middot; Startup India</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-drawer-footer">
+      <a href="how-it-works.html#app" class="btn btn-primary" style="width: 100%; justify-content: center;">
+        Get the Reliv App
+      </a>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="error-footer-bar">
+    <span>© 2026 Reliv Care Technologies. DPIIT Recognized Startup DIPP287544 · Kolkata, India.</span>
+  </footer>
+
+  <script src="nav.js" defer></script>
+
+  <!-- Smart URL Auto-Suggest Script -->
+  <script>
+    (function() {
+      const path = (window.location.pathname || '').toLowerCase();
+      const box = document.getElementById('pathSuggestionBox');
+      const link = document.getElementById('pathSuggestionLink');
+
+      const routeAliases = [
+        { match: ['indexi', 'home', 'main', 'start'], target: 'index.html', title: 'Reliv Homepage' },
+        { match: ['journey', 'experience', 'story', 'scroll', 'checkup'], target: 'Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/index.html', title: 'Experience the Journey' },
+        { match: ['location', 'find', 'map', 'kolkata', 'sector-v', 'iem'], target: 'locations.html', title: 'Find a Health Kiosk' },
+        { match: ['work', 'works', 'video', 'screening', 'guide'], target: 'how-it-works.html', title: 'How It Works' },
+        { match: ['about', 'team', 'story', 'mission'], target: 'about.html', title: 'About Reliv' },
+        { match: ['org', 'organisation', 'organization', 'college', 'partner', 'b2b'], target: 'organisations.html', title: 'For Organisations' },
+        { match: ['career', 'jobs', 'intern', 'internship'], target: 'careers.html', title: 'Careers & Internships' },
+        { match: ['kiosk', 'machine'], target: 'health-kiosk.html', title: 'Smart Health Kiosk' },
+        { match: ['atm'], target: 'health-atm.html', title: 'Health ATM' }
+      ];
+
+      for (const route of routeAliases) {
+        if (route.match.some(m => path.includes(m))) {
+          if (box && link) {
+            box.style.display = 'block';
+            link.href = route.target;
+            link.textContent = route.title + ' ↗';
+          }
+          break;
+        }
+      }
+    })();
+  </script>
+</body>
+</html>

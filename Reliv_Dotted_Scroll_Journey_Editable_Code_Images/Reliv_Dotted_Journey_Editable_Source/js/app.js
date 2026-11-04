@@ -20,6 +20,7 @@
   const travBadge     = $('traveler-badge');
   const rail          = $('rail');
   const topProgress   = $('top-progress');
+  const modeIndicator = $('status');
   const statusText    = $('status-text');
   const introHeadline = $('intro-headline');
   const introLead     = $('intro-lead');
@@ -349,13 +350,31 @@
       currentSegment = -1;
       if (focusY < firstAnchor.y) {
         statusText.textContent = 'Scroll to follow your health data';
+        modeIndicator.style.opacity = '1';
+        modeIndicator.style.transform = 'translateY(0)';
+        modeIndicator.style.pointerEvents = 'auto';
       } else {
         statusText.textContent = activeRoute === 'health'
           ? 'Your Reliv care journey continues on mobile'
           : 'Your Health Kit is collected and verified';
+        // Auto-fade status indicator when user reaches Outro to leave full view for action buttons
+        if (focusY > lastAnchor.y + 80) {
+          modeIndicator.style.opacity = '0';
+          modeIndicator.style.transform = 'translateY(24px)';
+          modeIndicator.style.pointerEvents = 'none';
+        } else {
+          modeIndicator.style.opacity = '1';
+          modeIndicator.style.transform = 'translateY(0)';
+          modeIndicator.style.pointerEvents = 'auto';
+        }
       }
       return;
     }
+
+    // Ensure status is visible during active journey
+    modeIndicator.style.opacity = '1';
+    modeIndicator.style.transform = 'translateY(0)';
+    modeIndicator.style.pointerEvents = 'auto';
 
     // Active Traveler Motion
     const activePath = paths[seg];
@@ -426,6 +445,25 @@
     });
   }
 
+  // Hide floating status indicator cleanly when Outro is visible
+  if ('IntersectionObserver' in window) {
+    const outroObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          modeIndicator.style.opacity = '0';
+          modeIndicator.style.pointerEvents = 'none';
+          modeIndicator.style.transform = 'translateY(24px)';
+        } else {
+          modeIndicator.style.opacity = '1';
+          modeIndicator.style.pointerEvents = 'auto';
+          modeIndicator.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.08 });
+    const outroEl = $('outro');
+    if (outroEl) outroObs.observe(outroEl);
+  }
+
   window.addEventListener('scroll', scheduleScroll, { passive: true });
   window.addEventListener('resize', scheduleRecalc, { passive: true });
 
@@ -439,6 +477,7 @@
     const ua = navigator.userAgent || '';
     const isAndroid = /Android/i.test(ua);
     const isIOS = /iPhone|iPad|iPod/i.test(ua);
+    const isMobile = isAndroid || isIOS || window.innerWidth <= 768;
     const isMac = /Macintosh/i.test(ua);
 
     let deviceLabel = 'Open Reliv App';
@@ -447,6 +486,8 @@
       deviceLabel = 'Open on Android';
     } else if (isIOS) {
       deviceLabel = 'Open on iPhone';
+    } else if (isMobile) {
+      deviceLabel = 'Open Reliv App';
     } else if (isMac) {
       deviceLabel = 'Open on Mac';
     } else {
