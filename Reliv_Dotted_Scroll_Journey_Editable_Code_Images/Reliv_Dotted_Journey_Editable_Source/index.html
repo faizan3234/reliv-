@@ -11,7 +11,7 @@
   <!-- Fonts per Blueprint: Manrope (display & UI) + Inter (body) + Instrument Serif (editorial statements) -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800;900&display=swap" rel="stylesheet"/>
 
   <link rel="stylesheet" href="css/style.css"/>
 </head>
@@ -21,11 +21,19 @@
   <!-- Minimal Editorial Topbar -->
   <header class="topbar">
     <div class="topbar-inner">
-      <a href="../../index.html" class="brand" aria-label="Reliv Home">
+      <div class="header-left">
+        <button class="left-nav-btn" id="leftNavBtn" aria-label="Open Navigation Menu" data-open-drawer>
+          <span class="left-nav-dots" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span class="left-nav-label">Navigation</span>
+        </button>
+        <a href="../../index.html" class="brand" aria-label="Reliv Home">
         <img src="assets/brand/reliv-wordmark.svg" alt="Reliv" width="104" height="30" onerror="this.outerHTML='<span class=\'fallback-wordmark\'><b>Re</b>liv</span>'"/>
         <span class="brand-divider">/</span>
         <span class="brand-subtitle">THE CONNECTED JOURNEY</span>
-      </a>
+        </a>
+      </div>
 
       <!-- Route Switcher in Header -->
       <div class="route-switcher" role="tablist" aria-label="Journey Routes">
@@ -219,5 +227,109 @@
 
   <script src="js/content.js"></script>
   <script src="js/app.js"></script>
+  <!-- Left Slide-Out Navigation Drawer -->
+  <div class="nav-drawer-backdrop" id="navDrawerBackdrop" aria-hidden="true"></div>
+  <aside class="nav-drawer" id="navDrawer" aria-label="Main Navigation Drawer" aria-hidden="true">
+    <div class="nav-drawer-header">
+      <a class="drawer-brand" href="../../index.html" aria-label="Reliv Home">
+        <img src="assets/brand/reliv-wordmark.svg" alt="Reliv" width="104" height="30">
+      </a>
+      <button class="nav-drawer-close" id="navDrawerClose" aria-label="Close navigation menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="nav-drawer-body">
+      <div class="drawer-section">
+        <span class="drawer-section-title">Navigation</span>
+        <ul class="drawer-nav-list">
+          <li>
+            <a href="index.html" class="drawer-link drawer-link-featured">
+              <span class="drawer-link-icon">✦</span>
+              <span>Experience the Journey</span>
+              <span class="drawer-tag-gold">Interactive</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../index.html" class="drawer-link">
+              <span class="drawer-link-icon">🏠</span>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../about.html" class="drawer-link">
+              <span class="drawer-link-icon">✨</span>
+              <span>About Us</span>
+              <span class="drawer-tag-gold">Story</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../how-it-works.html" class="drawer-link">
+              <span class="drawer-link-icon">🎬</span>
+              <span>How It Works</span>
+              <span class="drawer-tag">3 Min</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../locations.html" class="drawer-link">
+              <span class="drawer-link-icon">📍</span>
+              <span>Find a Kiosk</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../organisations.html" class="drawer-link">
+              <span class="drawer-link-icon">🏢</span>
+              <span>For Organisations</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../careers.html" class="drawer-link">
+              <span class="drawer-link-icon">💼</span>
+              <span>Careers &amp; Students</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="drawer-section">
+        <span class="drawer-section-title">Products &amp; Tech</span>
+        <ul class="drawer-nav-list">
+          <li>
+            <a href="../../health-kiosk.html" class="drawer-link">
+              <span class="drawer-link-icon">🩺</span>
+              <span>Smart Health Kiosk</span>
+            </a>
+          </li>
+          <li>
+            <a href="../../health-atm.html" class="drawer-link">
+              <span class="drawer-link-icon">🏧</span>
+              <span>Health ATM</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="drawer-accreditation">
+        <div class="drawer-acc-badge">
+          <span>🏛️</span>
+          <div>
+            <strong>DPIIT Certified &middot; DIPP287544</strong>
+            <span>Govt. of India &middot; Startup India</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-drawer-footer">
+      <a href="../../how-it-works.html#app" class="btn btn-primary" style="width: 100%; justify-content: center;">
+        Get the Reliv App
+      </a>
+    </div>
+  </aside>
+
+  <script src="../../nav.js" defer></script>
 </body>
 </html>

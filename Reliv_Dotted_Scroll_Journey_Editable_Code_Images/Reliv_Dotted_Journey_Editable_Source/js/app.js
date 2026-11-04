@@ -528,3 +528,21 @@
   renderRoute('health');
   configureAutoInstallButtons();
 })();
+
+
+  // Interactive Card Spotlight Glow (Parity with premium.js)
+  function initSpotlights() {
+    document.querySelectorAll('.stop-card, .outro-app-box, .platform-chip').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+        card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+      });
+    });
+  }
+  
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSpotlights);
+  } else {
+    initSpotlights();
+  }

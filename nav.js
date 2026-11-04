@@ -14,6 +14,9 @@
 
     if (!drawer || !backdrop) return;
 
+    const isSub = window.location.pathname.includes("/Reliv_Dotted_Scroll_Journey") || window.location.pathname.includes("Reliv_Dotted_Journey");
+    const rootPrefix = isSub ? "../../" : "";
+
     // Build the live photo preview stage inside drawer on desktop
     let previewContainer = drawer.querySelector('.drawer-preview-stage');
     if (!previewContainer) {
@@ -22,7 +25,7 @@
       previewContainer.setAttribute('aria-hidden', 'true');
       previewContainer.innerHTML = `
         <div class="drawer-preview-frame">
-          <img id="drawerPreviewImg" src="assets/reliv-health-kiosk-transparent.png" alt="Reliv Preview" loading="lazy">
+          <img id="drawerPreviewImg" src="${rootPrefix}assets/reliv-health-kiosk-transparent.png" alt="Reliv Preview" loading="lazy">
         </div>
         <div class="drawer-preview-caption">
           <span id="drawerPreviewTitle">Reliv Smart Health Kiosk</span>
@@ -114,7 +117,15 @@
           previewImg.style.opacity = '0.35';
           previewImg.style.transform = 'scale(0.96)';
           setTimeout(function() {
-            previewImg.src = target.src;
+            let targetSrc = target.src;
+          if (isSub) {
+            if (targetSrc.startsWith('Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/')) {
+              targetSrc = targetSrc.replace('Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/', '');
+            } else {
+              targetSrc = rootPrefix + targetSrc;
+            }
+          }
+          previewImg.src = targetSrc;
             if (previewTitle) previewTitle.textContent = target.title;
             if (previewMeta) previewMeta.textContent = target.meta;
             previewImg.style.opacity = '1';
