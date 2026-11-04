@@ -509,18 +509,20 @@
       </div>
 
       <div class="drawer-section">
-        <span class="drawer-section-title">Products &amp; Tech</span>
+        <span class="drawer-section-title">The Hardware</span>
         <ul class="drawer-nav-list">
           <li>
             <a href="health-kiosk.html" class="drawer-link">
               <span class="drawer-link-icon">🩺</span>
-              <span>Smart Health Kiosk</span>
+              <span>Smart Health Kiosk (Health ATM)</span>
+              <span class="drawer-tag">Hardware</span>
             </a>
           </li>
           <li>
             <a href="health-atm.html" class="drawer-link">
-              <span class="drawer-link-icon">🏧</span>
-              <span>Health ATM</span>
+              <span class="drawer-link-icon">💡</span>
+              <span>What is a Health ATM?</span>
+              <span class="drawer-tag">Explainer</span>
             </a>
           </li>
         </ul>
@@ -566,8 +568,8 @@
         { match: ['about', 'team', 'story', 'mission'], target: 'about.html', title: 'About Reliv' },
         { match: ['org', 'organisation', 'organization', 'college', 'partner', 'b2b'], target: 'organisations.html', title: 'For Organisations' },
         { match: ['career', 'jobs', 'intern', 'internship'], target: 'careers.html', title: 'Careers & Internships' },
-        { match: ['kiosk', 'machine'], target: 'health-kiosk.html', title: 'Smart Health Kiosk' },
-        { match: ['atm'], target: 'health-atm.html', title: 'Health ATM' }
+        { match: ['kiosk', 'machine', 'hardware'], target: 'health-kiosk.html', title: 'Smart Health Kiosk (Health ATM)' },
+        { match: ['atm', 'guide', 'explainer'], target: 'health-atm.html', title: 'What is a Health ATM? (Guide)' }
       ];
 
       for (const route of routeAliases) {

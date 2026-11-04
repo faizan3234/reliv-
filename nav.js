@@ -49,8 +49,8 @@
       'locations.html': { src: 'assets/reliv-smart-health-atm-india.jpg', title: 'Live Kiosk Locations', meta: 'IEM Gurukul Campus, Salt Lake Sector V' },
       'organisations.html': { src: 'assets/reliv-wellness-kiosk-for-colleges.jpg', title: 'For Colleges & Enterprise Workplaces', meta: 'Zero-Capex Deployment & Wellness Packages' },
       'careers.html': { src: 'assets/reliv-medical-kiosk-body-parameter-check.jpg', title: 'Careers & Student Internships', meta: 'Join Reliv Medical Innovation Team' },
-      'health-kiosk.html': { src: 'assets/reliv-health-kiosk-kolkata.jpg', title: 'Smart Health Kiosk Specifications', meta: 'Medical-Grade 5-Parameter Screening' },
-      'health-atm.html': { src: 'assets/screens/reliv-health-atm-user-experience.webp', title: 'Reliv Health ATM Architecture', meta: 'Campus & Workplace Preventive Care' }
+      'health-kiosk.html': { src: 'assets/reliv-health-kiosk-kolkata.jpg', title: 'Smart Health Kiosk (Health ATM)', meta: 'DPIIT Certified Hardware · 3-Minute Screening' },
+      'health-atm.html': { src: 'assets/screens/reliv-health-atm-user-experience.webp', title: 'What is a Health ATM? (Guide)', meta: 'Understanding Self-Service Health ATMs in India' }
     };
 
     function openDrawer() {
