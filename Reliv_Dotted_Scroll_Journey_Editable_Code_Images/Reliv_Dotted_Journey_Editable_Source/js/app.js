@@ -405,9 +405,9 @@
     // Scale & Elevation physics
     let scale = 1.05;
     if (fraction < 0.14) {
-      scale = 0.75 + 0.30 * (fraction / 0.14);
+      scale = 0.12 + 0.93 * (1 - Math.pow(1 - fraction / 0.14, 3));
     } else if (fraction > 0.86) {
-      scale = 1.05 - 0.28 * ((fraction - 0.86) / 0.14);
+      scale = 1.05 - 0.93 * Math.pow((fraction - 0.86) / 0.14, 2);
     }
 
     // Opacity: fade in upon liftoff, fade out upon docking
@@ -525,7 +525,7 @@
   });
 
   // Initial Route Render
-  renderRoute('health');
+  renderRoute(new URLSearchParams(location.search).get('flow') === 'kits' ? 'kits' : 'health');
   configureAutoInstallButtons();
 })();
 
