@@ -1,9 +1,10 @@
-const CACHE_NAME = 'reliv-cache-v4';
+const CACHE_NAME = 'reliv-cache-v5';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/immersive.css',
   '/immersive.js',
+  '/404.html',
   '/how-it-works.html',
   '/simulator.html',
   '/style.css',
@@ -68,7 +69,7 @@ self.addEventListener('fetch', event => {
       return fetch(event.request).catch(() => {
         // If offline and request is for page, return simulator or cached homepage
         if (event.request.mode === 'navigate') {
-          return caches.match('/simulator.html') || caches.match('/index.html');
+          return caches.match('/index.html');
         }
       });
     })
