@@ -38,15 +38,16 @@
     const previewMeta = document.getElementById('drawerPreviewMeta');
 
     const previewMap = {
+      'Reliv_Dotted_Journey_Editable_Source/index.html': { src: 'Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/assets/images/campus.webp', title: 'Experience the Connected Journey', meta: 'Interactive Downward Scroll · Lando Norris Polish' },
       'index.html': { src: 'assets/reliv-health-kiosk-kolkata.jpg', title: 'Reliv Smart Health Kiosk', meta: 'First Official Station · Kolkata, India' },
       '#vitals': { src: 'assets/reliv-health-kiosk-transparent.png', title: '5-Sensor Kiosk Architecture', meta: 'Height · BP · SpO₂ · Eyes · Temp' },
       'about.html': { src: 'assets/about-reliv-ecosystem.jpg', title: 'Reliv Preventive Health Ecosystem', meta: 'DPIIT Recognised Startup · DIPP287544' },
       'how-it-works.html': { src: 'assets/videos/reliv-explainer-poster.jpg', title: 'How Reliv Works (Explainer Film)', meta: 'Autonomous 3-Minute Screening Guide' },
       'locations.html': { src: 'assets/reliv-smart-health-atm-india.jpg', title: 'Live Kiosk Locations', meta: 'IEM Gurukul Campus, Salt Lake Sector V' },
       'organisations.html': { src: 'assets/reliv-wellness-kiosk-for-colleges.jpg', title: 'For Colleges & Enterprise Workplaces', meta: 'Zero-Capex Deployment & Wellness Packages' },
-      'media.html': { src: 'assets/awards/medverse-oscars-of-healthcare-trophy.jpg', title: 'The Oscars of Healthcare Trophy', meta: 'Medverse 2026 Winner · Salem, Tamil Nadu' },
-      'simulator.html': { src: 'assets/screens/reliv-digital-health-report.webp', title: 'Interactive Kiosk Simulator', meta: 'Experience Multilingual Vitals Screening' },
-      'careers.html': { src: 'assets/reliv-medical-kiosk-body-parameter-check.jpg', title: 'Careers & Student Internships', meta: 'Join Reliv Medical Innovation Team' }
+      'careers.html': { src: 'assets/reliv-medical-kiosk-body-parameter-check.jpg', title: 'Careers & Student Internships', meta: 'Join Reliv Medical Innovation Team' },
+      'health-kiosk.html': { src: 'assets/reliv-health-kiosk-kolkata.jpg', title: 'Smart Health Kiosk Specifications', meta: 'Medical-Grade 5-Parameter Screening' },
+      'health-atm.html': { src: 'assets/screens/reliv-health-atm-user-experience.webp', title: 'Reliv Health ATM Architecture', meta: 'Campus & Workplace Preventive Care' }
     };
 
     function openDrawer() {
