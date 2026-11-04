@@ -32,40 +32,40 @@ const JOURNEY = {
       {
         step: '01',
         chapter: 'Arrive',
-        serial: 'LAT: 28.6139° N · LON: 77.2090° E // STN-01',
+        serial: 'KOLKATA / CAMPUS JOURNEY // STN-01',
         tag: 'CAMPUS STATION',
         art: 'campus',
         pin: [43, 62],
         title: 'It begins *on campus.*',
-        lead: 'Step up to the Reliv kiosk between classes. No queue, no appointment — just a few calm, guided minutes.',
+        lead: 'Step up to the Reliv kiosk between classes. Follow the guided checks at your own pace.',
         handoff: 'Data package moving to vitals screening'
       },
       {
         step: '02',
         chapter: 'Measure',
-        serial: 'BIO: OPTICAL-PULSE // SENS-02 · VERIFIED',
+        serial: 'GUIDED CHECKS / ON-SCREEN RESULTS',
         tag: 'VITALS SCREENING',
         art: 'kiosk_done',
         pin: [49, 50],
         title: 'Every reading, *captured.*',
-        lead: 'Blood pressure, SpO₂, temperature, height and BMI are measured and saved in a single seamless sitting.',
-        handoff: 'Vitals verified · Access code generated'
+        lead: 'Complete your guided measurements and view vitals on screen for free. For an optional digital report, scan the payment QR on your phone and complete checkout.',
+        handoff: 'Optional report payment → four-digit code'
       },
       {
         step: '03',
         chapter: 'Unlock',
-        serial: 'SEC: OTP-AUTH // GATE-03 · ENCRYPTED',
+        serial: 'PAYMENT CONFIRMED / FOUR-DIGIT CODE',
         tag: 'ACCESS CODE',
         art: 'kiosk_code',
         pin: [57, 62],
         title: 'One code *unlocks it.*',
-        lead: 'Enter your four-digit access code on the kiosk to securely release your personal health report.',
+        lead: 'After successful payment, a four-digit code appears on your phone. Enter it on the kiosk to unlock your optional paid report.',
         handoff: 'Personal health report prepared'
       },
       {
         step: '04',
         chapter: 'Understand',
-        serial: 'ENC: AES-256 // REP-04 · CLINICAL SUMMARY',
+        serial: 'YOUR MEASUREMENTS / PERSONAL SUMMARY',
         tag: 'HEALTH REPORT',
         art: 'person_report',
         pin: [62, 46],
@@ -81,7 +81,7 @@ const JOURNEY = {
         art: 'person_phone',
         pin: [60, 40],
         title: 'Care that *travels with you.*',
-        lead: 'Open the Reliv app to revisit your history, spot subtle trends, and stay proactive about your wellbeing.',
+        lead: 'Scan a health-data QR in the Reliv app to import measurements directly. This data-transfer step needs no payment code. Keep checking in with your health over time.',
         handoff: 'Journey complete · Always in your pocket'
       }
     ],
@@ -102,7 +102,7 @@ const JOURNEY = {
       {
         step: '01',
         chapter: 'Choose',
-        serial: 'LAT: 28.6139° N · LON: 77.2090° E // DISP-01',
+        serial: 'KOLKATA / CAMPUS JOURNEY // DISP-01',
         tag: 'CAMPUS STATION',
         art: 'campus',
         pin: [30, 60],
@@ -166,7 +166,7 @@ const JOURNEY = {
 
 const SETTINGS = {
   // Runway height in px: calibrated gap between stops
-  runwayHeight: 220,
+  runwayHeight: 460,
   // Smoothing easing factor for traveler animation
   smoothing: 0.12,
   // Curve lateral sway amount in px
