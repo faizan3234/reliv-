@@ -11,8 +11,11 @@
     const backdrop = document.getElementById('navDrawerBackdrop');
     const openBtns = document.querySelectorAll('.left-nav-btn, #leftNavBtn, [data-open-drawer]');
     const closeBtns = document.querySelectorAll('#navDrawerClose, .nav-drawer-close');
+    let previousFocus = null;
 
     if (!drawer || !backdrop) return;
+    // Offscreen links must not remain keyboard-focusable when the drawer is closed.
+    drawer.inert = true;
 
     const isSub = window.location.pathname.includes("/Reliv_Dotted_Scroll_Journey") || window.location.pathname.includes("Reliv_Dotted_Journey");
     const rootPrefix = isSub ? "../../" : "";
@@ -54,23 +57,34 @@
     };
 
     function openDrawer() {
+      previousFocus = document.activeElement;
+      drawer.inert = false;
       drawer.classList.add('is-open');
       backdrop.classList.add('is-open');
       drawer.setAttribute('aria-hidden', 'false');
+      drawer.setAttribute('role', 'dialog');
+      drawer.setAttribute('aria-modal', 'true');
       document.body.style.overflow = 'hidden';
       openBtns.forEach(function(btn) {
         btn.setAttribute('aria-expanded', 'true');
       });
+      const closeButton = drawer.querySelector('#navDrawerClose, .nav-drawer-close');
+      if (closeButton) closeButton.focus();
     }
 
-    function closeDrawer() {
+    function closeDrawer(restoreFocus = true) {
       drawer.classList.remove('is-open');
       backdrop.classList.remove('is-open');
       drawer.setAttribute('aria-hidden', 'true');
+      drawer.removeAttribute('aria-modal');
+      drawer.inert = true;
       document.body.style.overflow = '';
       openBtns.forEach(function(btn) {
         btn.setAttribute('aria-expanded', 'false');
       });
+      if (restoreFocus && previousFocus && typeof previousFocus.focus === 'function') {
+        previousFocus.focus();
+      }
     }
 
     openBtns.forEach(function(btn) {
@@ -92,8 +106,18 @@
     });
 
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && drawer.classList.contains('is-open')) {
+      if (!drawer.classList.contains('is-open')) return;
+      if (e.key === 'Escape') {
+        e.preventDefault();
         closeDrawer();
+      } else if (e.key === 'Tab') {
+        const items = Array.from(drawer.querySelectorAll(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )).filter(function(el) { return el.getClientRects().length > 0; });
+        if (!items.length) { e.preventDefault(); return; }
+        const first = items[0], last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       }
     });
 
@@ -101,7 +125,7 @@
     drawer.querySelectorAll('a').forEach(function(link) {
       link.addEventListener('click', function() {
         if (!link.getAttribute('target') || link.getAttribute('target') !== '_blank') {
-          closeDrawer();
+          closeDrawer(false);
         }
       });
     });
