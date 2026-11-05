@@ -31,3 +31,27 @@
 
 ## Testing status
 Static source checks confirmed the shared stylesheet link is present on 14 key HTML pages and that the modified source is well formed enough to preserve the existing head/main structure. **A full browser screenshot sweep, production kiosk payment test, axe audit and Lighthouse run were not performed in this change.** They are required for a credible top-tier release claim.
+
+
+## Quality improvement pass — 05 November 2026 (branch only)
+
+### Source work completed
+- Corrected the homepage's mobile-first "Find a kiosk" action and replaced confusing deep demo URLs in primary navigation.
+- Reduced duplicate navigation entries across key pages and made the secondary navigation drawer inert when closed, keyboard focus-trapped when open, and focus-restoring on dismissal.
+- Removed the static "Live & Open Today" label from the location listing and added guidance to verify venue access, hours and charges before travel.
+- Fixed broken About-page footer routes and added a genuine `#vitals` destination; `#iphone`/`#android` links are intentional virtual anchors handled by `videos.js`.
+- Replaced unsupported prevention/diagnosis claims with appropriately cautious screening information. Removed an attributed claim that three minutes of screening prevents a three-week hospitalization.
+- Improved responsive action spacing, touch targets, reduced-motion behavior and avoided duplicate Google Fonts imports on the homepage.
+- Reworked the public site's service worker to use network-first navigation, resilient precaching and exclusion of sensitive account/payment/report paths.
+- Added `npm run test:site` for automated static HTML links/anchors, JavaScript syntax, CSS structure and cache guard checks.
+
+### Release gate still NOT passed
+These cannot be signed off from source inspection and are necessary before anyone calls the site "9.9/10", "top 3%", or releases this branch:
+- [ ] **Live visual audit** of actual Vercel deployment/screenshots at 320, 375, 390, 768, 1024, 1440 pixels.
+- [ ] **Measured mobile performance:** Lighthouse plus real-user Core Web Vitals at 75th percentile (good LCP ≤2.5s, INP ≤200ms, CLS ≤0.1).
+- [ ] **Accessibility:** automated axe + keyboard + VoiceOver/TalkBack, contrast, 200% text zoom, focus-visible, videos and captions; review against WCAG 2.2 AA.
+- [ ] **Real kiosk and app integration:** confirm exact payment activation, whether any vitals are free, report pricing, session handling, QR codes, email and refunds (if applicable).
+- [ ] **Clinical and legal approval:** verifiable sensor/configuration claims, published instructions, privacy retention/deletion terms, medical disclaimers and actual deployment availability.
+- [ ] **Competitive UX study:** a defined benchmark sample and actual user task testing; there is no defensible statistical top-3% conclusion without it.
+
+**Decision:** No PR should be opened from this branch until the release gate is satisfied. Static code checks alone do not validate deployment quality or clinical trustworthiness.
