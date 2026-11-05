@@ -1,8 +1,9 @@
-const CACHE_NAME = 'reliv-cache-v5';
+const CACHE_NAME = 'reliv-cache-v6';
 const PRECACHE_ASSETS = [
   '/',
   '/index.html',
   '/immersive.css',
+  '/reliv-refinement.css',
   '/immersive.js',
   '/404.html',
   '/how-it-works.html',
