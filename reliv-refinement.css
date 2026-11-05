@@ -165,3 +165,67 @@ body > main .watch-section, body > main .how-section { scroll-margin-top: 100px;
   .hero { min-height:820px; }
   .reliv-path-title { font-size:50px; }
 }
+
+
+/* Quality pass: clear visitor actions, readable controls and honest venue status. */
+.r-mobile-action { display: none !important; }
+.reliv-visit-guide {
+  display:grid; grid-template-columns: .85fr 1.15fr; gap: clamp(20px,5vw,64px);
+  padding: clamp(28px,4.5vw,56px); border: 1px solid var(--reliv-rule);
+  background: #f1eae0; border-radius: 6px; align-items:start;
+}
+.reliv-visit-guide h2 {
+  font-family: var(--reliv-display);
+  font-size: clamp(42px,5.5vw,72px);
+  line-height: .98; max-width:12ch; letter-spacing:-.03em;
+}
+.reliv-visit-guide p { max-width: 62ch; margin: 0 0 22px; font-size: 16px; color: var(--reliv-ink-soft); }
+.reliv-visit-guide .btn { min-height: 48px; display: inline-flex; align-items:center; }
+body .status-pill { background: #eee6da; color: #45372d; border: 1px solid #cfbfae; }
+body .status-pill .status-dot { background: #8d7765; box-shadow: none; }
+.sensor-nav button { min-height: 50px; }
+.sensor-nav button[aria-pressed="true"] { font-weight:800; }
+.sensor-nav button:focus-visible { outline-offset: -3px !important; }
+.menu-dialog { overflow-y: auto; overscroll-behavior: contain; }
+.menu-dialog .menu-close { min-width:48px; min-height:48px; }
+.menu-dialog nav a { min-height: 49px; align-items:center; }
+.hero-cta .text-link, .hero-cta .pill { min-height:48px; display:inline-flex; align-items:center; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .reliv-path:hover, .reliv-path:focus-visible { transform: translateY(-3px); }
+}
+@media (max-width: 800px) {
+  .r-mobile-action { display: inline-flex !important; }
+  .r-desktop-action { display: none !important; }
+  .reliv-visit-guide { grid-template-columns:1fr; gap:18px; }
+  .sensor-nav button { min-height:48px; font-size:12px; }
+  .hero-cta .pill { text-decoration: none; }
+  .menu-dialog nav a { font-size: clamp(38px, 8vw, 66px); }
+}
+@media (max-width: 600px) {
+  .hero { min-height: auto; padding: 20px 6% 24px; }
+  .hero h1 { font-size: 17vw; margin-top: 22px; }
+  .hero-meta { min-height: 23px; }
+  .hero-product { top: 145px; left: 27%; width:46%; height:318px; }
+  .product-caption { margin-top: 288px; }
+  .hero-bottom { margin-top: 20px; gap: 14px; }
+  .hero-bottom > p { font-size:13px; line-height:1.6; }
+  .hero-cta { gap:12px 18px; }
+  .hero-cta .pill { width: 100%; justify-content:space-between; }
+  .hero-cta .text-link { font-size:13px; }
+  .hero-baseline { margin-top:22px; }
+  .site-header { padding-inline: 5%; }
+  .header-actions { gap: 5px; }
+  .header-actions .small { padding:10px 12px; }
+  .header-actions .small span { font-size:17px; }
+}
+@media (max-width: 350px) {
+  .hero h1 { font-size:17.2vw; }
+  .hero-product { top:140px; height:290px; }
+  .product-caption { margin-top:260px; }
+  .site-header .brand { width:90px; }
+  .header-actions .small { font-size:10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reliv-path, .reliv-path::after { transition: none !important; transform: none !important; }
+  .kiosk-camera { transition: none !important; }
+}
