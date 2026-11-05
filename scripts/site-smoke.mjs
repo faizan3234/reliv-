@@ -42,7 +42,7 @@ for (const page of pages) {
       const content = getText(destination);
       const ids = new Set([...content.matchAll(/\bid\s*=\s*["']([^"']+)["']/g)].map(m => m[1]));
       // Video OS tabs intentionally recognize these virtual hashes in videos.js.
-      const virtualHash = destination.endsWith('/how-it-works.html') && ['iphone', 'android'].includes(hash);
+      const virtualHash = destination.replace(/\\/g, '/').endsWith('/how-it-works.html') && ['iphone', 'android'].includes(hash);
       if (!ids.has(hash) && !virtualHash) fail(page, 'link anchor missing: ' + href);
     }
   }
