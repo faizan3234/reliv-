@@ -54,7 +54,8 @@ self.addEventListener('fetch', event => {
     event.respondWith(
       fetch(request).then(response => {
         if (isCacheable(response)) {
-          event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.put(request, response.clone())).catch(() => {}));
+          const copy = response.clone();
+          event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.put(request, copy)).catch(() => {}));
         }
         return response;
       }).catch(async () => {
@@ -75,7 +76,8 @@ self.addEventListener('fetch', event => {
     caches.match(request).then(cached => {
       const refreshing = fetch(request).then(response => {
         if (isCacheable(response)) {
-          event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.put(request, response.clone())).catch(() => {}));
+          const copy = response.clone();
+          event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.put(request, copy)).catch(() => {}));
         }
         return response;
       });
