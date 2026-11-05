@@ -2,5 +2,8 @@
   "dependencies": {
     "puppeteer": "^25.10.0",
     "puppeteer-core": "^25.10.0"
+  },
+  "scripts": {
+    "test:site": "node scripts/site-smoke.mjs"
   }
 }
