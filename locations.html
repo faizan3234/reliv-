@@ -13,8 +13,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#cf420a">
-  <title>Find a Reliv Health Kiosk — Live Locations & Hours Kolkata</title>
-  <meta name="description" content="Find the nearest Reliv Smart Health Kiosk in Kolkata. View location address near IEM Gurukul Campus Sector V, operating hours, directions, and available preventive checks.">
+  <title>Find a Reliv Health Kiosk — Kolkata Locations (IEM Gurukul, St. James, Eco Park)</title>
+  <meta name="description" content="Find active Reliv Smart Health Kiosks in Kolkata: IEM Gurukul Campus (Sector V), St. James' School, and Eco Park (New Town). 3-minute self-service vital screening.">
   <link rel="canonical" href="https://relivkiosk.vercel.app/locations.html">
 
   <!-- Open Graph -->
@@ -37,35 +37,77 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Reliv Smart Health Kiosk — Sector V Kolkata",
-    "alternateName": ["Reliv Medicare", "Reliv Medicare Kolkata", "Reliv Health ATM", "Reliv Machine Sector V"],
-    "image": "https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg",
-    "telephone": "+919163606455",
-    "email": "relivcustomercare.in@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Sector V, Bidhannagar (Near IEM Gurukul Campus)",
-      "addressLocality": "Kolkata",
-      "addressRegion": "West Bengal",
-      "postalCode": "700091",
-      "addressCountry": "IN"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 22.5742463,
-      "longitude": 88.4344851
-    },
-    "hasMap": "https://maps.app.goo.gl/eKcd1SF2pF4FPa2W6",
-    "openingHoursSpecification": [
+    "@type": "ItemList",
+    "name": "Reliv Smart Health Kiosk Network — Kolkata",
+    "description": "Active self-service preventive health screening stations in Kolkata, West Bengal.",
+    "itemListElement": [
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        "opens": "08:00",
-        "closes": "20:00"
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "LocalBusiness",
+          "name": "Reliv Station 01 · IEM Gurukul Campus",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Y-12, Block EP, Sector V, Bidhannagar",
+            "addressLocality": "Kolkata",
+            "addressRegion": "West Bengal",
+            "postalCode": "700091",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 22.5742463,
+            "longitude": 88.4344851
+          },
+          "hasMap": "https://maps.app.goo.gl/eKcd1SF2pF4FPa2W6"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "LocalBusiness",
+          "name": "Reliv Station 02 · St. James' School",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "165, Acharya Jagadish Chandra Bose Road, Entally",
+            "addressLocality": "Kolkata",
+            "addressRegion": "West Bengal",
+            "postalCode": "700014",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 22.5492,
+            "longitude": 88.3686
+          },
+          "hasMap": "https://maps.google.com/?q=St.+James'+School,+165+Acharya+Jagadish+Chandra+Bose+Rd,+Entally,+Kolkata,+West+Bengal+700014"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "LocalBusiness",
+          "name": "Reliv Station 03 · Eco Park (Prakriti Tirtha)",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Major Arterial Road, Action Area II, New Town",
+            "addressLocality": "Kolkata",
+            "addressRegion": "West Bengal",
+            "postalCode": "700156",
+            "addressCountry": "IN"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 22.6006,
+            "longitude": 88.4687
+          },
+          "hasMap": "https://maps.google.com/?q=Eco+Park,+Major+Arterial+Road,+Action+Area+II,+New+Town,+Kolkata,+West+Bengal+700156"
+        }
       }
-    ],
-    "priceRange": "Free / Affordable"
+    ]
   }
   </script>
 
@@ -170,51 +212,150 @@
       </div>
     </section>
 
-    <!-- Main Location Card -->
+    <!-- Kolkata Kiosk Network Section -->
     <section class="wrap" style="padding-bottom: 60px;">
-      <div class="location-details-box">
+      
+      <!-- Top Locator & Quick Filter Bar -->
+      <div style="background: var(--bg-alt); border: 1.5px solid var(--border); border-radius: var(--radius-xl); padding: 24px; margin-bottom: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <span style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); display: block; margin-bottom: 4px;">Kolkata Network · 3 Active Stations</span>
+          <strong style="font-size: 18px; color: var(--ink);">Select a location or find the nearest kiosk to you</strong>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
+          <button id="findMeBtn" class="btn btn-primary" style="font-size: 14px; padding: 10px 20px; border-radius: 9999px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="12 8 8 12 12 16 12 8"/></svg>
+            Find Nearest to Me
+          </button>
+        </div>
+      </div>
+
+      <!-- Distance Result Container -->
+      <div id="distanceResult" class="distance-calc-result" role="status" style="margin-bottom: 32px;"></div>
+
+      <!-- Quick Jump Station Pills -->
+      <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px;">
+        <a href="#iem-gurukul" class="btn btn-secondary" style="font-size: 13.5px; padding: 8px 18px; border-radius: 9999px;">📍 IEM Gurukul (Sector V)</a>
+        <a href="#st-james" class="btn btn-secondary" style="font-size: 13.5px; padding: 8px 18px; border-radius: 9999px;">📍 St. James' School (AJC Bose Rd)</a>
+        <a href="#eco-park" class="btn btn-secondary" style="font-size: 13.5px; padding: 8px 18px; border-radius: 9999px;">📍 Eco Park (New Town)</a>
+      </div>
+
+      <!-- Location Card 1: IEM Gurukul -->
+      <div class="location-details-box" id="iem-gurukul" style="margin-top: 0; margin-bottom: 32px; scroll-margin-top: 100px;">
         <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; margin-bottom:20px;">
           <div>
             <span class="status-pill">
               <span class="status-dot"></span>
-              Pilot location · Confirm hours
+              Higher Education Campus · Active Station
             </span>
-            <h2 style="font-size: clamp(24px, 3.5vw, 32px); color:var(--ink); margin-bottom: 6px;">Reliv Kiosk · Sector V, Kolkata</h2>
-            <p style="font-size:16px; color:var(--ink-secondary);">Near IEM Gurukul Campus, Bidhannagar, Kolkata, West Bengal 700091</p>
+            <h2 style="font-size: clamp(22px, 3.5vw, 30px); color:var(--ink); margin-bottom: 6px;">Reliv Station 01 · IEM Gurukul Campus</h2>
+            <p style="font-size:16px; color:var(--ink-secondary);">Near IEM Gurukul Campus, Y-12, Block EP, Sector V, Bidhannagar, Kolkata 700091</p>
+            <span class="station-distance-badge" id="dist-iem-gurukul" style="display:inline-block; font-size:13px; font-weight:600; color:var(--orange); margin-top:6px;"></span>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a href="https://maps.app.goo.gl/eKcd1SF2pF4FPa2W6" target="_blank" rel="noopener" class="btn btn-primary">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
               Get Directions ↗
             </a>
-            <button id="findMeBtn" class="btn btn-secondary">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="12 8 8 12 12 16 12 8"/></svg>
-              Use My Location
-            </button>
           </div>
         </div>
 
-        <!-- Distance Result Container -->
-        <div id="distanceResult" class="distance-calc-result" role="status"></div>
-
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:20px; margin-top:28px; padding-top:24px; border-top:1px solid var(--border);">
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:20px; margin-top:24px; padding-top:20px; border-top:1px solid var(--border);">
           <div>
             <strong style="display:block; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:4px;">Operating Hours</strong>
             <span style="font-size:15px; color:var(--ink); font-weight:600;">Mon – Sat: 8:00 AM – 8:00 PM</span>
-            <span style="display:block; font-size:13px; color:var(--muted); margin-top:2px;">Listed hours may change. Please confirm venue access before visiting.</span>
+            <span style="display:block; font-size:13px; color:var(--muted); margin-top:2px;">Walk-ins welcome for students, faculty & visitors</span>
           </div>
           <div>
             <strong style="display:block; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:4px;">Available Checks</strong>
             <span style="font-size:15px; color:var(--ink); font-weight:600;">BP, SpO₂, Pulse, Temp, Body Composition</span>
-            <span style="display:block; font-size:13px; color:var(--muted); margin-top:2px;">Typical screening ~3 minutes. Report options vary.</span>
+            <span style="display:block; font-size:13px; color:var(--muted); margin-top:2px;">Takes ~3 minutes · Instant QR Summary</span>
           </div>
           <div>
             <strong style="display:block; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:4px;">Languages Supported</strong>
             <span style="font-size:15px; color:var(--ink); font-weight:600;">English · हिन्दी · বাংলা</span>
-            <span style="display:block; font-size:13px; color:var(--muted); margin-top:2px;">Spoken natural female voice assistance</span>
+            <span style="display:block; font-size:13px; color:var(--muted); margin-top:2px;">Spoken natural voice assistance</span>
           </div>
         </div>
       </div>
+
+      <!-- Location Card 2: St. James' School -->
+      <div class="location-details-box" id="st-james" style="margin-top: 0; margin-bottom: 32px; scroll-margin-top: 100px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; margin-bottom:20px;">
+          <div>
+            <span class="status-pill">
+              <span class="status-dot"></span>
+              School &amp; Sports Campus · Active Station
+            </span>
+            <h2 style="font-size: clamp(22px, 3.5vw, 30px); color:var(--ink); margin-bottom: 6px;">Reliv Station 02 · St. James' School</h2>
+            <p style="font-size:16px; color:var(--ink-secondary);">165, Acharya Jagadish Chandra Bose Road, Entally, Kolkata, West Bengal 700014</p>
+            <span class="station-distance-badge" id="dist-st-james" style="display:inline-block; font-size:13px; font-weight:600; color:var(--orange); margin-top:6px;"></span>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="https://maps.google.com/?q=St.+James'+School,+165+Acharya+Jagadish+Chandra+Bose+Rd,+Entally,+Kolkata,+West+Bengal+700014" target="_blank" rel="noopener" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              Get Directions ↗
+            </a>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:20px; margin-top:24px; padding-top:20px; border-top:1px solid var(--border);">
+          <div>
+            <strong style="display:block; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:4px;">Operating Hours</strong>
+            <span style="font-size:15px; color:var(--ink); font-weight:600;">Mon – Fri: 8:30 AM – 4:30 PM</span>
+            <span style="display:block; font-size:13px; color:var(--muted); margin-top:2px;">Serving students, faculty and staff community</span>
+          </div>
+          <div>
+            <strong style="display:block; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:4px;">Available Checks</strong>
+            <span style="font-size:15px; color:var(--ink); font-weight:600;">BP, SpO₂, Pulse, Temp, Body Composition</span>
+            <span style="display:block; font-size:13px; color:var(--muted); margin-top:2px;">Fast self-guided testing with instant report</span>
+          </div>
+          <div>
+            <strong style="display:block; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:4px;">Languages Supported</strong>
+            <span style="font-size:15px; color:var(--ink); font-weight:600;">English · हिन्दी · বাংলা</span>
+            <span style="display:block; font-size:13px; color:var(--muted); margin-top:2px;">Spoken natural voice assistance</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Location Card 3: Eco Park -->
+      <div class="location-details-box" id="eco-park" style="margin-top: 0; margin-bottom: 32px; scroll-margin-top: 100px;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; margin-bottom:20px;">
+          <div>
+            <span class="status-pill">
+              <span class="status-dot"></span>
+              Public Recreation &amp; Wellness · Active Station
+            </span>
+            <h2 style="font-size: clamp(22px, 3.5vw, 30px); color:var(--ink); margin-bottom: 6px;">Reliv Station 03 · Eco Park (New Town)</h2>
+            <p style="font-size:16px; color:var(--ink-secondary);">Major Arterial Road, Action Area II, New Town, Kolkata, West Bengal 700156 (Activity Zone / Gate 2)</p>
+            <span class="station-distance-badge" id="dist-eco-park" style="display:inline-block; font-size:13px; font-weight:600; color:var(--orange); margin-top:6px;"></span>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a href="https://maps.google.com/?q=Eco+Park,+Major+Arterial+Road,+Action+Area+II,+New+Town,+Kolkata,+West+Bengal+700156" target="_blank" rel="noopener" class="btn btn-primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              Get Directions ↗
+            </a>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:20px; margin-top:24px; padding-top:20px; border-top:1px solid var(--border);">
+          <div>
+            <strong style="display:block; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:4px;">Operating Hours</strong>
+            <span style="font-size:15px; color:var(--ink); font-weight:600;">Tue – Sun: 10:00 AM – 8:00 PM</span>
+            <span style="display:block; font-size:13px; color:var(--muted); margin-top:2px;">Closed on Mondays · Open for park visitors & joggers</span>
+          </div>
+          <div>
+            <strong style="display:block; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:4px;">Available Checks</strong>
+            <span style="font-size:15px; color:var(--ink); font-weight:600;">BP, SpO₂, Pulse, Temp, Body Composition</span>
+            <span style="display:block; font-size:13px; color:var(--muted); margin-top:2px;">Instant fitness & wellness screening</span>
+          </div>
+          <div>
+            <strong style="display:block; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); margin-bottom:4px;">Languages Supported</strong>
+            <span style="font-size:15px; color:var(--ink); font-weight:600;">English · हिन्दी · বাংলা</span>
+            <span style="display:block; font-size:13px; color:var(--muted); margin-top:2px;">Spoken natural voice assistance</span>
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <!-- Visitor information: operational status is not verified in real time -->
@@ -287,10 +428,31 @@
     </div>
   </footer>
 
-  <!-- Distance Calculation Script -->
+  <!-- Distance Calculation Script for 3 Kolkata Stations -->
   <script>
-    const KIOSK_LAT = 22.5742463;
-    const KIOSK_LNG = 88.4344851;
+    const KIOSKS = [
+      {
+        id: 'iem-gurukul',
+        name: 'IEM Gurukul Campus (Sector V)',
+        lat: 22.5742463,
+        lng: 88.4344851,
+        address: 'Sector V, Salt Lake, Kolkata'
+      },
+      {
+        id: 'st-james',
+        name: "St. James' School (AJC Bose Rd)",
+        lat: 22.5492,
+        lng: 88.3686,
+        address: 'Entally, Kolkata'
+      },
+      {
+        id: 'eco-park',
+        name: 'Eco Park (New Town)',
+        lat: 22.6006,
+        lng: 88.4687,
+        address: 'Action Area II, New Town, Kolkata'
+      }
+    ];
 
     function haversine(lat1, lon1, lat2, lon2) {
       const R = 6371;
@@ -311,7 +473,7 @@
         if (!navigator.geolocation) {
           resultBox.className = 'distance-calc-result error';
           resultBox.style.display = 'block';
-          resultBox.textContent = 'Geolocation is not supported by your browser. Please use Google Maps directions.';
+          resultBox.textContent = 'Geolocation is not supported by your browser. Please select any station below to view directions on Google Maps.';
           return;
         }
 
@@ -321,25 +483,53 @@
         navigator.geolocation.getCurrentPosition(
           pos => {
             findBtn.disabled = false;
-            findBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="12 8 8 12 12 16 12 8"/></svg> Location Found`;
-            const dist = haversine(pos.coords.latitude, pos.coords.longitude, KIOSK_LAT, KIOSK_LNG);
-            const distStr = dist < 1 ? `${Math.round(dist * 1000)} meters` : `${dist.toFixed(1)} km`;
+            findBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="12 8 8 12 12 16 12 8"/></svg> Location Updated`;
+
+            // Calculate distance to all stations
+            const distances = KIOSKS.map(k => {
+              const d = haversine(pos.coords.latitude, pos.coords.longitude, k.lat, k.lng);
+              return { ...k, distance: d };
+            });
+
+            distances.sort((a, b) => a.distance - b.distance);
+            const nearest = distances[0];
+            const nearestDistStr = nearest.distance < 1 ? `${Math.round(nearest.distance * 1000)} meters` : `${nearest.distance.toFixed(1)} km`;
+
+            // Update badges on each card
+            distances.forEach(item => {
+              const badge = document.getElementById('dist-' + item.id);
+              const card = document.getElementById(item.id);
+              if (badge) {
+                const distText = item.distance < 1 ? `${Math.round(item.distance * 1000)} m away` : `${item.distance.toFixed(1)} km away`;
+                badge.textContent = '📍 Approx. ' + distText + ' from your current position';
+              }
+              if (card) {
+                if (item.id === nearest.id) {
+                  card.style.borderColor = 'var(--orange)';
+                  card.style.boxShadow = '0 0 0 2px rgba(226, 90, 12, 0.2), 0 12px 36px rgba(226, 90, 12, 0.12)';
+                } else {
+                  card.style.borderColor = 'var(--border)';
+                  card.style.boxShadow = 'none';
+                }
+              }
+            });
 
             resultBox.style.display = 'block';
-            if (dist <= 5) {
-              resultBox.className = 'distance-calc-result success';
-              resultBox.innerHTML = `<strong>You are approximately ${distStr} away from this kiosk!</strong> Sector V, Salt Lake is right near you. Walk or drive over today for a quick 3-minute checkup.`;
-            } else {
-              resultBox.className = 'distance-calc-result info';
-              resultBox.innerHTML = `You are currently <strong>${distStr}</strong> away from our Sector V, Kolkata station. We are expanding to more colleges, gyms, and commercial centers soon!`;
+            resultBox.className = 'distance-calc-result success';
+            resultBox.innerHTML = `<strong>📍 Nearest station to you: ${nearest.name}</strong> (${nearestDistStr} away).<br>Station is highlighted below with directions ready.`;
+
+            // Scroll to nearest card smoothly
+            const nearestEl = document.getElementById(nearest.id);
+            if (nearestEl) {
+              nearestEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
           },
           err => {
             findBtn.disabled = false;
-            findBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="12 8 8 12 12 16 12 8"/></svg> Use My Location`;
+            findBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polygon points="12 8 8 12 12 16 12 8"/></svg> Find Nearest to Me`;
             resultBox.className = 'distance-calc-result info';
             resultBox.style.display = 'block';
-            resultBox.textContent = 'Location permission was not granted. You can open directions directly on Google Maps.';
+            resultBox.textContent = 'Location access was not granted. You can select any station below to open direct directions in Google Maps.';
           }
         );
       });
