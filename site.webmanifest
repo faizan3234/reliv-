@@ -1,6 +1,14 @@
 {
-  "name": "Reliv Health ATM",
+  "name": "Reliv Health Kiosk & App",
   "short_name": "Reliv",
+  "id": "reliv-health-app",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#cf420a",
+  "background_color": "#ffffff",
+  "description": "Reliv Health Kiosk companion app. Monitor your health vitals, body composition, and download confidential screening summaries.",
   "icons": [
     {
       "src": "icons/favicon-16x16.png",
@@ -33,8 +41,5 @@
       "sizes": "any",
       "type": "image/svg+xml"
     }
-  ],
-  "theme_color": "#cf420a",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  ]
 }
