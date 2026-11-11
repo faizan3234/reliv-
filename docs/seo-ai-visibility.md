@@ -22,3 +22,4 @@ Last updated: 2026-11-11
 ## Honest limits
 - No one can guarantee "first" in ChatGPT, Gemini, Claude or Google. These tools choose answers using their own indexes, live web search and third-party sources, and results vary per user and per day.
 - Do not claim "100+ parameters" unless the kiosk really measures them. AI engines and users will penalise inaccurate claims.
+

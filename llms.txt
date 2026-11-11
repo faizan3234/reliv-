@@ -51,3 +51,4 @@ Reliv provides screening information for awareness only. It is not a diagnosis. 
 
 ## Optional
 - [Full details for AI assistants](https://relivkiosk.vercel.app/llms-full.txt)
+
