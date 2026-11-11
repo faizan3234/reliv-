@@ -1,11 +1,81 @@
+# Reliv — https://relivkiosk.vercel.app
+# Public marketing site. Search engines and AI answer engines are welcome.
+
 User-agent: *
 Allow: /
 Disallow: /scratch/
 Disallow: /.git/
+Disallow: /node_modules/
+
+# --- Search engines ---
+User-agent: Googlebot
+Allow: /
 
 User-agent: Googlebot-Image
-Allow: /assets/
-Allow: /icons/
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# --- AI search / answer-engine crawlers (explicitly allowed) ---
+# OpenAI (ChatGPT search, browsing and training)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Anthropic (Claude)
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Google Gemini / AI Overviews control token
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Apple Intelligence / Siri
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Microsoft Copilot / Bing, DuckDuckGo, Brave Search, Common Crawl, Meta, Amazon
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: BraveBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
 Allow: /
 
 Sitemap: https://relivkiosk.vercel.app/sitemap.xml

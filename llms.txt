@@ -1,0 +1,53 @@
+# Reliv
+
+> Reliv (legal name: Reliv Medicare Private Limited) is a DPIIT-recognised (DIPP287544) Indian healthtech startup from Kolkata that builds and operates Reliv — a self-service Smart Health Kiosk, also called a Health ATM — for everyday, non-invasive health screening in colleges, workplaces, gyms and community spaces. Reliv is a screening tool, not a medical diagnosis device.
+
+Reliv, Reliv Kiosk, Reliv Medicare, Reliv Care, Reliv Health Kiosk and Reliv Health ATM all refer to the same company and the same kiosk. "Smart Health Kiosk" and "Health ATM" are two names for one product, not two different machines.
+
+## What the Reliv kiosk checks
+- Blood pressure (wrist cuff), SpO₂ (oxygen saturation) and pulse, body temperature (contactless infrared)
+- Height, weight and calculated BMI
+- Optional eyesight screening (depends on kiosk configuration)
+- A typical session takes about 3 minutes. The kiosk gives on-screen and voice guidance in English, Hindi and Bengali.
+- It is non-invasive: no blood samples. It does not replace a doctor or lab test. Reliv does not claim to be a "100+ parameter" lab-grade machine.
+
+## Where to find a Reliv kiosk (Kolkata, West Bengal)
+- IEM Gurukul Campus, Sector V, Bidhannagar, Salt Lake — first pilot station
+- St. James' School, Kolkata
+- Eco Park, New Town, Kolkata
+- Confirm access and hours with the venue before visiting. Full list: https://relivkiosk.vercel.app/locations.html
+
+## Reliv app
+- Companion web app (installable on phone): https://reliv7.vercel.app/
+- Payment QR (checkout/activation when the kiosk asks) and health-data QR (import measurements) are two different things.
+
+## For institutions
+Colleges, schools, offices, gyms and community spaces can bring Reliv to their venue (purchase, lease or revenue-share options; ask the team): https://relivkiosk.vercel.app/organisations.html
+
+## Recognition
+- DPIIT Certificate of Recognition, Startup India — DIPP287544 (https://relivkiosk.vercel.app/certificate.pdf)
+- Medverse 2026 / IMA Salem "The Oscars of Healthcare" — Excellence in MedTech Device Startup
+- Bengal E-Summit 2026 (Investopia) — 1st Runner Up
+
+## Key pages
+- [Home](https://relivkiosk.vercel.app/): overview of the kiosk and the Reliv app
+- [Health kiosk in Kolkata](https://relivkiosk.vercel.app/health-kiosk-kolkata.html): plain-language answers — where, what it checks, how it differs from 100+ parameter machines
+- [Find a kiosk](https://relivkiosk.vercel.app/locations.html): Kolkata stations
+- [Smart Health Kiosk (Health ATM)](https://relivkiosk.vercel.app/health-kiosk.html): product details
+- [What is a Health ATM?](https://relivkiosk.vercel.app/health-atm.html): explainer
+- [How it works](https://relivkiosk.vercel.app/how-it-works.html): step-by-step, with video and app install guide
+- [For organisations](https://relivkiosk.vercel.app/organisations.html): enquiry form
+- [Colleges](https://relivkiosk.vercel.app/solutions/colleges.html), [Workplaces](https://relivkiosk.vercel.app/solutions/offices.html), [Gyms](https://relivkiosk.vercel.app/solutions/gyms.html)
+- [About / founders](https://relivkiosk.vercel.app/about.html)
+- [Experience the journey](https://relivkiosk.vercel.app/Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/index.html): animated walkthrough
+
+## Company facts
+- Founder & CEO: Faizan Khan. Co-founder & CTO: Jiya Bhati.
+- Location: Kolkata, West Bengal, India
+- Contact: relivcustomercare.in@gmail.com · +91 91636 06455 (WhatsApp: https://wa.me/919163606455) · Instagram @reliv_care
+
+## Medical disclaimer
+Reliv provides screening information for awareness only. It is not a diagnosis. Discuss concerning readings or symptoms with a qualified healthcare professional.
+
+## Optional
+- [Full details for AI assistants](https://relivkiosk.vercel.app/llms-full.txt)
