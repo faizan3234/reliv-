@@ -49,7 +49,30 @@ for (const url of urls) {
     assert.ok(existsSync(file), `Broken link from ${path}: ${href}`);
   }
 }
-for (const path of ['health-kiosk.html', 'pricing.html', 'contact.html']) {
+// A video sitemap must describe a real player on that exact landing page.
+for (const [,entry] of sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+  const pageURL = entry.match(/<loc>(.*?)<\/loc>/)[1];
+  const path = new URL(pageURL).pathname === '/' ? 'index.html' : new URL(pageURL).pathname.slice(1);
+  const html = read(path);
+  for (const [,video] of entry.matchAll(/<video:video>([\s\S]*?)<\/video:video>/g)) {
+    const source = new URL(video.match(/<video:content_loc>(.*?)<\/video:content_loc>/)[1]);
+    const poster = new URL(video.match(/<video:thumbnail_loc>(.*?)<\/video:thumbnail_loc>/)[1]);
+    assert.ok(/<video\b/.test(html) && html.includes(source.pathname.slice(1)), `Video sitemap has no player/source on ${path}`);
+    for (const asset of [source, poster]) assert.ok(existsSync(resolve(root, asset.pathname.slice(1))), `Missing video asset: ${asset}`);
+  }
+}
+const demo = JSON.parse(read('content/reliv-demo.json'));
+for (const path of ['demo.html', 'media.html']) {
+  const graph = JSON.parse(read(path).match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
+  const videos = graph.filter(node => node['@type'] === 'VideoObject' && node.contentUrl === facts.url + demo.contentPath);
+  assert.equal(videos.length, 1, `One consistent demo video identity required: ${path}`);
+  assert.equal(videos[0].url, facts.url + demo.watchPath);
+  assert.equal(videos[0].description, demo.description);
+  assert.equal(videos[0].duration, demo.duration);
+}
+assert.ok(/<video\b[^>]*\bcontrols\b[^>]*preload="none"/.test(read('demo.html')), 'Demo must have native controls and defer video download');
+assert.ok(!/@import/.test(read('editorial.css')), 'Fonts should be discovered directly from HTML');
+for (const path of ['health-kiosk.html', 'pricing.html', 'contact.html', 'health-kiosk-buying-guide.html', 'demo.html']) {
   assert.ok(urls.includes(facts.url + '/' + path), `New page missing from sitemap: ${path}`);
   assert.ok(read('index.html').includes(`href="${path}"`), `Homepage cannot reach ${path}`);
   assert.ok(read(path).includes(facts.email), `Contact email must be visible: ${path}`);

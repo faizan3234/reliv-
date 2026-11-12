@@ -29,6 +29,8 @@ No numeric starting price is published here. Machine purchase costs and session 
 These are listed partner-venue stations. Confirm current availability, access and opening hours before travelling.
 
 ## Official pages
+- [Health Kiosk Buying Guide India | Costs & Deployment | Reliv](https://relivkiosk.vercel.app/health-kiosk-buying-guide.html)
+- [Watch Reliv Health Kiosk Demo | Official Kiosk Walkthrough](https://relivkiosk.vercel.app/demo.html)
 - [Reliv Kiosk | Smart Health Kiosk & Health ATM in India](https://relivkiosk.vercel.app/)
 - [Reliv Health Kiosk in India | Features, Pricing & Contact](https://relivkiosk.vercel.app/health-kiosk.html)
 - [What Is a Health ATM? | Reliv Health Kiosk India](https://relivkiosk.vercel.app/health-atm.html)

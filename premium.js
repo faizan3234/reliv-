@@ -26,7 +26,8 @@
   function runPreloader(done) {
     var seen = false;
     try { seen = sessionStorage.getItem('reliv_pl') === '1'; } catch (e) {}
-    if (seen || reduced) { done(); return; }
+    // Cosmetic loading screens are opt-in; content is available immediately by default.
+    if (document.body.dataset.loadingIntro !== 'true' || seen || reduced) { done(); return; }
     try { sessionStorage.setItem('reliv_pl', '1'); } catch (e) {}
 
     var pl = document.createElement('div');
@@ -70,7 +71,8 @@
 
   /* ---------- 2. Inertia smooth scroll (Lenis) ---------- */
   function initLenis(cb) {
-    if (reduced) { cb(); return; }
+    // Native scrolling avoids a third-party fetch and a perpetual animation loop.
+    if (document.body.dataset.smoothScroll !== 'true' || reduced || !finePointer) { cb(); return; }
     var s = document.createElement('script');
     s.src = 'https://unpkg.com/lenis@1.1.13/dist/lenis.min.js';
     s.async = true;

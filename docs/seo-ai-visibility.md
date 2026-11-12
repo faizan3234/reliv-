@@ -71,3 +71,28 @@ References:
 - https://support.google.com/business/answer/13763036
 - https://support.google.com/business/answer/3038177
 - https://www.indexnow.org/documentation
+
+## Discovery follow-up — 13 November 2026
+
+The first SEO PR (#6) is merged. A read-only production check found the homepage, pricing and contact pages returning HTTP 200 with the expected canonical URLs and no noindex directives. Separate checks confirmed the index/partner redirects, a genuine 404 for an unknown path and noindex headers on the archived redesign. These observations do not establish search indexing or ranking.
+
+This follow-up adds:
+
+- `/health-kiosk-buying-guide.html`: a manufacturer-authored procurement guide covering configuration, total costs, privacy, site preparation and support questions. It links to the existing product, pricing and use-case pages instead of duplicating them as keyword landing pages.
+- `/demo.html`: a dedicated watch page with native controls and the existing demonstration MP4. The video sitemap previously placed this video on the homepage even though the homepage has no player. It now points to the watch page. Shared metadata in `content/reliv-demo.json` keeps the media page and watch page consistent. The original publication date is preserved from existing metadata; ffprobe verified 98.4 seconds and 478 × 850 pixels.
+- Direct HTML font requests, replacing the nested `editorial.css` import while preserving the existing font families. The cosmetic preloader and third-party inertia scrolling are opt-in (`data-loading-intro="true"`, `data-smooth-scroll="true"` on body); standard pages use immediate content and native scrolling. These remove specific loading work; no measured Core Web Vitals improvement is claimed.
+- `npm run seo:audit`: a read-only HTTP audit of all sitemap URLs. It fails on missing/non-200 pages, wrong content types, noindex, unexpected canonical URLs or missing response HTML landmarks. For a partial production check: `npm run seo:audit -- --paths=/,/pricing.html,/contact.html`. In environments requiring an HTTP proxy, Node 24 can use `NODE_USE_ENV_PROXY=1`. The audit does not bypass bot challenges or measure field performance.
+- Regression checks for video sitemap/player agreement, shared video identity and new-page reachability. The IndexNow helper now includes both new pages and refuses submission until every selected page is deployed.
+
+Validation: 22 sitemap URLs, 17 JSON-LD blocks, a 20-page source smoke audit, desktop inspection of both new pages, and narrow-frame inspection at 345–375 CSS pixels without horizontal overflow. The buyer's guide table and native FAQ were checked; the demo played and reported a 98.4-second duration. These are focused checks, not a comprehensive accessibility/device audit. No Lighthouse score or confirmed IndexNow receipt is reported for this pass.
+
+After merging this follow-up, confirm the Vercel deployment, run the complete production audit and then submit the sitemap in the verified Google/Bing properties. The IndexNow helper can notify supported engines after its deployment checks pass. Search Console, Bing ownership, indexed-page counts and field Core Web Vitals still require access to the relevant accounts.
+
+Research informing the content scope: sampled public results included detailed product and buying information from Clinics on Cloud and Cloudspital. These vendor pages informed the questions a buyer may ask; their performance, pricing and clinical claims were not copied into Reliv's claims. The sample is not an exhaustive ranking or evidence of Reliv's position on every platform.
+
+Additional references:
+- https://developers.google.com/search/docs/appearance/video
+- https://developers.google.com/search/docs/fundamentals/creating-helpful-content
+- https://web.dev/articles/optimize-lcp
+- https://clinicsoncloud.com/products/health-kiosk/
+- https://cloudspital.ai/health-atm-kiosk/price-in-india/

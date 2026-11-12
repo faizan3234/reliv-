@@ -6,11 +6,14 @@ import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const facts = JSON.parse(readFileSync(resolve(root, 'content/reliv-facts.json'), 'utf8'));
+const demo = JSON.parse(readFileSync(resolve(root, 'content/reliv-demo.json'), 'utf8'));
 const check = process.argv.includes('--check');
 const changed = [];
 const htmlEscape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 const textOnly = html => html.replace(/<[^>]*>/g, '').replaceAll('&amp;', '&').replaceAll('&nbsp;', ' ').replace(/\s+/g, ' ').trim();
 const pages = {
+  'health-kiosk-buying-guide.html': ['Health Kiosk Buying Guide India | Costs & Deployment | Reliv', 'Compare health kiosk features, purchase and lease costs, installation, privacy and support. A practical buyer’s checklist from Reliv Medicare, Kolkata.'],
+  'demo.html': ['Watch Reliv Health Kiosk Demo | Official Kiosk Walkthrough', 'Watch the official Reliv health kiosk demonstration. Explore screening features, configuration options and deployment pricing, or arrange a demonstration.'],
   'index.html': ['Reliv Kiosk | Smart Health Kiosk & Health ATM in India', 'Meet Reliv Kiosk from Kolkata: guided health, fitness and wellness screening. Explore checks, kiosk pricing, locations and contact Reliv Medicare.'],
   'health-kiosk.html': ['Reliv Health Kiosk in India | Features, Pricing & Contact', 'Explore Reliv Smart Health Kiosk: BP, SpO₂, pulse, temperature, height, weight and BMI. See configuration options, pricing enquiries and Kolkata stations.'],
   'health-atm.html': ['What Is a Health ATM? | Reliv Health Kiosk India', 'Understand Health ATMs and the Reliv self-service health kiosk. Explore guided screening, configuration options, digital reports and deployment pricing.'],
@@ -88,6 +91,20 @@ for (const [path, [title, description]] of Object.entries(pages)) {
     inLanguage: 'en-IN', isPartOf: { '@id': website['@id'] }, publisher: { '@id': org['@id'] }, about: { '@id': product['@id'] }
   };
   const graph = [org, website, webpage];
+  if (path === 'demo.html' || path === 'media.html') {
+    const video = {
+      '@type': 'VideoObject', '@id': facts.url + demo.watchPath + '#video',
+      name: demo.name, description: demo.description,
+      thumbnailUrl: [facts.url + demo.thumbnailPath],
+      uploadDate: demo.uploadDate, duration: demo.duration,
+      contentUrl: facts.url + demo.contentPath, url: facts.url + demo.watchPath,
+      width: demo.width, height: demo.height,
+      publisher: { '@id': org['@id'] },
+      mainEntityOfPage: { '@id': facts.url + demo.watchPath + '#webpage' }
+    };
+    graph.push(video);
+    if (path === 'demo.html') webpage.mainEntity = { '@id': video['@id'] };
+  }
   if (path === 'health-kiosk.html') graph.push(product);
   if (path !== 'index.html') {
     webpage.breadcrumb = { '@id': url + '#breadcrumb' };
@@ -102,7 +119,8 @@ for (const [path, [title, description]] of Object.entries(pages)) {
     acceptedAnswer: { '@type': 'Answer', text: textOnly(a) }
   }));
   if (questions.length) graph.push({ '@type': 'FAQPage', '@id': url + '#faq', mainEntity: questions });
-  graph.push(...retained);
+  const isManagedVideo = node => node['@type'] === 'VideoObject' && node.contentUrl === facts.url + demo.contentPath;
+  graph.push(...retained.filter(node => !isManagedVideo(node)));
   const tags = [
     `<title>${htmlEscape(title)}</title>`,
     `<meta name="description" content="${htmlEscape(description)}">`,
@@ -128,7 +146,7 @@ for (const [path, [title, description]] of Object.entries(pages)) {
   if (previousBlock) {
     const oldGraph = JSON.parse(previousBlock[1].match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
     const extra = oldGraph.filter(n => !['Organization', 'WebSite', 'WebPage', 'ContactPage', 'Product', 'BreadcrumbList', 'FAQPage'].includes(n['@type']));
-    const unique = extra.filter(n => !retained.some(r => JSON.stringify(r) === JSON.stringify(n)));
+    const unique = extra.filter(n => !isManagedVideo(n) && !retained.some(r => JSON.stringify(r) === JSON.stringify(n)));
     graph.push(...unique);
     tags[tags.length - 1] = '<script type="application/ld+json">\n' + JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2).replaceAll('<', '\\u003c') + '\n</script>';
   }
