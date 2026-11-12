@@ -56,3 +56,369 @@
 /* Keep the skip link available to keyboard users without adding a layout row. */
 .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; padding: 12px 18px; background: #fff; color: #1d2824; transform: translateY(-160%); }
 .skip-link:focus { transform: translateY(0); }
+
+/* --- PLANS & ROI PROFITABILITY MATHEMATICS & CALCULATOR --- */
+.roi-section {
+  padding: clamp(48px, 6vw, 84px) 20px;
+  background: #fff9f2;
+  border-top: 1px solid #e4d9cd;
+  border-bottom: 1px solid #e4d9cd;
+}
+.roi-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.roi-header {
+  text-align: center;
+  max-width: 820px;
+  margin: 0 auto 40px;
+}
+.roi-header h2 {
+  font-family: var(--reliv-display, "Barlow Condensed", sans-serif);
+  font-size: clamp(34px, 5.5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+  margin: 12px 0 16px;
+  color: var(--reliv-ink, #211c19);
+}
+.roi-header h2 em {
+  color: var(--reliv-orange, #c33c0d);
+  font-style: normal;
+}
+.roi-header p {
+  font-size: clamp(15.5px, 1.2vw, 18px);
+  color: #574d46;
+  line-height: 1.65;
+}
+
+/* Interactive Calculator Box */
+.roi-calc-box {
+  background: #ffffff;
+  border: 1.5px solid #dfddd6;
+  border-radius: 24px;
+  padding: clamp(28px, 4vw, 44px);
+  box-shadow: 0 16px 40px rgba(33, 28, 25, 0.05);
+  margin-bottom: 48px;
+}
+.roi-calc-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1.5px solid #f0ebe3;
+  margin-bottom: 32px;
+}
+.roi-control-group label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #574d46;
+  margin-bottom: 12px;
+}
+.roi-control-group .control-val {
+  font-size: 22px;
+  font-weight: 800;
+  color: #c33c0d;
+  font-family: var(--reliv-display, "Barlow Condensed", sans-serif);
+  letter-spacing: -0.01em;
+}
+.roi-slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #eadecd;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+.roi-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #c33c0d;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(195, 60, 13, 0.35);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.roi-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+.roi-slider::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #c33c0d;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(195, 60, 13, 0.35);
+  cursor: pointer;
+}
+.roi-slider-hints {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #8c827a;
+  margin-top: 8px;
+}
+
+/* Calculator Output Grid */
+.roi-results-intro {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.roi-gross-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: #faf3e9;
+  border: 1px solid #e7ded2;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #211c19;
+}
+.roi-gross-pill strong {
+  color: #c33c0d;
+  font-size: 16px;
+}
+.roi-output-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.roi-output-card {
+  background: #faf8f5;
+  border: 1.5px solid #e8e3dc;
+  border-radius: 18px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.roi-output-card:hover {
+  transform: translateY(-3px);
+  border-color: #c33c0d;
+  box-shadow: 0 12px 28px rgba(33, 28, 25, 0.06);
+}
+.roi-output-card.featured {
+  background: #ffffff;
+  border-color: #c33c0d;
+}
+.roi-output-badge {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 12px;
+  align-self: flex-start;
+}
+.roi-output-badge.gold {
+  background: #fef3c7;
+  color: #92400e;
+}
+.roi-output-badge.emerald {
+  background: #d1fae5;
+  color: #065f46;
+}
+.roi-output-badge.orange {
+  background: #fff0eb;
+  color: #c33c0d;
+}
+.roi-output-card h3 {
+  font-size: 19px;
+  margin: 0 0 6px;
+  color: #211c19;
+}
+.roi-output-card .calc-subtitle {
+  font-size: 13px;
+  color: #6b635b;
+  margin-bottom: 18px;
+  line-height: 1.4;
+}
+.roi-output-figure {
+  margin: auto 0 16px;
+}
+.roi-output-figure .figure-num {
+  font-family: var(--reliv-display, "Barlow Condensed", sans-serif);
+  font-size: 38px;
+  font-weight: 800;
+  color: #211c19;
+  line-height: 1;
+  display: block;
+  letter-spacing: -0.02em;
+}
+.roi-output-figure .figure-label {
+  font-size: 12.5px;
+  color: #6b635b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  margin-top: 4px;
+  display: block;
+}
+.roi-output-meta {
+  border-top: 1px dashed #dfddd6;
+  padding-top: 14px;
+  margin-top: 14px;
+  font-size: 13px;
+  color: #574d46;
+  line-height: 1.5;
+}
+.roi-output-meta strong {
+  color: #211c19;
+}
+
+/* Detailed Profitability Mathematics Deep-Dive */
+.math-deepdive {
+  margin-top: 56px;
+}
+.math-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 36px 0;
+}
+.math-card {
+  background: #ffffff;
+  border: 1.5px solid #dfddd6;
+  border-radius: 20px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 24px rgba(33, 28, 25, 0.04);
+}
+.math-card.accented {
+  border-color: #c33c0d;
+  background: #fffdfb;
+}
+.math-card-top {
+  margin-bottom: 24px;
+}
+.math-card h3 {
+  font-size: 23px;
+  margin: 10px 0 8px;
+  color: #211c19;
+}
+.math-card p.math-lead {
+  font-size: 14px;
+  color: #6b635b;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+.math-table-wrap {
+  background: #faf8f5;
+  border: 1px solid #e8e3dc;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 22px;
+}
+.math-table-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  font-size: 13px;
+  border-bottom: 1px solid #eee8df;
+  color: #574d46;
+}
+.math-table-row:last-child {
+  border-bottom: 0;
+  padding-top: 10px;
+  font-weight: 750;
+  color: #211c19;
+  font-size: 14.5px;
+}
+.math-table-row span:last-child {
+  font-family: monospace;
+  font-weight: 600;
+}
+.math-table-row:last-child span:last-child {
+  color: #c33c0d;
+  font-size: 16px;
+  font-family: var(--reliv-display, "Barlow Condensed", sans-serif);
+}
+.math-perks {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+.math-perks li {
+  font-size: 13.5px;
+  color: #433c36;
+  padding: 6px 0;
+  display: flex;
+  gap: 10px;
+  line-height: 1.45;
+}
+.math-perks li svg {
+  color: #c33c0d;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Comprehensive Comparison Matrix */
+.matrix-wrap {
+  margin: 56px 0 36px;
+  background: #ffffff;
+  border: 1.5px solid #dfddd6;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(33, 28, 25, 0.04);
+}
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14.5px;
+}
+.matrix-table th, .matrix-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee8df;
+  vertical-align: middle;
+}
+.matrix-table thead th {
+  background: #faf4ed;
+  font-family: var(--reliv-display, "Barlow Condensed", sans-serif);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #211c19;
+}
+.matrix-table thead th:first-child {
+  width: 25%;
+}
+.matrix-table tbody tr:hover td {
+  background: #fffdf9;
+}
+.matrix-table tbody th {
+  font-weight: 700;
+  color: #211c19;
+}
+
+@media (max-width: 960px) {
+  .roi-output-grid, .math-grid {
+    grid-template-columns: 1fr;
+  }
+  .roi-calc-controls {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+

@@ -204,7 +204,7 @@
       <a href="index.html">Home</a>
       <a href="how-it-works.html">How It Works</a>
       <a href="locations.html">Find Kiosk</a>
-      <a href="organisations.html">For Organisations</a>
+      <a href="organisations.html">Plans &amp; ROI</a>
       <a href="about.html">About</a>
     </nav>
     <div class="nav-actions">
@@ -220,6 +220,105 @@
 <article class="guide-card"><span class="eyebrow">FOR ORGANISATIONS</span><h2>Monthly plan</h2><p class="guide-price">Request a plan quote</p><p>Confirm the rental term, upfront charges, maintenance and software or reporting services included. Revenue partnerships are assessed for eligible venues.</p><a href="organisations.html#enquiry">Discuss a monthly plan</a></article>
 <article class="guide-card"><span class="eyebrow">FOR INDIVIDUALS</span><h2>Health checkup</h2><p class="guide-price">Check your station’s price</p><p>Screening and digital-report charges depend on the station and service selected. Review the displayed amount before payment or activation.</p><a href="locations.html">Find a Reliv station</a></article>
 </div>
+
+<!-- Interactive Profitability & ROI Calculator -->
+<section id="calculator" class="roi-section" style="margin-top: 48px; border-radius: 20px;">
+  <div class="roi-container">
+    <div class="roi-header">
+      <span class="eyebrow">COMMERCIAL VIABILITY &amp; ROI</span>
+      <h2>The Financial <em>Maths:</em> Why every model is profitable</h2>
+      <p>Whether you choose outright purchase, monthly leasing, or a zero-risk shared revenue partnership—see projected monthly earnings, breakeven speed, and passive income.</p>
+    </div>
+
+    <div class="roi-calc-box">
+      <div class="roi-calc-controls">
+        <div class="roi-control-group">
+          <label for="calcChecks">
+            <span>Daily Checkup Volume</span>
+            <span class="control-val" id="calcChecksVal">50 / day</span>
+          </label>
+          <input type="range" class="roi-slider" id="calcChecks" min="15" max="150" step="5" value="50">
+          <div class="roi-slider-hints">
+            <span>15 (Quiet)</span>
+            <span>50 (Moderate)</span>
+            <span>100 (Active)</span>
+            <span>150+ (High-Traffic)</span>
+          </div>
+        </div>
+
+        <div class="roi-control-group">
+          <label for="calcPrice">
+            <span>Session Price (Per Checkup)</span>
+            <span class="control-val" id="calcPriceVal">₹70</span>
+          </label>
+          <input type="range" class="roi-slider" id="calcPrice" min="40" max="120" step="10" value="70">
+          <div class="roi-slider-hints">
+            <span>₹40 (Subsidized)</span>
+            <span>₹70 (Standard Vitals)</span>
+            <span>₹100 (Full + Report)</span>
+            <span>₹120 (Premium)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="roi-results-intro">
+        <span class="roi-gross-pill">
+          Estimated Monthly Gross Revenue: <strong id="calcGrossMonthly">₹1,05,000 / mo</strong>
+        </span>
+      </div>
+
+      <div class="roi-output-grid">
+        <article class="roi-output-card">
+          <div>
+            <span class="roi-output-badge gold">Outright Purchase</span>
+            <h3>Maximum Lifetime ROI</h3>
+            <span class="calc-subtitle">Own hardware, keep 100% of revenue after nominal upkeep.</span>
+            <div class="roi-output-figure">
+              <span class="figure-num" id="calcOutrightMonthly">₹1,02,000</span>
+              <span class="figure-label">Estimated Net Monthly Profit</span>
+            </div>
+          </div>
+          <div class="roi-output-meta">
+            <div>Annual Net Yield: <strong id="calcOutrightAnnual">₹12,24,000</strong></div>
+            <div>Capital Payback: <strong id="calcOutrightPayback">3.4 months</strong></div>
+          </div>
+        </article>
+
+        <article class="roi-output-card featured">
+          <div>
+            <span class="roi-output-badge orange">Monthly Lease (OpEx)</span>
+            <h3>Instant Positive Cashflow</h3>
+            <span class="calc-subtitle">Fixed ~₹15k/mo fee covers hardware, calibration and cloud SLA.</span>
+            <div class="roi-output-figure">
+              <span class="figure-num" id="calcLeaseMonthly" style="color:#c33c0d;">₹89,000</span>
+              <span class="figure-label">Estimated Net Monthly Profit</span>
+            </div>
+          </div>
+          <div class="roi-output-meta">
+            <div>Annual Net Yield: <strong id="calcLeaseAnnual">₹10,68,000</strong></div>
+            <div>Breakeven: <strong id="calcLeaseBreakeven">8 checks/day</strong></div>
+          </div>
+        </article>
+
+        <article class="roi-output-card">
+          <div>
+            <span class="roi-output-badge emerald">Shared Basis</span>
+            <h3>Zero-Risk Passive Income</h3>
+            <span class="calc-subtitle">₹0 investment. Earn 25% host revenue share for providing 10 sq. ft.</span>
+            <div class="roi-output-figure">
+              <span class="figure-num" id="calcSharedMonthly" style="color:#065f46;">₹26,250</span>
+              <span class="figure-label">Estimated Host Monthly Payout</span>
+            </div>
+          </div>
+          <div class="roi-output-meta">
+            <div>Annual Passive Income: <strong id="calcSharedAnnual">₹3,15,000</strong></div>
+            <div>Capital Risk: <strong>₹0 (Zero Risk)</strong></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="guide-section"><h2>What to include in your quote request</h2><div class="guide-table-wrap"><table class="guide-table"><thead><tr><th scope="col">Your requirement</th><th scope="col">What to confirm</th></tr></thead><tbody>
 <tr><th scope="row">Venue and city</th><td>College, office, gym or community space; installation location and access.</td></tr>
 <tr><th scope="row">Kiosk configuration</th><td>The measurements, optional modules, languages and report features you need.</td></tr>
@@ -337,7 +436,8 @@
           <li>
             <a href="organisations.html" class="drawer-link">
               <span class="drawer-link-icon">🏢</span>
-              <span>For Organisations</span>
+              <span>Plans &amp; ROI</span>
+              <span class="drawer-tag-gold">Profitable</span>
             </a>
           </li>
           <li>
@@ -417,7 +517,6 @@
     </div>
   </aside>
   <script src="nav.js" defer></script>
-
-
+  <script src="roi-calculator.js" defer></script>
 </body>
 </html>

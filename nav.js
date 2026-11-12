@@ -50,7 +50,7 @@
       'about.html': { src: 'assets/about-reliv-ecosystem.jpg', title: 'Reliv Preventive Health Ecosystem', meta: 'DPIIT Recognised Startup · DIPP287544' },
       'how-it-works.html': { src: 'assets/videos/reliv-explainer-poster.jpg', title: 'How Reliv Works (Explainer Film)', meta: 'Autonomous 3-Minute Screening Guide' },
       'locations.html': { src: 'assets/reliv-smart-health-atm-india.jpg', title: 'Live Kiosk Locations', meta: 'IEM Gurukul Campus, Salt Lake Sector V' },
-      'organisations.html': { src: 'assets/reliv-wellness-kiosk-for-colleges.jpg', title: 'For Colleges & Enterprise Workplaces', meta: 'Zero-Capex Deployment & Wellness Packages' },
+      'organisations.html': { src: 'assets/reliv-wellness-kiosk-for-colleges.jpg', title: 'Plans & ROI (For Organisations)', meta: 'Profitable Outright, Monthly & Shared Models' },
       'careers.html': { src: 'assets/reliv-medical-kiosk-body-parameter-check.jpg', title: 'Careers & Student Internships', meta: 'Join Reliv Medical Innovation Team' },
       'health-kiosk.html': { src: 'assets/reliv-health-kiosk-kolkata.jpg', title: 'Smart Health Kiosk (Health ATM)', meta: 'DPIIT Certified Hardware · 3-Minute Screening' },
       'health-atm.html': { src: 'assets/screens/reliv-health-atm-user-experience.webp', title: 'What is a Health ATM? (Guide)', meta: 'Understanding Self-Service Health ATMs in India' }
