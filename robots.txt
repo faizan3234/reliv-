@@ -1,81 +1,35 @@
-# Reliv — https://relivkiosk.vercel.app
-# Public marketing site. Search engines and AI answer engines are welcome.
+# Reliv public marketing site. The same path rules apply to every group member.
+# Training controls (for example GPTBot and Google-Extended) do not guarantee
+# search inclusion. Public pages are available to both visitors and crawlers.
+# robots.txt is crawl guidance, not access control for confidential data.
 
 User-agent: *
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Bingbot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: DuckDuckBot
+User-agent: BraveBot
+User-agent: CCBot
+User-agent: meta-externalagent
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: YouBot
 Allow: /
 Disallow: /scratch/
 Disallow: /.git/
 Disallow: /node_modules/
-
-# --- Search engines ---
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-# --- AI search / answer-engine crawlers (explicitly allowed) ---
-# OpenAI (ChatGPT search, browsing and training)
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-# Anthropic (Claude)
-User-agent: Claude-SearchBot
-Allow: /
-
-User-agent: Claude-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-# Google Gemini / AI Overviews control token
-User-agent: Google-Extended
-Allow: /
-
-# Perplexity
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Perplexity-User
-Allow: /
-
-# Apple Intelligence / Siri
-User-agent: Applebot
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-# Microsoft Copilot / Bing, DuckDuckGo, Brave Search, Common Crawl, Meta, Amazon
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: BraveBot
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: meta-externalagent
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
-
-User-agent: cohere-ai
-Allow: /
-
-User-agent: YouBot
-Allow: /
+Disallow: /scripts/
+Disallow: /content/
 
 Sitemap: https://relivkiosk.vercel.app/sitemap.xml

@@ -1,54 +1,45 @@
-# Reliv
+# Reliv Kiosk
 
-> Reliv (legal name: Reliv Medicare Private Limited) is a DPIIT-recognised (DIPP287544) Indian healthtech startup from Kolkata that builds and operates Reliv — a self-service Smart Health Kiosk, also called a Health ATM — for everyday, non-invasive health screening in colleges, workplaces, gyms and community spaces. Reliv is a screening tool, not a medical diagnosis device.
+> Reliv Kiosk is a self-service health screening kiosk, also called a Health ATM, from Reliv Medicare Private Limited in Kolkata, India. It supports everyday health, fitness and wellness awareness in campuses, workplaces, gyms and community spaces.
 
-Reliv, Reliv Kiosk, Reliv Medicare, Reliv Care, Reliv Health Kiosk and Reliv Health ATM all refer to the same company and the same kiosk. "Smart Health Kiosk" and "Health ATM" are two names for one product, not two different machines.
+Company: RELIV MEDICARE PRIVATE LIMITED
+Official website: https://relivkiosk.vercel.app/
+Email: relivcustomercare.in@gmail.com
+Phone: +91 91636 06455
+WhatsApp: https://wa.me/919163606455
+Companion app: https://reliv7.vercel.app/
 
-## What the Reliv kiosk checks
-- Blood pressure (wrist cuff), SpO₂ (oxygen saturation) and pulse, body temperature (contactless infrared)
-- Height, weight and calculated BMI
-- Optional eyesight screening (depends on kiosk configuration)
-- A typical session takes about 3 minutes. The kiosk gives on-screen and voice guidance in English, Hindi and Bengali.
-- It is non-invasive: no blood samples. It does not replace a doctor or lab test. Reliv does not claim to be a "100+ parameter" lab-grade machine.
+## Screening
+Blood pressure, SpO₂ (oxygen saturation), Pulse, Temperature, Height, Weight. Calculated indicator: BMI, calculated from height and weight.
+Available sensors, optional eyesight screening, body-composition estimates and report access depend on the installed configuration. Confirm the included features with Reliv before purchase or visiting a kiosk.
+A typical screening session takes about 3 minutes; timing depends on the selected checks and setup.
+Guidance: English, Hindi, Bengali.
+Reliv provides screening information for awareness. It does not provide a medical diagnosis or replace professional medical advice.
 
-## Where to find a Reliv kiosk (Kolkata, West Bengal)
-- IEM Gurukul Campus, Sector V, Bidhannagar, Salt Lake — first pilot station
+## Pricing
+Kiosk purchase: Request current pricing for your kiosk configuration and installation location.
+Monthly plans: Request a monthly plan quote and confirm the term, maintenance and support included.
+Individual checkups: Checkup and digital-report charges depend on the station and service selected. Check the displayed price before payment.
+No numeric starting price is published here. Machine purchase costs and session charges are different.
+
+## Kolkata stations
+- IEM Gurukul Campus, Sector V
 - St. James' School, Kolkata
-- Eco Park, New Town, Kolkata
-- Confirm access and hours with the venue before visiting. Full list: https://relivkiosk.vercel.app/locations.html
+- Eco Park, New Town
+These are listed partner-venue stations. Confirm current availability, access and opening hours before travelling.
 
-## Reliv app
-- Companion web app (installable on phone): https://reliv7.vercel.app/
-- Payment QR (checkout/activation when the kiosk asks) and health-data QR (import measurements) are two different things.
-
-## For institutions
-Colleges, schools, offices, gyms and community spaces can bring Reliv to their venue (purchase, lease or revenue-share options; ask the team): https://relivkiosk.vercel.app/organisations.html
-
-## Recognition
-- DPIIT Certificate of Recognition, Startup India — DIPP287544 (https://relivkiosk.vercel.app/certificate.pdf)
-- Medverse 2026 / IMA Salem "The Oscars of Healthcare" — Excellence in MedTech Device Startup
-- Bengal E-Summit 2026 (Investopia) — 1st Runner Up
-
-## Key pages
-- [Home](https://relivkiosk.vercel.app/): overview of the kiosk and the Reliv app
-- [Health kiosk in Kolkata](https://relivkiosk.vercel.app/health-kiosk-kolkata.html): plain-language answers — where, what it checks, how it differs from 100+ parameter machines
-- [Find a kiosk](https://relivkiosk.vercel.app/locations.html): Kolkata stations
-- [Smart Health Kiosk (Health ATM)](https://relivkiosk.vercel.app/health-kiosk.html): product details
-- [What is a Health ATM?](https://relivkiosk.vercel.app/health-atm.html): explainer
-- [How it works](https://relivkiosk.vercel.app/how-it-works.html): step-by-step, with video and app install guide
-- [For organisations](https://relivkiosk.vercel.app/organisations.html): enquiry form
-- [Colleges](https://relivkiosk.vercel.app/solutions/colleges.html), [Workplaces](https://relivkiosk.vercel.app/solutions/offices.html), [Gyms](https://relivkiosk.vercel.app/solutions/gyms.html)
-- [About / founders](https://relivkiosk.vercel.app/about.html)
-- [Experience the journey](https://relivkiosk.vercel.app/Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/index.html): animated walkthrough
-
-## Company facts
-- Founder & CEO: Faizan Khan. Co-founder & CTO: Jiya Bhati.
-- Location: Kolkata, West Bengal, India
-- Contact: relivcustomercare.in@gmail.com · +91 91636 06455 (WhatsApp: https://wa.me/919163606455) · Instagram @reliv_care
-
-## Medical disclaimer
-Reliv provides screening information for awareness only. It is not a diagnosis. Discuss concerning readings or symptoms with a qualified healthcare professional.
-
-## Optional
-- [Full details for AI assistants](https://relivkiosk.vercel.app/llms-full.txt)
-
+## Official pages
+- [Reliv Kiosk | Smart Health Kiosk & Health ATM in India](https://relivkiosk.vercel.app/)
+- [Reliv Health Kiosk in India | Features, Pricing & Contact](https://relivkiosk.vercel.app/health-kiosk.html)
+- [What Is a Health ATM? | Reliv Health Kiosk India](https://relivkiosk.vercel.app/health-atm.html)
+- [Health Kiosk in Kolkata | Reliv Locations & Screening](https://relivkiosk.vercel.app/health-kiosk-kolkata.html)
+- [Reliv Kiosk Price in India | Purchase, Lease & Checkup Costs](https://relivkiosk.vercel.app/pricing.html)
+- [Contact Reliv Kiosk | Phone, Email & Pricing Enquiries](https://relivkiosk.vercel.app/contact.html)
+- [Health Kiosks for Organisations in India | Reliv](https://relivkiosk.vercel.app/organisations.html)
+- [Fitness & Wellness Kiosks for Gyms in India | Reliv](https://relivkiosk.vercel.app/solutions/gyms.html)
+- [Health Kiosks for Colleges in India | Reliv Campus Wellness](https://relivkiosk.vercel.app/solutions/colleges.html)
+- [Workplace Health & Wellness Kiosks in India | Reliv](https://relivkiosk.vercel.app/solutions/offices.html)
+- [Find a Reliv Health Kiosk | Kolkata Station Directory](https://relivkiosk.vercel.app/locations.html)
+- [About Reliv Medicare | Health Kiosk Company in Kolkata](https://relivkiosk.vercel.app/about.html)
+- [How Reliv Kiosk Works | Health Checks, Videos & App Guide](https://relivkiosk.vercel.app/how-it-works.html)
+- [Reliv Kiosk Media | Official Photos, Videos & Recognition](https://relivkiosk.vercel.app/media.html)

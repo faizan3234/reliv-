@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-
-  <!-- Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://relivkiosk.vercel.app/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg</image:loc>
-      <image:title>Reliv Smart Health Kiosk &amp; Reliv Medicare — First Official Station Kolkata</image:title>
-      <image:caption>Reliv Smart Health Kiosk and Reliv Medicare official health checkup station installed in Kolkata India providing rapid 3-minute vital screening</image:caption>
-      <image:geo_location>Kolkata, West Bengal, India</image:geo_location>
     </image:image>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/reliv-smart-health-atm-india.jpg</image:loc>
-      <image:title>Reliv Smart Health ATM &amp; Reliv Medicare India</image:title>
-      <image:caption>Reliv Medicare preventive healthcare kiosk and Health ATM machine in India for colleges, corporate offices, gyms, and public spaces</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/icons/reliv-wordmark.svg</image:loc>
-      <image:title>Reliv Official Healthcare Logo</image:title>
-      <image:caption>Reliv Care — You matter. Reliv cares.</image:caption>
     </image:image>
     <video:video>
       <video:thumbnail_loc>https://relivkiosk.vercel.app/assets/demo-poster.jpg</video:thumbnail_loc>
@@ -37,17 +23,10 @@
       <video:tag>Preventive Healthcare India</video:tag>
     </video:video>
   </url>
-
-  <!-- How It Works & Video Guides -->
   <url>
     <loc>https://relivkiosk.vercel.app/how-it-works.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.98</priority>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/videos/reliv-explainer-poster.jpg</image:loc>
-      <image:title>What is Reliv Animated Explainer Poster</image:title>
-      <image:caption>Official animated video guide explaining Reliv Smart Health Kiosk features, kits, and locations</image:caption>
     </image:image>
     <video:video>
       <video:thumbnail_loc>https://relivkiosk.vercel.app/assets/videos/reliv-explainer-poster.jpg</video:thumbnail_loc>
@@ -79,192 +58,88 @@
       <video:tag>Reliv Payment Companion</video:tag>
     </video:video>
   </url>
-
-  <!-- Simulator / Prototype Demo -->
   <url>
     <loc>https://relivkiosk.vercel.app/simulator.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-health-atm-user-experience.webp</image:loc>
-      <image:title>Reliv Multilingual Touchscreen Interface</image:title>
-      <image:caption>Language selection and voice guidance in English, Hindi, and Bengali</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-digital-health-report.webp</image:loc>
-      <image:title>Instant Digital Wellness Report Preview</image:title>
-      <image:caption>Paperless and QR-based wellness summary format</image:caption>
     </image:image>
   </url>
-
-  <!-- Locations -->
   <url>
     <loc>https://relivkiosk.vercel.app/locations.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg</image:loc>
-      <image:title>Reliv &amp; Reliv Medicare Kiosk Location Sector V Kolkata</image:title>
-      <image:caption>Reliv Medicare station near IEM Gurukul Campus, Salt Lake, Sector V, Kolkata</image:caption>
     </image:image>
   </url>
-
-  <!-- For Organisations -->
   <url>
     <loc>https://relivkiosk.vercel.app/organisations.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/reliv-wellness-kiosk-for-colleges.jpg</image:loc>
-      <image:title>Reliv Kiosk for Organisations &amp; Campuses</image:title>
-      <image:caption>Outright purchase, monthly plan, and revenue partnership models for institutions</image:caption>
     </image:image>
   </url>
-
-  <!-- Careers -->
   <url>
     <loc>https://relivkiosk.vercel.app/careers.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
   </url>
-
-  <!-- About -->
   <url>
     <loc>https://relivkiosk.vercel.app/about.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/dpiit-recognition-certificate.jpg</image:loc>
-      <image:title>Government of India DPIIT Certificate of Recognition DIPP287544</image:title>
-      <image:caption>Official DPIIT Recognition Certificate for Reliv Medicare Private Limited under Startup India</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/awards/medverse-oscars-of-healthcare-trophy.jpg</image:loc>
-      <image:title>The Oscars of Healthcare Pinnacle of Healthcare Excellence Trophy</image:title>
-      <image:caption>Excellence in MedTech Device Startup Winner Trophy awarded to Reliv Medicare and Faizanullah Khan</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/awards/bengal-e-summit-investopia-trophy.jpg</image:loc>
-      <image:title>Bengal E-Summit Investopia 1st Runner Up Trophy</image:title>
-      <image:caption>IEM UEM Bengal E-Summit 2026 Investopia 2nd Position Trophy awarded to Reliv</image:caption>
     </image:image>
   </url>
-
-  <!-- Media Center -->
   <url>
     <loc>https://relivkiosk.vercel.app/media.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg</image:loc>
-      <image:title>Reliv Smart Health Kiosk — Reliv Medicare First Station Photo</image:title>
-      <image:caption>Official photograph of Reliv Smart Health Kiosk founded by Faizan Khan, installed in Kolkata</image:caption>
-      <image:geo_location>Kolkata, West Bengal, India</image:geo_location>
     </image:image>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/icons/reliv-wordmark.svg</image:loc>
-      <image:title>Reliv Official Vector Logo Wordmark</image:title>
-      <image:caption>Official SVG brand logo of Reliv and Reliv Medicare</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://relivkiosk.vercel.app/icons/icon-512.png</image:loc>
-      <image:title>Reliv Health Kiosk App Icon 512x512</image:title>
-      <image:caption>High resolution 512x512 icon mark for Reliv Health Kiosk</image:caption>
     </image:image>
   </url>
-
-  <!-- Semantic SEO Keyword Pages -->
   <url>
     <loc>https://relivkiosk.vercel.app/health-kiosk.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://relivkiosk.vercel.app/health-atm.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
   </url>
-
-  <!-- Solutions -->
   <url>
     <loc>https://relivkiosk.vercel.app/solutions/colleges.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
   </url>
-
   <url>
     <loc>https://relivkiosk.vercel.app/solutions/offices.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
   </url>
-
   <url>
     <loc>https://relivkiosk.vercel.app/solutions/gyms.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
   </url>
-
-  <!-- Legal -->
   <url>
     <loc>https://relivkiosk.vercel.app/legal/privacy.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
   </url>
-
   <url>
     <loc>https://relivkiosk.vercel.app/legal/terms.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
   </url>
-
   <url>
     <loc>https://relivkiosk.vercel.app/legal/disclaimer.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
   </url>
-
-
   <url>
     <loc>https://relivkiosk.vercel.app/health-kiosk-kolkata.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
   </url>
-
   <url>
     <loc>https://relivkiosk.vercel.app/Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/index.html</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
-
   <url>
-    <loc>https://relivkiosk.vercel.app/llms.txt</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <loc>https://relivkiosk.vercel.app/pricing.html</loc>
   </url>
-
   <url>
-    <loc>https://relivkiosk.vercel.app/llms-full.txt</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.4</priority>
+    <loc>https://relivkiosk.vercel.app/contact.html</loc>
   </url>
-
 </urlset>

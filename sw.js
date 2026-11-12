@@ -3,11 +3,12 @@
  */
 'use strict';
 
-const CACHE_NAME = 'reliv-public-v7';
+const CACHE_NAME = 'reliv-public-v8';
 const CORE_ASSETS = [
   '/', '/index.html', '/404.html',
   '/immersive.css', '/immersive.js', '/reliv-refinement.css',
   '/how-it-works.html', '/locations.html', '/organisations.html',
+  '/health-kiosk.html', '/pricing.html', '/contact.html', '/seo-content.css',
   '/style.css', '/premium.css', '/editorial.css',
   '/icons/reliv-wordmark.svg', '/icons/favicon.svg',
   '/site.webmanifest'

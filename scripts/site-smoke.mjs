@@ -11,7 +11,7 @@ const root = process.cwd();
 const pages = [
   'index.html', 'how-it-works.html', 'locations.html', 'organisations.html',
   'about.html', 'health-kiosk.html', 'health-atm.html', 'media.html',
-  'careers.html', 'legal/privacy.html', 'legal/terms.html',
+  'health-kiosk-kolkata.html', 'pricing.html', 'contact.html', 'careers.html', 'legal/privacy.html', 'legal/terms.html',
   'legal/disclaimer.html', 'solutions/colleges.html',
   'solutions/offices.html', 'solutions/gyms.html'
 ];
