@@ -9,7 +9,7 @@ import { Script } from 'node:vm';
 
 const root = process.cwd();
 const pages = [
-  'index.html', 'how-it-works.html', 'locations.html', 'organisations.html',
+  'index.html', 'how-it-works.html', 'locations.html', 'organisations.html', 'health-kiosk-buying-guide.html', 'demo.html',
   'about.html', 'health-kiosk.html', 'health-atm.html', 'media.html',
   'health-kiosk-kolkata.html', 'pricing.html', 'contact.html', 'careers.html', 'legal/privacy.html', 'legal/terms.html',
   'legal/disclaimer.html', 'solutions/colleges.html',
@@ -49,7 +49,7 @@ for (const page of pages) {
   if (/Live & Open Today|guaranteed (?:cure|diagnosis)/i.test(html)) fail(page, 'unverified operational/clinical promise');
 }
 
-for (const path of ['immersive.js', 'nav.js', 'sw.js']) {
+for (const path of ['immersive.js', 'nav.js', 'sw.js', 'premium.js']) {
   const file = resolve(root, path);
   try { new Script(getText(file), { filename: path }); }
   catch (err) { fail(path, 'JavaScript syntax: ' + err.message); }

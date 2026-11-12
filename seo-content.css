@@ -19,11 +19,21 @@
 .guide-table { border-collapse: collapse; width: 100%; background: #fff; text-align: left; font-size: 15px; }
 .guide-table th, .guide-table td { padding: 16px 20px; border-bottom: 1px solid #e8e5df; vertical-align: top; line-height: 1.65; }
 .guide-table thead { background: #f8f3ed; }
+.guide-table tbody th { min-width: 132px; width: 26%; overflow-wrap: normal; }
 .guide-table tr:last-child td { border-bottom: 0; }
 .guide-note { padding: 22px; border-left: 3px solid #cf420a; background: #faf3e9; border-radius: 0 12px 12px 0; }
 .guide-faq details { border-bottom: 1px solid #dfddd6; padding: 18px 0; }
 .guide-faq summary { font-size: 18px; font-weight: 600; cursor: pointer; line-height: 1.5; }
 .guide-faq details p { margin: 14px 0 0; }
+.guide-contents { display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 18px 0; border-block: 1px solid #dfddd6; }
+.guide-contents a { min-height: 44px; display: inline-flex; align-items: center; }
+.guide-section[id] { scroll-margin-top: 110px; }
+.guide-table caption { padding: 18px 20px; text-align: left; font-weight: 600; }
+.guide-checklist { padding-left: 24px; }
+.guide-checklist li { padding: 0 0 16px 8px; }
+.guide-video { margin: 0; padding: 20px; border-radius: 20px; background: #f0ebe3; }
+.guide-video video { display: block; width: auto; max-width: 100%; height: min(65vh,600px); margin: auto; object-fit: contain; background: #191c1a; border-radius: 12px; }
+.guide-video figcaption { max-width: 650px; margin: 18px auto 0; font-size: 14px; line-height: 1.6; text-align: center; }
 .guide-breadcrumb { display: flex; gap: 10px; flex-wrap: wrap; font-size: 14px; margin-bottom: 30px; }
 .guide-contact { font-style: normal; overflow-wrap: anywhere; }
 .guide-contact dt { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: #56615a; margin-top: 20px; }

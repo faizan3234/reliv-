@@ -6,6 +6,7 @@
   "scripts": {
     "test:site": "node scripts/site-smoke.mjs",
     "seo:generate": "node scripts/generate-seo.mjs",
+    "seo:audit": "node scripts/audit-production.mjs",
     "test:seo": "node scripts/generate-seo.mjs --check && node scripts/seo-check.mjs"
   }
 }

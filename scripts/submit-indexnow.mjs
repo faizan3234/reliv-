@@ -7,7 +7,7 @@ const root = fileURLToPath(new URL('../', import.meta.url));
 const facts = JSON.parse(readFileSync(resolve(root, 'content/reliv-facts.json'), 'utf8'));
 const key = readFileSync(resolve(root, '252f36135233abf649f9b2a12b0c68f9.txt'), 'utf8').trim();
 if (!/^[a-zA-Z0-9-]{8,128}$/.test(key)) throw new Error('Invalid public IndexNow verification key');
-const paths = ['/', '/health-kiosk.html', '/health-atm.html', '/pricing.html', '/contact.html', '/health-kiosk-kolkata.html', '/locations.html', '/organisations.html', '/solutions/gyms.html'];
+const paths = ['/', '/health-kiosk.html', '/health-atm.html', '/pricing.html', '/contact.html', '/health-kiosk-kolkata.html', '/locations.html', '/organisations.html', '/solutions/gyms.html', '/health-kiosk-buying-guide.html', '/demo.html'];
 const urlList = paths.map(path => facts.url + path);
 if (!process.argv.includes('--submit')) {
   console.log('Dry run only. After production deployment, use --submit to notify IndexNow.');

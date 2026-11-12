@@ -1,0 +1,11 @@
+{
+  "name": "Reliv Smart Health Kiosk demonstration",
+  "description": "Official Reliv health kiosk demonstration footage. Explore the kiosk in use and confirm current measurements, optional features and reporting with Reliv before ordering.",
+  "uploadDate": "2026-09-01T12:00:00+05:30",
+  "duration": "PT1M38S",
+  "contentPath": "/assets/demonstration.mp4",
+  "thumbnailPath": "/assets/demo-poster.jpg",
+  "watchPath": "/demo.html",
+  "width": 478,
+  "height": 850
+}
