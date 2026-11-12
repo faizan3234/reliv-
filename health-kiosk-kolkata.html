@@ -13,17 +13,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#cf420a">
-  <title>Health Kiosk in Kolkata — Reliv Smart Health Kiosk (Health ATM) | Where, What It Checks</title>
-  <meta name="description" content="Looking for a health kiosk or Health ATM in Kolkata? Reliv has stations at IEM Gurukul (Sector V), St. James' School and Eco Park. Non-invasive BP, SpO₂, pulse, temperature, height, weight & BMI in about 3 minutes.">
-  <link rel="canonical" href="https://relivkiosk.vercel.app/health-kiosk-kolkata.html">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://relivkiosk.vercel.app/health-kiosk-kolkata.html">
-  <meta property="og:title" content="Health Kiosk in Kolkata — Reliv Smart Health Kiosk (Health ATM)">
-  <meta property="og:description" content="Where to find a Reliv health kiosk in Kolkata, what it checks in 3 minutes, and how it differs from 100+ parameter machines.">
-  <meta property="og:image" content="https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg">
-  <meta property="og:site_name" content="Reliv">
 
   <!-- Favicon & Icons -->
   <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
@@ -34,27 +25,149 @@
   <link rel="manifest" href="site.webmanifest">
 
   <!-- LocalBusiness Schema.org JSON-LD -->
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .location-details-box {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: clamp(28px, 4vw, 44px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      margin: 32px 0 60px;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ecfdf5;
+      color: #065f46;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+    }
+    .distance-calc-result {
+      margin-top: 20px;
+      padding: 18px 22px;
+      border-radius: var(--radius-md);
+      font-size: 14.5px;
+      line-height: 1.55;
+      display: none;
+    }
+    .distance-calc-result.success {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+    }
+    .distance-calc-result.info {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      color: var(--ink-secondary);
+    }
+    .distance-calc-result.error {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+    }
+  </style>
+  <!-- Premium experience layer -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="premium.css">
+<link rel="stylesheet" href="editorial.css">
+  <link rel="stylesheet" href="reliv-refinement.css">
+<link rel="stylesheet" href="seo-content.css">
+
+  <!-- RELIV SEO START -->
+  <title>Health Kiosk in Kolkata | Reliv Locations &amp; Screening</title>
+  <meta name="description" content="Find Reliv health kiosk stations in Kolkata at IEM Gurukul, St. James’ School and Eco Park. See available checks and confirm access before visiting.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://relivkiosk.vercel.app/health-kiosk-kolkata.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://relivkiosk.vercel.app/health-kiosk-kolkata.html">
+  <meta property="og:title" content="Health Kiosk in Kolkata | Reliv Locations &amp; Screening">
+  <meta property="og:description" content="Find Reliv health kiosk stations in Kolkata at IEM Gurukul, St. James’ School and Eco Park. See available checks and confirm access before visiting.">
+  <meta property="og:site_name" content="Reliv Kiosk">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg">
+  <meta property="og:image:alt" content="Reliv Smart Health Kiosk in Kolkata, India">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Health Kiosk in Kolkata | Reliv Locations &amp; Screening">
+  <meta name="twitter:description" content="Find Reliv health kiosk stations in Kolkata at IEM Gurukul, St. James’ School and Eco Park. See available checks and confirm access before visiting.">
+  <meta name="twitter:image" content="https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://relivkiosk.vercel.app/#organization",
+      "name": "Reliv",
+      "legalName": "RELIV MEDICARE PRIVATE LIMITED",
+      "alternateName": [
+        "Reliv Medicare",
+        "Reliv Care"
+      ],
+      "url": "https://relivkiosk.vercel.app/",
+      "logo": "https://relivkiosk.vercel.app/icons/icon-512.png",
+      "description": "Reliv Kiosk is a self-service health screening kiosk, also called a Health ATM, from Reliv Medicare Private Limited in Kolkata, India. It supports everyday health, fitness and wellness awareness in campuses, workplaces, gyms and community spaces.",
+      "email": "relivcustomercare.in@gmail.com",
+      "telephone": "+919163606455",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kolkata",
+        "addressRegion": "West Bengal",
+        "addressCountry": "IN"
+      },
+      "sameAs": [
+        "https://www.instagram.com/reliv_care/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+919163606455",
+        "email": "relivcustomercare.in@gmail.com",
+        "contactType": "Customer support and kiosk enquiries",
+        "url": "https://relivkiosk.vercel.app/contact.html"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://relivkiosk.vercel.app/#website",
+      "url": "https://relivkiosk.vercel.app/",
+      "name": "Reliv Kiosk",
+      "alternateName": [
+        "Reliv",
+        "Reliv Medicare"
+      ],
+      "publisher": {
+        "@id": "https://relivkiosk.vercel.app/#organization"
+      }
+    },
+    {
       "@type": "WebPage",
       "@id": "https://relivkiosk.vercel.app/health-kiosk-kolkata.html#webpage",
       "url": "https://relivkiosk.vercel.app/health-kiosk-kolkata.html",
-      "name": "Health Kiosk in Kolkata — Reliv Smart Health Kiosk (Health ATM) | Where, What It Checks",
-      "description": "Looking for a health kiosk or Health ATM in Kolkata? Reliv has stations at IEM Gurukul (Sector V), St. James' School and Eco Park. Non-invasive BP, SpO₂, pulse, temperature, height, weight & BMI in about 3 minutes.",
+      "name": "Health Kiosk in Kolkata | Reliv Locations & Screening",
+      "description": "Find Reliv health kiosk stations in Kolkata at IEM Gurukul, St. James’ School and Eco Park. See available checks and confirm access before visiting.",
       "inLanguage": "en-IN",
       "isPartOf": {
         "@id": "https://relivkiosk.vercel.app/#website"
       },
-      "about": {
-        "@id": "https://relivkiosk.vercel.app/#product"
-      },
       "publisher": {
         "@id": "https://relivkiosk.vercel.app/#organization"
       },
-      "dateModified": "2026-11-11",
+      "about": {
+        "@id": "https://relivkiosk.vercel.app/#product"
+      },
       "breadcrumb": {
         "@id": "https://relivkiosk.vercel.app/health-kiosk-kolkata.html#breadcrumb"
       }
@@ -66,13 +179,13 @@
         {
           "@type": "ListItem",
           "position": 1,
-          "name": "Reliv",
+          "name": "Reliv Kiosk",
           "item": "https://relivkiosk.vercel.app/"
         },
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Health kiosk in Kolkata",
+          "name": "Health Kiosk in Kolkata",
           "item": "https://relivkiosk.vercel.app/health-kiosk-kolkata.html"
         }
       ]
@@ -155,7 +268,7 @@
           "@type": "ListItem",
           "position": 1,
           "item": {
-            "@type": "LocalBusiness",
+            "@type": "Place",
             "name": "Reliv Station · IEM Gurukul Campus",
             "address": {
               "@type": "PostalAddress",
@@ -171,7 +284,7 @@
           "@type": "ListItem",
           "position": 2,
           "item": {
-            "@type": "LocalBusiness",
+            "@type": "Place",
             "name": "Reliv Station · St. James' School",
             "address": {
               "@type": "PostalAddress",
@@ -185,7 +298,7 @@
           "@type": "ListItem",
           "position": 3,
           "item": {
-            "@type": "LocalBusiness",
+            "@type": "Place",
             "name": "Reliv Station · Eco Park",
             "address": {
               "@type": "PostalAddress",
@@ -200,67 +313,8 @@
     }
   ]
 }
-  </script>
-
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .location-details-box {
-      background: #ffffff;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: clamp(28px, 4vw, 44px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-      margin: 32px 0 60px;
-    }
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #ecfdf5;
-      color: #065f46;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: var(--radius-full);
-      margin-bottom: 16px;
-    }
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #10b981;
-    }
-    .distance-calc-result {
-      margin-top: 20px;
-      padding: 18px 22px;
-      border-radius: var(--radius-md);
-      font-size: 14.5px;
-      line-height: 1.55;
-      display: none;
-    }
-    .distance-calc-result.success {
-      background: #ecfdf5;
-      border: 1px solid #a7f3d0;
-      color: #065f46;
-    }
-    .distance-calc-result.info {
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      color: var(--ink-secondary);
-    }
-    .distance-calc-result.error {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      color: #991b1b;
-    }
-  </style>
-  <!-- Premium experience layer -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
-  <link rel="stylesheet" href="premium.css">
-<link rel="stylesheet" href="editorial.css">
-  <link rel="stylesheet" href="reliv-refinement.css">
+</script>
+  <!-- RELIV SEO END -->
 </head>
 <body>
 
@@ -406,7 +460,7 @@
         <span>Made with pride in Kolkata, India</span>
       </div>
     </div>
-  </footer>
+  <nav class="reliv-resource-links" aria-label="Product and contact information"><a href="health-kiosk.html">Reliv Kiosk</a><a href="pricing.html">Pricing &amp; plans</a><a href="contact.html">Contact Reliv</a><a href="health-kiosk-kolkata.html">Kolkata kiosk guide</a></nav></footer>
 
   
   <!-- Left Slide-Out Navigation Drawer -->

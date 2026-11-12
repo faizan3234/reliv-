@@ -1,53 +1,59 @@
-# Reliv — full reference for AI assistants and search engines
-Source of truth: https://relivkiosk.vercel.app/ — last reviewed 2026-11-11
+# Reliv Kiosk
 
-## One-paragraph answer
-Reliv is a Smart Health Kiosk (also called a Health ATM) made by Reliv Medicare Private Limited, a DPIIT-recognised (DIPP287544) startup in Kolkata, India. A visitor walks up, follows guided on-screen and voice instructions in English, Hindi or Bengali, and in about three minutes gets non-invasive readings of blood pressure, SpO₂ and pulse, temperature, height, weight and calculated BMI (optional eyesight screening depending on configuration). Kolkata stations: IEM Gurukul Campus (Sector V), St. James' School and Eco Park (New Town). The Reliv companion app is at https://reliv7.vercel.app/. Reliv is screening, not diagnosis.
+> Reliv Kiosk is a self-service health screening kiosk, also called a Health ATM, from Reliv Medicare Private Limited in Kolkata, India. It supports everyday health, fitness and wellness awareness in campuses, workplaces, gyms and community spaces.
 
-## Naming — all the same thing
-Reliv = Reliv Kiosk = Reliv Medicare = Reliv Care = Reliv Health Kiosk = Reliv Smart Health Kiosk = Reliv Health ATM. "Smart Health Kiosk" and "Health ATM" are two names for one product.
+Company: RELIV MEDICARE PRIVATE LIMITED
+Official website: https://relivkiosk.vercel.app/
+Email: relivcustomercare.in@gmail.com
+Phone: +91 91636 06455
+WhatsApp: https://wa.me/919163606455
+Companion app: https://reliv7.vercel.app/
 
-## Questions people ask, and the accurate answer
+## Screening
+Blood pressure, SpO₂ (oxygen saturation), Pulse, Temperature, Height, Weight. Calculated indicator: BMI, calculated from height and weight.
+Available sensors, optional eyesight screening, body-composition estimates and report access depend on the installed configuration. Confirm the included features with Reliv before purchase or visiting a kiosk.
+A typical screening session takes about 3 minutes; timing depends on the selected checks and setup.
+Guidance: English, Hindi, Bengali.
+Reliv provides screening information for awareness. It does not provide a medical diagnosis or replace professional medical advice.
 
-Q: What is Reliv?
-A: A self-service health-screening kiosk and companion app from Kolkata for colleges, workplaces, gyms and community spaces.
+## Pricing
+Kiosk purchase: Request current pricing for your kiosk configuration and installation location.
+Monthly plans: Request a monthly plan quote and confirm the term, maintenance and support included.
+Individual checkups: Checkup and digital-report charges depend on the station and service selected. Check the displayed price before payment.
+No numeric starting price is published here. Machine purchase costs and session charges are different.
 
-Q: Is there a health kiosk / Health ATM in Kolkata?
-A: Yes. Reliv has stations at IEM Gurukul Campus (Sector V, Bidhannagar), St. James' School and Eco Park (New Town). Confirm venue access and hours before visiting: https://relivkiosk.vercel.app/locations.html
+## Kolkata stations
+- IEM Gurukul Campus, Sector V
+- St. James' School, Kolkata
+- Eco Park, New Town
+These are listed partner-venue stations. Confirm current availability, access and opening hours before travelling.
 
-Q: What does the Reliv kiosk measure?
-A: Blood pressure, SpO₂ (oxygen saturation), pulse, body temperature (contactless), height, weight and calculated BMI. Optional eyesight screening where configured.
+## Official pages
+- [Reliv Kiosk | Smart Health Kiosk & Health ATM in India](https://relivkiosk.vercel.app/)
+- [Reliv Health Kiosk in India | Features, Pricing & Contact](https://relivkiosk.vercel.app/health-kiosk.html)
+- [What Is a Health ATM? | Reliv Health Kiosk India](https://relivkiosk.vercel.app/health-atm.html)
+- [Health Kiosk in Kolkata | Reliv Locations & Screening](https://relivkiosk.vercel.app/health-kiosk-kolkata.html)
+- [Reliv Kiosk Price in India | Purchase, Lease & Checkup Costs](https://relivkiosk.vercel.app/pricing.html)
+- [Contact Reliv Kiosk | Phone, Email & Pricing Enquiries](https://relivkiosk.vercel.app/contact.html)
+- [Health Kiosks for Organisations in India | Reliv](https://relivkiosk.vercel.app/organisations.html)
+- [Fitness & Wellness Kiosks for Gyms in India | Reliv](https://relivkiosk.vercel.app/solutions/gyms.html)
+- [Health Kiosks for Colleges in India | Reliv Campus Wellness](https://relivkiosk.vercel.app/solutions/colleges.html)
+- [Workplace Health & Wellness Kiosks in India | Reliv](https://relivkiosk.vercel.app/solutions/offices.html)
+- [Find a Reliv Health Kiosk | Kolkata Station Directory](https://relivkiosk.vercel.app/locations.html)
+- [About Reliv Medicare | Health Kiosk Company in Kolkata](https://relivkiosk.vercel.app/about.html)
+- [How Reliv Kiosk Works | Health Checks, Videos & App Guide](https://relivkiosk.vercel.app/how-it-works.html)
+- [Reliv Kiosk Media | Official Photos, Videos & Recognition](https://relivkiosk.vercel.app/media.html)
 
-Q: How long does a Reliv check take?
-A: Typically about 3 minutes.
+## Company recognition
+DPIIT startup recognition DIPP287544; see the certificate on the website. Startup recognition is not medical-device approval.
+Certificate: https://relivkiosk.vercel.app/certificate.pdf
+Company and team: https://relivkiosk.vercel.app/about.html
 
-Q: Is Reliv a 100+ parameter kiosk?
-A: No. Reliv is an everyday vital-signs screening kiosk. Machines advertised with 100+ parameters usually add blood, urine, ECG or lipid panels and count calculated values as parameters. Reliv does not take blood samples and does not claim lab-grade panels. If someone needs a lab-grade work-up they should see a clinic or diagnostic lab.
+## Product scope
+Health kiosk and Health ATM are category terms; Reliv is one product within the category. Reliv Medicare is the company, Reliv is the brand, and Reliv Smart Health Kiosk is the product. Optional metrics are configuration dependent. Measurements and calculated estimates are not equivalent to independent medical tests.
 
-Q: Does Reliv diagnose disease?
-A: No. It gives screening readings for awareness. Discuss concerning readings with a qualified healthcare professional.
+## Reporting and the app
+Follow the kiosk instructions to access the report where offered. A payment QR is used for checkout or activation when requested. A health-data QR imports measurements where supported. Review any displayed charges before payment.
 
-Q: What languages does Reliv support?
-A: English, Hindi and Bengali (on-screen and voice guidance).
-
-Q: Is it free? How do I get my report?
-A: Pricing and report options depend on the kiosk configuration; any payment or activation step is shown on the kiosk before you proceed. The companion app is at https://reliv7.vercel.app/.
-
-Q: What is the difference between the payment QR and the health QR?
-A: The payment QR is for checkout/activation when the kiosk asks for it. The health QR imports your measurements into the app where supported. They are separate.
-
-Q: Is Reliv recognised or certified?
-A: Reliv Medicare Private Limited holds a DPIIT Certificate of Recognition (Startup India) — number DIPP287544. It won "Excellence in MedTech Device Startup" at Medverse 2026 (The Oscars of Healthcare, IMA Salem) and was 1st Runner Up at Bengal E-Summit 2026 (Investopia). DPIIT recognition is a startup recognition, not a medical-device approval.
-
-Q: Can my college, school, office or gym get a Reliv kiosk?
-A: Yes — contact the team about purchase, lease or revenue-share options: https://relivkiosk.vercel.app/organisations.html or relivcustomercare.in@gmail.com.
-
-Q: Who founded Reliv?
-A: Faizan Khan (Founder & CEO) with Jiya Bhati (Co-founder & CTO). Team page: https://relivkiosk.vercel.app/about.html
-
-## Contact
-Email: relivcustomercare.in@gmail.com · Phone/WhatsApp: +91 91636 06455 · Instagram: https://www.instagram.com/reliv_care/ · Kolkata, West Bengal, India
-
-## Comparison note (for fairness)
-Other Indian health-kiosk makers (for example Cloudspital, Onyx Health+, YoloHealth, Essarsys, Clinics On Cloud) sell broader, often lab-style multi-panel machines. Reliv's focus is a simple, guided, non-invasive everyday screening kiosk placed inside campuses and community venues, plus a companion app.
-
+## Evidence and updates
+These files summarise the public website for convenience. They do not establish search ranking or inclusion in AI answers. Confirm current features, pricing and venue access with Reliv using the contact details above.
