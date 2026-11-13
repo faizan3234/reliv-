@@ -29,15 +29,15 @@ No numeric starting price is published here. Machine purchase costs and session 
 These are listed partner-venue stations. Confirm current availability, access and opening hours before travelling.
 
 ## Official pages
-- [Health Kiosk Buying Guide India | Costs & Deployment | Reliv](https://relivkiosk.vercel.app/health-kiosk-buying-guide.html)
+- [Health ATM & Smart Health Kiosk Buying Guide India (2026) | Reliv](https://relivkiosk.vercel.app/health-kiosk-buying-guide.html)
 - [Watch Reliv Health Kiosk Demo | Official Kiosk Walkthrough](https://relivkiosk.vercel.app/demo.html)
-- [Reliv Kiosk | Smart Health Kiosk & Health ATM in India](https://relivkiosk.vercel.app/)
-- [Reliv Health Kiosk in India | Features, Pricing & Contact](https://relivkiosk.vercel.app/health-kiosk.html)
-- [What Is a Health ATM? | Reliv Health Kiosk India](https://relivkiosk.vercel.app/health-atm.html)
+- [Smart Health Kiosk & Health ATM in India | 3-Min Vitals Screening | Reliv](https://relivkiosk.vercel.app/)
+- [Smart Health Kiosk in India | Autonomous Health ATM & Vitals Screening | Reliv](https://relivkiosk.vercel.app/health-kiosk.html)
+- [What is a Health ATM? Guide to Smart Health Kiosks in India | Reliv](https://relivkiosk.vercel.app/health-atm.html)
 - [Health Kiosk in Kolkata | Reliv Locations & Screening](https://relivkiosk.vercel.app/health-kiosk-kolkata.html)
-- [Reliv Kiosk Price in India | Purchase, Lease & Checkup Costs](https://relivkiosk.vercel.app/pricing.html)
+- [Health ATM Machine Price in India | Buy, Rental & Profit Share ROI | Reliv Kiosk](https://relivkiosk.vercel.app/pricing.html)
 - [Contact Reliv Kiosk | Phone, Email & Pricing Enquiries](https://relivkiosk.vercel.app/contact.html)
-- [Health Kiosks for Organisations in India | Reliv](https://relivkiosk.vercel.app/organisations.html)
+- [Host a Health ATM in Your Space | Free Setup & Revenue Share | Reliv](https://relivkiosk.vercel.app/organisations.html)
 - [Fitness & Wellness Kiosks for Gyms in India | Reliv](https://relivkiosk.vercel.app/solutions/gyms.html)
 - [Health Kiosks for Colleges in India | Reliv Campus Wellness](https://relivkiosk.vercel.app/solutions/colleges.html)
 - [Workplace Health & Wellness Kiosks in India | Reliv](https://relivkiosk.vercel.app/solutions/offices.html)
