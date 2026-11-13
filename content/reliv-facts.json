@@ -14,19 +14,36 @@
   "country": "IN",
   "productName": "Reliv Smart Health Kiosk",
   "description": "Reliv Kiosk is a self-service health screening kiosk, also called a Health ATM, from Reliv Medicare Private Limited in Kolkata, India. It supports everyday health, fitness and wellness awareness in campuses, workplaces, gyms and community spaces.",
-  "measurements": ["Blood pressure", "SpO₂ (oxygen saturation)", "Pulse", "Temperature", "Height", "Weight"],
-  "calculatedMetrics": ["BMI, calculated from height and weight"],
+  "measurements": [
+    "Blood pressure",
+    "SpO₂ (oxygen saturation)",
+    "Pulse",
+    "Temperature",
+    "Height",
+    "Weight"
+  ],
+  "calculatedMetrics": [
+    "BMI, calculated from height and weight"
+  ],
   "configurationNote": "Available sensors, optional eyesight screening, body-composition estimates and report access depend on the installed configuration. Confirm the included features with Reliv before purchase or visiting a kiosk.",
-  "languages": ["English", "Hindi", "Bengali"],
+  "languages": [
+    "English",
+    "Hindi",
+    "Bengali"
+  ],
   "sessionTime": "A typical screening session takes about 3 minutes; timing depends on the selected checks and setup.",
   "pricing": {
-    "purchase": "Request current pricing for your kiosk configuration and installation location.",
-    "lease": "Request a monthly plan quote and confirm the term, maintenance and support included.",
+    "purchase": "Listed machine purchase cost: ₹95,000 one-time. Confirm taxes, configuration, installation and support in a written quote.",
+    "lease": "Listed flat rental: ₹12,000/month. Confirm eligibility, term, maintenance and inclusions.",
     "checkup": "Checkup and digital-report charges depend on the station and service selected. Check the displayed price before payment.",
-    "startingPriceINR": null,
-    "note": "No numeric starting price is approved in the repository. Do not infer a machine price from a checkup charge, a free simulator or a competitor's quote."
+    "startingPriceINR": 95000,
+    "note": "Machine cost and monthly rental reflect repository pricing updates merged on 13 November 2026. These are different billing models; confirm tax and deployment inclusions."
   },
-  "stations": ["IEM Gurukul Campus, Sector V", "St. James' School, Kolkata", "Eco Park, New Town"],
+  "stations": [
+    "IEM Gurukul Campus, Sector V",
+    "St. James' School, Kolkata",
+    "Eco Park, New Town"
+  ],
   "visitNote": "These are listed partner-venue stations. Confirm current availability, access and opening hours before travelling.",
   "recognition": "DPIIT startup recognition DIPP287544; see the certificate on the website. Startup recognition is not medical-device approval.",
   "disclaimer": "Reliv provides screening information for awareness. It does not provide a medical diagnosis or replace professional medical advice.",

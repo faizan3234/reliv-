@@ -18,7 +18,7 @@
     drawer.inert = true;
 
     const isSub = window.location.pathname.includes("/Reliv_Dotted_Scroll_Journey") || window.location.pathname.includes("Reliv_Dotted_Journey");
-    const rootPrefix = isSub ? "../../" : "";
+    const rootPrefix = isSub ? "../../" : (/\/(solutions|legal)\//.test(window.location.pathname) ? "../" : "");
 
     // Build the live photo preview stage inside drawer on desktop
     let previewContainer = drawer.querySelector('.drawer-preview-stage');
@@ -32,7 +32,7 @@
         </div>
         <div class="drawer-preview-caption">
           <span id="drawerPreviewTitle">Reliv Smart Health Kiosk</span>
-          <small id="drawerPreviewMeta">DPIIT Certified MedTech · Kolkata</small>
+          <small id="drawerPreviewMeta">DPIIT Recognised Startup · Kolkata</small>
         </div>
       `;
       const drawerBody = drawer.querySelector('.nav-drawer-body');
@@ -44,7 +44,7 @@
     const previewMeta = document.getElementById('drawerPreviewMeta');
 
     const previewMap = {
-      'Reliv_Dotted_Journey_Editable_Source/index.html': { src: 'Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/assets/images/campus.webp', title: 'Experience the Connected Journey', meta: 'Interactive Downward Scroll · Lando Norris Polish' },
+      'Reliv_Dotted_Journey_Editable_Source/index.html': { src: 'Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/assets/images/campus.webp', title: 'Experience the Connected Journey', meta: 'Explore the Reliv experience' },
       'index.html': { src: 'assets/reliv-health-kiosk-kolkata.jpg', title: 'Reliv Smart Health Kiosk', meta: 'First Official Station · Kolkata, India' },
       '#vitals': { src: 'assets/reliv-health-kiosk-transparent.png', title: '5-Sensor Kiosk Architecture', meta: 'Height · BP · SpO₂ · Eyes · Temp' },
       'about.html': { src: 'assets/about-reliv-ecosystem.jpg', title: 'Reliv Preventive Health Ecosystem', meta: 'DPIIT Recognised Startup · DIPP287544' },
@@ -52,7 +52,7 @@
       'locations.html': { src: 'assets/reliv-smart-health-atm-india.jpg', title: 'Live Kiosk Locations', meta: 'IEM Gurukul Campus, Salt Lake Sector V' },
       'organisations.html': { src: 'assets/reliv-wellness-kiosk-for-colleges.jpg', title: 'Host & Earn (For Spaces)', meta: 'Outright Buy, Monthly Rental & 0-Risk Sharing' },
       'careers.html': { src: 'assets/reliv-medical-kiosk-body-parameter-check.jpg', title: 'Careers & Student Internships', meta: 'Join Reliv Medical Innovation Team' },
-      'health-kiosk.html': { src: 'assets/reliv-health-kiosk-kolkata.jpg', title: 'Smart Health Kiosk (Health ATM)', meta: 'DPIIT Certified Hardware · 3-Minute Screening' },
+      'health-kiosk.html': { src: 'assets/reliv-health-kiosk-kolkata.jpg', title: 'Smart Health Kiosk (Health ATM)', meta: 'Guided screening · Confirm configuration' },
       'health-atm.html': { src: 'assets/screens/reliv-health-atm-user-experience.webp', title: 'What is a Health ATM? (Guide)', meta: 'Understanding Self-Service Health ATMs in India' }
     };
 
