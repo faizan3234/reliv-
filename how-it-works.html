@@ -46,7 +46,7 @@
     .jump-pills {
       display: flex;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
       margin-top: 28px;
     }
@@ -54,14 +54,33 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 8px 18px;
+      padding: 8px 14px;
       border-radius: var(--radius-full);
       background: var(--bg-alt);
       border: 1px solid var(--border);
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 600;
       color: var(--ink-secondary);
       transition: all 0.15s ease;
+    }
+    @media (max-width: 640px) {
+      .jump-pills {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .jump-pill {
+        justify-content: center;
+        text-align: center;
+        font-size: 12.5px;
+        padding: 8px 10px;
+        min-height: 44px;
+      }
+    }
+    @media (max-width: 340px) {
+      .jump-pills {
+        grid-template-columns: 1fr;
+      }
     }
     .jump-pill:hover {
       border-color: var(--orange);
@@ -302,11 +321,11 @@
           </a>
           <a class="jump-pill" href="#app">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            iPhone &amp; Android App Guides
+            iPhone &amp; Android App
           </a>
           <a class="jump-pill" href="#checkup">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            3-Minute Screening
+            3-Min Screening
           </a>
           <a class="jump-pill" href="#demo">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
@@ -503,14 +522,14 @@
 
       <!-- Quick Action Strip -->
       <div class="card-banner-strip">
-        <div style="display:flex; align-items:center; gap:16px;">
-          <img src="assets/videos/reliv-app-qr.png" alt="Scan QR code to open Reliv PWA" width="64" height="64" style="border-radius:10px; border:1px solid var(--border);">
-          <div>
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; min-width:0; flex:1 1 240px;">
+          <img src="assets/videos/reliv-app-qr.png" alt="Scan QR code to open Reliv PWA" width="64" height="64" style="border-radius:10px; border:1px solid var(--border); flex-shrink:0;">
+          <div style="min-width:0; flex:1 1 180px;">
             <strong style="display:block; font-size:16px; color:var(--ink);">Try it right now on your phone</strong>
-            <span style="font-size:13.5px; color:var(--muted);">Visit <code style="color:var(--orange); font-weight:700;">reliv7.vercel.app</code> or scan this code with your camera</span>
+            <span style="font-size:13.5px; color:var(--muted); overflow-wrap:anywhere;">Visit <code style="color:var(--orange); font-weight:700; overflow-wrap:anywhere;">reliv7.vercel.app</code> or scan this code with your camera</span>
           </div>
         </div>
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <div style="display:flex; gap:10px; flex-wrap:wrap; flex-shrink:0;">
           <a class="btn btn-primary" href="https://reliv7.vercel.app/" target="_blank" rel="noopener">Open App in Browser <svg class="ri ri-ur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
         </div>
       </div>

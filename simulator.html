@@ -81,6 +81,17 @@
       padding: 5px 12px;
       border-radius: var(--radius-full);
       border: 1px solid #ffd8cc;
+      white-space: nowrap;
+    }
+    @media (max-width: 720px) {
+      .sim-page-header { padding: 10px 12px; gap: 8px; }
+      .sim-mode-tag { display: none; }
+      .sim-page-header .brand img { width: 84px; }
+      .sim-exit-btn { min-height: 40px !important; padding: 0 12px !important; font-size: 12.5px !important; white-space: nowrap; }
+      .sim-toolbar { flex-direction: column; align-items: stretch; gap: 10px; padding: 12px 14px; }
+      .sim-audio-ctrls { display: flex; gap: 8px; flex-wrap: wrap; }
+      .sim-btn-pill { min-height: 40px; padding: 8px 12px; }
+      .demo-notice-bar { padding: 10px 14px; font-size: 12.5px; }
     }
     .demo-notice-bar {
       background: #f8fafc;
@@ -270,8 +281,8 @@
       </a>
     </div>
     <span class="sim-mode-tag">Interactive Kiosk Demo</span>
-    <div style="display:flex; align-items:center; gap:12px;">
-      <a href="index.html" class="btn btn-secondary" style="min-height:36px; padding:0 14px; font-size:13px;">Exit to Home</a>
+    <div style="display:flex; align-items:center; gap:10px; flex-shrink:0;">
+      <a href="index.html" class="btn btn-secondary sim-exit-btn" style="min-height:40px; padding:0 14px; font-size:13px;">Exit to Home</a>
     </div>
   </header>
 
@@ -407,7 +418,7 @@
         <span class="eyebrow" id="sheetCategory">Vitals</span>
         <h3 id="sheetTitle" style="font-size:24px; color:var(--ink);">Metric Name</h3>
       </div>
-      <button id="closeSheetBtn" class="sim-btn-pill" style="padding:4px 10px; display:inline-flex; align-items:center; gap:5px;" aria-label="Close details"><svg class="ri" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg> Close</button>
+      <button id="closeSheetBtn" class="sim-btn-pill" style="min-height:44px; min-width:44px; padding:8px 14px; display:inline-flex; align-items:center; gap:6px;" aria-label="Close details"><svg class="ri" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg> Close</button>
     </div>
 
     <div style="background:#f8fafc; border-radius:var(--radius-md); padding:16px; margin-bottom:16px; display:flex; align-items:baseline; gap:10px;">

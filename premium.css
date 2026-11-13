@@ -112,6 +112,8 @@ h1 em, h2 em, .serif, .serif-accent {
   box-shadow: 0 0 0 4px rgba(226, 90, 12, 0.14);
   flex-shrink: 0;
 }
+.eyebrow:has(> svg)::before,
+.eyebrow--plain::before { display: none; }
 
 .body-lead { color: var(--ink-secondary); line-height: 1.6; }
 .body-secondary { color: var(--muted); }
@@ -206,12 +208,13 @@ header {
 header.is-hidden { transform: translateY(calc(-100% - 24px)); }
 header.is-scrolled { background: rgba(255, 250, 244, 0.88); }
 
-nav.main-nav { gap: 6px; font-size: 14.5px; }
+nav.main-nav { gap: 4px; font-size: 14px; }
 nav.main-nav a {
   position: relative;
-  padding: 8px 14px;
+  padding: 8px 12px;
   border-radius: 999px;
   color: var(--ink-secondary);
+  white-space: nowrap;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 nav.main-nav a:hover { color: var(--ink); background: rgba(226, 90, 12, 0.07); }
@@ -286,6 +289,9 @@ nav.main-nav a.nav-journey-pill:hover {
 .left-nav-btn:hover .dot:nth-child(2) { transform: scale(1.35); }
 .left-nav-btn:hover .dot:nth-child(3) { transform: translateY(2px); }
 
+@media (max-width: 980px) {
+  nav.main-nav { display: none; }
+}
 @media (max-width: 768px) {
   header { top: 10px; width: calc(100% - 20px); margin-top: 10px; height: 58px; padding: 0 8px; }
   .nav-actions .btn { min-height: 42px; padding: 0 16px; font-size: 13px; }
@@ -906,7 +912,7 @@ html.is-leaving .page-curtain { transform: translateY(0); }
 @media (max-width: 900px) { .recog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* ---------- Existing homepage sections, refined ---------- */
-.watch-section { background: transparent; border: 0; }
+.watch-section { background: transparent; border: 0; overflow-x: clip; }
 .app-section .app-panel { border-radius: 40px; border-color: var(--border); box-shadow: var(--shadow-soft); background: #fff; }
 .location-card-clean { padding: clamp(28px, 4vw, 48px); }
 
@@ -928,6 +934,11 @@ html.is-leaving .page-curtain { transform: translateY(0); }
   pointer-events: none;
   z-index: 0;
   animation: glowPulse 5s ease-in-out infinite;
+}
+@media (max-width: 640px) {
+  .phone-glow {
+    inset: 4% 0 -2%;
+  }
 }
 @keyframes glowPulse {
   0%, 100% { opacity: 0.6; transform: scale(1); }

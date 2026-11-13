@@ -140,6 +140,12 @@ body > main > section.wrap:first-child h1 {
 }
 body > main > section.wrap:first-child p, body > main > .page-hero p,
 body > main > .story-hero p { max-width: 67ch; }
+body > main > section[style*="text-align: center"] p,
+body > main > .page-hero p,
+body > main > .story-hero[style*="text-align: center"] p { margin-inline: auto; }
+.guide-intro .accolades-strip { justify-content: flex-start; }
+html { overflow-x: clip; }
+main > section, .reliv-guide, .wrap, .container { min-width: 0; }
 body > main .card, body > main .step-card, body > main .video-card {
   border-color: var(--reliv-rule);
 }
@@ -203,7 +209,6 @@ body .status-pill .status-dot { background: #8d7765; box-shadow: none; }
   .reliv-visit-guide { grid-template-columns:1fr; gap:18px; }
   .sensor-nav button { min-height:48px; font-size:12px; }
   .hero-cta .pill { text-decoration: none; }
-  .menu-dialog nav a { font-size: clamp(38px, 8vw, 66px); }
 }
 @media (max-width: 600px) {
   .hero { min-height: 0; padding: 20px 6% 24px; }
@@ -219,6 +224,22 @@ body .status-pill .status-dot { background: #8d7765; box-shadow: none; }
   .header-actions { gap: 5px; }
   .header-actions .small { padding:10px 12px; }
   .header-actions .small span { font-size:17px; }
+}
+@media (max-width: 480px) {
+  .btn:not(header .btn) {
+    white-space: normal;
+    text-align: center;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+@media (max-width: 420px) {
+  .reliv-path-title { font-size: clamp(34px, 11vw, 48px); overflow-wrap: anywhere; }
+  .hero-baseline { font-size: 9.5px; gap: 6px 12px; flex-wrap: wrap; }
+  header:not(.site-header) .brand img { width: 80px; }
+  header:not(.site-header) .header-left { gap: 6px; min-width: 0; }
+  header:not(.site-header) .nav-actions .btn { min-height: 38px; padding: 0 11px; font-size: 12px; white-space: nowrap; }
 }
 @media (max-width: 350px) {
   .site-header .brand { width:90px; }
@@ -413,18 +434,37 @@ body > header.is-scrolled, .site-header.is-scrolled {
   flex-shrink: 0;
 }
 
-/* Mobile horizontal scroll strip for filter pills & jump links */
+.video-card {
+  min-width: 0;
+}
+
+/* Mobile wrap & accessible touch ergonomics for station jump pills and utility controls */
 @media (max-width: 768px) {
-  .station-jump-strip {
-    flex-wrap: nowrap !important;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 4px;
+  header:not(.site-header) .brand {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
-  .station-jump-strip::-webkit-scrollbar { display: none; }
-  .station-jump-strip a { flex: 0 0 auto; }
-  .back-top-fab { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); width: 42px; height: 42px; }
+  .station-jump-strip {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .station-jump-strip a {
+    flex: 1 1 auto;
+    min-height: 44px;
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+    justify-content: center;
+  }
+  .guide-breadcrumb a {
+    min-height: 40px;
+    min-width: 44px;
+    padding: 4px 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .back-top-fab { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); width: 44px; height: 44px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

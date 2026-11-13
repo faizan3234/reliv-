@@ -151,15 +151,27 @@
       el.setAttribute('data-reveal', '');
       el.style.transitionDelay = `${(idx % 3) * 65}ms`;
     });
+    const revealVisible = () => {
+      const cutoff = window.innerHeight * 0.98;
+      targets.forEach(el => {
+        if (!el.classList.contains('is-revealed') && el.getBoundingClientRect().top <= cutoff) {
+          el.classList.add('is-revealed');
+          io.unobserve(el);
+        }
+      });
+    };
     const io = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting || entry.boundingClientRect.top <= window.innerHeight) {
           entry.target.classList.add('is-revealed');
           io.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    }, { rootMargin: '0px 0px 40px 0px', threshold: 0.01 });
     targets.forEach(el => io.observe(el));
+    addEventListener('scroll', revealVisible, { passive: true });
+    addEventListener('resize', revealVisible, { passive: true });
+    requestAnimationFrame(revealVisible);
   }
 
   if ('serviceWorker' in navigator) {

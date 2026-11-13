@@ -1588,16 +1588,28 @@ a {
     padding: 0 16px;
   }
   .brand-subtitle,
-  .brand-divider {
+  .brand-divider,
+  .left-nav-label {
     display: none !important;
+  }
+  .left-nav-btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    justify-content: center;
   }
   .stop {
     padding: 24px 16px;
   }
   .stop-card {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
     padding: 20px;
+  }
+  .stop-copy, .stop-media {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
   }
   .stop-copy {
     align-items: center;
@@ -1618,15 +1630,27 @@ a {
 }
 
 @media (max-width: 720px) {
+  html, body.reliv-journey-body {
+    overflow-x: clip;
+  }
   .topbar {
     height: 60px;
   }
   .topbar-inner {
-    padding: 0 12px;
+    padding: 0 10px;
     gap: 6px;
   }
+  .header-left, .topbar-left {
+    gap: 8px;
+    min-width: 0;
+  }
+  .brand {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
   .brand img {
-    width: 76px;
+    width: 68px;
     height: auto;
   }
   .route-switcher {
@@ -1634,16 +1658,19 @@ a {
     gap: 2px;
   }
   .route-pill {
-    padding: 5px 8px;
-    font-size: 10.5px;
-    min-height: 28px;
+    padding: 6px 9px;
+    font-size: 11px;
+    min-height: 40px;
+    gap: 4px;
+    white-space: nowrap;
   }
-  .back-text-mobile {
-  display: none !important;
-}
+  .route-pill .route-dot {
+    display: none;
+  }
 
-.back-link {
-    padding: 5px 10px;
+  .back-link {
+    min-height: 40px;
+    padding: 6px 10px;
     font-size: 11px;
     border-radius: 100px;
     background: rgba(243, 108, 33, 0.08);
@@ -1652,6 +1679,7 @@ a {
     font-weight: 700;
     gap: 4px;
     white-space: nowrap;
+    flex-shrink: 0;
   }
   .back-text-desktop {
     display: none !important;
@@ -1674,7 +1702,7 @@ a {
     padding: 18px 14px;
   }
   .stop-media {
-    min-height: 200px;
+    min-height: 180px;
     aspect-ratio: 16 / 11;
   }
   .campus-options-bar {
@@ -1683,9 +1711,14 @@ a {
     padding: 4px;
   }
   .campus-btn {
-    min-height: 34px;
-    padding: 6px 10px;
-    font-size: 11px;
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: 11.5px;
+  }
+  .drawer-brand {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
   .runway {
     height: clamp(120px, 18vh, 160px);
@@ -1778,6 +1811,17 @@ a {
     min-height: 48px;
     justify-content: center;
   }
+}
+
+@media (max-width: 420px) {
+  .stop { padding: 16px 10px; }
+  .stop-card { padding: 14px 12px; }
+  .stop-media { min-height: 0; aspect-ratio: 16 / 10; }
+}
+
+@media (max-width: 360px) {
+  .route-pill { padding: 5px 7px; font-size: 10px; }
+  .brand img { width: 58px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1995,4 +2039,32 @@ a {
 .nav-drawer-footer {
   padding: 20px 28px;
   border-top: 1px solid var(--border);
+}
+
+/* Back-to-top FAB & scroll indicator parity */
+.back-top-fab {
+  position: fixed;
+  right: 16px;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 249, 242, 0.22);
+  background: rgba(33, 28, 25, 0.92);
+  color: #fff9f2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(33, 28, 25, 0.24);
+  z-index: 95;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.92);
+  cursor: pointer;
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+}
+.back-top-fab.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
 }
