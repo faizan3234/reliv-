@@ -8,6 +8,8 @@
     "seo:generate": "node scripts/generate-seo.mjs",
     "seo:audit": "node scripts/audit-production.mjs",
     "test:seo": "node scripts/generate-seo.mjs --check && node scripts/seo-check.mjs",
-    "test:enquiry": "node scripts/enquiry-check.mjs"
+    "test:enquiry": "node scripts/enquiry-check.mjs",
+    "test:seo-response": "node scripts/seo-response-check.mjs",
+    "test": "npm run test:site && npm run test:seo && npm run test:enquiry && npm run test:seo-response"
   }
 }
