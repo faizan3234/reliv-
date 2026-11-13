@@ -1,9 +1,9 @@
 /**
  * Reliv Kiosk Interactive ROI & Profitability Calculator
- * Calculates mathematical financial returns across:
- * 1. Outright Purchase (CapEx)
- * 2. Monthly Plan / Lease (OpEx)
- * 3. Revenue Partnership (Shared Basis)
+ * Baseline figures aligned with Reliv Commercial Blueprint:
+ * - Model 1: Outright Purchase (₹1.2 Lakhs CapEx, 100% checkup revenue retained)
+ * - Model 2: Monthly Rental (₹12,000/mo flat rent, partner retains all collections)
+ * - Model 3: Space & Profit Sharing (₹0 investment, 40% up to 60% progressive partner share)
  */
 (function initRoiCalculator() {
   function formatINR(val) {
@@ -16,8 +16,8 @@
     const priceSlider = document.getElementById('calcPrice');
     if (!checksSlider || !priceSlider) return;
 
-    const checks = parseInt(checksSlider.value, 10) || 50;
-    const price = parseInt(priceSlider.value, 10) || 70;
+    const checks = parseInt(checksSlider.value, 10) || 30;
+    const price = parseInt(priceSlider.value, 10) || 30;
 
     // Display slider values
     const checksValEl = document.getElementById('calcChecksVal');
@@ -25,7 +25,7 @@
     if (checksValEl) checksValEl.textContent = checks + ' / day';
     if (priceValEl) priceValEl.textContent = '₹' + price;
 
-    // Core math
+    // Core math (30 days/month)
     const days = 30;
     const grossMonthly = checks * price * days;
     const grossAnnual = grossMonthly * 12;
@@ -34,10 +34,9 @@
     const grossPillEl = document.getElementById('calcGrossMonthly');
     if (grossPillEl) grossPillEl.textContent = formatINR(grossMonthly) + ' / mo (' + formatINR(grossAnnual) + ' / yr)';
 
-    // 1. Outright Purchase (Indicative CapEx ~₹3,50,000, ~₹3,000/mo electricity & cloud)
-    const outrightCapex = 350000;
-    const outrightMonthlyExpense = 3000;
-    const outrightNetMonthly = grossMonthly - outrightMonthlyExpense;
+    // 1. Outright Purchase (Buy: ₹1,20,000 CapEx, ₹0 hosting/internet fees)
+    const outrightCapex = 120000;
+    const outrightNetMonthly = grossMonthly; // 100% collections to partner
     const outrightNetAnnual = outrightNetMonthly * 12;
     const paybackMonths = outrightNetMonthly > 0 ? (outrightCapex / outrightNetMonthly).toFixed(1) : '—';
 
@@ -48,29 +47,29 @@
     if (outrightAnnualEl) outrightAnnualEl.textContent = formatINR(outrightNetAnnual);
     if (outrightPaybackEl) outrightPaybackEl.textContent = paybackMonths + ' months';
 
-    // 2. Monthly Lease / OpEx (Fixed lease ~₹15,000/mo + ~₹1,000/mo electricity)
-    const leaseFee = 15000;
-    const leaseElectricity = 1000;
-    const leaseTotalExpense = leaseFee + leaseElectricity;
-    const leaseNetMonthly = grossMonthly - leaseTotalExpense;
-    const leaseNetAnnual = leaseNetMonthly * 12;
-    const breakevenChecks = Math.ceil(leaseTotalExpense / (price * days));
+    // 2. Monthly Rental (Fixed rent ₹12,000/mo flat)
+    const rentFee = 12000;
+    const rentNetMonthly = grossMonthly - rentFee;
+    const rentNetAnnual = rentNetMonthly * 12;
+    const breakevenChecks = Math.ceil(rentFee / (price * days));
 
     const leaseFigEl = document.getElementById('calcLeaseMonthly');
     const leaseAnnualEl = document.getElementById('calcLeaseAnnual');
     const leaseBreakevenEl = document.getElementById('calcLeaseBreakeven');
-    if (leaseFigEl) leaseFigEl.textContent = formatINR(leaseNetMonthly);
-    if (leaseAnnualEl) leaseAnnualEl.textContent = formatINR(leaseNetAnnual);
+    if (leaseFigEl) leaseFigEl.textContent = formatINR(rentNetMonthly);
+    if (leaseAnnualEl) leaseAnnualEl.textContent = formatINR(rentNetAnnual);
     if (leaseBreakevenEl) leaseBreakevenEl.textContent = breakevenChecks + ' checks/day';
 
-    // 3. Shared Basis / Revenue Partnership (25% host share, ₹0 investment)
-    const sharedRate = 0.25;
-    const sharedNetMonthly = Math.round(grossMonthly * sharedRate);
-    const sharedNetAnnual = sharedNetMonthly * 12;
+    // 3. Space & Profit Sharing (40% initial partner share, up to 60% mature share)
+    const sharedRateInitial = 0.40;
+    const sharedRateMature = 0.60;
+    const sharedNetMonthlyInitial = Math.round(grossMonthly * sharedRateInitial);
+    const sharedNetMonthlyMature = Math.round(grossMonthly * sharedRateMature);
+    const sharedNetAnnual = sharedNetMonthlyInitial * 12;
 
     const sharedFigEl = document.getElementById('calcSharedMonthly');
     const sharedAnnualEl = document.getElementById('calcSharedAnnual');
-    if (sharedFigEl) sharedFigEl.textContent = formatINR(sharedNetMonthly);
+    if (sharedFigEl) sharedFigEl.textContent = formatINR(sharedNetMonthlyInitial) + ' (up to ' + formatINR(sharedNetMonthlyMature) + ')';
     if (sharedAnnualEl) sharedAnnualEl.textContent = formatINR(sharedNetAnnual);
   }
 
@@ -88,4 +87,3 @@
     bind();
   }
 })();
-

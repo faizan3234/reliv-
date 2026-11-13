@@ -204,7 +204,7 @@
       <a href="index.html">Home</a>
       <a href="how-it-works.html">How It Works</a>
       <a href="locations.html">Find Kiosk</a>
-      <a href="organisations.html">Plans &amp; ROI</a>
+      <a href="organisations.html">Host &amp; Earn</a>
       <a href="about.html">About</a>
     </nav>
     <div class="nav-actions">
@@ -235,84 +235,87 @@
         <div class="roi-control-group">
           <label for="calcChecks">
             <span>Daily Checkup Volume</span>
-            <span class="control-val" id="calcChecksVal">50 / day</span>
+            <span class="control-val" id="calcChecksVal">30 / day</span>
           </label>
-          <input type="range" class="roi-slider" id="calcChecks" min="15" max="150" step="5" value="50">
+          <input type="range" class="roi-slider" id="calcChecks" min="10" max="100" step="5" value="30">
           <div class="roi-slider-hints">
-            <span>15 (Quiet)</span>
-            <span>50 (Moderate)</span>
-            <span>100 (Active)</span>
-            <span>150+ (High-Traffic)</span>
+            <span>10 (Quiet)</span>
+            <span>30 (Moderate)</span>
+            <span>60 (Active)</span>
+            <span>100+ (High-Traffic)</span>
           </div>
         </div>
 
         <div class="roi-control-group">
           <label for="calcPrice">
             <span>Session Price (Per Checkup)</span>
-            <span class="control-val" id="calcPriceVal">₹70</span>
+            <span class="control-val" id="calcPriceVal">₹30</span>
           </label>
-          <input type="range" class="roi-slider" id="calcPrice" min="40" max="120" step="10" value="70">
+          <input type="range" class="roi-slider" id="calcPrice" min="20" max="100" step="5" value="30">
           <div class="roi-slider-hints">
-            <span>₹40 (Subsidized)</span>
-            <span>₹70 (Standard Vitals)</span>
+            <span>₹20 (Subsidized)</span>
+            <span>₹30 (Standard Baseline)</span>
+            <span>₹50 (Comprehensive)</span>
             <span>₹100 (Full + Report)</span>
-            <span>₹120 (Premium)</span>
           </div>
         </div>
       </div>
 
       <div class="roi-results-intro">
         <span class="roi-gross-pill">
-          Estimated Monthly Gross Revenue: <strong id="calcGrossMonthly">₹1,05,000 / mo</strong>
+          Estimated Monthly Gross Revenue: <strong id="calcGrossMonthly">₹27,000 / mo</strong>
         </span>
       </div>
 
       <div class="roi-output-grid">
         <article class="roi-output-card">
           <div>
-            <span class="roi-output-badge gold">Outright Purchase</span>
-            <h3>Maximum Lifetime ROI</h3>
-            <span class="calc-subtitle">Own hardware, keep 100% of revenue after nominal upkeep.</span>
+            <span class="roi-output-badge gold">💰 Model 1 · Buy (₹1.2L)</span>
+            <h3>100% Revenue Retained</h3>
+            <span class="calc-subtitle">Own hardware, zero internet/hosting fees, 100% checkup revenue to you.</span>
             <div class="roi-output-figure">
-              <span class="figure-num" id="calcOutrightMonthly">₹1,02,000</span>
+              <span class="figure-num" id="calcOutrightMonthly">₹27,000</span>
               <span class="figure-label">Estimated Net Monthly Profit</span>
             </div>
           </div>
           <div class="roi-output-meta">
-            <div>Annual Net Yield: <strong id="calcOutrightAnnual">₹12,24,000</strong></div>
-            <div>Capital Payback: <strong id="calcOutrightPayback">3.4 months</strong></div>
+            <div>Annual Net Profit: <strong id="calcOutrightAnnual">₹3,24,000</strong></div>
+            <div>Device Payback: <strong id="calcOutrightPayback">4.4 months</strong></div>
+            <div style="margin-top:8px; font-size:12px; color:#8c827a;">At 20 checks/day @ ₹30, device cost recovers in ~7 months.</div>
           </div>
         </article>
 
         <article class="roi-output-card featured">
           <div>
-            <span class="roi-output-badge orange">Monthly Lease (OpEx)</span>
-            <h3>Instant Positive Cashflow</h3>
-            <span class="calc-subtitle">Fixed ~₹15k/mo fee covers hardware, calibration and cloud SLA.</span>
+            <span class="roi-output-badge orange">🤝 Model 2 · Rent (₹12k/mo)</span>
+            <h3>Zero CapEx Surplus</h3>
+            <span class="calc-subtitle">Fixed flat rent of ₹12,000/mo. Keep 100% of customer collections.</span>
             <div class="roi-output-figure">
-              <span class="figure-num" id="calcLeaseMonthly" style="color:#c33c0d;">₹89,000</span>
+              <span class="figure-num" id="calcLeaseMonthly" style="color:#c33c0d;">₹15,000</span>
               <span class="figure-label">Estimated Net Monthly Profit</span>
             </div>
           </div>
           <div class="roi-output-meta">
-            <div>Annual Net Yield: <strong id="calcLeaseAnnual">₹10,68,000</strong></div>
-            <div>Breakeven: <strong id="calcLeaseBreakeven">8 checks/day</strong></div>
+            <div>Annual Net Profit: <strong id="calcLeaseAnnual">₹1,80,000</strong></div>
+            <div>Breakeven: <strong id="calcLeaseBreakeven">14 checks/day</strong></div>
+            <div style="margin-top:8px; font-size:12px; color:#8c827a;">At 30 checks/day, gross ₹27k – ₹12k rent = ₹15,000/mo pure profit.</div>
           </div>
         </article>
 
         <article class="roi-output-card">
           <div>
-            <span class="roi-output-badge emerald">Shared Basis</span>
-            <h3>Zero-Risk Passive Income</h3>
-            <span class="calc-subtitle">₹0 investment. Earn 25% host revenue share for providing 10 sq. ft.</span>
+            <span class="roi-output-badge emerald">🏢 Model 3 · Zero Risk</span>
+            <h3>Pure Passive Income</h3>
+            <span class="calc-subtitle">₹0 investment. 4×4 sq. ft. space. Progressive split scaling to 60%.</span>
             <div class="roi-output-figure">
-              <span class="figure-num" id="calcSharedMonthly" style="color:#065f46;">₹26,250</span>
+              <span class="figure-num" id="calcSharedMonthly" style="color:#065f46;">₹10,800 (up to ₹16,200)</span>
               <span class="figure-label">Estimated Host Monthly Payout</span>
             </div>
           </div>
           <div class="roi-output-meta">
-            <div>Annual Passive Income: <strong id="calcSharedAnnual">₹3,15,000</strong></div>
+            <div>Annual Passive Income: <strong id="calcSharedAnnual">₹1,29,600</strong></div>
             <div>Capital Risk: <strong>₹0 (Zero Risk)</strong></div>
+            <div style="margin-top:8px; font-size:12px; color:#8c827a;">Partner earns 40% mature share, scaling to 60% after Year 5.</div>
           </div>
         </article>
       </div>
@@ -436,7 +439,7 @@
           <li>
             <a href="organisations.html" class="drawer-link">
               <span class="drawer-link-icon">🏢</span>
-              <span>Plans &amp; ROI</span>
+              <span>Host &amp; Earn</span>
               <span class="drawer-tag-gold">Profitable</span>
             </a>
           </li>
