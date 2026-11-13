@@ -162,11 +162,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<link rel="stylesheet" href="discovery.css">
 
   <!-- RELIV SEO START -->
   <title>Host a Health ATM in Your Space | Free Setup &amp; Revenue Share | Reliv</title>
   <meta name="description" content="Install a smart Health ATM kiosk in your college, gym, hospital, or transit space with ₹0 Capex. Earn passive revenue sharing with autonomous self-service healthcare.">
-  <meta name="keywords" content="health atm for organisations, host a health atm, health kiosk revenue share, wellness kiosk for college, corporate health atm, gym health kiosk, free health atm deployment, reliv organisations">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://relivkiosk.vercel.app/organisations.html">
   <meta property="og:type" content="website">
@@ -306,7 +306,7 @@
       </a>
     </div>
     <nav class="main-nav" aria-label="Main Navigation">
-      
+
       <a href="index.html">Home</a>
       <a href="how-it-works.html">How It Works</a>
       <a href="locations.html">Find Kiosk</a>
@@ -336,7 +336,7 @@
         <div class="accolades-strip" style="margin-top: 36px;">
           <a href="certificate.pdf" target="_blank" class="accolade-pill" style="text-decoration:none; color:inherit;">🏛️ DPIIT Recognized Startup · Govt. of India (DIPP287544)</a>
           <a href="about.html#awards" class="accolade-pill" style="text-decoration:none; color:inherit;">🏆 Medverse 2026 Winner · Excellence in MedTech Device Startup</a>
-          <span class="accolade-pill">📜 Startup India Certified</span>
+          <span class="accolade-pill">📜 DPIIT Recognised Startup</span>
           <span class="accolade-pill">🥈 Bengal E-Summit 1st Runner Up</span>
         </div>
       </div>
@@ -827,11 +827,11 @@
           <div class="form-row">
             <div class="form-group">
               <label for="contactName">Your Name *</label>
-              <input type="text" id="contactName" name="name" placeholder="Dr. / Prof. / Mr. / Ms." required>
+              <input type="text" id="contactName" name="name" placeholder="Dr. / Prof. / Mr. / Ms." required autocomplete="name">
             </div>
             <div class="form-group">
               <label for="orgName">Organisation / Institution *</label>
-              <input type="text" id="orgName" name="organization" placeholder="e.g. Techno India University / Fitness Hub" required>
+              <input type="text" id="orgName" name="organization" placeholder="e.g. Techno India University / Fitness Hub" required autocomplete="organization">
             </div>
           </div>
 
@@ -853,7 +853,7 @@
                 <option value="Outright Purchase">Outright Purchase (Own Device — ₹95,000 only)</option>
                 <option value="Monthly Plan">Monthly Plan / Lease (₹12,000/mo)</option>
                 <option value="Revenue Partnership">Space &amp; Profit Sharing (High-Footfall / Public Spaces)</option>
-                <option value="Undecided">Undecided / Need Guidance</option>
+                <option value="Undecided" selected>Undecided / Need Guidance</option>
               </select>
             </div>
           </div>
@@ -861,17 +861,17 @@
           <div class="form-row">
             <div class="form-group">
               <label for="phone">Phone / WhatsApp Number *</label>
-              <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+              <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel">
             </div>
             <div class="form-group">
               <label for="email">Official Email Address *</label>
-              <input type="email" id="email" name="email" placeholder="name@institution.edu.in" required>
+              <input type="email" id="email" name="email" placeholder="name@institution.edu.in" required autocomplete="email">
             </div>
           </div>
 
           <div class="form-group">
             <label for="city">City & State *</label>
-            <input type="text" id="city" name="city" placeholder="e.g. Kolkata, West Bengal" required>
+            <input type="text" id="city" name="city" placeholder="e.g. Kolkata, West Bengal" required autocomplete="address-level2">
           </div>
 
           <div class="form-group">
@@ -879,15 +879,16 @@
             <textarea id="message" name="notes" rows="3" placeholder="Expected daily footfall, preferred installation timeframe, or specific wellness screening requirements..."></textarea>
           </div>
 
+          <p class="enquiry-privacy">Your details are sent through FormSubmit to Reliv for this enquiry. Please do not include medical information. <a href="legal/privacy.html">Privacy policy</a>.</p>
           <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top: 10px;">
             Submit Commercial Request
           </button>
-        </form>
+        </form><div id="orgFormStatus" class="enquiry-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
       </div>
 
         <div style="margin-top: 24px; text-align: center; font-size: 13.5px; color: var(--muted);">
-          Prefer direct communication? Call or WhatsApp our partnerships desk at 
-          <a href="https://wa.me/919163606455" target="_blank" rel="noopener" style="color:var(--orange); font-weight:600;">+91 91636 06455</a> 
+          Prefer direct communication? Call or WhatsApp our partnerships desk at
+          <a href="https://wa.me/919163606455" target="_blank" rel="noopener" style="color:var(--orange); font-weight:600;">+91 91636 06455</a>
           or email <a href="mailto:relivcustomercare.in@gmail.com" style="color:var(--orange); font-weight:600;">relivcustomercare.in@gmail.com</a>.
         </div>
       </div>
@@ -958,59 +959,7 @@
   <nav class="reliv-resource-links" aria-label="Product and contact information"><a href="health-kiosk.html">Reliv Kiosk</a><a href="pricing.html">Pricing &amp; plans</a><a href="contact.html">Contact Reliv</a><a href="health-kiosk-kolkata.html">Kolkata kiosk guide</a><a href="health-kiosk-buying-guide.html">Kiosk buyer’s guide</a><a href="demo.html">Watch the demo</a></nav></footer>
 
 
-  <script>
-    const orgForm = document.getElementById('orgForm');
-    const orgContainer = document.getElementById('orgFormContainer');
-
-    if (orgForm) {
-      orgForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const submitBtn = orgForm.querySelector('button[type="submit"]');
-        const origBtnText = submitBtn.textContent;
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Submitting your request...';
-
-        const formData = new FormData(orgForm);
-        const name = formData.get('name') || '';
-        const org = formData.get('organization') || '';
-        const model = formData.get('model') || '';
-        const phone = formData.get('phone') || '';
-
-        const waText = encodeURIComponent(`Hello Reliv! I just submitted a commercial partnership request on your website.\n\nName: ${name}\nOrganisation: ${org}\nPreferred Model: ${model}\nPhone: ${phone}\n\nPlease share commercial details.`);
-        const waUrl = `https://wa.me/919163606455?text=${waText}`;
-
-        try {
-          const res = await fetch('https://formsubmit.co/ajax/relivcustomercare.in@gmail.com', {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-          });
-
-          orgContainer.innerHTML = `
-            <div style="text-align:center; padding:36px 20px; background:#f0fdf4; border:1.5px solid #86efac; border-radius:var(--radius-lg);">
-              <div style="width:64px; height:64px; border-radius:50%; background:#22c55e; color:#fff; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:32px;">✓</div>
-              <h3 style="font-size:24px; color:#14532d; margin-bottom:8px;">Request Submitted Successfully!</h3>
-              <p style="font-size:15px; color:#166534; max-width:500px; margin:0 auto 20px; line-height:1.5;">
-                Thank you, <strong>${name}</strong>. Your commercial enquiry has been delivered to our team at <strong>relivcustomercare.in@gmail.com</strong>. We will review your details and contact you within 24 hours.
-              </p>
-              <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
-                <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn-primary" style="background:#25D366; border-color:#25D366;">
-                  Connect on WhatsApp with Team ↗
-                </a>
-                <a href="index.html" class="btn btn-secondary">Return to Home</a>
-              </div>
-            </div>
-          `;
-
-          // Also trigger WhatsApp in a new window
-          window.open(waUrl, '_blank');
-        } catch(err) {
-          // Fallback to normal form submit if AJAX is blocked
-          orgForm.submit();
-        }
-      });
-    }
-  </script>
+  <script src="enquiry.js" defer></script>
   <!-- Left Slide-Out Navigation Drawer -->
   <div class="nav-drawer-backdrop" id="navDrawerBackdrop" aria-hidden="true"></div>
   <aside class="nav-drawer" id="navDrawer" aria-label="Main Navigation Drawer" aria-hidden="true">
@@ -1134,7 +1083,7 @@
         <div class="drawer-acc-badge">
           <span>🏛️</span>
           <div>
-            <strong>DPIIT Certified &middot; DIPP287544</strong>
+            <strong>DPIIT Recognised Startup &middot; DIPP287544</strong>
             <span>Govt. of India &middot; Startup India</span>
           </div>
         </div>
