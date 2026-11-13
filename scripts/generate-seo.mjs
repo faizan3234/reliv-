@@ -12,22 +12,82 @@ const changed = [];
 const htmlEscape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
 const textOnly = html => html.replace(/<[^>]*>/g, '').replaceAll('&amp;', '&').replaceAll('&nbsp;', ' ').replace(/\s+/g, ' ').trim();
 const pages = {
-  'health-kiosk-buying-guide.html': ['Health Kiosk Buying Guide India | Costs & Deployment | Reliv', 'Compare health kiosk features, purchase and lease costs, installation, privacy and support. A practical buyer’s checklist from Reliv Medicare, Kolkata.'],
-  'demo.html': ['Watch Reliv Health Kiosk Demo | Official Kiosk Walkthrough', 'Watch the official Reliv health kiosk demonstration. Explore screening features, configuration options and deployment pricing, or arrange a demonstration.'],
-  'index.html': ['Reliv Kiosk | Smart Health Kiosk & Health ATM in India', 'Meet Reliv Kiosk from Kolkata: guided health, fitness and wellness screening. Explore checks, kiosk pricing, locations and contact Reliv Medicare.'],
-  'health-kiosk.html': ['Reliv Health Kiosk in India | Features, Pricing & Contact', 'Explore Reliv Smart Health Kiosk: BP, SpO₂, pulse, temperature, height, weight and BMI. See configuration options, pricing enquiries and Kolkata stations.'],
-  'health-atm.html': ['What Is a Health ATM? | Reliv Health Kiosk India', 'Understand Health ATMs and the Reliv self-service health kiosk. Explore guided screening, configuration options, digital reports and deployment pricing.'],
-  'health-kiosk-kolkata.html': ['Health Kiosk in Kolkata | Reliv Locations & Screening', 'Find Reliv health kiosk stations in Kolkata at IEM Gurukul, St. James’ School and Eco Park. See available checks and confirm access before visiting.'],
-  'pricing.html': ['Reliv Kiosk Price in India | Purchase, Lease & Checkup Costs', 'Request current Reliv health kiosk pricing for purchase or monthly plans. Compare deployment costs with individual checkup charges and contact the team.'],
-  'contact.html': ['Contact Reliv Kiosk | Phone, Email & Pricing Enquiries', 'Contact Reliv Medicare in Kolkata: +91 91636 06455 or relivcustomercare.in@gmail.com. Ask about health kiosks, pricing, demonstrations and venue access.'],
-  'organisations.html': ['Health Kiosks for Organisations in India | Reliv', 'Bring Reliv health screening to your college, workplace, gym or community venue. Discuss purchase, monthly plans, configuration and installation.'],
-  'solutions/gyms.html': ['Fitness & Wellness Kiosks for Gyms in India | Reliv', 'Explore Reliv fitness and wellness kiosks for gyms: guided vital checks, height, weight and BMI. Confirm optional features and request deployment pricing.'],
-  'solutions/colleges.html': ['Health Kiosks for Colleges in India | Reliv Campus Wellness', 'Explore Reliv health screening kiosks for colleges and universities. Discuss campus deployment, guided checks, configuration, pricing and support.'],
-  'solutions/offices.html': ['Workplace Health & Wellness Kiosks in India | Reliv', 'Explore Reliv health screening for offices and employee wellbeing. Request a workplace kiosk proposal with configuration, installation and pricing.'],
-  'locations.html': ['Find a Reliv Health Kiosk | Kolkata Station Directory', 'Explore Reliv kiosk locations at IEM Gurukul, St. James’ School and Eco Park in Kolkata. Confirm station availability, venue access and hours before visiting.'],
-  'about.html': ['About Reliv Medicare | Health Kiosk Company in Kolkata', 'Meet Reliv Medicare Private Limited, the Kolkata company behind Reliv Smart Health Kiosk. Explore its team, DPIIT startup recognition and story.'],
-  'how-it-works.html': ['How Reliv Kiosk Works | Health Checks, Videos & App Guide', 'Watch the Reliv health kiosk walkthrough. Learn about guided checks, payment and health QR codes, digital reports and the companion app.'],
-  'media.html': ['Reliv Kiosk Media | Official Photos, Videos & Recognition', 'Explore official Reliv kiosk photographs, demonstration videos and startup recognition. Contact Reliv Medicare for product information and media enquiries.']
+  "health-kiosk-buying-guide.html": [
+    "Health ATM & Smart Health Kiosk Buying Guide India (2026) | Reliv",
+    "Complete 2026 buyer's guide to Health ATMs & smart health kiosks in India: features, outright vs rental costs, ROI maths, installation, and compliance checklist."
+  ],
+  "demo.html": [
+    "Watch Reliv Health Kiosk Demo | Official Kiosk Walkthrough",
+    "Watch the official Reliv health kiosk demonstration. Explore screening features, configuration options and deployment pricing, or arrange a demonstration."
+  ],
+  "index.html": [
+    "Reliv Health ATM & Smart Health Kiosk India | From ₹95,000",
+    "Explore Reliv health kiosks from Kolkata: core vital checks, ₹95,000 machine purchase and ₹12,000 monthly rental. Compare plans, watch the demo and contact Reliv."
+  ],
+  "health-kiosk.html": [
+    "Smart Health Kiosk in India | Autonomous Health ATM & Vitals Screening | Reliv",
+    "Discover India's smart health kiosk: autonomous vital screening (BP, SpO₂, pulse, BMI), multilingual voice AI guidance, zero operator overhead, and pricing."
+  ],
+  "health-atm.html": [
+    "What is a Health ATM? Guide to Smart Health Kiosks in India | Reliv",
+    "What is a Health ATM? Discover how smart health checkup kiosks work in India: self-service 3-minute vital screening, parameters, pricing, and locations."
+  ],
+  "health-kiosk-kolkata.html": [
+    "Health Kiosk in Kolkata | Reliv Locations & Screening",
+    "Find Reliv health kiosk stations in Kolkata at IEM Gurukul, St. James’ School and Eco Park. See available checks and confirm access before visiting."
+  ],
+  "pricing.html": [
+    "Reliv Health ATM Price | ₹95,000 Machine & ₹12,000/Month Rental",
+    "Compare Reliv kiosk purchase at ₹95,000, rental at ₹12,000/month and venue partnerships. Confirm taxes, configuration and deployment inclusions in your quote."
+  ],
+  "contact.html": [
+    "Contact Reliv Kiosk | Phone, Email & Pricing Enquiries",
+    "Contact Reliv Medicare in Kolkata: +91 91636 06455 or relivcustomercare.in@gmail.com. Ask about health kiosks, pricing, demonstrations and venue access."
+  ],
+  "organisations.html": [
+    "Host a Health ATM in Your Space | Free Setup & Revenue Share | Reliv",
+    "Install a smart Health ATM kiosk in your college, gym, hospital, or transit space with ₹0 Capex. Earn passive revenue sharing with autonomous self-service healthcare."
+  ],
+  "solutions/gyms.html": [
+    "Fitness & Wellness Kiosks for Gyms in India | Reliv",
+    "Explore Reliv fitness and wellness kiosks for gyms: guided vital checks, height, weight and BMI. Confirm optional features and request deployment pricing."
+  ],
+  "solutions/colleges.html": [
+    "Health Kiosks for Colleges in India | Reliv Campus Wellness",
+    "Explore Reliv health screening kiosks for colleges and universities. Discuss campus deployment, guided checks, configuration, pricing and support."
+  ],
+  "solutions/offices.html": [
+    "Workplace Health & Wellness Kiosks in India | Reliv",
+    "Explore Reliv health screening for offices and employee wellbeing. Request a workplace kiosk proposal with configuration, installation and pricing."
+  ],
+  "locations.html": [
+    "Find a Reliv Health Kiosk | Kolkata Station Directory",
+    "Explore Reliv kiosk locations at IEM Gurukul, St. James’ School and Eco Park in Kolkata. Confirm station availability, venue access and hours before visiting."
+  ],
+  "about.html": [
+    "About Reliv Medicare | Health Kiosk Company in Kolkata",
+    "Meet Reliv Medicare Private Limited, the Kolkata company behind Reliv Smart Health Kiosk. Explore its team, DPIIT startup recognition and story."
+  ],
+  "how-it-works.html": [
+    "How Reliv Kiosk Works | Health Checks, Videos & App Guide",
+    "Watch the Reliv health kiosk walkthrough. Learn about guided checks, payment and health QR codes, digital reports and the companion app."
+  ],
+  "media.html": [
+    "Reliv Kiosk Media | Official Photos, Videos & Recognition",
+    "Explore official Reliv kiosk photographs, demonstration videos and startup recognition. Contact Reliv Medicare for product information and media enquiries."
+  ],
+  "health-atm-franchise.html": [
+    "Health ATM Franchise & Business Opportunity India | Cost, ROI & Models | Reliv",
+    "Explore Health ATM franchise and business opportunities in India. Compare outright purchase (₹95,000), monthly rental (₹12,000), and zero-cost space profit sharing with full ROI calculations."
+  ],
+  "health-atm-manufacturers-india.html": [
+    "Health ATM Manufacturers in India | Smart Health Kiosk Comparison (2026) | Reliv",
+    "Compare leading Health ATM manufacturers in India (2026). Evaluate testing parameters, CDSCO compliance, Make-in-India certifications, costs, and voice AI tech."
+  ],
+  "solutions/pharmacy.html": [
+    "Health ATM for Pharmacies & Medical Stores in India | Reliv",
+    "Install a self-service Health ATM in your retail pharmacy or medical store. Attract 30+ daily walk-ins, increase OTC and prescription medicine sales with ₹0 Capex."
+  ]
 };
 function output(path, content) {
   const full = resolve(root, path);
@@ -154,7 +214,7 @@ for (const [path, [title, description]] of Object.entries(pages)) {
   output(path, html);
 }
 const links = Object.entries(pages).map(([p,[t]]) => `- [${t}](${facts.url}${p === 'index.html' ? '/' : '/' + p})`).join('\n');
-const summary = `# Reliv Kiosk\n\n> ${facts.description}\n\nCompany: ${facts.legalName}\nOfficial website: ${facts.url}/\nEmail: ${facts.email}\nPhone: ${facts.displayPhone}\nWhatsApp: ${facts.whatsapp}\nCompanion app: ${facts.appUrl}\n\n## Screening\n${facts.measurements.join(', ')}. Calculated indicator: ${facts.calculatedMetrics.join(', ')}.\n${facts.configurationNote}\n${facts.sessionTime}\nGuidance: ${facts.languages.join(', ')}.\n${facts.disclaimer}\n\n## Pricing\nKiosk purchase: ${facts.pricing.purchase}\nMonthly plans: ${facts.pricing.lease}\nIndividual checkups: ${facts.pricing.checkup}\nNo numeric starting price is published here. Machine purchase costs and session charges are different.\n\n## Kolkata stations\n${facts.stations.map(s => '- ' + s).join('\n')}\n${facts.visitNote}\n\n## Official pages\n${links}\n`;
+const summary = `# Reliv Kiosk\n\n> ${facts.description}\n\nCompany: ${facts.legalName}\nOfficial website: ${facts.url}/\nEmail: ${facts.email}\nPhone: ${facts.displayPhone}\nWhatsApp: ${facts.whatsapp}\nCompanion app: ${facts.appUrl}\n\n## Screening\n${facts.measurements.join(', ')}. Calculated indicator: ${facts.calculatedMetrics.join(', ')}.\n${facts.configurationNote}\n${facts.sessionTime}\nGuidance: ${facts.languages.join(', ')}.\n${facts.disclaimer}\n\n## Pricing\nKiosk purchase: ${facts.pricing.purchase}\nMonthly plans: ${facts.pricing.lease}\nIndividual checkups: ${facts.pricing.checkup}\nMachine purchase costs, rental fees and session charges are different. Confirm taxes and inclusions with Reliv.\n\n## Kolkata stations\n${facts.stations.map(s => '- ' + s).join('\n')}\n${facts.visitNote}\n\n## Official pages\n${links}\n`;
 output('llms.txt', summary);
 output('llms-full.txt', summary + `\n## Company recognition\n${facts.recognition}\nCertificate: ${facts.url}/certificate.pdf\nCompany and team: ${facts.url}/about.html\n\n## Product scope\nHealth kiosk and Health ATM are category terms; Reliv is one product within the category. Reliv Medicare is the company, Reliv is the brand, and Reliv Smart Health Kiosk is the product. Optional metrics are configuration dependent. Measurements and calculated estimates are not equivalent to independent medical tests.\n\n## Reporting and the app\nFollow the kiosk instructions to access the report where offered. A payment QR is used for checkout or activation when requested. A health-data QR imports measurements where supported. Review any displayed charges before payment.\n\n## Evidence and updates\nThese files summarise the public website for convenience. They do not establish search ranking or inclusion in AI answers. Confirm current features, pricing and venue access with Reliv using the contact details above.\n`);
 console.log(`${check ? 'Checked' : 'Generated'} SEO: ${changed.length} ${check ? 'stale' : 'updated'} files.`);

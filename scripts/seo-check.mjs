@@ -61,6 +61,10 @@ for (const [,entry] of sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
     for (const asset of [source, poster]) assert.ok(existsSync(resolve(root, asset.pathname.slice(1))), `Missing video asset: ${asset}`);
   }
 }
+if (facts.pricing.startingPriceINR !== null) {
+  assert.ok(!read('health-kiosk-buying-guide.html').includes('not published a numeric starting price'), 'Buyer guide must agree with published pricing');
+  assert.ok(read('llms.txt').includes('₹95,000'), 'Published machine price must reach the summary');
+}
 const demo = JSON.parse(read('content/reliv-demo.json'));
 for (const path of ['demo.html', 'media.html']) {
   const graph = JSON.parse(read(path).match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
@@ -101,3 +105,10 @@ for (const path of ['llms.txt', 'llms-full.txt']) {
   for (const value of [facts.email, facts.displayPhone, facts.url, '/pricing.html', '/contact.html']) assert.ok(text.includes(value), `Missing ${value} in ${path}`);
 }
 console.log(`SEO checks passed: ${urls.length} sitemap pages, ${graphs} JSON-LD blocks, canonical URLs, links, contact consistency, pricing and crawler rules.`);
+
+// Keep the latest category pages discoverable when generated summaries are refreshed.
+for (const path of ['health-atm-franchise.html', 'health-atm-manufacturers-india.html', 'solutions/pharmacy.html']) {
+  assert.ok(urls.includes(facts.url + '/' + path), `Category page missing from sitemap: ${path}`);
+  assert.ok(read('index.html').includes(`href="${path}"`), `Homepage must link to ${path}`);
+  for (const summary of ['llms.txt', 'llms-full.txt']) assert.ok(read(summary).includes(facts.url + '/' + path), `Generated summary lost ${path}`);
+}

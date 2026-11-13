@@ -17,10 +17,10 @@ Guidance: English, Hindi, Bengali.
 Reliv provides screening information for awareness. It does not provide a medical diagnosis or replace professional medical advice.
 
 ## Pricing
-Kiosk purchase: Request current pricing for your kiosk configuration and installation location.
-Monthly plans: Request a monthly plan quote and confirm the term, maintenance and support included.
+Kiosk purchase: Listed machine purchase cost: ₹95,000 one-time. Confirm taxes, configuration, installation and support in a written quote.
+Monthly plans: Listed flat rental: ₹12,000/month. Confirm eligibility, term, maintenance and inclusions.
 Individual checkups: Checkup and digital-report charges depend on the station and service selected. Check the displayed price before payment.
-No numeric starting price is published here. Machine purchase costs and session charges are different.
+Machine purchase costs, rental fees and session charges are different. Confirm taxes and inclusions with Reliv.
 
 ## Kolkata stations
 - IEM Gurukul Campus, Sector V
@@ -29,16 +29,13 @@ No numeric starting price is published here. Machine purchase costs and session 
 These are listed partner-venue stations. Confirm current availability, access and opening hours before travelling.
 
 ## Official pages
-- [Health ATM Franchise & Business Opportunity India | Cost, ROI & Models | Reliv](https://relivkiosk.vercel.app/health-atm-franchise.html)
-- [Health ATM Manufacturers in India | Smart Health Kiosk Comparison (2026) | Reliv](https://relivkiosk.vercel.app/health-atm-manufacturers-india.html)
-- [Health ATM for Pharmacies & Medical Stores in India | Reliv](https://relivkiosk.vercel.app/solutions/pharmacy.html)
 - [Health ATM & Smart Health Kiosk Buying Guide India (2026) | Reliv](https://relivkiosk.vercel.app/health-kiosk-buying-guide.html)
 - [Watch Reliv Health Kiosk Demo | Official Kiosk Walkthrough](https://relivkiosk.vercel.app/demo.html)
-- [Smart Health Kiosk & Health ATM in India | 3-Min Vitals Screening | Reliv](https://relivkiosk.vercel.app/)
+- [Reliv Health ATM & Smart Health Kiosk India | From ₹95,000](https://relivkiosk.vercel.app/)
 - [Smart Health Kiosk in India | Autonomous Health ATM & Vitals Screening | Reliv](https://relivkiosk.vercel.app/health-kiosk.html)
 - [What is a Health ATM? Guide to Smart Health Kiosks in India | Reliv](https://relivkiosk.vercel.app/health-atm.html)
 - [Health Kiosk in Kolkata | Reliv Locations & Screening](https://relivkiosk.vercel.app/health-kiosk-kolkata.html)
-- [Health ATM Machine Price in India | Buy, Rental & Profit Share ROI | Reliv Kiosk](https://relivkiosk.vercel.app/pricing.html)
+- [Reliv Health ATM Price | ₹95,000 Machine & ₹12,000/Month Rental](https://relivkiosk.vercel.app/pricing.html)
 - [Contact Reliv Kiosk | Phone, Email & Pricing Enquiries](https://relivkiosk.vercel.app/contact.html)
 - [Host a Health ATM in Your Space | Free Setup & Revenue Share | Reliv](https://relivkiosk.vercel.app/organisations.html)
 - [Fitness & Wellness Kiosks for Gyms in India | Reliv](https://relivkiosk.vercel.app/solutions/gyms.html)
@@ -48,3 +45,6 @@ These are listed partner-venue stations. Confirm current availability, access an
 - [About Reliv Medicare | Health Kiosk Company in Kolkata](https://relivkiosk.vercel.app/about.html)
 - [How Reliv Kiosk Works | Health Checks, Videos & App Guide](https://relivkiosk.vercel.app/how-it-works.html)
 - [Reliv Kiosk Media | Official Photos, Videos & Recognition](https://relivkiosk.vercel.app/media.html)
+- [Health ATM Franchise & Business Opportunity India | Cost, ROI & Models | Reliv](https://relivkiosk.vercel.app/health-atm-franchise.html)
+- [Health ATM Manufacturers in India | Smart Health Kiosk Comparison (2026) | Reliv](https://relivkiosk.vercel.app/health-atm-manufacturers-india.html)
+- [Health ATM for Pharmacies & Medical Stores in India | Reliv](https://relivkiosk.vercel.app/solutions/pharmacy.html)
