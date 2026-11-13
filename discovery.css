@@ -1,0 +1,26 @@
+/* Clear product discovery and an accessible commercial-enquiry handoff. */
+.discovery-hub { padding: clamp(48px,7vw,100px) 5%; background: #f2ede5; }
+.discovery-heading { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end; max-width: 1280px; margin: 0 auto 36px; }
+.discovery-heading h2 { font-size: clamp(40px,5.5vw,76px); line-height: 1.04; margin: 16px 0 0; }
+.discovery-heading p { margin: 0; max-width: 490px; }
+.discovery-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; max-width: 1280px; margin: auto; }
+.discovery-card { display: flex; flex-direction: column; padding: clamp(24px,3vw,40px); border: 1px solid #d8cec0; border-radius: 22px; color: #252820!important; background: #fffaf3; text-decoration: none; transition: transform .2s ease, border-color .2s ease; }
+.discovery-card--accent { background: #e96928; border-color: #b9440e; }
+.discovery-number { font-size: 11px; font-weight: 800; letter-spacing: .1em; }
+.discovery-card h3 { font-size: clamp(29px,3vw,44px); line-height: 1.08; margin: 35px 0 20px; }
+.discovery-card p { font-size: 15px; line-height: 1.75; margin-bottom: 32px; }
+.discovery-link { margin-top: auto; padding-top: 18px; border-top: 1px solid #25282040; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; font-weight: 800; }
+.discovery-link b { font-size: 25px; }
+.discovery-card:hover { transform: translateY(-4px); border-color: #8e3d19; }
+.discovery-contact { max-width: 1280px; margin: 30px auto 0; padding-top: 28px; border-top: 1px solid #d8cec0; display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; }
+.discovery-contact p { margin: 0 auto 0 0; font-size: 14px; }
+.discovery-contact a { font-size: 14px; min-height: 44px; display: inline-flex; align-items: center; }
+.enquiry-privacy { font-size: 13px; line-height: 1.6; color: #555c56; margin: 16px 0; }
+.enquiry-privacy a { color: #9e350e; text-decoration: underline; }
+.enquiry-status { margin-top: 22px; padding: 22px; border: 1px solid #d8cec0; border-radius: 14px; background: #fff8ee; color: #36382f; line-height: 1.7; }
+.enquiry-status--success { background: #edf5eb; border-color: #98b990; color: #244b2b; }
+.enquiry-status--error { background: #fff2eb; border-color: #cd8664; color: #702c13; }
+.enquiry-status[hidden] { display: none; }
+.enquiry-status:focus-visible { outline: 3px solid #a8340d; outline-offset: 4px; }
+@media(max-width:760px) { .discovery-heading,.discovery-grid { grid-template-columns: 1fr; } .discovery-heading { gap: 22px; } .discovery-card h3 { margin-top: 24px; } .discovery-contact { flex-direction: column; align-items: flex-start; gap: 6px; } .discovery-contact p { margin-bottom: 10px; } }
+@media(prefers-reduced-motion:reduce) { .discovery-card { transition: none; } .discovery-card:hover { transform: none; } }

@@ -61,6 +61,10 @@ for (const [,entry] of sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
     for (const asset of [source, poster]) assert.ok(existsSync(resolve(root, asset.pathname.slice(1))), `Missing video asset: ${asset}`);
   }
 }
+if (facts.pricing.startingPriceINR !== null) {
+  assert.ok(!read('health-kiosk-buying-guide.html').includes('not published a numeric starting price'), 'Buyer guide must agree with published pricing');
+  assert.ok(read('llms.txt').includes('₹95,000'), 'Published machine price must reach the summary');
+}
 const demo = JSON.parse(read('content/reliv-demo.json'));
 for (const path of ['demo.html', 'media.html']) {
   const graph = JSON.parse(read(path).match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1])['@graph'];
