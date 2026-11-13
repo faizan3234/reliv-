@@ -40,13 +40,34 @@
   let observer       = null;
   let recalcTimer    = null;
 
+  // Fluid LERP Physics State (Momentum scroll dampening + banking tilt)
+  let targetFocusY   = 0;
+  let currentFocusY  = null;
+  let currentTilt    = 0;
+  let currentScale   = 1;
+  let currentOpacity = 0;
+  let isLoopActive   = false;
+
   /**
-   * Render the selected route (Health Checkup or Health Kits)
+   * Render the selected route (Health Checkup or Health Kits) with smooth crossfade
    */
   function renderRoute(nextRoute) {
     if (nextRoute === activeRoute && routeRendered) return;
 
-    story.classList.add('is-switching');
+    if (!routeRendered) {
+      executeRouteRender(nextRoute);
+    } else {
+      story.classList.add('is-switching');
+      setTimeout(() => {
+        executeRouteRender(nextRoute);
+        requestAnimationFrame(() => {
+          story.classList.remove('is-switching');
+        });
+      }, 180);
+    }
+  }
+
+  function executeRouteRender(nextRoute) {
     activeRoute = nextRoute;
     routeRendered = true;
     const config = JOURNEY[activeRoute];
@@ -72,6 +93,10 @@
     svg.replaceChildren();
     traveler.style.opacity = '0';
     currentSegment = -1;
+    currentFocusY  = null;
+    currentTilt    = 0;
+    currentScale   = 1;
+    currentOpacity = 0;
 
     // Build Stops
     config.stops.forEach((stop, i) => {
@@ -289,19 +314,20 @@
       height: story.scrollHeight
     };
 
+    currentFocusY = null;
     scheduleScroll();
   }
 
   /**
-   * Scroll handler: updates traveler position, tangent banking, and trail illumination
+   * Fluid Physics Render: calculates traveler position, tangent banking,
+   * smooth elevation scale, and SVG trail illumination
    */
-  function scrollUpdate() {
-    rafId = null;
-    if (!rectCache || !paths.length || anchors.length < 2) return;
+  function renderScene(focusY) {
+    if (!paths.length || anchors.length < 2) return false;
 
-    // Viewport center in coordinates relative to story container
-    const focusY = (window.scrollY + window.innerHeight * 0.50) - rectCache.top;
     const config = JOURNEY[activeRoute];
+    const firstAnchor = anchors[0];
+    const lastAnchor  = anchors[anchors.length - 1];
 
     // Find active segment between anchors
     let seg = -1;
@@ -323,18 +349,16 @@
     });
 
     // Top Progress Line
-    const firstAnchor = anchors[0];
-    const lastAnchor  = anchors[anchors.length - 1];
     const overallProgress = clamp((focusY - firstAnchor.y) / (lastAnchor.y - firstAnchor.y), 0, 1);
     topProgress.style.width = (overallProgress * 100).toFixed(2) + '%';
 
-    // Update SVG Path Clip Rects
+    // Update SVG Path Clip Rects with continuous sub-pixel precision
     paths.forEach((p, idx) => {
       if (idx < seg) {
         // Fully traveled: keep illuminated
         p.clipRect.setAttribute('height', String(Math.max(0, p.b.y - p.a.y + 12)));
       } else if (idx === seg) {
-        // Active flight: illuminate up to current position
+        // Active flight: illuminate up to current interpolated position
         const fraction = clamp((focusY - p.a.y) / (p.b.y - p.a.y), 0, 1);
         const point = p.path.getPointAtLength(p.len * fraction);
         p.clipRect.setAttribute('height', String(Math.max(0, point.y - p.a.y)));
@@ -344,10 +368,20 @@
       }
     });
 
+    let needsTick = false;
+
     // Inactive outside journey range
     if (seg < 0) {
-      traveler.style.opacity = '0';
+      if (currentOpacity > 0.01) {
+        currentOpacity += (0 - currentOpacity) * 0.25;
+        traveler.style.opacity = currentOpacity.toFixed(3);
+        needsTick = true;
+      } else {
+        currentOpacity = 0;
+        traveler.style.opacity = '0';
+      }
       currentSegment = -1;
+
       if (focusY < firstAnchor.y) {
         statusText.textContent = 'Scroll to follow your health data';
         modeIndicator.style.opacity = '1';
@@ -357,6 +391,7 @@
         statusText.textContent = activeRoute === 'health'
           ? 'Your Reliv care journey continues on mobile'
           : 'Your Health Kit is collected and verified';
+
         // Auto-fade status indicator when user reaches Outro to leave full view for action buttons
         if (focusY > lastAnchor.y + 80) {
           modeIndicator.style.opacity = '0';
@@ -368,7 +403,7 @@
           modeIndicator.style.pointerEvents = 'auto';
         }
       }
-      return;
+      return needsTick;
     }
 
     // Ensure status is visible during active journey
@@ -394,41 +429,109 @@
     const displaySize = isMobile ? Math.max(120, Math.min(baseSize * 0.65, 170)) : baseSize;
     traveler.style.setProperty('--traveler-size', displaySize + 'px');
 
-    // Tangent calculation for Grab&Go banking tilt
-    const sampleDelta = 4;
+    // Tangent calculation for Grab&Go banking tilt (sample at 12px for smooth curvature)
+    const sampleDelta = 12;
     const ptAhead  = activePath.path.getPointAtLength(Math.min(activePath.len, activePath.len * fraction + sampleDelta));
     const ptBehind = activePath.path.getPointAtLength(Math.max(0, activePath.len * fraction - sampleDelta));
     const angleRad = Math.atan2(ptAhead.x - ptBehind.x, ptAhead.y - ptBehind.y);
     const angleDeg = (angleRad * 180 / Math.PI);
-    const tilt = clamp(angleDeg * 0.72, -15, 15);
+    const targetTilt = clamp(angleDeg * 0.68, -14, 14);
 
-    // Scale & Elevation physics
-    let scale = 1.05;
+    const dTilt = targetTilt - currentTilt;
+    if (Math.abs(dTilt) > 0.08) {
+      currentTilt += dTilt * 0.18;
+      needsTick = true;
+    } else {
+      currentTilt = targetTilt;
+    }
+
+    // Scale & Elevation physics (smooth liftoff and docking)
+    let targetScale = 1.05;
     if (fraction < 0.14) {
-      scale = 0.12 + 0.93 * (1 - Math.pow(1 - fraction / 0.14, 3));
+      targetScale = 0.12 + 0.93 * (1 - Math.pow(1 - fraction / 0.14, 3));
     } else if (fraction > 0.86) {
-      scale = 1.05 - 0.93 * Math.pow((fraction - 0.86) / 0.14, 2);
+      targetScale = 1.05 - 0.93 * Math.pow((fraction - 0.86) / 0.14, 2);
+    }
+    const dScale = targetScale - currentScale;
+    if (Math.abs(dScale) > 0.005) {
+      currentScale += dScale * 0.22;
+      needsTick = true;
+    } else {
+      currentScale = targetScale;
     }
 
     // Opacity: fade in upon liftoff, fade out upon docking
-    let opacity = 1;
+    let targetOpacity = 1;
     if (fraction < 0.06) {
-      opacity = fraction / 0.06;
+      targetOpacity = fraction / 0.06;
     } else if (fraction > 0.94) {
-      opacity = (1 - fraction) / 0.06;
+      targetOpacity = (1 - fraction) / 0.06;
+    }
+    targetOpacity = clamp(targetOpacity, 0, 1);
+    const dOp = targetOpacity - currentOpacity;
+    if (Math.abs(dOp) > 0.005) {
+      currentOpacity += dOp * 0.22;
+      needsTick = true;
+    } else {
+      currentOpacity = targetOpacity;
     }
 
-    traveler.style.opacity = clamp(opacity, 0, 1).toFixed(3);
-    traveler.style.transform = `translate3d(${point.x.toFixed(1)}px, ${point.y.toFixed(1)}px, 0) translate(-50%, -50%) scale(${scale.toFixed(3)}) rotate(${tilt.toFixed(2)}deg)`;
+    traveler.style.opacity = currentOpacity.toFixed(3);
+    traveler.style.transform = `translate3d(${point.x.toFixed(1)}px, ${point.y.toFixed(1)}px, 0) translate(-50%, -50%) scale(${currentScale.toFixed(3)}) rotate(${currentTilt.toFixed(2)}deg)`;
 
     // Update Status Pill
     const fromStop = config.stops[seg].tag;
     const toStop   = config.stops[seg + 1].tag;
     statusText.textContent = `${asset.name}  ·  ${fromStop} → ${toStop}`;
+
+    return needsTick;
+  }
+
+  /**
+   * Momentum Animation Loop: dampens discrete scroll wheel steps into silky gliding motion
+   */
+  function animLoop() {
+    if (!rectCache || !paths.length || anchors.length < 2) {
+      isLoopActive = false;
+      rafId = null;
+      return;
+    }
+
+    // Smooth LERP towards scroll target
+    const dy = targetFocusY - currentFocusY;
+    if (Math.abs(dy) < 0.25) {
+      currentFocusY = targetFocusY;
+    } else {
+      currentFocusY += dy * (SETTINGS.smoothing || 0.14);
+    }
+
+    const stillMoving = renderScene(currentFocusY);
+
+    if (Math.abs(targetFocusY - currentFocusY) > 0.25 || stillMoving) {
+      rafId = requestAnimationFrame(animLoop);
+    } else {
+      isLoopActive = false;
+      rafId = null;
+    }
   }
 
   function scheduleScroll() {
-    if (rafId === null) rafId = requestAnimationFrame(scrollUpdate);
+    if (!rectCache) {
+      rectCache = {
+        top: story.getBoundingClientRect().top + window.scrollY,
+        height: story.scrollHeight
+      };
+    }
+
+    targetFocusY = (window.scrollY + window.innerHeight * 0.50) - rectCache.top;
+    if (currentFocusY === null) {
+      currentFocusY = targetFocusY;
+    }
+
+    if (!isLoopActive) {
+      isLoopActive = true;
+      rafId = requestAnimationFrame(animLoop);
+    }
   }
 
   function scheduleRecalc() {

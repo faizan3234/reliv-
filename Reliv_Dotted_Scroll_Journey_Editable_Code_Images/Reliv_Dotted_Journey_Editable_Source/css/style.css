@@ -453,11 +453,13 @@ a {
   margin: 0 auto;
   isolation: isolate;
   padding: 20px 0 16vh;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
 .story.is-switching {
-  opacity: 0.25;
+  opacity: 0;
+  transform: scale(0.985);
 }
 
 /* Dynamic Ambient Glow Canvas behind Story */
@@ -493,6 +495,15 @@ a {
   opacity: 0.85;
 }
 
+@keyframes flowDashes {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
 .flow-path-highlight {
   fill: none;
   stroke: var(--orange-light);
@@ -500,7 +511,9 @@ a {
   stroke-dasharray: 4 12;
   stroke-linecap: round;
   opacity: 0.98;
-  filter: drop-shadow(0 0 5px rgba(255, 122, 26, 0.7));
+  filter: drop-shadow(0 0 6px rgba(255, 122, 26, 0.75));
+  animation: flowDashes 1.2s linear infinite;
+  will-change: stroke-dashoffset;
 }
 
 /* Stop Element */
@@ -533,7 +546,18 @@ a {
   grid-template-columns: 1fr 1.25fr;
   align-items: center;
   gap: clamp(28px, 4vw, 56px);
-  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  opacity: 0.75;
+  transform: translateY(24px) scale(0.985);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.4s var(--ease-out), 
+              border-color 0.4s var(--ease-out);
+  will-change: transform, opacity;
+}
+
+.stop.visible .stop-card {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .stop-card::before,
@@ -556,7 +580,7 @@ a {
 
 .stop-card:hover,
 .outro-app-box:hover {
-  transform: translateY(-6px) !important;
+  transform: translateY(-6px) scale(1) !important;
   box-shadow: var(--shadow-lift) !important;
   border-color: rgba(226, 90, 12, 0.35) !important;
 }
@@ -567,9 +591,10 @@ a {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  opacity: 0.85;
-  transform: translateY(16px);
-  transition: opacity 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+  opacity: 0.75;
+  transform: translateY(14px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.06s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.06s;
+  will-change: transform, opacity;
 }
 
 .stop.visible .stop-copy {
@@ -754,9 +779,10 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.94;
-  transform: scale(0.99);
-  transition: opacity 0.7s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  opacity: 0.88;
+  transform: scale(1.03);
+  transition: opacity 0.8s ease 0.1s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+  will-change: transform, opacity;
 }
 
 .stop.visible .stop-art {
@@ -862,6 +888,26 @@ a {
   50% { transform: translateY(5px); }
 }
 
+@keyframes haloGlow {
+  0%, 100% {
+    transform: scale(0.96);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.95;
+  }
+}
+
+@keyframes travelerFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
 /* =====================================================================
    TRAVELING OBJECT (GRAB&GO SMOOTH PHYSICS)
    ===================================================================== */
@@ -879,15 +925,19 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .traveler-halo {
   position: absolute;
   inset: -24px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 122, 26, 0.28) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 122, 26, 0.32) 0%, transparent 70%);
   pointer-events: none;
   z-index: -1;
+  animation: haloGlow 3.2s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .traveler-card {
@@ -895,6 +945,8 @@ a {
   filter: drop-shadow(0 20px 30px rgba(131, 62, 22, 0.28));
   display: flex;
   justify-content: center;
+  animation: travelerFloat 3.6s ease-in-out infinite;
+  will-change: transform;
 }
 
 .traveler-img {
@@ -1490,6 +1542,7 @@ a {
   background: rgba(255, 249, 244, 0.94);
   border: 1px solid var(--thin-line);
   backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   box-shadow: var(--shadow-soft);
   display: inline-flex;
   align-items: center;
@@ -1497,6 +1550,8 @@ a {
   max-width: min(85vw, 440px);
   pointer-events: auto;
   font-family: var(--font-display);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+  will-change: transform, opacity;
 }
 
 .status-pulse {
