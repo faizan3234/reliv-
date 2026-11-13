@@ -1,9 +1,9 @@
 /**
  * Reliv Kiosk Interactive ROI & Profitability Calculator
  * Baseline figures aligned with Reliv Commercial Blueprint:
- * - Model 1: Outright Purchase (₹1.2 Lakhs CapEx, 100% checkup revenue retained)
+ * - Model 1: Outright Purchase (₹95,000 CapEx one-time; ₹2L+/yr is your profit, not machine cost)
  * - Model 2: Monthly Rental (₹12,000/mo flat rent, partner retains all collections)
- * - Model 3: Space & Profit Sharing (₹0 investment, 40% up to 60% progressive partner share)
+ * - Model 3: Space & Profit Sharing (Exclusively high-footfall: 80-20 changing every 2.5 yrs up to 50-50)
  */
 (function initRoiCalculator() {
   function formatINR(val) {
@@ -34,8 +34,8 @@
     const grossPillEl = document.getElementById('calcGrossMonthly');
     if (grossPillEl) grossPillEl.textContent = formatINR(grossMonthly) + ' / mo (' + formatINR(grossAnnual) + ' / yr)';
 
-    // 1. Outright Purchase (Buy: ₹1,20,000 CapEx, ₹0 hosting/internet fees)
-    const outrightCapex = 120000;
+    // 1. Outright Purchase (Buy: ₹95,000 one-time CapEx, ₹0 hosting/internet fees forever)
+    const outrightCapex = 95000;
     const outrightNetMonthly = grossMonthly; // 100% collections to partner
     const outrightNetAnnual = outrightNetMonthly * 12;
     const paybackMonths = outrightNetMonthly > 0 ? (outrightCapex / outrightNetMonthly).toFixed(1) : '—';
@@ -60,9 +60,9 @@
     if (leaseAnnualEl) leaseAnnualEl.textContent = formatINR(rentNetAnnual);
     if (leaseBreakevenEl) leaseBreakevenEl.textContent = breakevenChecks + ' checks/day';
 
-    // 3. Space & Profit Sharing (40% initial partner share, up to 60% mature share)
-    const sharedRateInitial = 0.40;
-    const sharedRateMature = 0.60;
+    // 3. Space & Profit Sharing (High-footfall only: 20% partner in Phase 1 (80/20), changing every 2.5 yrs up to 50% (50/50))
+    const sharedRateInitial = 0.20;
+    const sharedRateMature = 0.50;
     const sharedNetMonthlyInitial = Math.round(grossMonthly * sharedRateInitial);
     const sharedNetMonthlyMature = Math.round(grossMonthly * sharedRateMature);
     const sharedNetAnnual = sharedNetMonthlyInitial * 12;

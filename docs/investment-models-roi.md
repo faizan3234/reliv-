@@ -6,20 +6,22 @@
 
 ## 1. The 3 Business Investment Models & Live Calculations
 
-### 💰 Model 1: Outright Purchase (Buy — ₹1.2 Lakhs)
+### 💰 Model 1: Outright Purchase (Buy — ₹95,000 Only)
 **The Deal:**
-- One-time capital investment with complete machine ownership.
+- **One-time capital investment of just ₹95,000** with complete machine ownership.
+- **Important Clarification to Eliminate Buyer Confusion:** Many first-time buyers mistakenly think the machine costs ₹2 Lakhs or has ongoing annual costs. **The machine is ₹95,000 one-time only!** The **₹2,16,000/year is YOUR pure recurring profit**, NOT the machine price.
 - Zero internet charges, zero hosting charges forever.
 - 100% of checkup revenue goes directly into the partner’s pocket.
 - Eligible for Section 32 IT Act depreciation tax benefits on medical/screening equipment.
 
 **Live User Example Calculation:**
+- Machine Price: **₹95,000 (one-time CapEx)**.
 - Checkup fee: Set at **₹30 per user** (partner can adjust freely).
 - Footfall: Conservative estimate of **20 users/day**.
 - Daily Revenue: `20 users × ₹30 = ₹600 / day`.
 - Monthly Profit: `₹600 × 30 days = ₹18,000 / month pure profit`.
-- Annual Profit: `₹18,000 × 12 = ₹2,16,000 / year`.
-- **Payback Velocity:** Full capital recovery in **~6.7 to 7 months** (`₹1,20,000 ÷ ₹18,000 = 6.67`). From Month 8 onward, 100% of collections are pure recurring profit.
+- Annual Profit (To Partner): `₹18,000 × 12 = ₹2,16,000 / year pure net profit`.
+- **Payback Velocity:** Full capital recovery in **~5.3 months** (`₹95,000 ÷ ₹18,000 = 5.27 months`). From Month 6 onward, 100% of collections are pure profit for life with zero recurring device fees!
 
 ---
 
@@ -42,23 +44,27 @@
 
 ---
 
-### 🏢 Model 3: Space & Profit Sharing (Zero-CapEx Progressive Plan)
+### 🏢 Model 3: Space & Profit Sharing (Exclusively for High-Footfall & Public Places)
 **The Deal:**
+- **Eligibility:** **Exclusively available for high-footfall or public places** (malls, metro/railway transit hubs, large public/government hospitals, bustling public complexes).
 - **₹0 upfront hardware cost. ₹0 monthly rental fee. Zero financial risk.**
 - Partner only provides a **4×4 sq. ft. space** and a standard 5A electricity plug.
-- Reliv handles shipping, installation, uptime, consumables, and maintenance.
-- Revenue earned from kiosk checkups is split progressively over time:
+- Reliv handles manufacturing, shipping, installation, uptime, sensors, and maintenance.
+- **2.5-Year Phased Split Schedule:** The revenue split percentage updates **every 2.5 years**, with the **highest percentage remaining with Reliv** to offset hardware CapEx and ongoing cloud/servicing expenses:
 
 | Timeline Phase | Revenue Split (Reliv / Partner) | Purpose | Monthly Partner Income (at 40 users/day @ ₹30) |
 | :--- | :--- | :--- | :--- |
-| **First 1.5 Years** | 85% Reliv / 15% Partner *(or 60/40 starter)* | Covers initial hardware manufacturing & deployment CapEx | **₹5,400 to ₹14,400 / month** |
-| **1.5 to 5 Years** | 60% Reliv / 40% Partner | Standard mature operational revenue sharing | **₹14,400 / month** |
-| **After 5 Years** | 40% Reliv / 60% Partner | **Partner earns the 60% lion's share** once amortized! | **₹21,600 / month** |
+| **Years 0 – 2.5 (First 2.5 Years)** | **80% Reliv / 20% Partner (80-20)** | Covers initial kiosk manufacturing, medical sensors & deployment CapEx | **₹7,200 / month** (₹86,400 / yr) |
+| **Years 2.5 – 5.0 (After 2.5 Years)** | **70% Reliv / 30% Partner (70-30)** | Kiosk reaches mature steady operation; partner passive payout scales up | **₹10,800 / month** (₹1,29,600 / yr) |
+| **Years 5.0 – 7.5 (After 5 Years)** | **60% Reliv / 40% Partner (60-40)** | Reliv continues continuous calibration, server hosting & hardware maintenance | **₹14,400 / month** (₹1,72,800 / yr) |
+| **After 7.5 Years (Mature Phase)** | **50% Reliv / 50% Partner (50-50)** | Equal 50-50 profit split for long-term partner with ₹0 capital invested! | **₹18,000 / month** (₹2,16,000 / yr) |
 
-**Live User Example Calculation (at 60/40 & 40/60 Phases):**
-- At 40 users/day @ ₹30 = ₹1,200/day = **₹36,000/month gross**.
-- **Years 1.5–5 (40% Share):** Partner earns **₹14,400/month** passively with zero capital invested (`0.40 × ₹36,000`).
-- **After Year 5 (60% Share):** Partner earns **₹21,600/month** on the exact same volume (`0.60 × ₹36,000`).
+**Live User Example Calculation (at 40 users/day @ ₹30):**
+- Gross collections: `40 × ₹30 × 30 days = ₹36,000 / month`.
+- **Years 0–2.5 (20% Share):** Partner earns **₹7,200 / month** passively.
+- **Years 2.5–5.0 (30% Share):** Partner earns **₹10,800 / month** passively.
+- **Years 5.0–7.5 (40% Share):** Partner earns **₹14,400 / month** passively.
+- **After Year 7.5 (50% Share):** Partner earns **₹18,000 / month** passively.
 
 ---
 
@@ -109,13 +115,13 @@ Total Monthly Income = [Checkup Revenue] + [Screen Ads] + [Kit Margins]
 
 | Factor | Model 1: Outright Buy | Model 2: Monthly Rent | Model 3: Space & Profit Share |
 | :--- | :--- | :--- | :--- |
-| **Upfront CapEx** | **₹1.2 Lakhs** (One-time) | **₹0 CapEx** | **₹0 (Zero Investment)** |
+| **Upfront CapEx** | **₹95,000 only** (One-time, NOT ₹2L) | **₹0 CapEx** | **₹0 (Zero Investment)** |
 | **Monthly Commitment** | **₹0 forever** (Zero hosting fees) | **₹12,000 / month flat** | **₹0 Monthly Commitment** |
-| **Revenue Retention** | **100% of all collections** | **100% collections** minus rent | **Progressive 40% up to 60% share** |
-| **Breakeven Velocity** | **~7 months** (at 20 users/day) | **~13–14 users/day** | **Instant** (Day 1) |
-| **Monthly Net Profit (at 30/day)**| **₹27,000 / month** | **₹15,000 / month** | **₹10,800 to ₹16,200 / month** |
+| **Revenue Retention** | **100% of all collections** (₹2.16L/yr profit) | **100% collections** minus rent | **80-20 scaling every 2.5 yrs to 50-50** |
+| **Breakeven Velocity** | **~5.3 months** (at 20 users/day) | **~13–14 users/day** | **Instant** (Day 1) |
+| **Monthly Net Profit (at 40/day)**| **₹36,000 / month** | **₹24,000 / month** | **₹7,200 to ₹18,000 / month** |
 | **Depreciation & Balance Sheet** | Claim Sec 32 Tax write-off | 100% OpEx deductible | **Zero depreciation (Reliv owns it)** |
 | **Space Required** | 4×4 sq. ft. | 4×4 sq. ft. | 4×4 sq. ft. |
 | **Operator Needed** | None (Voice AI self-guided) | None (Voice AI self-guided) | None (Voice AI self-guided) |
-| **Best Suited For** | Colleges, Large Gyms & Clinics | Workplaces & Fitness Studios | High-Traffic Malls & Transit Hubs |
+| **Best Suited For** | Colleges, Large Gyms & Clinics | Workplaces & Fitness Studios | Exclusively High-Footfall or Public Places |
 
