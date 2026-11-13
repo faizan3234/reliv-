@@ -868,6 +868,7 @@ details p a { display: inline-flex; align-items: center; gap: 4px; font-weight: 
     padding: 18px 6% 26px;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
   }
   .hero-meta span:last-child { display: none; }
   .hero h1 { font-size: clamp(54px, 16.5vw, 96px); margin-top: 20px; line-height: 0.92; }
@@ -875,11 +876,27 @@ details p a { display: inline-flex; align-items: center; gap: 4px; font-weight: 
   .hero-product {
     position: relative;
     top: auto;
+    right: auto;
+    bottom: auto;
     left: auto;
-    width: min(220px, 56vw);
+    transform: none;
+    align-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min(240px, 60vw);
     height: clamp(230px, 38vh, 330px);
-    margin: -14px auto 8px;
+    margin: 8px auto 12px;
     filter: drop-shadow(0 18px 26px rgba(32, 24, 18, 0.14));
+  }
+  .hero-product img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 auto;
   }
   .product-caption {
     margin-top: 4px;

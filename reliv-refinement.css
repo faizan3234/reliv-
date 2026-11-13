@@ -162,13 +162,11 @@ body > main .watch-section, body > main .how-section { scroll-margin-top: 100px;
   .hero-bottom > p { flex:1 1 100%; font-size:13px; max-width: 42ch; }
   .hero-cta { width:100%; display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; }
   .hero-cta .pill { flex:1 1 auto; }
-  .hero { min-height: 780px; }
   .reliv-flow-note { margin: 12px 20px 34px; }
   body > main > .page-hero h1, body > main > .story-hero h1,
   body > main > section.wrap:first-child h1 { font-size: clamp(54px, 12vw, 76px) !important; }
 }
 @media (max-width: 390px) {
-  .hero { min-height:820px; }
   .reliv-path-title { font-size:50px; }
 }
 
@@ -208,12 +206,10 @@ body .status-pill .status-dot { background: #8d7765; box-shadow: none; }
   .menu-dialog nav a { font-size: clamp(38px, 8vw, 66px); }
 }
 @media (max-width: 600px) {
-  .hero { min-height: auto; padding: 20px 6% 24px; }
-  .hero h1 { font-size: 17vw; margin-top: 22px; }
+  .hero { min-height: 0; padding: 20px 6% 24px; }
+  .hero h1 { font-size: clamp(48px, 16.5vw, 84px); margin-top: 22px; }
   .hero-meta { min-height: 23px; }
-  .hero-product { top: 145px; left: 27%; width:46%; height:318px; }
-  .product-caption { margin-top: 288px; }
-  .hero-bottom { margin-top: 20px; gap: 14px; }
+  .hero-bottom { margin-top: 18px; gap: 14px; }
   .hero-bottom > p { font-size:13px; line-height:1.6; }
   .hero-cta { gap:12px 18px; }
   .hero-cta .pill { width: 100%; justify-content:space-between; }
@@ -225,9 +221,6 @@ body .status-pill .status-dot { background: #8d7765; box-shadow: none; }
   .header-actions .small span { font-size:17px; }
 }
 @media (max-width: 350px) {
-  .hero h1 { font-size:17.2vw; }
-  .hero-product { top:140px; height:290px; }
-  .product-caption { margin-top:260px; }
   .site-header .brand { width:90px; }
   .header-actions .small { font-size:10px; }
 }
