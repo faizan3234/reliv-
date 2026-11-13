@@ -118,3 +118,4 @@ Total Monthly Income = [Checkup Revenue] + [Screen Ads] + [Kit Margins]
 | **Space Required** | 4×4 sq. ft. | 4×4 sq. ft. | 4×4 sq. ft. |
 | **Operator Needed** | None (Voice AI self-guided) | None (Voice AI self-guided) | None (Voice AI self-guided) |
 | **Best Suited For** | Colleges, Large Gyms & Clinics | Workplaces & Fitness Studios | High-Traffic Malls & Transit Hubs |
+
