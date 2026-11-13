@@ -1,0 +1,24 @@
+name: Site and SEO quality
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: site-quality-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  source-checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      # Checks use Node built-ins only; no browser or dependency downloads needed.
+      - name: Verify runtime
+        run: node -e "if (Number(process.versions.node.split('.')[0]) < 20) process.exit(1)"
+      - name: Validate pages, generated SEO, forms and HTTP response checks
+        run: npm test

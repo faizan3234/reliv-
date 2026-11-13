@@ -86,7 +86,7 @@ const pages = {
   ],
   "solutions/pharmacy.html": [
     "Health ATM for Pharmacies & Medical Stores in India | Reliv",
-    "Install a self-service Health ATM in your retail pharmacy or medical store. Attract 30+ daily walk-ins, increase OTC and prescription medicine sales with ₹0 Capex."
+    "Explore Reliv Health ATMs for pharmacies: guided vital screening, ₹95,000 purchase, ₹12,000 monthly rental, venue requirements and revenue assumptions."
   ]
 };
 function output(path, content) {
