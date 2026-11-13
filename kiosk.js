@@ -76,8 +76,13 @@ function go(next) {
   render();
 }
 
+const svgBack = '<svg class="ri ri-left" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>';
+const svgNext = '<svg class="ri ri-right" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-left:4px;" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const svgUr = '<svg class="ri ri-ur" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-left:4px;" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+const svgDemoAlert = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;" aria-hidden="true"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+
 function chrome(content, t) {
-  return `<div class="sim-head">${btn('← ' + t.back, 'back', 'sim-back')}<img src="icons/reliv-wordmark.svg" alt="Reliv"><span>${lang === 'en' ? 'Demo' : lang === 'hi' ? 'डेमो' : 'ডেমো'}</span></div>${content}`;
+  return `<div class="sim-head">${btn(svgBack + t.back, 'back', 'sim-back')}<img src="icons/reliv-wordmark.svg" alt="Reliv"><span>${lang === 'en' ? 'Demo' : lang === 'hi' ? 'डेमो' : 'ডেমো'}</span></div>${content}`;
 }
 
 function render() {
@@ -123,7 +128,7 @@ function render() {
     const n = lang === 'en' ? 1 : lang === 'hi' ? 2 : 3;
     content = `<div class="actual-screen profile-actual ${lang === 'bn' ? 'profile-bn' : ''}">
       <img class="actual-image" src="assets/screens/actual-${n}.png" alt="${t.about} — customer details screen">
-      <button class="image-back" data-action="back">← ${t.back}</button>
+      <button class="image-back" data-action="back">${svgBack}${t.back}</button>
       <form id="profileForm" class="image-profile">
         <label class="mobile-label" for="customerName">${t.name}</label>
         <input id="customerName" autocomplete="off" maxlength="60" value="${esc(name)}" placeholder="${t.placeholder}" required>
@@ -136,13 +141,13 @@ function render() {
           ${t.genders.map((g, i) => `<button type="button" data-gender="${i}" aria-pressed="${gender === i}">${g}</button>`).join('')}
         </div>
         <p class="form-error" id="formError" role="alert"></p>
-        <button type="submit" class="image-proceed">${t.next} →</button>
+        <button type="submit" class="image-proceed">${t.next}${svgNext}</button>
       </form>
     </div>
     <div class="image-assistance">
       <div>${btn(t.sample, 'sample', 'secondary')}${btn(t.mic, 'mic', 'secondary')}</div>
       <p>${t.micNote}</p>
-      <div style="font-size:12px; color:#9a3412; margin-top:8px;"><strong>⚠️ DEMO ONLY:</strong> Illustrative sample session. No real health data recorded.</div>
+      <div style="font-size:12px; color:#9a3412; margin-top:8px;"><strong>${svgDemoAlert}DEMO ONLY:</strong> Illustrative sample session. No real health data recorded.</div>
     </div>`;
     voiceText = t.profileVoice;
   }
@@ -151,7 +156,7 @@ function render() {
     const n = lang === 'hi' ? 5 : 4;
     content = `<div class="actual-screen service-actual ${lang === 'bn' ? 'service-bn' : ''} ${lang === 'hi' ? 'service-hi' : ''}">
       <img class="actual-image" src="assets/screens/actual-${n}.png" alt="Reliv service screen">
-      <button class="image-back" data-action="back">← ${t.back}</button>
+      <button class="image-back" data-action="back">${svgBack}${t.back}</button>
       ${lang === 'bn' ? `<div class="bn-service-title"><h3>${t.choose}</h3><p>${t.select}</p></div>` : ''}
       <div class="image-services">
         <button data-service="health" aria-pressed="${service === 'health'}">
@@ -163,7 +168,7 @@ function render() {
           <i class="radio-mark"></i>
         </button>
       </div>
-      <button class="image-service-next" data-action="service-next">${t.next} →</button>
+      <button class="image-service-next" data-action="service-next">${t.next}${svgNext}</button>
     </div>`;
     voiceText = t.serviceVoice;
   }
@@ -204,7 +209,7 @@ function render() {
       </div>
       <div class="result-actions">
         ${btn(t.download, 'download-report')}
-        <a class="secondary btn" style="min-height:36px; padding:0 14px;" href="#sample-report">${t.explore} ↗</a>
+        <a class="secondary btn" style="min-height:36px; padding:0 14px;" href="#sample-report">${t.explore}${svgUr}</a>
       </div>
       <p class="legal-note">${t.reportNote}</p>
       <div style="margin-top:16px;">${btn(t.again, 'again', 'secondary')}</div>

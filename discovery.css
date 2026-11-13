@@ -4,17 +4,21 @@
 .discovery-heading h2 { font-size: clamp(40px,5.5vw,76px); line-height: 1.04; margin: 16px 0 0; }
 .discovery-heading p { margin: 0; max-width: 490px; }
 .discovery-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; max-width: 1280px; margin: auto; }
-.discovery-card { display: flex; flex-direction: column; padding: clamp(24px,3vw,40px); border: 1px solid #d8cec0; border-radius: 22px; color: #252820!important; background: #fffaf3; text-decoration: none; transition: transform .2s ease, border-color .2s ease; }
-.discovery-card--accent { background: #e96928; border-color: #b9440e; }
-.discovery-number { font-size: 11px; font-weight: 800; letter-spacing: .1em; }
+.discovery-card { display: flex; flex-direction: column; padding: clamp(24px,3vw,40px); border: 1px solid #d8cec0; border-radius: 24px; color: #211c19!important; background: #fffdf9; text-decoration: none; box-shadow: 0 4px 20px rgba(33, 28, 25, 0.04); transition: transform .28s cubic-bezier(.22,1,.36,1), border-color .28s ease, box-shadow .28s ease; }
+.discovery-card--accent { background: linear-gradient(155deg, #f47228 0%, #df5919 100%); border-color: #b9440e; box-shadow: 0 14px 36px -14px rgba(223, 89, 25, 0.38); }
+.discovery-number { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .discovery-card h3 { font-size: clamp(29px,3vw,44px); line-height: 1.08; margin: 35px 0 20px; }
 .discovery-card p { font-size: 15px; line-height: 1.75; margin-bottom: 32px; }
-.discovery-link { margin-top: auto; padding-top: 18px; border-top: 1px solid #25282040; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; font-weight: 800; }
-.discovery-link b { font-size: 25px; }
-.discovery-card:hover { transform: translateY(-4px); border-color: #8e3d19; }
-.discovery-contact { max-width: 1280px; margin: 30px auto 0; padding-top: 28px; border-top: 1px solid #d8cec0; display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; }
+.discovery-link { margin-top: auto; padding-top: 18px; border-top: 1px solid #25282035; display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; font-weight: 800; }
+.discovery-link b, .discovery-link .ri-circle { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(33, 28, 25, 0.25); background: rgba(255, 255, 255, 0.35); color: #211c19; font-size: 16px; transition: transform .28s cubic-bezier(.22,1,.36,1), background-color .28s ease, color .28s ease, border-color .28s ease; flex-shrink: 0; }
+.discovery-card:hover { transform: translateY(-4px); border-color: #8e3d19; box-shadow: 0 20px 42px -16px rgba(33, 28, 25, 0.14); }
+.discovery-card--accent:hover { box-shadow: 0 22px 46px -14px rgba(223, 89, 25, 0.45); }
+.discovery-card:hover .discovery-link b, .discovery-card:hover .discovery-link .ri-circle,
+.discovery-card:focus-visible .discovery-link b, .discovery-card:focus-visible .discovery-link .ri-circle { background: #211c19; border-color: #211c19; color: #fff9f2; transform: translate(2px, -2px); }
+.discovery-contact { max-width: 1280px; margin: 30px auto 0; padding-top: 28px; border-top: 1px solid #d8cec0; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; }
 .discovery-contact p { margin: 0 auto 0 0; font-size: 14px; }
-.discovery-contact a { font-size: 14px; min-height: 44px; display: inline-flex; align-items: center; }
+.discovery-contact a { font-size: 14px; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: rgba(255, 255, 255, 0.65); border: 1px solid #dfd4c6; text-decoration: none !important; font-weight: 700; transition: background-color .2s ease, border-color .2s ease, transform .2s ease; }
+.discovery-contact a:hover { background: #ffffff; border-color: #c33c0d; transform: translateY(-1px); }
 .enquiry-privacy { font-size: 13px; line-height: 1.6; color: #555c56; margin: 16px 0; }
 .enquiry-privacy a { color: #9e350e; text-decoration: underline; }
 .enquiry-status { margin-top: 22px; padding: 22px; border: 1px solid #d8cec0; border-radius: 14px; background: #fff8ee; color: #36382f; line-height: 1.7; }

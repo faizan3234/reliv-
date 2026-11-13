@@ -74,20 +74,26 @@ input:focus-visible, textarea:focus-visible, summary:focus-visible {
 .reliv-path {
   display: flex; flex-direction: column; align-items:flex-start;
   min-height: clamp(320px, 32vw, 475px); padding: clamp(26px,3.4vw,52px);
-  border: 1px solid #d8cbbc; border-radius: 5px; overflow:hidden; position: relative;
+  border: 1px solid #d8cbbc; border-radius: 22px; overflow:hidden; position: relative;
   color: var(--reliv-ink); text-decoration:none;
   transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
 }
-.reliv-path::after {
-  content:"↗"; position:absolute; right:32px; bottom:26px;
-  display:grid;place-items:center; width:52px; height:52px;
-  border:1px solid currentColor; border-radius:50%; font: 26px var(--reliv-body);
-  transition: transform .3s ease;
+.reliv-path-arrow {
+  position:absolute; right:32px; bottom:26px;
+  display:grid; place-items:center; width:52px; height:52px;
+  border:1px solid currentColor; border-radius:50%;
+  transition: transform .3s cubic-bezier(.22,1,.36,1), background-color .3s ease, color .3s ease, border-color .3s ease;
 }
 .reliv-path:hover, .reliv-path:focus-visible {
   color: inherit; transform: translateY(-4px); box-shadow: 0 24px 54px #231a1615;
 }
-.reliv-path:hover::after, .reliv-path:focus-visible::after { transform: rotate(45deg); }
+.reliv-path:hover .reliv-path-arrow, .reliv-path:focus-visible .reliv-path-arrow {
+  transform: translate(2px, -2px) scale(1.06);
+  background: var(--reliv-orange); border-color: var(--reliv-orange); color: #fff9f2;
+}
+.reliv-path--partners:hover .reliv-path-arrow, .reliv-path--partners:focus-visible .reliv-path-arrow {
+  background: #f36c21; border-color: #f36c21; color: #1d1815;
+}
 .reliv-path--people { background: #eae4db; }
 .reliv-path--partners { background: #26211d; color: #fff9f2; border-color:#26211d; }
 .reliv-path--partners:hover, .reliv-path--partners:focus-visible { color: #fff9f2; }
@@ -151,7 +157,7 @@ body > main .watch-section, body > main .how-section { scroll-margin-top: 100px;
   .reliv-path { min-height: 300px; padding: 28px; }
   .reliv-path-title { font-size: clamp(48px, 12vw, 72px); }
   .reliv-path-description { padding-right: 55px; }
-  .reliv-path::after { width:42px; height:42px; right:22px; bottom:18px; }
+  .reliv-path-arrow { width:42px; height:42px; right:22px; bottom:18px; }
   .hero-bottom { flex-wrap:wrap; justify-content:space-between; }
   .hero-bottom > p { flex:1 1 100%; font-size:13px; max-width: 42ch; }
   .hero-cta { width:100%; display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; }
@@ -226,6 +232,209 @@ body .status-pill .status-dot { background: #8d7765; box-shadow: none; }
   .header-actions .small { font-size:10px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .reliv-path, .reliv-path::after { transition: none !important; transform: none !important; }
+  .reliv-path, .reliv-path-arrow { transition: none !important; transform: none !important; }
   .kiosk-camera { transition: none !important; }
+}
+
+/* =========================================================
+   RELIV / Unified Vector Iconography, Mobile Ergonomics & Craft
+   ========================================================= */
+html, body { font-variant-emoji: text; }
+
+.ri {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.15em;
+  flex-shrink: 0;
+  transition: transform .26s cubic-bezier(.22,1,.36,1);
+}
+.ri-ur { width: 1.05em; height: 1.05em; }
+a:hover .ri-ur, button:hover .ri-ur, a:focus-visible .ri-ur, button:focus-visible .ri-ur {
+  transform: translate(2.5px, -2.5px);
+}
+a:hover .ri-right, button:hover .ri-right { transform: translateX(3px); }
+a:hover .ri-left, button:hover .ri-left { transform: translateX(-3px); }
+a:hover .ri-down, button:hover .ri-down { transform: translateY(3px); }
+a:hover .ri-up, button:hover .ri-up { transform: translateY(-3px); }
+
+/* Thin top scroll progress indicator */
+.reliv-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f36c21 0%, #c33c0d 100%);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  z-index: 10001;
+  pointer-events: none;
+  opacity: 0.92;
+}
+
+/* Elevated scrolled glass header across all pages */
+body > header.is-scrolled, .site-header.is-scrolled {
+  box-shadow: 0 10px 32px -12px rgba(33, 28, 25, 0.12);
+  border-bottom-color: #d9cbbd;
+}
+
+/* Tactile floating back-to-top FAB */
+.back-top-fab {
+  position: fixed;
+  right: 20px;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 249, 242, 0.22);
+  background: rgba(33, 28, 25, 0.92);
+  color: #fff9f2;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 28px rgba(33, 28, 25, 0.24);
+  z-index: 90;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(0.92);
+  transition: opacity .28s ease, visibility .28s ease, transform .28s cubic-bezier(.22,1,.36,1), background-color .22s ease;
+}
+.back-top-fab.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+.back-top-fab:hover, .back-top-fab:focus-visible {
+  background: #c33c0d;
+  color: #fff9f2;
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Unified drawer SVG icon badges & current page indicator (overrides old hidden emoji rule) */
+.drawer-link-icon {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(243, 108, 33, 0.1);
+  border: 1px solid rgba(226, 90, 12, 0.18);
+  color: #c33c0d;
+  flex-shrink: 0;
+  font-size: 0;
+  transition: background-color .25s ease, color .25s ease, transform .25s ease;
+}
+.drawer-link-icon svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+}
+.drawer-link:hover .drawer-link-icon,
+.drawer-link.is-current .drawer-link-icon {
+  background: #c33c0d;
+  border-color: #c33c0d;
+  color: #fff9f2;
+  transform: scale(1.06);
+}
+.drawer-link.is-current {
+  background: #fff5ea !important;
+  color: #c33c0d !important;
+  box-shadow: inset 3px 0 0 #c33c0d;
+}
+.drawer-contact-card .contact-icon {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(243, 108, 33, 0.1);
+  color: #c33c0d;
+  flex-shrink: 0;
+}
+.drawer-contact-card .contact-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Harmonized Commercial Badges, Perks & Callout Banners */
+.model-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.model-tag svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.reliv-perk-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #fff4ea 0%, #ffe6d1 100%);
+  border: 1px solid #f0cab0;
+  color: #c33c0d;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 16px -6px rgba(195, 60, 13, 0.22);
+}
+.reliv-perk-badge svg { width: 22px; height: 22px; }
+.reliv-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 13px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.reliv-callout svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+.reliv-callout--warn { background: #fff4df; border: 1px solid #e9b963; color: #7c3f08; }
+.reliv-callout--eligible { background: #edf7f0; border: 1px solid #96cfa7; color: #164f2a; }
+.reliv-callout--info {
+  background: rgba(226, 90, 12, 0.06);
+  border: 1px solid rgba(226, 90, 12, 0.22);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  gap: 14px;
+}
+.accolade-pill {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 7px;
+}
+.accolade-pill svg {
+  width: 15px;
+  height: 15px;
+  color: #c33c0d;
+  flex-shrink: 0;
+}
+
+/* Mobile horizontal scroll strip for filter pills & jump links */
+@media (max-width: 768px) {
+  .station-jump-strip {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+  .station-jump-strip::-webkit-scrollbar { display: none; }
+  .station-jump-strip a { flex: 0 0 auto; }
+  .back-top-fab { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); width: 42px; height: 42px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ri, .back-top-fab, .drawer-link-icon { transition: none !important; }
+  a:hover .ri-ur, a:hover .ri-right, a:hover .ri-down, a:hover .ri-up { transform: none !important; }
 }

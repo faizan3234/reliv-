@@ -22,9 +22,7 @@
       deferredInstallPrompt.userChoice.then((choiceResult) => {
         if (choiceResult.outcome === 'accepted') {
           document.querySelectorAll('[data-install-trigger="true"]').forEach(btn => {
-            const span = btn.querySelector('span');
-            if (span) span.textContent = '✓';
-            btn.childNodes[0].textContent = 'App Installed ';
+            btn.innerHTML = 'App Installed <svg class="ri ri-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>';
           });
         }
         deferredInstallPrompt = null;
@@ -55,9 +53,7 @@
   window.addEventListener('appinstalled', () => {
     deferredInstallPrompt = null;
     document.querySelectorAll('[data-install-trigger="true"]').forEach(btn => {
-      const span = btn.querySelector('span');
-      if (span) span.textContent = '✓';
-      btn.childNodes[0].textContent = 'App Installed ';
+      btn.innerHTML = 'App Installed <svg class="ri ri-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>';
     });
   });
 

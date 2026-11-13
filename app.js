@@ -63,22 +63,28 @@ let scheduled=false;function requestUpdate(){if(!track)return;if(scheduled)retur
 
   if (btn && result) {
     btn.addEventListener('click', () => {
-      if (!navigator.geolocation) {
+        const svgPin = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:5px;" aria-hidden="true"><path d="M12 22s-7-6.2-7-12a7 7 0 1 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>';
+        const svgAlert = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:5px;" aria-hidden="true"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+        const svgSpark = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-3px;margin-right:5px;" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3z"/></svg>';
+        const svgArrowUr = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-left:5px;" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+        const svgChat = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-left:5px;" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>';
+        const detectLabel = `${svgPin} Detect My Current Location`;
+        if (!navigator.geolocation) {
         result.style.display = 'block';
         result.className = 'finder-result error';
         result.innerHTML = `
-          <h4>⚠️ Geolocation Not Supported</h4>
+          <h4>${svgAlert} Geolocation Not Supported</h4>
           <p>Your browser does not support automatic location detection. You can view our live kiosk directly on <a href="${KIOSK_MAPS_URL}" target="_blank" rel="noopener" style="font-weight:700;text-decoration:underline;">Google Maps</a>.</p>
         `;
         return;
       }
 
-      btn.textContent = '⏳ Locating your position…';
+      btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px;" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Locating your position…';
       btn.disabled = true;
 
       navigator.geolocation.getCurrentPosition(
         position => {
-          btn.textContent = '📍 Detect My Current Location';
+          btn.innerHTML = detectLabel;
           btn.disabled = false;
           result.style.display = 'block';
 
@@ -91,32 +97,32 @@ let scheduled=false;function requestUpdate(){if(!track)return;if(scheduled)retur
             // Within 5km - Great news!
             result.className = 'finder-result success';
             result.innerHTML = `
-              <h4>🎉 Great news! You're only ${distFormatted} away!</h4>
+              <h4>${svgSpark} Great news! You're only ${distFormatted} away!</h4>
               <p>A Reliv Health ATM is right near you at <strong>Sector V / IEM Gurukul Campus, Kolkata</strong>. Walk or drive over today for a quick 3-minute full vital checkup!</p>
               <div style="margin-top:14px;">
-                <a href="${KIOSK_MAPS_URL}" target="_blank" rel="noopener" class="button orange" style="padding:10px 18px;font-size:14px;">Open Navigation on Google Maps ↗</a>
+                <a href="${KIOSK_MAPS_URL}" target="_blank" rel="noopener" class="button orange" style="padding:10px 18px;font-size:14px;">Open Navigation on Google Maps ${svgArrowUr}</a>
               </div>
             `;
           } else {
             // Farther than 5km - Friendly notice with state expansion call
             result.className = 'finder-result far';
             result.innerHTML = `
-              <h4>📍 Oops! Our live kiosk is approximately ${distFormatted} from you.</h4>
+              <h4>${svgPin} Our live kiosk is approximately ${distFormatted} from you.</h4>
               <p>Reliv is currently operating flagship kiosks in <strong>Kolkata</strong>, so this kiosk may be too far for an immediate visit today. <strong>Don't worry — we are coming to your state very soon!</strong></p>
               <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
-                <a href="${WHATSAPP_URL}" target="_blank" rel="noopener" class="button green-whatsapp" style="padding:10px 18px;font-size:14px;">Notify Me When Reliv Arrives 💬</a>
-                <a href="${KIOSK_MAPS_URL}" target="_blank" rel="noopener" class="button white-outline" style="padding:10px 18px;font-size:14px;">View Kolkata Location on Maps ↗</a>
+                <a href="${WHATSAPP_URL}" target="_blank" rel="noopener" class="button green-whatsapp" style="padding:10px 18px;font-size:14px;">Notify Me When Reliv Arrives ${svgChat}</a>
+                <a href="${KIOSK_MAPS_URL}" target="_blank" rel="noopener" class="button white-outline" style="padding:10px 18px;font-size:14px;">View Kolkata Location on Maps ${svgArrowUr}</a>
               </div>
             `;
           }
         },
         error => {
-          btn.textContent = '📍 Detect My Current Location';
+          btn.innerHTML = detectLabel;
           btn.disabled = false;
           result.style.display = 'block';
           result.className = 'finder-result error';
           result.innerHTML = `
-            <h4>⚠️ Could Not Access Location</h4>
+            <h4>${svgAlert} Could Not Access Location</h4>
             <p>Please enable GPS or location permissions in your browser. Meanwhile, you can <a href="${KIOSK_MAPS_URL}" target="_blank" rel="noopener" style="font-weight:700;text-decoration:underline;">view our Reliv location on Google Maps</a> or connect with us on WhatsApp!</p>
           `;
         },

@@ -221,12 +221,17 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 3px 10px;
+  padding: 4px 11px;
   border-radius: 999px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   margin-bottom: 12px;
   align-self: flex-start;
 }
+.roi-output-badge svg { width: 13px; height: 13px; flex-shrink: 0; }
+.guide-card .eyebrow { display: inline-flex; align-items: center; gap: 6px; }
+.guide-card .eyebrow svg { width: 13px; height: 13px; flex-shrink: 0; }
 .roi-output-badge.gold {
   background: #fef3c7;
   color: #92400e;
@@ -378,7 +383,8 @@
   background: #ffffff;
   border: 1.5px solid #dfddd6;
   border-radius: 20px;
-  overflow: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   box-shadow: 0 10px 30px rgba(33, 28, 25, 0.04);
 }
 .matrix-table {
@@ -454,8 +460,11 @@
   border-radius: var(--radius-full, 999px);
   align-self: flex-start;
   margin-bottom: 16px;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
 }
+.model-tag svg { width: 14px; height: 14px; flex-shrink: 0; }
 .model-card h3 {
   font-size: 24px;
   margin-bottom: 12px;
