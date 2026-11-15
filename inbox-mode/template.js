@@ -2,12 +2,85 @@
  * Renders the self-contained HTML for Reliv's Secret Inbox Mode takeover.
  * Built in a sharp Swiss-editorial visual system (Signature Orange #FF7A00 /
  * #FF5A0A, Carbon Black #050505, Pure White #FFFFFF, Off-White #F4F4F2)
- * inspired by motorsport telemetry and industrial kiosk design, featuring:
- *   1. Minimal Swiss header with the immutable Reliv SVG wordmark
- *   2. Cursor-reactive 3D-folded postal envelope + accessible unfolding letter dialog
- *   3. Real Reliv self-service kiosk showcase (/assets/reliv-health-kiosk-transparent.png)
- *   4. Direct mailto launch to relivcustomercare.in@gmail.com
+ * showcasing Reliv Medicare Private Limited's mission, turnkey preventive
+ * health hardware presence, Kolkata deployment, leadership, and verified honours —
+ * keeping medicine kiosk workings, software, and pricing strictly confidential.
  */
+
+const COMPANY_PILLARS = [
+  {
+    num: '01 / IOT HEALTH HARDWARE',
+    title: 'Walk-Up Health Station',
+    desc: 'Purpose-built self-service preventive hardware engineered for dependable daily operation across hospitals, diagnostic centers, and public lobbies.',
+    icon: '<path d="M20 33C20 33 7 24.5 7 15.2C7 10.7 10.6 7.5 14.5 7.5C17 7.5 19.1 8.8 20 10.8C20.9 8.8 23 7.5 25.5 7.5C29.4 7.5 33 10.7 33 15.2C33 24.5 20 33 20 33Z" fill="#FF7A00" stroke="#050505" stroke-width="2"/><path d="M11 20H15.5L17.8 15L21.2 24.5L23.5 19H29" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+  },
+  {
+    num: '02 / GOVT. ACCREDITED',
+    title: 'DPIIT Recognised',
+    desc: 'Certified under Startup India (DIPP287544) by the Department for Promotion of Industry & Internal Trade, Government of India.',
+    icon: '<circle cx="20" cy="20" r="13" fill="#FFFFFF" stroke="#050505" stroke-width="2"/><path d="M20 7C16 11 16 29 20 33M20 7C24 11 24 29 20 33M8 16H32M8 24H32" fill="none" stroke="#FF7A00" stroke-width="2"/>',
+  },
+  {
+    num: '03 / INSTITUTION SCALE',
+    title: 'Campuses to Hospitals',
+    desc: 'Compact institutional footprint active at IEM Gurukul Campus, Salt Lake Sector V, Kolkata — designed for hospitals, clinics, colleges, offices, and gyms.',
+    icon: '<rect x="7" y="13" width="26" height="20" fill="#FFFFFF" stroke="#050505" stroke-width="2"/><path d="M20 18V26M16 22H24" stroke="#FF7A00" stroke-width="2.8" stroke-linecap="round"/><rect x="14" y="8" width="12" height="5" fill="#FF7A00" stroke="#050505" stroke-width="2"/>',
+  },
+  {
+    num: '04 / STRICTLY PRIVATE IP',
+    title: 'Confidential Walkthroughs',
+    desc: 'Internal hardware workings, capabilities, and commercial economics stay offline and private — shared strictly one-to-one with invited partners.',
+    icon: '<rect x="9" y="8" width="22" height="24" rx="2" fill="#FFFFFF" stroke="#050505" stroke-width="2"/><circle cx="20" cy="19" r="3.5" fill="#FF7A00" stroke="#050505" stroke-width="2"/><path d="M20 22.5V26" stroke="#050505" stroke-width="2.2" stroke-linecap="round"/>',
+  },
+];
+
+const LEADERSHIP_ROSTER = [
+  { role: 'FOUNDER & CEO', name: 'Faizan Khan' },
+  { role: 'CTO & CO-FOUNDER', name: 'Jiya Bhati' },
+  { role: 'CHIEF FINANCIAL OFFICER', name: 'Vaibhav Pasari' },
+];
+
+const CORPORATE_RECORDS = [
+  { label: 'LEGAL ENTITY', value: 'RELIV MEDICARE PRIVATE LIMITED' },
+  { label: 'DPIIT RECOGNITION', value: 'DIPP287544 · Startup India (Valid till 2036)' },
+  { label: 'LIVE DEPLOYMENT', value: 'IEM Gurukul Campus, Salt Lake, Kolkata' },
+  { label: 'SECTOR', value: 'Healthcare & Life Sciences · IoT MedTech' },
+];
+
+function renderCompanyPillarsMarkup() {
+  return COMPANY_PILLARS.map(
+    (p) => `
+          <article class="pillar-card">
+            <div class="pillar-head">
+              <span class="pillar-num">${p.num}</span>
+              <svg class="pillar-icon" viewBox="0 0 40 40" width="36" height="36" aria-hidden="true">${p.icon}</svg>
+            </div>
+            <h3 class="pillar-title">${p.title}</h3>
+            <p class="pillar-desc">${p.desc}</p>
+          </article>`
+  ).join('\n');
+}
+
+function renderLeadershipMarkup() {
+  return LEADERSHIP_ROSTER.map(
+    (m) => `
+              <div class="leader-cell">
+                <span class="leader-role">${m.role}</span>
+                <strong class="leader-name">${m.name}</strong>
+              </div>`
+  ).join('\n');
+}
+
+function renderCorpRecordsMarkup() {
+  return CORPORATE_RECORDS.map(
+    (r) => `
+          <div class="corp-cell">
+            <span class="corp-label">${r.label}</span>
+            <strong class="corp-value">${r.value}</strong>
+          </div>`
+  ).join('\n');
+}
+
 export function renderInboxModeHtml() {
   const mailtoSubject = encodeURIComponent("Re: Reliv — Knocked on our inbox");
   const mailtoBody = encodeURIComponent(
@@ -19,7 +92,7 @@ export function renderInboxModeHtml() {
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <meta name="theme-color" content="#FF7A00">
   <meta name="robots" content="noindex, nofollow">
   <title>Reliv — You've Got Mail.</title>
@@ -68,6 +141,13 @@ export function renderInboxModeHtml() {
       overflow-x: clip;
       background-color: var(--white);
       -webkit-text-size-adjust: 100%;
+      touch-action: pan-y;
+      overscroll-behavior-x: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
@@ -80,6 +160,20 @@ export function renderInboxModeHtml() {
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      touch-action: pan-y;
+      overscroll-behavior-x: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+
+    img, svg {
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-user-drag: none;
+      user-drag: none;
     }
 
     body.modal-open {
@@ -89,6 +183,11 @@ export function renderInboxModeHtml() {
     button, a {
       font: inherit;
       color: inherit;
+      touch-action: manipulation;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     button:focus-visible,
@@ -1344,50 +1443,55 @@ export function renderInboxModeHtml() {
     /* =====================================================================
        BAND 2.2 — CONFIDENTIAL EDITORIAL ARCHIVE (#FF7A00 SIGNATURE ORANGE)
        ===================================================================== */
-    .confidential-band {
+    .about-band {
       background: var(--orange);
       color: var(--black);
       padding: clamp(56px, 8vw, 102px) clamp(18px, 4vw, 56px);
       border-bottom: 1.5px solid var(--black);
     }
 
-    .confidential-container {
+    .about-container {
       max-width: 1440px;
       margin: 0 auto;
     }
 
-    .confidential-header {
+    .about-split {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-      align-items: end;
-      gap: clamp(24px, 4vw, 64px);
-      margin: clamp(28px, 4vw, 48px) 0 clamp(32px, 4.5vw, 52px);
+      align-items: stretch;
+      gap: clamp(24px, 4vw, 56px);
+      margin: clamp(28px, 4vw, 48px) 0 clamp(28px, 4vw, 44px);
     }
 
-    .confidential-stamp-row {
+    .about-copy-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .about-badge-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 12px;
-      margin-bottom: 18px;
     }
 
-    .confidential-box-stamp {
+    .about-box-stamp {
       display: inline-block;
       padding: 5px 12px;
       border: 2px solid var(--black);
       background: var(--white);
       color: var(--black);
       font-family: var(--font-display);
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      transform: rotate(-2deg);
       box-shadow: 3px 3px 0 var(--black);
     }
 
-    .confidential-subtag {
+    .about-subtag {
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.14em;
@@ -1395,153 +1499,108 @@ export function renderInboxModeHtml() {
       color: var(--black);
     }
 
-    .confidential-heading {
+    .about-heading {
       font-family: var(--font-display);
       font-weight: 800;
       text-transform: uppercase;
-      font-size: clamp(42px, 5.2vw, 78px);
-      line-height: 0.9;
+      font-size: clamp(40px, 5vw, 74px);
+      line-height: 0.92;
       letter-spacing: -0.025em;
     }
 
-    .confidential-heading span {
+    .about-heading span {
       color: var(--white);
     }
 
-    .confidential-aside {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-    }
-
-    .confidential-lead {
+    .about-lead {
       font-size: 15.5px;
-      line-height: 1.62;
+      line-height: 1.66;
       color: var(--black);
       font-weight: 500;
-      max-width: 470px;
+      max-width: 600px;
     }
 
-    .redact-deck {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .redact-chip {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 12px;
-      border: 1.5px solid var(--black);
-      background: var(--black);
-      color: var(--black);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background-color 0.22s ease, color 0.22s ease, transform 0.2s var(--ease-out);
-    }
-
-    .redact-chip::after {
-      content: "[REDACTED — TAP]";
-      position: absolute;
-      inset: 0;
-      display: grid;
-      place-items: center;
-      background: var(--black);
-      color: var(--white);
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      transition: opacity 0.22s ease;
-    }
-
-    .redact-chip:hover,
-    .redact-chip:focus-visible,
-    .redact-chip[data-revealed="true"] {
-      background: var(--white);
-      color: var(--black);
-      transform: translateY(-2px);
-    }
-
-    .redact-chip:hover::after,
-    .redact-chip:focus-visible::after,
-    .redact-chip[data-revealed="true"]::after {
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .dossier-grid {
+    .leadership-bar {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1.5px solid rgba(5, 5, 5, 0.25);
     }
 
-    .dossier-plate {
+    .leader-cell {
+      background: var(--white);
+      border: 1.5px solid var(--black);
+      padding: 12px 14px;
+      box-shadow: 3px 3px 0 var(--black);
+    }
+
+    .leader-role {
+      display: block;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--orange-deep);
+      margin-bottom: 4px;
+    }
+
+    .leader-name {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 21px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--black);
+    }
+
+    .field-card {
       display: flex;
       flex-direction: column;
       background: var(--white);
       border: 2px solid var(--black);
-      box-shadow: 7px 7px 0 var(--black);
-      transition: transform 0.28s var(--ease-out), box-shadow 0.28s var(--ease-out);
+      box-shadow: 8px 8px 0 var(--black);
     }
 
-    .dossier-plate:hover {
-      transform: translate(-3px, -3px);
-      box-shadow: 10px 10px 0 var(--black);
-    }
-
-    .dossier-media {
+    .field-media {
       position: relative;
       width: 100%;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 4 / 3;
       overflow: hidden;
-      background: var(--offwhite);
+      background: #141413;
       border-bottom: 2px solid var(--black);
     }
 
-    .dossier-media img {
+    .field-media img {
       width: 100%;
       height: 100%;
       display: block;
       object-fit: cover;
-      transition: transform 0.5s var(--ease-out);
+      object-position: center 45%;
     }
 
-    .dossier-plate:hover .dossier-media img {
-      transform: scale(1.03);
-    }
-
-    .dossier-seal-badge {
+    .field-badge {
       position: absolute;
       top: 12px;
       left: 12px;
-      padding: 5px 9px;
+      padding: 5px 10px;
       background: var(--black);
       color: var(--white);
-      border: 1.5px solid var(--black);
       font-size: 9px;
       font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
     }
 
-    .dossier-seal-badge--orange {
-      background: var(--orange);
-      color: var(--black);
-    }
-
-    .dossier-body {
+    .field-body {
       padding: 18px 20px 20px;
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
-    .dossier-kicker {
+    .field-kicker {
       font-size: 9.5px;
       font-weight: 800;
       letter-spacing: 0.14em;
@@ -1549,19 +1608,112 @@ export function renderInboxModeHtml() {
       color: var(--orange-deep);
     }
 
-    .dossier-title {
+    .field-title {
       font-family: var(--font-display);
-      font-size: 27px;
+      font-size: 25px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.98;
+      color: var(--black);
+    }
+
+    .field-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .pillar-card {
+      background: var(--white);
+      border: 2px solid var(--black);
+      box-shadow: 6px 6px 0 var(--black);
+      padding: 20px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
+    }
+
+    .pillar-card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0 var(--black);
+    }
+
+    .pillar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .pillar-num {
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange-deep);
+    }
+
+    .pillar-icon {
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 25px;
       font-weight: 800;
       text-transform: uppercase;
       line-height: 0.96;
       color: var(--black);
     }
 
-    .dossier-desc {
+    .pillar-desc {
       font-size: 13.5px;
       line-height: 1.55;
       color: var(--muted);
+    }
+
+    .corp-record-strip {
+      margin-top: clamp(22px, 3vw, 30px);
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      background: var(--white);
+      border: 2px solid var(--black);
+      box-shadow: 6px 6px 0 var(--black);
+    }
+
+    .corp-cell {
+      padding: 15px 18px;
+      border-right: 1px solid var(--rule-light);
+    }
+
+    .corp-cell:last-child {
+      border-right: 0;
+    }
+
+    .corp-label {
+      display: block;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange-deep);
+      margin-bottom: 4px;
+    }
+
+    .corp-value {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 800;
+      line-height: 1.35;
+      color: var(--black);
     }
 
     /* =====================================================================
@@ -1746,7 +1898,7 @@ export function renderInboxModeHtml() {
     }
 
     .overlay-backdrop {
-      position: absolute;
+      position: fixed;
       inset: 0;
       border: 0;
       background: rgba(5, 5, 5, 0.8);
@@ -2032,25 +2184,31 @@ export function renderInboxModeHtml() {
         gap: 16px;
       }
 
-      .awards-grid {
+      .awards-grid,
+      .pillars-grid,
+      .corp-record-strip {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .confidential-header {
+      .about-split {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 24px;
       }
 
-      .dossier-grid {
-        grid-template-columns: 1fr;
-        max-width: 540px;
-        margin: 0 auto;
+      .corp-cell:nth-child(2n) {
+        border-right: 0;
+      }
+
+      .corp-cell:nth-child(n+3) {
+        border-top: 1px solid var(--rule-light);
       }
     }
 
     @media (max-width: 680px) {
       .topbar-inner {
-        height: 64px;
+        height: 60px;
+        padding: 0 16px;
+        gap: 10px;
       }
 
       .brand-divider,
@@ -2065,12 +2223,35 @@ export function renderInboxModeHtml() {
       }
 
       .hero-shell {
-        padding-top: 24px;
-        gap: 20px;
+        padding: 20px 16px 20px;
+        gap: 18px;
+      }
+
+      .eyebrow {
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .eyebrow-rule {
+        width: 16px;
       }
 
       .hero-title {
-        font-size: clamp(40px, 12.2vw, 62px);
+        font-size: clamp(38px, 11.4vw, 58px);
+        margin-bottom: 14px;
+      }
+
+      .hero-lead {
+        font-size: 15px;
+        margin-bottom: 14px;
+      }
+
+      .hero-note {
+        padding: 12px 14px;
+        font-size: 14px;
+        margin-bottom: 18px;
       }
 
       .hero-actions {
@@ -2083,22 +2264,52 @@ export function renderInboxModeHtml() {
         justify-content: space-between;
       }
 
+      .hero-direct-line {
+        margin-top: 12px;
+        font-size: 10px;
+        letter-spacing: 0.06em;
+        gap: 6px 8px;
+      }
+
+      .hero-direct-line a {
+        overflow-wrap: anywhere;
+      }
+
       .envelope-stage {
-        min-height: 320px;
-        padding: 12px 6px 26px;
+        max-width: 420px;
+        margin: 0 auto;
+        min-height: 310px;
+        padding: 14px 6px 28px;
+      }
+
+      .stage-disc {
+        width: min(74%, 260px);
+      }
+
+      .stage-orbit-outer {
+        width: min(92%, 332px);
+      }
+
+      .stage-orbit-dashed {
+        width: min(84%, 302px);
+      }
+
+      .envelope-parallax {
+        max-width: 340px;
+        width: 90%;
       }
 
       .swiss-seal {
-        width: 72px;
-        height: 72px;
+        width: 68px;
+        height: 68px;
         top: 0;
         right: 2px;
       }
 
       .stamp-tag {
         left: 2px;
-        bottom: 26px;
-        padding: 7px 10px;
+        bottom: 24px;
+        padding: 6px 9px;
         font-size: 9px;
       }
 
@@ -2108,12 +2319,17 @@ export function renderInboxModeHtml() {
         font-size: 9px;
       }
 
-      .hero-bottom-bar span:first-child {
+      .hero-bottom-bar > span:first-child {
         display: none;
       }
 
       .hero-bottom-bar {
         justify-content: center;
+      }
+
+      .scroll-cue {
+        font-size: 10px;
+        letter-spacing: 0.1em;
       }
 
       .ticker {
@@ -2131,36 +2347,72 @@ export function renderInboxModeHtml() {
         gap: 6px;
       }
 
+      .kiosk-section,
+      .about-band,
+      .awards-section {
+        padding: 46px 16px;
+      }
+
+      .closing-band {
+        padding: 52px 16px 26px;
+      }
+
+      .kiosk-heading,
+      .about-heading,
+      .awards-heading {
+        font-size: clamp(34px, 9.8vw, 48px);
+      }
+
+      .closing-title {
+        font-size: clamp(36px, 10.5vw, 52px);
+      }
+
       .kiosk-stage {
-        min-height: 410px;
-        padding: 54px 12px 58px;
+        max-width: 420px;
+        margin: 0 auto;
+        min-height: 380px;
+        padding: 52px 10px 54px;
+      }
+
+      .kiosk-orange-disc {
+        width: min(72%, 270px);
+      }
+
+      .kiosk-orbit-ring {
+        width: min(90%, 336px);
       }
 
       .kiosk-photo {
-        height: 295px;
+        height: 285px;
       }
 
       .kiosk-pedestal-shadow {
-        bottom: 50px;
+        bottom: 46px;
       }
 
       .kiosk-tag {
+        width: fit-content;
+        max-width: calc(100% - 12px);
         font-size: 9px;
         padding: 7px 10px;
         white-space: nowrap;
+        text-align: center;
       }
 
       .kiosk-tag-top {
         top: 4px;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        right: 0;
+        margin-inline: auto;
+        transform: none;
       }
 
       .kiosk-tag-bottom {
         bottom: 4px;
-        right: auto;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        right: 0;
+        margin-inline: auto;
+        transform: none;
       }
 
       .telemetry-strip {
@@ -2173,10 +2425,62 @@ export function renderInboxModeHtml() {
         padding-left: 0;
       }
 
+      .about-split {
+        margin: 22px 0 24px;
+        gap: 20px;
+      }
+
+      .about-subtag {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        line-height: 1.4;
+      }
+
+      .field-card {
+        box-shadow: 5px 5px 0 var(--black);
+      }
+
+      .leader-cell {
+        padding: 10px 12px;
+        box-shadow: 3px 3px 0 var(--black);
+      }
+
+      .leader-name {
+        font-size: 19px;
+      }
+
+      .pillar-card {
+        padding: 16px;
+        gap: 8px;
+        box-shadow: 4px 4px 0 var(--black);
+      }
+
+      .pillar-title {
+        font-size: 22px;
+      }
+
+      .corp-record-strip {
+        box-shadow: 4px 4px 0 var(--black);
+      }
+
+      .corp-cell {
+        padding: 12px 14px;
+      }
+
+      .awards-grid {
+        gap: 14px;
+      }
+
       .closing-actions .cta-orange,
       .closing-actions .cta-outline-white {
         width: 100%;
         justify-content: center;
+      }
+
+      .closing-email-hint {
+        overflow-wrap: anywhere;
+        font-size: 11px;
+        margin-bottom: 36px;
       }
 
       .colophon {
@@ -2193,36 +2497,152 @@ export function renderInboxModeHtml() {
         justify-self: center;
       }
 
+      .letter-overlay {
+        padding: 12px;
+        touch-action: pan-y;
+        overscroll-behavior: contain;
+      }
+
+      .letter-card {
+        max-height: calc(100dvh - 24px);
+        padding: 20px 18px;
+        box-shadow: 6px 6px 0 var(--orange);
+      }
+
+      .letter-meta {
+        font-size: 9px;
+        padding-bottom: 10px;
+        padding-right: 40px;
+        flex-wrap: wrap;
+        gap: 4px 10px;
+      }
+
+      .close-letter {
+        top: 14px;
+        right: 14px;
+        width: 32px;
+        height: 32px;
+        font-size: 20px;
+      }
+
       .letter-postmark {
         display: none;
       }
 
+      .letter-to {
+        margin-top: 14px;
+        font-size: 9px;
+      }
+
       .letter-headline {
+        font-size: clamp(30px, 8.8vw, 40px);
+        margin: 8px 0 12px;
         padding-right: 0;
       }
 
-      .awards-grid {
+      .letter-paragraph {
+        font-size: 13.5px;
+        line-height: 1.54;
+        margin-bottom: 10px;
+      }
+
+      .letter-quote {
+        font-size: 17px;
+        padding: 10px 12px;
+        margin: 12px 0 14px;
+      }
+
+      .letter-actions {
+        padding-top: 12px;
+        gap: 10px;
+      }
+
+      .awards-grid,
+      .pillars-grid,
+      .leadership-bar,
+      .corp-record-strip {
         grid-template-columns: 1fr;
       }
 
-      .redact-deck,
-      .redact-chip {
-        width: 100%;
+      .corp-cell {
+        border-right: 0;
+        border-top: 1px solid var(--rule-light);
+      }
+
+      .corp-cell:first-child {
+        border-top: 0;
       }
     }
 
     @media (max-width: 380px) {
       .hero-title {
-        font-size: 38px;
+        font-size: 36px;
+      }
+
+      .kiosk-heading,
+      .about-heading,
+      .awards-heading {
+        font-size: 32px;
+      }
+
+      .closing-title {
+        font-size: 33px;
+      }
+
+      .hero-direct-line {
+        font-size: 9.5px;
+        letter-spacing: 0.04em;
+      }
+
+      .kiosk-tag {
+        font-size: 8.5px;
+        letter-spacing: 0.07em;
+        padding: 6px 9px;
+      }
+
+      .about-subtag {
+        font-size: 9.5px;
+        letter-spacing: 0.08em;
       }
 
       .dispatch-pill {
         font-size: 9px;
         letter-spacing: 0.06em;
+        padding: 6px 10px;
       }
 
       .envelope-parallax {
-        width: 96%;
+        width: 94%;
+      }
+
+      .letter-card {
+        padding: 16px 14px;
+      }
+
+      .letter-headline {
+        font-size: 30px;
+      }
+
+      .letter-paragraph {
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .letter-quote {
+        font-size: 16px;
+        margin: 10px 0 12px;
+      }
+    }
+
+    @media (max-height: 540px) {
+      .letter-overlay {
+        place-items: start center;
+        overflow-y: auto;
+      }
+
+      .letter-card {
+        max-height: none;
+        margin: 4px auto;
       }
     }
 
@@ -2426,14 +2846,16 @@ export function renderInboxModeHtml() {
       <div class="ticker-track">
         <span><span class="ticker-star">✳</span>HELLO, HEALTHCARE WORLD</span>
         <span><span class="ticker-star">✳</span>YOU'VE GOT MAIL</span>
-        <span><span class="ticker-star">✳</span>KNOCKING ON INBOXES, NOT DOORS</span>
-        <span><span class="ticker-star">✳</span>WEBSITE ON COFFEE BREAK</span>
-        <span><span class="ticker-star">✳</span>RELIV KIOSK ON DUTY</span>
+        <span><span class="ticker-star">✳</span>RELIV MEDICARE PRIVATE LIMITED</span>
+        <span><span class="ticker-star">✳</span>DPIIT RECOGNISED DIPP287544</span>
+        <span><span class="ticker-star">✳</span>AUTONOMOUS IOT HEALTH KIOSK</span>
+        <span><span class="ticker-star">✳</span>LIVE AT IEM GURUKUL CAMPUS</span>
         <span><span class="ticker-star">✳</span>HELLO, HEALTHCARE WORLD</span>
         <span><span class="ticker-star">✳</span>YOU'VE GOT MAIL</span>
-        <span><span class="ticker-star">✳</span>KNOCKING ON INBOXES, NOT DOORS</span>
-        <span><span class="ticker-star">✳</span>WEBSITE ON COFFEE BREAK</span>
-        <span><span class="ticker-star">✳</span>RELIV KIOSK ON DUTY</span>
+        <span><span class="ticker-star">✳</span>RELIV MEDICARE PRIVATE LIMITED</span>
+        <span><span class="ticker-star">✳</span>DPIIT RECOGNISED DIPP287544</span>
+        <span><span class="ticker-star">✳</span>AUTONOMOUS IOT HEALTH KIOSK</span>
+        <span><span class="ticker-star">✳</span>LIVE AT IEM GURUKUL CAMPUS</span>
       </div>
     </div>
 
@@ -2443,8 +2865,8 @@ export function renderInboxModeHtml() {
     <section class="kiosk-section" id="reliv-kiosk" aria-labelledby="kiosk-section-title">
       <div class="kiosk-container">
         <div class="section-index-bar reveal-on-scroll">
-          <span>01 / MEANWHILE, BACK AT HARDWARE HQ</span>
-          <span>SELF-SERVICE HEALTHCARE KIOSK</span>
+          <span>01 / WHAT WE BUILD — AT A GLANCE</span>
+          <span>AUTONOMOUS IOT PREVENTIVE HEALTH KIOSK</span>
         </div>
 
         <div class="kiosk-grid">
@@ -2454,27 +2876,28 @@ export function renderInboxModeHtml() {
             <div class="kiosk-pedestal-shadow" aria-hidden="true"></div>
 
             <div class="kiosk-tag kiosk-tag-top" aria-hidden="true">
-              KIOSK STATUS: <span class="kiosk-tag-accent">STILL WORKING</span>
+              HARDWARE: <span class="kiosk-tag-accent">IOT PILOT-READY</span>
             </div>
 
             <img
               class="kiosk-photo"
               src="/assets/reliv-health-kiosk-transparent.png"
-              alt="Reliv self-service health checkup and medicine dispenser kiosk"
+              alt="Reliv autonomous IoT preventive health kiosk hardware"
               width="640"
               height="1280"
               loading="eager"
+              draggable="false"
             />
 
             <div class="kiosk-tag kiosk-tag-bottom" aria-hidden="true">
-              ZERO COFFEE BREAKS INCLUDED
+              SYSTEM &amp; IP: STRICTLY CONFIDENTIAL ♥
             </div>
           </div>
 
           <div class="kiosk-copy reveal-on-scroll">
             <div class="kiosk-label">
               <span class="kiosk-label-dot" aria-hidden="true"></span>
-              <span>THE REAL REASON WE WROTE</span>
+              <span>FOR HEALTHCARE GIANTS &amp; INVESTORS</span>
             </div>
 
             <h2 id="kiosk-section-title" class="kiosk-heading">
@@ -2484,28 +2907,28 @@ export function renderInboxModeHtml() {
             </h2>
 
             <p class="kiosk-body">
-              No spoilers here. The interesting conversations happen privately. While our public website takes a short creative breather, the actual Reliv health kiosk is wide awake — ready for clinics, campuses, and high-traffic lobbies.
+              No spoilers here. The interesting conversations happen privately. Our walk-up IoT hardware helps hospitals, clinics, campuses, and workplaces deploy trusted preventive infrastructure — while keeping proprietary kiosk workings strictly confidential.
             </p>
 
             <p class="kiosk-quips">Our website is taking a coffee break. Our ambitions aren't.</p>
 
             <div class="telemetry-strip">
               <div class="telemetry-cell">
-                <span class="telemetry-k">PUBLIC WEBSITE</span>
-                <span class="telemetry-v">Temporarily Out</span>
+                <span class="telemetry-k">CATEGORY</span>
+                <span class="telemetry-v">IoT Preventive MedTech</span>
               </div>
               <div class="telemetry-cell">
-                <span class="telemetry-k">RELIV KIOSK</span>
-                <span class="telemetry-v">Fully Patient-Ready</span>
+                <span class="telemetry-k">DEPLOYMENT</span>
+                <span class="telemetry-v">Field-Ready Hardware</span>
               </div>
               <div class="telemetry-cell">
-                <span class="telemetry-k">CONVERSATIONS</span>
-                <span class="telemetry-v">Private by Design</span>
+                <span class="telemetry-k">FULL BRIEF</span>
+                <span class="telemetry-v">Private Inbox Only</span>
               </div>
             </div>
 
             <button type="button" class="text-trigger-btn" id="openLetterKioskButton" aria-controls="letterCard" aria-expanded="false">
-              <span>READ THE ENCLOSED DISPATCH</span>
+              <span>READ WHY WE EMAILED YOU</span>
               <span aria-hidden="true">↗</span>
             </button>
           </div>
@@ -2514,78 +2937,62 @@ export function renderInboxModeHtml() {
     </section>
 
     <!-- ===================================================================
-         BAND 2.2: CONFIDENTIAL ARCHIVE & EDITORIAL STILL LIFE (#FF7A00)
+         BAND 2.2: WHO WE ARE, PREVENTIVE MISSION & FIELD DEPLOYMENT (#FF7A00)
          =================================================================== -->
-    <section class="confidential-band" id="reliv-confidential" aria-labelledby="confidential-title">
-      <div class="confidential-container">
+    <section class="about-band" id="reliv-about" aria-labelledby="about-section-title">
+      <div class="about-container">
         <div class="section-index-bar reveal-on-scroll">
-          <span>02 / CONFIDENTIAL DISPATCH ARCHIVE</span>
-          <span>EYES ONLY · NO PUBLIC SPOILERS</span>
+          <span>02 / WHO WE ARE &amp; WHAT WE DO</span>
+          <span>RELIV MEDICARE PRIVATE LIMITED · KOLKATA</span>
         </div>
 
-        <div class="confidential-header reveal-on-scroll">
-          <div>
-            <div class="confidential-stamp-row">
-              <span class="confidential-box-stamp">CONFIDENTIAL</span>
-              <span class="confidential-subtag">FILE 01 // STRICTLY FOR HEALTHCARE INBOXES</span>
+        <div class="about-split reveal-on-scroll">
+          <div class="about-copy-col">
+            <div class="about-badge-row">
+              <span class="about-box-stamp">DPIIT RECOGNISED</span>
+              <span class="about-subtag">DIPP287544 · GOVT. OF INDIA · STARTUP INDIA</span>
             </div>
-            <h2 id="confidential-title" class="confidential-heading">
-              SEALED.<br>
-              <span>ZERO SPOILERS.</span>
+
+            <h2 id="about-section-title" class="about-heading">
+              MAKING PREVENTIVE<br>
+              <span>HEALTH ACCESSIBLE.</span>
             </h2>
+
+            <p class="about-lead">
+              <strong>Reliv Medicare Private Limited</strong> is a Kolkata-based IoT MedTech company on a mission to make everyday preventive healthcare accessible at scale. Because over 70% of fatal health events stem from undetected lifestyle markers, we engineered autonomous field hardware ready for high-footfall institutions — keeping how our system operates internally and unit economics strictly confidential for invited partners and investors.
+            </p>
+
+            <div class="leadership-bar" aria-label="Reliv founding leadership">
+${renderLeadershipMarkup()}
+            </div>
           </div>
 
-          <div class="confidential-aside">
-            <p class="confidential-lead">
-              The good parts are tucked behind wax seals and private replies — never on a public homepage banner. Hover or tap any black bar to peek behind the ink.
-            </p>
-            <div class="redact-deck">
-              <button type="button" class="redact-chip" data-revealed="false" aria-label="Reveal playful declassified note 1">
-                NEXT LOBBY ROLLOUT: PRIVATE THREADS FIRST
-              </button>
-              <button type="button" class="redact-chip" data-revealed="false" aria-label="Reveal playful declassified note 2">
-                WEBSITE COFFEE ORDER: DOUBLE ESPRESSO
-              </button>
+          <div class="field-card">
+            <div class="field-media">
+              <img
+                src="/assets/demo-poster.jpg"
+                alt="Live Reliv smart IoT health kiosk deployed in Kolkata"
+                loading="eager"
+                draggable="false"
+              />
+              <span class="field-badge">FIELD DEPLOYMENT · KOLKATA</span>
+            </div>
+            <div class="field-body">
+              <span class="field-kicker">LIVE CAMPUS PILOT · SALT LAKE SECTOR V</span>
+              <h3 class="field-title">Active at IEM Gurukul Campus</h3>
+              <p class="field-desc">
+                Operating live in Kolkata as a compact, unattended institutional installation engineered cleanly for hospitals, diagnostic networks, colleges, workplaces, and gyms.
+              </p>
             </div>
           </div>
         </div>
 
-        <div class="dossier-grid reveal-on-scroll">
-          <article class="dossier-plate">
-            <div class="dossier-media">
-              <img src="/assets/inbox/editorial-confidential-dossier.jpg" alt="Matte black confidential dossier with signature orange strap and white wax-sealed envelope on stone desk" loading="eager">
-              <span class="dossier-seal-badge">CONFIDENTIAL · FILE 01</span>
-            </div>
-            <div class="dossier-body">
-              <span class="dossier-kicker">DISPATCH PROTOCOL</span>
-              <h3 class="dossier-title">Sealed Dossier</h3>
-              <p class="dossier-desc">Hand-crafted outreach strictly reserved for leadership inboxes — zero public templates or leaks.</p>
-            </div>
-          </article>
+        <div class="pillars-grid reveal-on-scroll">
+${renderCompanyPillarsMarkup()}
+        </div>
 
-          <article class="dossier-plate">
-            <div class="dossier-media">
-              <img src="/assets/inbox/editorial-coffee-break.jpg" alt="Matte black ceramic espresso cup paired with vibrant orange folded dispatch card on minimal stone table" loading="eager">
-              <span class="dossier-seal-badge dossier-seal-badge--orange">OUT ON COFFEE BREAK</span>
-            </div>
-            <div class="dossier-body">
-              <span class="dossier-kicker">STUDIO STATUS</span>
-              <h3 class="dossier-title">Espresso Mode</h3>
-              <p class="dossier-desc">Our website stepped out for coffee while the hardware team builds out next deployments.</p>
-            </div>
-          </article>
-
-          <article class="dossier-plate">
-            <div class="dossier-media">
-              <img src="/assets/inbox/editorial-classified-archive.jpg" alt="Brushed metal binder clip holding white index cards beside matte black ink stamp block and orange embossed seal" loading="eager">
-              <span class="dossier-seal-badge">DO NOT CIRCULATE</span>
-            </div>
-            <div class="dossier-body">
-              <span class="dossier-kicker">PRIVATE ARCHIVE</span>
-              <h3 class="dossier-title">Spoilers Declined</h3>
-              <p class="dossier-desc">Curious what comes next? Drop us a note directly — the full brief travels privately.</p>
-            </div>
-          </article>
+        <div class="corp-record-strip reveal-on-scroll" aria-label="Company verification records">
+${renderCorpRecordsMarkup()}
         </div>
       </div>
     </section>
@@ -2613,14 +3020,14 @@ export function renderInboxModeHtml() {
           </div>
 
           <p class="awards-lead">
-            We prefer keeping emails short, so here is the formal paperwork — peer-reviewed trophies, Indian Medical Association citations, and Government of India startup accreditation.
+            Credibility comes first for any hospital pilot or institutional backing. Beyond the playful note, Reliv's hardware already holds clinical jury trophies and Government of India startup accreditation:
           </p>
         </div>
 
         <div class="awards-grid reveal-on-scroll">
           <a class="award-card" href="/assets/awards/medverse-oscars-of-healthcare-trophy.jpg" target="_blank" rel="noopener noreferrer">
             <div class="award-media">
-              <img src="/assets/awards/medverse-oscars-of-healthcare-trophy.jpg" alt="The Oscars of Healthcare trophy awarded to Reliv Medicare at Medverse 2026" loading="eager">
+              <img src="/assets/awards/medverse-oscars-of-healthcare-trophy.jpg" alt="The Oscars of Healthcare trophy awarded to Reliv Medicare at Medverse 2026" loading="eager" draggable="false">
             </div>
             <div class="award-body">
               <div class="award-meta">
@@ -2634,7 +3041,7 @@ export function renderInboxModeHtml() {
 
           <a class="award-card" href="/certificate.pdf" target="_blank" rel="noopener noreferrer">
             <div class="award-media award-media--doc">
-              <img src="/assets/dpiit-recognition-certificate.jpg" alt="DPIIT Certificate of Recognition DIPP287544 from Government of India" loading="eager">
+              <img src="/assets/dpiit-recognition-certificate.jpg" alt="DPIIT Certificate of Recognition DIPP287544 from Government of India" loading="eager" draggable="false">
             </div>
             <div class="award-body">
               <div class="award-meta">
@@ -2648,7 +3055,7 @@ export function renderInboxModeHtml() {
 
           <a class="award-card" href="/assets/awards/bengal-e-summit-investopia-trophy.jpg" target="_blank" rel="noopener noreferrer">
             <div class="award-media">
-              <img src="/assets/awards/bengal-e-summit-investopia-trophy.jpg" alt="Bengal E-Summit 2026 Investopia 1st Runner Up trophy won by Reliv" loading="eager">
+              <img src="/assets/awards/bengal-e-summit-investopia-trophy.jpg" alt="Bengal E-Summit 2026 Investopia 1st Runner Up trophy won by Reliv" loading="eager" draggable="false">
             </div>
             <div class="award-body">
               <div class="award-meta">
@@ -2662,7 +3069,7 @@ export function renderInboxModeHtml() {
 
           <a class="award-card" href="/assets/awards/medverse-oscars-of-healthcare-certificate.jpg" target="_blank" rel="noopener noreferrer">
             <div class="award-media">
-              <img src="/assets/awards/medverse-oscars-of-healthcare-certificate.jpg" alt="Official IMA Salem and Medverse 2026 Citation for Reliv Medicare" loading="eager">
+              <img src="/assets/awards/medverse-oscars-of-healthcare-certificate.jpg" alt="Official IMA Salem and Medverse 2026 Citation for Reliv Medicare" loading="eager" draggable="false">
             </div>
             <div class="award-body">
               <div class="award-meta">
@@ -2691,7 +3098,7 @@ export function renderInboxModeHtml() {
         </h2>
 
         <p class="closing-sub">
-          Spotted our note — or curious before it lands in your inbox? Open a direct email straight to our customer care desk and introduce your team.
+          Spotted our note in your inbox — or exploring Reliv for your hospital chain, diagnostic network, campus, or portfolio? Reach our founders directly to view live kiosk demos, pilots, and our private roadmap.
         </p>
 
         <div class="closing-actions">
@@ -2746,7 +3153,7 @@ export function renderInboxModeHtml() {
       tabindex="-1"
     >
       <div class="letter-meta">
-        <span>CONFIDENTIAL · RELIV DISPATCH NO. 01</span>
+        <span>CONFIDENTIAL · HEALTHCARE &amp; INVESTOR BRIEF</span>
         <span>PRIVATE INBOX NOTE</span>
       </div>
 
@@ -2757,19 +3164,19 @@ export function renderInboxModeHtml() {
         <span>RELIV 2026</span>
       </div>
 
-      <span class="letter-to">TO: HEALTHCARE TEAMS &amp; HOSPITAL LEADERS</span>
+      <span class="letter-to">TO: HEALTHCARE LEADERS, HOSPITAL TEAMS &amp; INVESTORS</span>
 
       <h2 id="letterModalTitle" class="letter-headline">
-        A LITTLE NOTE<br>
-        IN YOUR <span>INBOX.</span>
+        WHY WE'RE IN<br>
+        YOUR <span>INBOX.</span>
       </h2>
 
       <p class="letter-paragraph">
-        <strong>Dear Healthcare Teams,</strong> a little something from Reliv might be waiting in your inbox. We've been building something interesting — and today, we decided to knock on a few inboxes instead of a few doors.
+        <strong>Dear Healthcare Teams,</strong> a little something from Reliv might be waiting in your inbox. At <strong>Reliv Medicare Private Limited</strong> (Kolkata), we're building turnkey IoT preventive health hardware engineered for hospitals, clinics, campuses, and high-footfall institutional lobbies.
       </p>
 
       <p class="letter-paragraph">
-        No spoilers here. The interesting conversations happen privately. If our note has landed on your desk, we'd genuinely love to share how our self-service healthcare kiosk works in person.
+        No spoilers here. The interesting conversations happen privately. Because our product workings, proprietary architecture, and commercial economics are strictly confidential, we share live demos and partner briefs exclusively one-to-one by email or call.
       </p>
 
       <div class="letter-quote">
@@ -2864,13 +3271,6 @@ export function renderInboxModeHtml() {
       for (const el of triggers) {
         el.addEventListener('click', () => openLetterModal(el));
       }
-
-      document.querySelectorAll('.redact-chip').forEach((chip) => {
-        chip.addEventListener('click', () => {
-          const next = chip.getAttribute('data-revealed') !== 'true';
-          chip.setAttribute('data-revealed', next ? 'true' : 'false');
-        });
-      });
 
       closeLetter?.addEventListener('click', closeLetterModal);
       closeBackdrop?.addEventListener('click', closeLetterModal);
@@ -2967,6 +3367,42 @@ export function renderInboxModeHtml() {
           });
         }
       }
+
+      // Prevent accidental pinch-zoom, double-tap zoom, and text/image copy across mobile & desktop
+      ['gesturestart', 'gesturechange', 'gestureend'].forEach((evt) => {
+        document.addEventListener(evt, (e) => e.preventDefault(), { passive: false });
+      });
+
+      document.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length > 1) e.preventDefault();
+      }, { passive: false });
+
+      document.addEventListener('touchmove', (e) => {
+        if (e.touches && e.touches.length > 1) e.preventDefault();
+      }, { passive: false });
+
+      let lastTouchEnd = 0;
+      document.addEventListener('touchend', (e) => {
+        const now = Date.now();
+        if (now - lastTouchEnd <= 320 && !e.target?.closest?.('a, button')) {
+          e.preventDefault();
+        }
+        lastTouchEnd = now;
+      }, { passive: false });
+
+      document.addEventListener('wheel', (e) => {
+        if (e.ctrlKey) e.preventDefault();
+      }, { passive: false });
+
+      ['copy', 'cut', 'contextmenu', 'selectstart', 'dragstart'].forEach((evt) => {
+        document.addEventListener(evt, (e) => e.preventDefault());
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'a', 's', 'u'].includes(e.key.toLowerCase())) {
+          e.preventDefault();
+        }
+      });
     })();
   </script>
 </body>

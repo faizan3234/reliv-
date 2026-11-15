@@ -74,13 +74,11 @@ const bypassedRoutes = [
   ['GET', '/icons/favicon.svg'],
   ['GET', '/assets/reliv-health-kiosk-kolkata.jpg'],
   ['GET', '/assets/reliv-health-kiosk-transparent.png'],
+  ['GET', '/assets/demo-poster.jpg'],
   ['GET', '/assets/awards/medverse-oscars-of-healthcare-trophy.jpg'],
   ['GET', '/assets/awards/bengal-e-summit-investopia-trophy.jpg'],
   ['GET', '/assets/awards/medverse-oscars-of-healthcare-certificate.jpg'],
   ['GET', '/assets/dpiit-recognition-certificate.jpg'],
-  ['GET', '/assets/inbox/editorial-confidential-dossier.jpg'],
-  ['GET', '/assets/inbox/editorial-coffee-break.jpg'],
-  ['GET', '/assets/inbox/editorial-classified-archive.jpg'],
   ['GET', '/style.css'],
   ['GET', '/immersive.js'],
 ];
@@ -104,6 +102,12 @@ for (const env of [{ INBOX_MODE: 'true' }, { VITE_INBOX_MODE: 'true' }]) {
     }
     assert.ok(!/<nav\b|<footer\b|<form\b/i.test(html), `Unexpected nav/footer/form tags on ${path}`);
     assert.ok(!/95,000|RELIV KIOSK\./i.test(html), `Normal site pricing/product leak on ${path}`);
+    assert.ok(
+      !/\bapp\b|dispens|medicine|emergency first-aid|women.?s wellness|snellen|spo2|spo₂|3-min|3 minute|blood pressure/i.test(
+        html
+      ),
+      `Confidential kiosk/app/medicine detail leaked on ${path}`
+    );
     assert.ok(html.includes('href="mailto:relivcustomercare.in@gmail.com?subject='), 'Customer care mailto CTA missing');
     assert.ok(html.includes('href="tel:+919163606455"') && html.includes('+91 91636 06455'), 'Contact number CTA missing');
     assert.ok(
@@ -114,11 +118,22 @@ for (const env of [{ INBOX_MODE: 'true' }, { VITE_INBOX_MODE: 'true' }]) {
       'Awards & recognitions assets missing'
     );
     assert.ok(
-      html.includes('/assets/inbox/editorial-confidential-dossier.jpg') &&
-        html.includes('/assets/inbox/editorial-coffee-break.jpg') &&
-        html.includes('/assets/inbox/editorial-classified-archive.jpg') &&
-        html.includes('CONFIDENTIAL'),
-      'Confidential editorial archive assets or branding missing'
+      html.includes('id="reliv-about"') &&
+        html.includes('/assets/demo-poster.jpg') &&
+        html.includes('RELIV MEDICARE PRIVATE LIMITED') &&
+        html.includes('DIPP287544') &&
+        html.includes('Faizan Khan') &&
+        html.includes('Jiya Bhati') &&
+        html.includes('Vaibhav Pasari') &&
+        html.includes('IEM Gurukul Campus') &&
+        !html.includes('/assets/inbox/') &&
+        html.includes('user-scalable=no') &&
+        html.includes('maximum-scale=1') &&
+        html.includes('user-select: none') &&
+        html.includes('-webkit-touch-callout: none') &&
+        html.includes('touch-action: pan-y') &&
+        html.includes('.hero-bottom-bar > span:first-child'),
+      'Company & IoT kiosk section, real Kolkata unit image, mobile lock, or corporate records invalid'
     );
     assert.ok(html.includes('M39.77 106.00'), 'Real Reliv wordmark SVG missing');
     assert.ok(html.includes('/icons/favicon.svg'), 'Favicon missing');
