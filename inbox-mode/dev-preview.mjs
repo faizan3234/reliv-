@@ -37,7 +37,7 @@ const server = http.createServer(async (req, res) => {
     headers: req.headers,
   });
 
-  const mwRes = await proxy(webReq, process.env);
+  const mwRes = await proxy(webReq);
   if (mwRes && mwRes.headers.get('x-middleware-next') !== '1') {
     res.writeHead(mwRes.status, Object.fromEntries(mwRes.headers.entries()));
     if (req.method === 'HEAD') return res.end();

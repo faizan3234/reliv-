@@ -11,7 +11,7 @@ Because this repository is a static Vercel project (no Vite runtime), the centra
    - **Enable Inbox Mode:** set `INBOX_MODE` = `true` (or `VITE_INBOX_MODE` = `true`) for **Production** (and/or Preview).
    - **Disable Inbox Mode:** set `INBOX_MODE` = `false` (or remove the variable).
 3. **Redeploy** the project cleanly so Vercel picks up the updated environment variable:
-   - While enabled, every public route (`/`, `/about.html`, `/pricing.html`, `/organisations.html`, `/solutions/*`, interactive experience, etc.) returns the full-screen `#FF6B24` announcement on the exact requested URL with zero redirects and zero underlying page HTML flash.
+   - While enabled, every public route (`/`, `/about.html`, `/pricing.html`, `/organisations.html`, `/solutions/*`, interactive experience, etc.) returns the full-screen Reliv Inbox Mode announcement (matching the site's `#fff9f2` / `#FF6B24` palette, real wordmark SVG, and direct mail CTA) on the exact requested URL with zero redirects and zero underlying page HTML flash.
    - APIs (`/api/*`), admin/app/kiosk routes (`/admin/*`, `/app/*`, `/kiosk/*`), `robots.txt`, `sitemap.xml`, Search Console verification (`googled52447afa2fa397c.html`), favicons, and static assets continue passing through untouched.
    - When disabled and redeployed, traffic immediately passes straight to the original site with zero leftover UI or routing changes.
 

@@ -3,7 +3,7 @@
  * Automated verification for Secret Inbox Mode middleware & rendered output.
  */
 import assert from 'node:assert/strict';
-import proxy, { isInboxModeEnabled } from './proxy.js';
+import proxy, { handleInboxModeRequest, isInboxModeEnabled } from './proxy.js';
 
 const EXPECTED_COPY = [
   'RELIV — A LITTLE SOMETHING IS HAPPENING.',
@@ -15,7 +15,7 @@ const EXPECTED_COPY = [
   'a little something from Reliv might be waiting in your inbox.',
   'No spoilers here. The interesting conversations happen privately.',
   "Our website is taking a coffee break. Our ambitions aren't.",
-  'RELIV',
+  'RELIV®',
   'YOU MATTER. RELIV CARES.',
 ];
 
@@ -27,6 +27,8 @@ assert.equal(isInboxModeEnabled({ INBOX_MODE: 'true' }), true);
 assert.equal(isInboxModeEnabled({ INBOX_MODE: ' TRUE ' }), true);
 assert.equal(isInboxModeEnabled({ VITE_INBOX_MODE: 'true' }), true);
 assert.equal(isInboxModeEnabled({ INBOX_MODE: 'false', VITE_INBOX_MODE: 'true' }), false);
+assert.equal(isInboxModeEnabled({ INBOX_MODE: '"true"' }), true);
+assert.equal(isInboxModeEnabled({ VITE_INBOX_MODE: ' "true" ' }), true);
 
 const publicRoutes = [
   '/',
@@ -80,7 +82,7 @@ for (const env of [{ INBOX_MODE: 'true' }, { VITE_INBOX_MODE: 'true' }]) {
     const req = new Request(`https://relivkiosk.vercel.app${path}`, {
       headers: { Accept: 'text/html,application/xhtml+xml' },
     });
-    const res = proxy(req, env);
+    const res = handleInboxModeRequest(req, env);
     assert.equal(res.status, 200, `Expected 200 on ${path}`);
     assert.equal(res.headers.get('location'), null, `Unexpected redirect on ${path}`);
     assert.equal(res.headers.get('x-middleware-next'), null, `Should intercept ${path}`);
@@ -92,14 +94,16 @@ for (const env of [{ INBOX_MODE: 'true' }, { VITE_INBOX_MODE: 'true' }]) {
     for (const phrase of EXPECTED_COPY) {
       assert.ok(html.includes(phrase), `Missing exact copy "${phrase}" on ${path}`);
     }
-    assert.ok(!/<nav\b|<footer\b|<form\b|<button\b|<a\s/i.test(html), `Unexpected nav/footer/CTA tags on ${path}`);
-    assert.ok(!/relivcustomercare|9163606455|95,000|RELIV KIOSK\./i.test(html), `Normal/contact leak on ${path}`);
+    assert.ok(!/<nav\b|<footer\b|<form\b|<button\b/i.test(html), `Unexpected nav/footer/form/button tags on ${path}`);
+    assert.ok(!/9163606455|95,000|RELIV KIOSK\./i.test(html), `Normal site content leak on ${path}`);
+    assert.ok(html.includes('href="mailto:relivcustomercare.in@gmail.com?subject='), 'Customer care mailto CTA missing');
+    assert.ok(html.includes('M39.77 106.00'), 'Real Reliv wordmark SVG missing');
     assert.ok(html.includes('/icons/favicon.svg'), 'Favicon missing');
-    assert.ok(html.includes('#FF6B24'), 'Reliv orange background color missing');
+    assert.ok(html.includes('#fff9f2') && html.includes('Barlow Condensed'), 'Website Lando/Reliv theme tokens missing');
   }
 
   // HEAD request must succeed with empty body
-  const headRes = proxy(new Request('https://relivkiosk.vercel.app/', { method: 'HEAD' }), env);
+  const headRes = handleInboxModeRequest(new Request('https://relivkiosk.vercel.app/', { method: 'HEAD' }), env);
   assert.equal(headRes.status, 200);
   assert.equal(await headRes.text(), '');
 
@@ -107,10 +111,10 @@ for (const env of [{ INBOX_MODE: 'true' }, { VITE_INBOX_MODE: 'true' }]) {
   const jsonReq = new Request('https://relivkiosk.vercel.app/status', {
     headers: { Accept: 'application/json' },
   });
-  assert.equal(proxy(jsonReq, env).headers.get('x-middleware-next'), '1');
+  assert.equal(handleInboxModeRequest(jsonReq, env).headers.get('x-middleware-next'), '1');
 
   for (const [method, path] of bypassedRoutes) {
-    const res = proxy(new Request(`https://relivkiosk.vercel.app${path}`, { method }), env);
+    const res = handleInboxModeRequest(new Request(`https://relivkiosk.vercel.app${path}`, { method }), env);
     assert.equal(res.headers.get('x-middleware-next'), '1', `Expected pass-through for ${method} ${path}`);
   }
 }
@@ -118,12 +122,51 @@ for (const env of [{ INBOX_MODE: 'true' }, { VITE_INBOX_MODE: 'true' }]) {
 // 3. Disabled state passes every public route through and blocks raw internal source
 for (const env of [{}, { INBOX_MODE: 'false' }, { INBOX_MODE: 'false', VITE_INBOX_MODE: 'true' }]) {
   for (const path of publicRoutes) {
-    const res = proxy(new Request(`https://relivkiosk.vercel.app${path}`), env);
+    const res = handleInboxModeRequest(new Request(`https://relivkiosk.vercel.app${path}`), env);
     assert.equal(res.headers.get('x-middleware-next'), '1', `Expected pass-through when disabled on ${path}`);
   }
-  const internalRes = proxy(new Request('https://relivkiosk.vercel.app/inbox-mode/proxy.js'), env);
+  const internalRes = handleInboxModeRequest(new Request('https://relivkiosk.vercel.app/inbox-mode/proxy.js'), env);
   assert.equal(internalRes.status, 404);
 }
 
-console.log('Secret Inbox Mode checks passed: 19 public routes intercepted, 22 preserved paths passed through, zero leaks, disabled mode restored cleanly.');
+// 4. Vercel Routing Middleware regression: second `context` arg must NEVER shadow process.env
+const prevInbox = process.env.INBOX_MODE;
+const prevViteInbox = process.env.VITE_INBOX_MODE;
+try {
+  delete process.env.INBOX_MODE;
+  delete process.env.VITE_INBOX_MODE;
+  assert.equal(
+    proxy(new Request('https://relivkiosk.vercel.app/'), { waitUntil() {} }).headers.get('x-middleware-next'),
+    '1'
+  );
 
+  process.env.INBOX_MODE = 'true';
+  assert.equal(
+    proxy(new Request('https://relivkiosk.vercel.app/about.html'), { waitUntil() {} }).status,
+    200
+  );
+  assert.equal(
+    proxy(new Request('https://relivkiosk.vercel.app/pricing.html'), {}).headers.get('x-middleware-next'),
+    null
+  );
+
+  delete process.env.INBOX_MODE;
+  process.env.VITE_INBOX_MODE = '"true"';
+  assert.equal(
+    proxy(new Request('https://relivkiosk.vercel.app/'), { waitUntil() {} }).status,
+    200
+  );
+
+  // Malformed request URL must safely fall back without throwing 500
+  assert.equal(
+    proxy({ url: 'http://[::1', method: 'GET', headers: new Headers({ Accept: 'text/html' }) }, { waitUntil() {} }).status,
+    200
+  );
+} finally {
+  if (prevInbox === undefined) delete process.env.INBOX_MODE;
+  else process.env.INBOX_MODE = prevInbox;
+  if (prevViteInbox === undefined) delete process.env.VITE_INBOX_MODE;
+  else process.env.VITE_INBOX_MODE = prevViteInbox;
+}
+
+console.log('Secret Inbox Mode checks passed: 19 public routes intercepted, 22 preserved paths passed through, Vercel context isolation + real logo + Lando/Reliv theme + mailto CTA verified.');

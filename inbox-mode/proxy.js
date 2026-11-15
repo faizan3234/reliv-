@@ -45,16 +45,32 @@ const PRESERVED_EXACT_PATHS = new Set([
 const STATIC_EXT_RE = /\.(?:css|js|mjs|cjs|json|map|xml|txt|webmanifest|pdf|svg|png|jpe?g|webp|gif|avif|ico|woff2?|ttf|otf|eot|mp4|webm|ogg|mp3|wav)$/i;
 const SITE_VERIFICATION_RE = /^\/google[a-f0-9]+\.html$/i;
 
+function normalizeFlag(value) {
+  return value?.trim().replace(/^["']|["']$/g, '').trim().toLowerCase();
+}
+
+function getRuntimeEnv() {
+  return typeof process !== 'undefined' && process.env ? process.env : undefined;
+}
+
+function extractPathname(request) {
+  try {
+    return new URL(request.url, 'https://relivkiosk.vercel.app').pathname;
+  } catch {
+    return '/';
+  }
+}
+
 /**
  * Resolves the central Inbox Mode feature flag from server/edge environment variables.
  * Uses `INBOX_MODE` as the primary Vercel/static-site variable and supports
  * `VITE_INBOX_MODE` as a fallback so either configuration works cleanly.
  */
-export function isInboxModeEnabled(env = process.env) {
+export function isInboxModeEnabled(env = getRuntimeEnv()) {
   if (!env) return false;
-  const primary = env.INBOX_MODE?.trim();
-  const raw = primary ? primary : env.VITE_INBOX_MODE?.trim();
-  return raw?.toLowerCase() === 'true';
+  const primary = normalizeFlag(env.INBOX_MODE);
+  const raw = primary || normalizeFlag(env.VITE_INBOX_MODE);
+  return raw === 'true';
 }
 
 export function isInternalModulePath(pathname) {
@@ -103,7 +119,7 @@ export function shouldInterceptRequest(request) {
     return false;
   }
 
-  const { pathname } = new URL(request.url, 'https://relivkiosk.vercel.app');
+  const pathname = extractPathname(request);
   if (isBypassedPath(pathname)) {
     return false;
   }
@@ -120,8 +136,8 @@ function nextResponse() {
   });
 }
 
-export default function proxy(request, env = process.env) {
-  const { pathname } = new URL(request.url, 'https://relivkiosk.vercel.app');
+export function handleInboxModeRequest(request, env = getRuntimeEnv()) {
+  const pathname = extractPathname(request);
 
   if (!isInboxModeEnabled(env)) {
     if (isInternalModulePath(pathname)) {
@@ -147,5 +163,14 @@ export default function proxy(request, env = process.env) {
       Vary: 'Accept',
     },
   });
+}
+
+/**
+ * Vercel Routing Middleware entrypoint.
+ * Always reads `process.env` so Vercel's second `context` argument (`{ waitUntil }`)
+ * cannot shadow environment variables in production.
+ */
+export default function proxy(request) {
+  return handleInboxModeRequest(request, getRuntimeEnv());
 }
 
