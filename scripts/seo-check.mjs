@@ -105,3 +105,10 @@ for (const path of ['llms.txt', 'llms-full.txt']) {
   for (const value of [facts.email, facts.displayPhone, facts.url, '/pricing.html', '/contact.html']) assert.ok(text.includes(value), `Missing ${value} in ${path}`);
 }
 console.log(`SEO checks passed: ${urls.length} sitemap pages, ${graphs} JSON-LD blocks, canonical URLs, links, contact consistency, pricing and crawler rules.`);
+
+// Keep the latest category pages discoverable when generated summaries are refreshed.
+for (const path of ['health-atm-franchise.html', 'health-atm-manufacturers-india.html', 'solutions/pharmacy.html']) {
+  assert.ok(urls.includes(facts.url + '/' + path), `Category page missing from sitemap: ${path}`);
+  assert.ok(read('index.html').includes(`href="${path}"`), `Homepage must link to ${path}`);
+  for (const summary of ['llms.txt', 'llms-full.txt']) assert.ok(read(summary).includes(facts.url + '/' + path), `Generated summary lost ${path}`);
+}

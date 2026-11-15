@@ -190,9 +190,24 @@
 
     $$('[data-reveal-img]').forEach(function (el) { el.classList.add('rv-img'); });
 
+    var revealEls = els.concat($$('[data-split]'), $$('.rv-img'));
+    function revealInView() {
+      var cutoff = window.innerHeight * 0.98;
+      revealEls.forEach(function (el) {
+        if (el.classList.contains('in')) return;
+        if (el.getBoundingClientRect().top <= cutoff) {
+          el.classList.add('in');
+          io.unobserve(el);
+          if (el.classList.contains('rv')) {
+            setTimeout(function () { el.classList.remove('rv', 'in'); el.style.removeProperty('--d'); }, 1700);
+          }
+        }
+      });
+    }
+
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
+        if (!en.isIntersecting && en.boundingClientRect.top > window.innerHeight) return;
         var el = en.target;
         el.classList.add('in');
         io.unobserve(el);
@@ -201,9 +216,12 @@
           setTimeout(function () { el.classList.remove('rv', 'in'); el.style.removeProperty('--d'); }, 1700);
         }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px 40px 0px', threshold: 0.01 });
 
-    els.concat($$('[data-split]'), $$('.rv-img')).forEach(function (el) { io.observe(el); });
+    revealEls.forEach(function (el) { io.observe(el); });
+    window.addEventListener('scroll', revealInView, { passive: true });
+    window.addEventListener('resize', revealInView, { passive: true });
+    requestAnimationFrame(revealInView);
   }
 
   /* ---------- 5. Count-up numbers ---------- */

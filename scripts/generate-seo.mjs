@@ -75,6 +75,18 @@ const pages = {
   "media.html": [
     "Reliv Kiosk Media | Official Photos, Videos & Recognition",
     "Explore official Reliv kiosk photographs, demonstration videos and startup recognition. Contact Reliv Medicare for product information and media enquiries."
+  ],
+  "health-atm-franchise.html": [
+    "Health ATM Franchise & Business Opportunity India | Cost, ROI & Models | Reliv",
+    "Explore Health ATM franchise and business opportunities in India. Compare outright purchase (₹95,000), monthly rental (₹12,000), and zero-cost space profit sharing with full ROI calculations."
+  ],
+  "health-atm-manufacturers-india.html": [
+    "Health ATM Manufacturers in India | Smart Health Kiosk Comparison (2026) | Reliv",
+    "Compare leading Health ATM manufacturers in India (2026). Evaluate testing parameters, CDSCO compliance, Make-in-India certifications, costs, and voice AI tech."
+  ],
+  "solutions/pharmacy.html": [
+    "Health ATM for Pharmacies & Medical Stores in India | Reliv",
+    "Explore Reliv Health ATMs for pharmacies: guided vital screening, ₹95,000 purchase, ₹12,000 monthly rental, venue requirements and revenue assumptions."
   ]
 };
 function output(path, content) {

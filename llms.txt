@@ -45,3 +45,6 @@ These are listed partner-venue stations. Confirm current availability, access an
 - [About Reliv Medicare | Health Kiosk Company in Kolkata](https://relivkiosk.vercel.app/about.html)
 - [How Reliv Kiosk Works | Health Checks, Videos & App Guide](https://relivkiosk.vercel.app/how-it-works.html)
 - [Reliv Kiosk Media | Official Photos, Videos & Recognition](https://relivkiosk.vercel.app/media.html)
+- [Health ATM Franchise & Business Opportunity India | Cost, ROI & Models | Reliv](https://relivkiosk.vercel.app/health-atm-franchise.html)
+- [Health ATM Manufacturers in India | Smart Health Kiosk Comparison (2026) | Reliv](https://relivkiosk.vercel.app/health-atm-manufacturers-india.html)
+- [Health ATM for Pharmacies & Medical Stores in India | Reliv](https://relivkiosk.vercel.app/solutions/pharmacy.html)

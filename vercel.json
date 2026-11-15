@@ -1,4 +1,8 @@
 {
+  "proxy": {
+    "entrypoint": "inbox-mode/proxy.js",
+    "matcher": "/((?!assets/|icons/|awards/|api/|admin/|kiosk/|_vercel/|\\.well-known/).*)"
+  },
   "redirects": [
     {
       "source": "/index.html",
@@ -89,6 +93,15 @@
         {
           "key": "X-Robots-Tag",
           "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/inbox-mode/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
         }
       ]
     }

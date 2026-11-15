@@ -160,9 +160,76 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initNavDrawer);
-  } else {
+  function initChromeEnhancements(drawer) {
+    // 1. Highlight active route inside the drawer automatically
+    if (drawer) {
+      const clean = (p) => (p || '').split('#')[0].split('?')[0].replace(/^(\.\.\/)+/, '').replace(/^\//, '');
+      const current = clean(window.location.pathname) || 'index.html';
+      drawer.querySelectorAll('.drawer-link').forEach(function(link) {
+        const href = link.getAttribute('href') || '';
+        const target = clean(href);
+        if (target && (target === current || (current === '' && target === 'index.html'))) {
+          link.classList.add('is-current');
+          link.setAttribute('aria-current', 'page');
+        }
+      });
+    }
+
+    // 2. Scroll progress indicator & scrolled header elevation (only once per page)
+    if (document.body.dataset.relivChromeInit) return;
+    document.body.dataset.relivChromeInit = '1';
+
+    let progressBar = document.querySelector('.reliv-scroll-progress');
+    if (!progressBar) {
+      progressBar = document.createElement('div');
+      progressBar.className = 'reliv-scroll-progress';
+      progressBar.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(progressBar);
+    }
+
+    let backTopBtn = document.querySelector('.back-top-fab');
+    if (!backTopBtn) {
+      backTopBtn = document.createElement('button');
+      backTopBtn.type = 'button';
+      backTopBtn.className = 'back-top-fab';
+      backTopBtn.setAttribute('aria-label', 'Back to top');
+      backTopBtn.innerHTML = '<svg class="ri ri-up" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>';
+      backTopBtn.addEventListener('click', function() {
+        const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+      document.body.appendChild(backTopBtn);
+    }
+
+    const headerEl = document.querySelector('body > header');
+    let ticking = false;
+    function syncScrollChrome() {
+      ticking = false;
+      const y = window.scrollY || window.pageYOffset || 0;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 20 ? Math.min(1, Math.max(0, y / docHeight)) : 0;
+      progressBar.style.transform = 'scaleX(' + pct.toFixed(4) + ')';
+      if (headerEl) headerEl.classList.toggle('is-scrolled', y > 24);
+      backTopBtn.classList.toggle('is-visible', y > 420);
+    }
+
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(syncScrollChrome);
+      }
+    }, { passive: true });
+    syncScrollChrome();
+  }
+
+  function bootstrapNav() {
     initNavDrawer();
+    initChromeEnhancements(document.getElementById('navDrawer'));
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootstrapNav);
+  } else {
+    bootstrapNav();
   }
 })();
