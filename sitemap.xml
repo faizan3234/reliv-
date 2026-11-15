@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://relivkiosk.vercel.app/</loc>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-smart-health-atm-india.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/icons/reliv-wordmark.svg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/how-it-works.html</loc>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/videos/reliv-explainer-poster.jpg</image:loc>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://relivkiosk.vercel.app/assets/videos/reliv-explainer-poster.jpg</video:thumbnail_loc>
+      <video:title>What is Reliv? — Smart Health Kiosk Explainer</video:title>
+      <video:description>An animated explainer introducing Reliv Smart Health Kiosk: 3-minute vital screening, essential health kits, and campus setups.</video:description>
+      <video:content_loc>https://relivkiosk.vercel.app/assets/videos/reliv-explainer.mp4</video:content_loc>
+      <video:duration>107</video:duration>
+      <video:tag>Reliv</video:tag>
+      <video:tag>Health Kiosk</video:tag>
+      <video:tag>Health ATM</video:tag>
+      <video:tag>How Reliv Works</video:tag>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://relivkiosk.vercel.app/assets/videos/reliv-app-iphone-guide-poster.jpg</video:thumbnail_loc>
+      <video:title>How to Access and Install Reliv App on iPhone</video:title>
+      <video:description>Video tutorial showing how to add the Reliv PWA payment companion to your iPhone home screen with Safari.</video:description>
+      <video:content_loc>https://relivkiosk.vercel.app/assets/videos/reliv-app-iphone-guide.mp4</video:content_loc>
+      <video:duration>56</video:duration>
+      <video:tag>Reliv iPhone App</video:tag>
+      <video:tag>Reliv PWA</video:tag>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://relivkiosk.vercel.app/assets/videos/reliv-app-android-guide-poster.jpg</video:thumbnail_loc>
+      <video:title>How to Install and Scan with Reliv App on Android</video:title>
+      <video:description>Step-by-step video guide explaining how to install Reliv on Android and scan kiosk payment QR codes.</video:description>
+      <video:content_loc>https://relivkiosk.vercel.app/assets/videos/reliv-app-android-guide.mp4</video:content_loc>
+      <video:duration>91</video:duration>
+      <video:tag>Reliv Android App</video:tag>
+      <video:tag>Reliv Payment Companion</video:tag>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/simulator.html</loc>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-health-atm-user-experience.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/screens/reliv-digital-health-report.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/locations.html</loc>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/organisations.html</loc>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-wellness-kiosk-for-colleges.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/careers.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/about.html</loc>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/dpiit-recognition-certificate.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/awards/medverse-oscars-of-healthcare-trophy.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/awards/bengal-e-summit-investopia-trophy.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/media.html</loc>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/assets/reliv-health-kiosk-kolkata.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/icons/reliv-wordmark.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://relivkiosk.vercel.app/icons/icon-512.png</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/health-kiosk.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/health-atm.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/solutions/colleges.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/solutions/offices.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/solutions/gyms.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/solutions/pharmacy.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/legal/privacy.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/legal/terms.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/legal/disclaimer.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/health-kiosk-kolkata.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/Reliv_Dotted_Scroll_Journey_Editable_Code_Images/Reliv_Dotted_Journey_Editable_Source/index.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/pricing.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/contact.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/health-kiosk-buying-guide.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/health-atm-franchise.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/health-atm-manufacturers-india.html</loc>
+  </url>
+  <url>
+    <loc>https://relivkiosk.vercel.app/demo.html</loc>
+    <video:video>
+      <video:thumbnail_loc>https://relivkiosk.vercel.app/assets/demo-poster.jpg</video:thumbnail_loc>
+      <video:title>Reliv Smart Health Kiosk demonstration</video:title>
+      <video:description>Official Reliv health kiosk demonstration footage. Explore the kiosk in use and confirm current measurements, optional features and reporting with Reliv before ordering.</video:description>
+      <video:content_loc>https://relivkiosk.vercel.app/assets/demonstration.mp4</video:content_loc>
+      <video:duration>98</video:duration>
+      <video:publication_date>2026-09-01T12:00:00+05:30</video:publication_date>
+    </video:video>
+  </url>
+</urlset>

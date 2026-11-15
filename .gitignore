@@ -1,0 +1,9 @@
+scratch/
+.DS_Store
+Thumbs.db
+reliv-mobile-fixes/
+
+dist/
+.env
+.env.*
+!.env.example
