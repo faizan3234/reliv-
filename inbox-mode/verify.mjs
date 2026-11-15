@@ -73,6 +73,14 @@ const bypassedRoutes = [
   ['GET', '/252f36135233abf649f9b2a12b0c68f9.txt'],
   ['GET', '/icons/favicon.svg'],
   ['GET', '/assets/reliv-health-kiosk-kolkata.jpg'],
+  ['GET', '/assets/reliv-health-kiosk-transparent.png'],
+  ['GET', '/assets/awards/medverse-oscars-of-healthcare-trophy.jpg'],
+  ['GET', '/assets/awards/bengal-e-summit-investopia-trophy.jpg'],
+  ['GET', '/assets/awards/medverse-oscars-of-healthcare-certificate.jpg'],
+  ['GET', '/assets/dpiit-recognition-certificate.jpg'],
+  ['GET', '/assets/inbox/editorial-confidential-dossier.jpg'],
+  ['GET', '/assets/inbox/editorial-coffee-break.jpg'],
+  ['GET', '/assets/inbox/editorial-classified-archive.jpg'],
   ['GET', '/style.css'],
   ['GET', '/immersive.js'],
 ];
@@ -94,12 +102,42 @@ for (const env of [{ INBOX_MODE: 'true' }, { VITE_INBOX_MODE: 'true' }]) {
     for (const phrase of EXPECTED_COPY) {
       assert.ok(html.includes(phrase), `Missing exact copy "${phrase}" on ${path}`);
     }
-    assert.ok(!/<nav\b|<footer\b|<form\b|<button\b/i.test(html), `Unexpected nav/footer/form/button tags on ${path}`);
-    assert.ok(!/9163606455|95,000|RELIV KIOSK\./i.test(html), `Normal site content leak on ${path}`);
+    assert.ok(!/<nav\b|<footer\b|<form\b/i.test(html), `Unexpected nav/footer/form tags on ${path}`);
+    assert.ok(!/95,000|RELIV KIOSK\./i.test(html), `Normal site pricing/product leak on ${path}`);
     assert.ok(html.includes('href="mailto:relivcustomercare.in@gmail.com?subject='), 'Customer care mailto CTA missing');
+    assert.ok(html.includes('href="tel:+919163606455"') && html.includes('+91 91636 06455'), 'Contact number CTA missing');
+    assert.ok(
+      html.includes('/assets/awards/medverse-oscars-of-healthcare-trophy.jpg') &&
+        html.includes('/assets/dpiit-recognition-certificate.jpg') &&
+        html.includes('/assets/awards/bengal-e-summit-investopia-trophy.jpg') &&
+        html.includes('/assets/awards/medverse-oscars-of-healthcare-certificate.jpg'),
+      'Awards & recognitions assets missing'
+    );
+    assert.ok(
+      html.includes('/assets/inbox/editorial-confidential-dossier.jpg') &&
+        html.includes('/assets/inbox/editorial-coffee-break.jpg') &&
+        html.includes('/assets/inbox/editorial-classified-archive.jpg') &&
+        html.includes('CONFIDENTIAL'),
+      'Confidential editorial archive assets or branding missing'
+    );
     assert.ok(html.includes('M39.77 106.00'), 'Real Reliv wordmark SVG missing');
     assert.ok(html.includes('/icons/favicon.svg'), 'Favicon missing');
-    assert.ok(html.includes('#fff9f2') && html.includes('Barlow Condensed'), 'Website Lando/Reliv theme tokens missing');
+    assert.ok(html.includes('/assets/reliv-health-kiosk-transparent.png'), 'Real Reliv kiosk asset missing');
+    assert.ok(
+      html.includes('id="envelopeButton"') &&
+        html.includes('id="openLetterButton"') &&
+        html.includes('id="letterOverlay"') &&
+        html.includes('id="closeLetter"'),
+      'Interactive envelope/letter controls missing'
+    );
+    assert.ok(
+      html.includes('#FF7A00') &&
+        html.includes('#050505') &&
+        html.includes('#FFFFFF') &&
+        html.includes('#F4F4F2'),
+      'Swiss orange/black/white/offwhite palette tokens missing'
+    );
+    assert.ok(!/#fff9f2|#f6f0e6|#f7db88/i.test(html), 'Legacy beige/yellow tokens should not appear');
   }
 
   // HEAD request must succeed with empty body
