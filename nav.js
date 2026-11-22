@@ -6,6 +6,17 @@
 (function() {
   'use strict';
 
+  // Always start from the very top when opening a page without an explicit anchor hash
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+    window.addEventListener('load', function() {
+      if (!window.location.hash) window.scrollTo(0, 0);
+    }, { once: true });
+  }
+
   function initNavDrawer() {
     const drawer = document.getElementById('navDrawer');
     const backdrop = document.getElementById('navDrawerBackdrop');
@@ -50,7 +61,10 @@
       'about.html': { src: 'assets/about-reliv-ecosystem.jpg', title: 'Reliv Preventive Health Ecosystem', meta: 'DPIIT Recognised Startup · DIPP287544' },
       'how-it-works.html': { src: 'assets/videos/reliv-explainer-poster.jpg', title: 'How Reliv Works (Explainer Film)', meta: 'Autonomous 3-Minute Screening Guide' },
       'locations.html': { src: 'assets/reliv-smart-health-atm-india.jpg', title: 'Live Kiosk Locations', meta: 'IEM Gurukul Campus, Salt Lake Sector V' },
-      'organisations.html': { src: 'assets/reliv-wellness-kiosk-for-colleges.jpg', title: 'Host & Earn (For Spaces)', meta: 'Outright Buy, Monthly Rental & 0-Risk Sharing' },
+      'organisations.html': { src: 'assets/reliv-wellness-kiosk-for-colleges.jpg', title: 'For Institutions (Host & Earn)', meta: 'Colleges, Schools, Hospitals & Workplaces' },
+      'health-atm-franchise.html': { src: 'assets/reliv-health-kiosk-kolkata.jpg', title: 'Buy a Reliv Franchise', meta: 'Personal, Shop, Pharmacy & Locality Owners' },
+      'pricing.html': { src: 'assets/reliv-health-kiosk-transparent.png', title: 'Pricing & ROI Blueprint', meta: 'Buy ₹95k · Rent ₹12k/mo · Franchise · Share' },
+      'contact.html': { src: 'assets/reliv-health-kiosk-kolkata.jpg', title: 'Contact Reliv Medicare', meta: '+91 91636 06455 · relivcustomercare.in@gmail.com' },
       'careers.html': { src: 'assets/reliv-medical-kiosk-body-parameter-check.jpg', title: 'Careers & Student Internships', meta: 'Join Reliv Medical Innovation Team' },
       'health-kiosk.html': { src: 'assets/reliv-health-kiosk-kolkata.jpg', title: 'Smart Health Kiosk (Health ATM)', meta: 'Guided screening · Confirm configuration' },
       'health-atm.html': { src: 'assets/screens/reliv-health-atm-user-experience.webp', title: 'What is a Health ATM? (Guide)', meta: 'Understanding Self-Service Health ATMs in India' }
@@ -161,8 +175,31 @@
   }
 
   function initChromeEnhancements(drawer) {
-    // 1. Highlight active route inside the drawer automatically
+    // 1. Ensure every drawer has crystal-clear Institutional vs. Franchise & Pricing links, and highlight active route
     if (drawer) {
+      const isSub = window.location.pathname.includes("/Reliv_Dotted_Scroll_Journey") || window.location.pathname.includes("Reliv_Dotted_Journey");
+      const rootPrefix = isSub ? "../../" : (/\/(solutions|legal)\//.test(window.location.pathname) ? "../" : "");
+      const navList = drawer.querySelector('.drawer-nav-list');
+      if (navList && !navList.querySelector('a[href*="health-atm-franchise.html"]')) {
+        const orgItem = Array.from(navList.querySelectorAll('a')).find(a => (a.getAttribute('href') || '').includes('organisations.html'));
+        if (orgItem) {
+          const spanText = orgItem.querySelector('span:not(.drawer-link-icon):not(.drawer-tag):not(.drawer-tag-gold)');
+          if (spanText) spanText.textContent = 'For Institutions (Host & Earn)';
+        }
+        const franchiseLi = document.createElement('li');
+        franchiseLi.innerHTML = `<a href="${rootPrefix}health-atm-franchise.html" class="drawer-link"><span class="drawer-link-icon" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span><span>Buy a Franchise (Shop / Locality)</span><span class="drawer-tag-gold">0% Royalty</span></a>`;
+        if (orgItem && orgItem.parentElement && orgItem.parentElement.parentElement === navList) {
+          orgItem.parentElement.insertAdjacentElement('afterend', franchiseLi);
+        } else {
+          navList.appendChild(franchiseLi);
+        }
+      }
+      if (navList && !navList.querySelector('a[href*="pricing.html"]')) {
+        const pricingLi = document.createElement('li');
+        pricingLi.innerHTML = `<a href="${rootPrefix}pricing.html" class="drawer-link"><span class="drawer-link-icon" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8h6M9 11.5h6M12 8c1.7 0 2.5 1 2.5 2s-.8 1.5-2.5 1.5H9.5l4.5 4.5"/></svg></span><span>Pricing &amp; ROI Calculator</span><span class="drawer-tag">₹95k / ₹12k</span></a>`;
+        navList.appendChild(pricingLi);
+      }
+
       const clean = (p) => (p || '').split('#')[0].split('?')[0].replace(/^(\.\.\/)+/, '').replace(/^\//, '');
       const current = clean(window.location.pathname) || 'index.html';
       drawer.querySelectorAll('.drawer-link').forEach(function(link) {

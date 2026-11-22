@@ -4,11 +4,31 @@
   const form = document.getElementById('orgForm');
   const status = document.getElementById('orgFormStatus');
   if (!form || !status) return;
-  const plans = { purchase: 'Outright Purchase', monthly: 'Monthly Plan', franchise: 'Buy a Franchise', share: 'Revenue Partnership' };
-  const requestedPlan = new URLSearchParams(window.location.search).get('plan');
-  if (plans[requestedPlan]) form.elements.model.value = plans[requestedPlan];
+  const plans = {
+    purchase: 'Outright Purchase',
+    monthly: 'Monthly Plan',
+    franchise: 'Buy a Franchise',
+    share: 'Revenue Partnership',
+    institution: 'Outright Purchase',
+    student: 'Student / Public Venue Request'
+  };
+  const types = {
+    franchise: 'Franchise Partner / Entrepreneur',
+    institution: 'College/University',
+    student: 'Student / Public Place Request',
+    personal: 'Franchise Partner / Entrepreneur'
+  };
+  const params = new URLSearchParams(window.location.search);
+  const requestedPlan = params.get('plan');
+  const requestedType = params.get('who');
+  if (plans[requestedPlan] && form.elements.model) form.elements.model.value = plans[requestedPlan];
+  if (types[requestedType] && form.elements.type) form.elements.type.value = types[requestedType];
+  else if (types[requestedPlan] && form.elements.type) form.elements.type.value = types[requestedPlan];
   if (typeof document.querySelectorAll === 'function') {
-    document.querySelectorAll('[data-select-model]').forEach((trigger) => {
+    const orgInput = document.getElementById('orgName');
+    const orgLabel = typeof document.querySelector === 'function' ? document.querySelector('label[for="orgName"]') : null;
+    const notesInput = document.getElementById('message');
+    document.querySelectorAll('[data-select-model], [data-select-type]').forEach((trigger) => {
       trigger.addEventListener('click', () => {
         const selectedModel = trigger.getAttribute('data-select-model');
         if (selectedModel && form.elements.model) {
@@ -18,6 +38,15 @@
         if (selectedType && form.elements.type) {
           form.elements.type.value = selectedType;
         }
+        const orgPrompt = trigger.getAttribute('data-org-label');
+        if (orgPrompt && orgLabel) orgLabel.textContent = orgPrompt;
+        const orgPlaceholder = trigger.getAttribute('data-org-placeholder');
+        if (orgPlaceholder && orgInput) orgInput.placeholder = orgPlaceholder;
+        const notesPlaceholder = trigger.getAttribute('data-notes-placeholder');
+        if (notesPlaceholder && notesInput) notesInput.placeholder = notesPlaceholder;
+        document.querySelectorAll('[data-track-card]').forEach((card) => {
+          card.classList.toggle('is-selected-track', card === trigger);
+        });
       });
     });
   }

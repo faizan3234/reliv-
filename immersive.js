@@ -6,6 +6,17 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const wide = matchMedia('(min-width: 801px)');
 
+  /* ---------- Always Open Website from the Beginning (Top of First Page) ---------- */
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+    window.addEventListener('load', () => {
+      if (!window.location.hash) window.scrollTo(0, 0);
+    }, { once: true });
+  }
+
   /* ---------- Fullscreen Editorial Menu Dialog ---------- */
   const menu = q('#menu');
   const trigger = q('.menu-button');
@@ -45,7 +56,7 @@
   let queued = false;
   const buttons = qa('[data-sensor]');
 
-  function render(i) {
+  function render(i, userInitiated = false) {
     if (active === i || !data[i]) return;
     active = i;
     const d = data[i];
@@ -55,6 +66,7 @@
     const countEl = q('#sensor-count');
     const camEl = q('.kiosk-camera');
     const markerEl = q('.sensor-marker');
+    const navEl = q('.sensor-nav');
 
     if (titleEl) titleEl.textContent = d[0];
     if (copyEl) copyEl.textContent = d[1];
@@ -64,8 +76,9 @@
     buttons.forEach((b, n) => {
       const pressed = n === i;
       b.setAttribute('aria-pressed', String(pressed));
-      if (pressed && !wide.matches && b.scrollIntoView) {
-        b.scrollIntoView({ behavior: reduced.matches ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+      if (pressed && userInitiated && !wide.matches && navEl && typeof navEl.scrollTo === 'function') {
+        const left = b.offsetLeft - (navEl.clientWidth - b.clientWidth) / 2;
+        navEl.scrollTo({ left: Math.max(0, left), behavior: reduced.matches ? 'auto' : 'smooth' });
       }
     });
 
@@ -81,7 +94,7 @@
   buttons.forEach((b, i) => {
     b.addEventListener('click', () => {
       locked = true;
-      render(i);
+      render(i, true);
       const resumeBtn = q('#resume-tour');
       if (resumeBtn) resumeBtn.hidden = false;
     });

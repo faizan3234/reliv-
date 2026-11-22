@@ -387,6 +387,182 @@ export function renderInboxModeHtml() {
       white-space: nowrap;
     }
 
+    .topbar-jumps {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-jump-link {
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(5, 5, 5, 0.14);
+      background: #ffffff;
+      color: var(--black);
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .topbar-jump-link:hover {
+      border-color: var(--black);
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .topbar-jump-link.is-accent {
+      border-color: var(--orange);
+      background: var(--orange);
+      color: var(--black);
+    }
+
+    .topbar-jump-link.is-accent:hover {
+      background: var(--black);
+      border-color: var(--black);
+      color: var(--white);
+    }
+
+    .relief-relive-strip {
+      margin: 0 0 26px;
+      padding: clamp(20px, 3vw, 30px);
+      border-radius: 22px;
+      border: 2px solid var(--black);
+      background: var(--white);
+      color: var(--black);
+      box-shadow: 0 18px 40px rgba(5, 5, 5, 0.14);
+    }
+
+    .relief-relive-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      border-bottom: 1.5px solid rgba(5, 5, 5, 0.12);
+    }
+
+    .relief-relive-title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.4vw, 40px);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 0.96;
+    }
+
+    .relief-relive-title span {
+      color: var(--orange);
+    }
+
+    .relief-relive-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .relief-card {
+      padding: 18px 18px 20px;
+      border-radius: 16px;
+      border: 1.5px solid rgba(5, 5, 5, 0.14);
+      background: #faf9f6;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .relief-card.is-highlight {
+      border-color: var(--orange);
+      background: #fff6ee;
+    }
+
+    .relief-card-tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .relief-card h3 {
+      font-family: var(--font-display);
+      font-size: 23px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.02;
+      color: var(--black);
+    }
+
+    .relief-card p {
+      font-size: 13.5px;
+      line-height: 1.58;
+      color: #2b2b2b;
+    }
+
+    .inbox-decision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .inbox-decision-card {
+      padding: 13px 14px;
+      border-radius: 14px;
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--white);
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .inbox-decision-card:hover,
+    .inbox-decision-card.is-active {
+      border-color: var(--orange);
+      background: rgba(255, 122, 0, 0.14);
+    }
+
+    .inbox-decision-kicker {
+      display: block;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 4px;
+    }
+
+    .inbox-decision-title {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    .inbox-decision-sub {
+      display: block;
+      font-size: 11.5px;
+      line-height: 1.42;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    @media (max-width: 860px) {
+      .relief-relive-grid,
+      .inbox-decision-grid {
+        grid-template-columns: 1fr;
+      }
+      .topbar-jumps {
+        display: none;
+      }
+    }
+
     /* =====================================================================
        BAND 1 — HERO CANVAS (PURE WHITE + SWISS ORANGE POSTAL STAGE)
        ===================================================================== */
@@ -3041,6 +3217,14 @@ export function renderInboxModeHtml() {
         <span class="brand-tag">Secret Inbox Mode</span>
       </div>
 
+      <div class="topbar-jumps" role="toolbar" aria-label="Quick section jump">
+        <a class="topbar-jump-link" href="#hero-headline">01 / Top</a>
+        <a class="topbar-jump-link" href="#reliv-kiosk">02 / Hardware</a>
+        <a class="topbar-jump-link" href="#reliv-about">03 / Relief &amp; Re-Live</a>
+        <a class="topbar-jump-link" href="#reliv-awards">04 / Awards</a>
+        <a class="topbar-jump-link is-accent" href="#inboxFranchiseBox">05 / Institutions &amp; Franchise</a>
+      </div>
+
       <div class="dispatch-status">
         <span class="dispatch-edition">DISPATCH NO. 01</span>
         <span class="dispatch-pill">
@@ -3354,6 +3538,31 @@ ${renderLeadershipMarkup()}
           </div>
         </div>
 
+        <!-- The Meaning of Reliv: Relief + Re-Live (Simple & Clear) -->
+        <div class="relief-relive-strip reveal-on-scroll" aria-label="The Meaning of Reliv: Relief and Re-Live">
+          <div class="relief-relive-header">
+            <h3 class="relief-relive-title">WHAT DOES <span>RELIV</span> MEAN? — <span>RELIEF</span> + <span>RE-LIVE</span></h3>
+            <span style="font-size:11px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase;">CONCEIVED 2023 · INCORPORATED 2026 · KOLKATA</span>
+          </div>
+          <div class="relief-relive-grid">
+            <article class="relief-card">
+              <span class="relief-card-tag">01 / RELIEF — PEACE OF MIND</span>
+              <h3>Immediate Relief from Doubt</h3>
+              <p>Most people delay checkups because clinical queues feel slow and stressful. Reliv gives students, employees, and citizens a calm, walk-up station to check core preventive health markers in moments — bringing instant relief and clarity.</p>
+            </article>
+            <article class="relief-card">
+              <span class="relief-card-tag">02 / RE-LIVE — EVERYDAY ENERGY</span>
+              <h3>Re-Live Every Day Stronger</h3>
+              <p>Over 70% of major health events begin as silent lifestyle signals. When people spot shifts early right where they study, work, or shop, they take timely action and re-live their daily life with confidence.</p>
+            </article>
+            <article class="relief-card is-highlight">
+              <span class="relief-card-tag">03 / WHAT IT IS &amp; WHO IT SERVES</span>
+              <h3>Institutions, Franchisees &amp; Schools</h3>
+              <p>A compact (4×4 sq. ft.) autonomous IoT health kiosk built in Kolkata. Colleges (like Birla or IEM), schools, and hospitals deploy it on campus; individuals and shop owners buy a franchise for their locality; and students can nominate their school or public place.</p>
+            </article>
+          </div>
+        </div>
+
         <div class="pillars-grid reveal-on-scroll">
 ${renderCompanyPillarsMarkup()}
         </div>
@@ -3498,29 +3707,48 @@ ${renderCorpRecordsMarkup()}
         <!-- Franchise & Partner Direct Dispatch Card (non-form element for Inbox Mode verification) -->
         <div class="inbox-franchise-card" id="inboxFranchiseBox" role="region" aria-label="Buy a Franchise and Partner Enquiry">
           <div class="inbox-franchise-top">
-            <span class="inbox-franchise-kicker">FRANCHISE &amp; PARTNER DESK · DIRECT DISPATCH</span>
+            <span class="inbox-franchise-kicker">ZERO-CONFUSION ENQUIRY DESK · DIRECT DISPATCH</span>
             <span style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:rgba(255,255,255,0.6);">TO: RELIVCUSTOMERCARE.IN@GMAIL.COM</span>
           </div>
-          <h3 class="inbox-franchise-title">BUY A <span>RELIV FRANCHISE</span> OR REQUEST BRIEF</h3>
+          <h3 class="inbox-franchise-title">INSTITUTION DEPLOYMENT, <span>BUY A FRANCHISE</span> OR NOMINATE A SCHOOL</h3>
           <p class="inbox-franchise-desc">
-            Leave your contact number and preferred city below to apply for a Reliv kiosk franchise, hospital lobby deployment, or private commercial brief. Sent directly to our founders at <strong>relivcustomercare.in@gmail.com</strong>.
+            Select who you are below so there is zero confusion — whether you represent an institution (like Birla or a hospital), want to buy a franchise for your own shop or locality, or are a student requesting a kiosk for your school or public space. Sent directly to <strong>relivcustomercare.in@gmail.com</strong>.
           </p>
+
+          <div class="inbox-decision-grid" role="group" aria-label="Choose your enquiry profile">
+            <button type="button" class="inbox-decision-card is-active" data-inbox-track="Buy a Franchise" data-inbox-who="Personal / Shop / Locality — Buy a Franchise" data-org-label="Your Shop / Clinic / Locality Name *" data-org-placeholder="e.g. Personal Franchise / Salt Lake Shop / New Town Locality" data-notes-placeholder="Tell us the locality, shop, or neighborhood where you want to own & operate a Reliv franchise...">
+              <span class="inbox-decision-kicker">01 · PERSONAL / SHOP / LOCALITY</span>
+              <span class="inbox-decision-title">★ Buy a Reliv Franchise</span>
+              <span class="inbox-decision-sub">For individuals or shop owners wanting a kiosk for their locality, shop, or territory.</span>
+            </button>
+            <button type="button" class="inbox-decision-card" data-inbox-track="Institution Campus Deployment" data-inbox-who="Institution — College / School / Hospital / Office" data-org-label="Institution / College / Hospital / Office Name *" data-org-placeholder="e.g. Birla Campus / IEM Kolkata / Hospital or Office" data-notes-placeholder="Tell us about your institution, campus footfall, and preferred deployment plan...">
+              <span class="inbox-decision-kicker">02 · FOR INSTITUTIONS</span>
+              <span class="inbox-decision-title">Deploy at Our Institution</span>
+              <span class="inbox-decision-sub">For colleges (like Birla/IEM), schools, hospitals, corporate campuses &amp; gyms.</span>
+            </button>
+            <button type="button" class="inbox-decision-card" data-inbox-track="Student / Public Venue Request" data-inbox-who="Student / Citizen Nominating a School or Public Place" data-org-label="School / College / Public Place Name *" data-org-placeholder="e.g. My School / College Campus / Public Park or Metro Hub" data-notes-placeholder="Share the school, college, or public place where you want Reliv installed...">
+              <span class="inbox-decision-kicker">03 · STUDENTS &amp; CITIZENS</span>
+              <span class="inbox-decision-title">Need One at My School / Public Place</span>
+              <span class="inbox-decision-sub">For a student or resident nominating their school, college, or public locality.</span>
+            </button>
+          </div>
 
           <div class="inbox-track-pills" role="group" aria-label="Select enquiry track">
             <button type="button" class="inbox-track-pill is-active" data-inbox-track="Buy a Franchise">★ Buy a Franchise</button>
+            <button type="button" class="inbox-track-pill" data-inbox-track="Institution Campus Deployment">Institution / College Deployment</button>
             <button type="button" class="inbox-track-pill" data-inbox-track="Outright Purchase">Outright Kiosk Purchase</button>
             <button type="button" class="inbox-track-pill" data-inbox-track="Monthly Rental">Monthly Rental Plan</button>
-            <button type="button" class="inbox-track-pill" data-inbox-track="Hospital / Strategic Partner">Hospital / Investor Brief</button>
+            <button type="button" class="inbox-track-pill" data-inbox-track="Student / Public Venue Request">Student / School / Public Place</button>
           </div>
 
           <div class="inbox-field-grid">
             <div class="inbox-field">
               <label for="inboxName">Your Full Name *</label>
-              <input type="text" id="inboxName" placeholder="Dr. / Prof. / Mr. / Ms." autocomplete="name">
+              <input type="text" id="inboxName" placeholder="Dr. / Prof. / Mr. / Ms. / Student Name" autocomplete="name">
             </div>
             <div class="inbox-field">
-              <label for="inboxOrg">Applicant / Organisation Name *</label>
-              <input type="text" id="inboxOrg" placeholder="e.g. Franchise Buyer / Hospital / Campus" autocomplete="organization">
+              <label for="inboxOrg" id="inboxOrgLabel">Your Shop / Locality / Institution / School Name *</label>
+              <input type="text" id="inboxOrg" placeholder="e.g. Personal Franchise / Birla Campus / My School or Shop" autocomplete="organization">
             </div>
             <div class="inbox-field">
               <label for="inboxPhone">Phone / WhatsApp Contact Number *</label>
@@ -3531,21 +3759,23 @@ ${renderCorpRecordsMarkup()}
               <input type="email" id="inboxEmail" placeholder="name@domain.com" autocomplete="email">
             </div>
             <div class="inbox-field">
-              <label for="inboxCity">City &amp; State / Preferred Territory *</label>
-              <input type="text" id="inboxCity" placeholder="e.g. Kolkata, West Bengal" autocomplete="address-level2">
+              <label for="inboxCity">City, Locality &amp; State *</label>
+              <input type="text" id="inboxCity" placeholder="e.g. Salt Lake, Kolkata, West Bengal" autocomplete="address-level2">
             </div>
             <div class="inbox-field">
-              <label for="inboxModel">Selected Track</label>
+              <label for="inboxModel">Selected Track / Requirement</label>
               <select id="inboxModel">
-                <option value="Buy a Franchise" selected>Buy a Franchise (Single / Multi-Unit Territory)</option>
+                <option value="Buy a Franchise" selected>Buy a Franchise (Personal / Shop / Locality / Territory)</option>
+                <option value="Institution Campus Deployment">Institution Deployment (College like Birla, School, Hospital, Office)</option>
                 <option value="Outright Purchase">Outright Kiosk Purchase</option>
                 <option value="Monthly Rental">Monthly Rental Plan</option>
-                <option value="Hospital / Strategic Partner">Hospital / Campus / Investor Brief</option>
+                <option value="Student / Public Venue Request">Student / Citizen — Nominate a School or Public Place</option>
+                <option value="Hospital / Strategic Partner">Hospital / Investor Brief</option>
               </select>
             </div>
             <div class="inbox-field is-full">
-              <label for="inboxNotes">Territory / Units / Specific Notes</label>
-              <textarea id="inboxNotes" rows="2" placeholder="Number of units, target city/venue, or preferred callback time..."></textarea>
+              <label for="inboxNotes">Locality / Campus / Units / Specific Details</label>
+              <textarea id="inboxNotes" rows="2" placeholder="Tell us about your locality/shop for a franchise, your college/hospital campus, or the school/public place you are nominating..."></textarea>
             </div>
           </div>
 
@@ -3650,6 +3880,17 @@ ${renderCorpRecordsMarkup()}
   <script>
     (() => {
       document.documentElement.classList.add('js-ready');
+
+      // Always open the website from the very beginning (top of first page) on initial load
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      if (!window.location.hash) {
+        window.scrollTo(0, 0);
+        window.addEventListener('load', () => {
+          if (!window.location.hash) window.scrollTo(0, 0);
+        }, { once: true });
+      }
 
       const envelope = document.getElementById('envelopeButton');
       const letterStage = document.getElementById('letterStage');
@@ -3815,6 +4056,9 @@ ${renderCorpRecordsMarkup()}
       // Franchise & Partner Direct Dispatch handler (FormSubmit AJAX to relivcustomercare.in@gmail.com)
       const trackTriggers = document.querySelectorAll('[data-inbox-track]');
       const inboxModel = document.getElementById('inboxModel');
+      const inboxOrg = document.getElementById('inboxOrg');
+      const inboxOrgLabel = document.getElementById('inboxOrgLabel');
+      const inboxNotes = document.getElementById('inboxNotes');
       const inboxSubmit = document.getElementById('inboxDispatchSubmit');
       const inboxStatus = document.getElementById('inboxDispatchStatus');
 
@@ -3823,16 +4067,22 @@ ${renderCorpRecordsMarkup()}
           const track = btn.getAttribute('data-inbox-track');
           if (track && inboxModel) {
             inboxModel.value = track;
-            document.querySelectorAll('.inbox-track-pill').forEach((pill) => {
+            document.querySelectorAll('.inbox-track-pill, .inbox-decision-card').forEach((pill) => {
               pill.classList.toggle('is-active', pill.getAttribute('data-inbox-track') === track);
             });
           }
+          const customLabel = btn.getAttribute('data-org-label');
+          if (customLabel && inboxOrgLabel) inboxOrgLabel.textContent = customLabel;
+          const customPlaceholder = btn.getAttribute('data-org-placeholder');
+          if (customPlaceholder && inboxOrg) inboxOrg.placeholder = customPlaceholder;
+          const customNotes = btn.getAttribute('data-notes-placeholder');
+          if (customNotes && inboxNotes) inboxNotes.placeholder = customNotes;
         });
       });
 
       if (inboxModel) {
         inboxModel.addEventListener('change', () => {
-          document.querySelectorAll('.inbox-track-pill').forEach((pill) => {
+          document.querySelectorAll('.inbox-track-pill, .inbox-decision-card').forEach((pill) => {
             pill.classList.toggle('is-active', pill.getAttribute('data-inbox-track') === inboxModel.value);
           });
         });

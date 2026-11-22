@@ -93,7 +93,7 @@ function output(path, content) {
   const full = resolve(root, path);
   let previous;
   try { previous = readFileSync(full, 'utf8'); } catch { previous = ''; }
-  if (content.replaceAll('\r\n', '\n') !== previous.replaceAll('\r\n', '\n')) {
+  if (content !== previous) {
     changed.push(path);
     if (!check) writeFileSync(full, content);
   }
@@ -124,7 +124,7 @@ const product = {
   // No Offer, AggregateOffer or ratings without an approved price or genuine reviews.
 };
 for (const [path, [title, description]] of Object.entries(pages)) {
-  let html = readFileSync(resolve(root, path), 'utf8');
+  let html = readFileSync(resolve(root, path), 'utf8').replaceAll('\r\n', '\n');
   const url = facts.url + (path === 'index.html' ? '/' : '/' + path);
   // Strip generated block and the old equivalent tags so each page has one canonical.
   html = html.replace(/\s*<!-- RELIV SEO START -->[\s\S]*?<!-- RELIV SEO END -->/g, '');
