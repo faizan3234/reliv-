@@ -4,9 +4,23 @@
   const form = document.getElementById('orgForm');
   const status = document.getElementById('orgFormStatus');
   if (!form || !status) return;
-  const plans = { purchase: 'Outright Purchase', monthly: 'Monthly Plan' };
+  const plans = { purchase: 'Outright Purchase', monthly: 'Monthly Plan', franchise: 'Buy a Franchise', share: 'Revenue Partnership' };
   const requestedPlan = new URLSearchParams(window.location.search).get('plan');
   if (plans[requestedPlan]) form.elements.model.value = plans[requestedPlan];
+  if (typeof document.querySelectorAll === 'function') {
+    document.querySelectorAll('[data-select-model]').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const selectedModel = trigger.getAttribute('data-select-model');
+        if (selectedModel && form.elements.model) {
+          form.elements.model.value = selectedModel;
+        }
+        const selectedType = trigger.getAttribute('data-select-type');
+        if (selectedType && form.elements.type) {
+          form.elements.type.value = selectedType;
+        }
+      });
+    });
+  }
   const button = form.querySelector('button[type="submit"]');
   const originalLabel = button.textContent;
   let pending = false;

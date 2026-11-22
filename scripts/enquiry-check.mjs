@@ -30,6 +30,8 @@ for (const response of [{ ok: false }, { ok: true, json: async () => ({ success:
   assert.equal(r.button.disabled, false); assert.match(r.status.textContent, /could not confirm/);
   assert.equal(r.form.elements.model.value, 'Monthly Plan'); assert.ok(r.focused);
 }
+const franchise = await scenario({ ok: true, json: async () => ({ success: true }) }, { plan: 'franchise' });
+assert.equal(franchise.form.elements.model.value, 'Buy a Franchise'); assert.equal(franchise.requests, 1);
 const offline = await scenario(null, { reject: true, plan: 'untrusted' });
 assert.equal(offline.button.disabled, false); assert.equal(offline.form.elements.model.value, 'Undecided');
 const invalid = await scenario(null, { invalid: true });

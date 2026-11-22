@@ -93,7 +93,7 @@ function output(path, content) {
   const full = resolve(root, path);
   let previous;
   try { previous = readFileSync(full, 'utf8'); } catch { previous = ''; }
-  if (content !== previous) {
+  if (content.replaceAll('\r\n', '\n') !== previous.replaceAll('\r\n', '\n')) {
     changed.push(path);
     if (!check) writeFileSync(full, content);
   }
@@ -210,7 +210,7 @@ for (const [path, [title, description]] of Object.entries(pages)) {
     graph.push(...unique);
     tags[tags.length - 1] = '<script type="application/ld+json">\n' + JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 2).replaceAll('<', '\\u003c') + '\n</script>';
   }
-  html = html.replace('</head>', '\n  <!-- RELIV SEO START -->\n  ' + tags.join('\n  ') + '\n  <!-- RELIV SEO END -->\n</head>');
+  html = html.replace(/\s*<\/head>/, '\n  <!-- RELIV SEO START -->\n  ' + tags.join('\n  ') + '\n  <!-- RELIV SEO END -->\n</head>');
   output(path, html);
 }
 const links = Object.entries(pages).map(([p,[t]]) => `- [${t}](${facts.url}${p === 'index.html' ? '/' : '/' + p})`).join('\n');

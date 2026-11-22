@@ -132,18 +132,24 @@ for (const env of [{ INBOX_MODE: 'true' }, { VITE_INBOX_MODE: 'true' }]) {
         html.includes('user-select: none') &&
         html.includes('-webkit-touch-callout: none') &&
         html.includes('touch-action: pan-y') &&
-        html.includes('.hero-bottom-bar > span:first-child'),
-      'Company & IoT kiosk section, real Kolkata unit image, mobile lock, or corporate records invalid'
+        html.includes('.hero-bottom-bar > span:first-child') &&
+        html.includes('envelope-knock') &&
+        html.includes('env-conf-stamp') &&
+        html.includes('CONFIDENTIAL'),
+      'Company & IoT kiosk section, real Kolkata unit image, envelope stamps/shake, mobile lock, or corporate records invalid'
     );
-    assert.ok(html.includes('M39.77 106.00'), 'Real Reliv wordmark SVG missing');
+    assert.ok((html.match(/M39\.77 106\.00/g) || []).length >= 5, 'Immutable Reliv wordmark missing from envelope stamps/header');
     assert.ok(html.includes('/icons/favicon.svg'), 'Favicon missing');
     assert.ok(html.includes('/assets/reliv-health-kiosk-transparent.png'), 'Real Reliv kiosk asset missing');
     assert.ok(
       html.includes('id="envelopeButton"') &&
         html.includes('id="openLetterButton"') &&
         html.includes('id="letterOverlay"') &&
-        html.includes('id="closeLetter"'),
-      'Interactive envelope/letter controls missing'
+        html.includes('id="closeLetter"') &&
+        html.includes('id="inboxFranchiseBox"') &&
+        html.includes('Buy a Franchise') &&
+        html.includes('https://formsubmit.co/ajax/relivcustomercare.in@gmail.com'),
+      'Interactive envelope/letter/franchise dispatch controls missing'
     );
     assert.ok(
       html.includes('#FF7A00') &&

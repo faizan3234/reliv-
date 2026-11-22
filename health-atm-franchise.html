@@ -30,7 +30,73 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
-
+  <style>
+    .enquiry-form-wrap {
+      background: #ffffff;
+      border: 1.5px solid var(--border, #e6dccf);
+      border-radius: 22px;
+      padding: clamp(28px, 4.5vw, 48px);
+      max-width: 820px;
+      margin: 44px auto 0;
+      box-shadow: 0 22px 54px rgba(24, 21, 18, 0.06);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+    .form-group {
+      margin-bottom: 18px;
+      text-align: left;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--ink, #1b1713);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid var(--border, #e2d7c9);
+      border-radius: 12px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--ink, #1b1713);
+      background: #fcfaf7;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--orange, #c33c0d);
+      background: #ffffff;
+    }
+    .enquiry-privacy {
+      font-size: 12.5px;
+      color: var(--muted, #6b635b);
+      margin: 8px 0 14px;
+      line-height: 1.5;
+    }
+    .enquiry-status {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1.5px solid var(--orange, #c33c0d);
+      background: #fff7f2;
+      color: var(--ink, #1b1713);
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+    .enquiry-status[data-state="sent"] {
+      border-color: #1f7a4c;
+      background: #f1fbf5;
+    }
+  </style>
   <!-- RELIV SEO START -->
   <title>Health ATM Franchise &amp; Business Opportunity India | Cost, ROI &amp; Models | Reliv</title>
   <meta name="description" content="Explore Health ATM franchise and business opportunities in India. Compare outright purchase (₹95,000), monthly rental (₹12,000), and zero-cost space profit sharing with full ROI calculations.">
@@ -240,7 +306,7 @@
             <li>Illustrative ₹2,16,000 annual gross collections</li>
             <li>Section 32 IT Act depreciation tax benefits</li>
           </ul>
-          <a href="pricing.html#enquiry" class="btn btn-secondary" style="width: 100%; text-align: center;">Enquire for Buy Option</a>
+          <a href="#enquiry" data-select-model="Outright Purchase" class="btn btn-secondary" style="width: 100%; text-align: center;">Enquire for Buy Option</a>
         </div>
 
         <div style="background: #fffdfc; border: 2px solid var(--orange); border-radius: 16px; padding: 28px 24px;">
@@ -255,7 +321,7 @@
             <li>Breakeven at just ~13–14 users/day</li>
             <li>Confirm taxes and operating costs in your quote</li>
           </ul>
-          <a href="pricing.html#enquiry" class="btn btn-primary" style="width: 100%; text-align: center;">Enquire for Rental</a>
+          <a href="#enquiry" data-select-model="Monthly Plan" class="btn btn-primary" style="width: 100%; text-align: center;">Enquire for Rental</a>
         </div>
 
         <div style="background: #ffffff; border: 1.5px solid var(--border); border-radius: 16px; padding: 28px 24px;">
@@ -270,7 +336,22 @@
             <li>Revenue share scales from 80-20 up to 50-50</li>
             <li>Revenue share depends on usage and agreement</li>
           </ul>
-          <a href="organisations.html#enquiry" class="btn btn-secondary" style="width: 100%; text-align: center;">Check Space Eligibility</a>
+          <a href="#enquiry" data-select-model="Revenue Partnership" class="btn btn-secondary" style="width: 100%; text-align: center;">Check Space Eligibility</a>
+        </div>
+
+        <div style="background: linear-gradient(135deg, #fffdf9 0%, #fff4ec 100%); border: 2px solid var(--orange); border-radius: 16px; padding: 28px 24px;">
+          <span class="model-tag" style="font-size: 11px; font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-6 9 6v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Model 4 · Franchise Track</span>
+          <h3 style="font-size: 22px; margin-bottom: 8px;">Buy a Franchise</h3>
+          <p style="font-size: 24px; font-weight: 800; color: var(--ink); margin-bottom: 12px;">From ₹95,000 <span style="font-size: 14px; font-weight: 500; color: var(--muted);">/ unit</span></p>
+          <p style="font-size: 14px; color: var(--ink-secondary); line-height: 1.55; margin-bottom: 16px;">
+            Launch a single-unit or multi-kiosk city franchise. Own and operate Reliv Health ATMs across gyms, pharmacies, and apartment hubs with 0% royalty cuts.
+          </p>
+          <ul style="font-size: 13.5px; color: var(--ink); line-height: 1.7; padding-left: 18px; margin-bottom: 20px;">
+            <li>100% checkup collection retention (zero royalty)</li>
+            <li>Single-kiosk or multi-unit territory options</li>
+            <li>Full technical training &amp; calibration support</li>
+          </ul>
+          <a href="#enquiry" data-select-model="Buy a Franchise" data-select-type="Franchise Partner / Entrepreneur" class="btn btn-primary" style="width: 100%; text-align: center;">Apply to Buy a Franchise</a>
         </div>
       </div>
 
@@ -338,12 +419,93 @@
         <p style="margin-top: 10px; line-height: 1.6; color: var(--ink-secondary);">No. Reliv kiosks are 100% autonomous. The touchscreen interface and multilingual Voice AI assist users in English, Hindi, and Bengali step-by-step through every check, eliminating operator salaries and staffing overhead.</p>
       </details>
 
-      <div style="text-align: center; margin-top: 48px; padding: 36px 24px; background: var(--bg-alt); border-radius: var(--radius-lg); border: 1.5px solid var(--border);">
-        <h3 style="font-size: 22px; margin-bottom: 10px;">Ready to Explore Franchise &amp; Partnership Details?</h3>
-        <p style="color: var(--muted); font-size: 15px; margin-bottom: 24px;">Speak directly with the Reliv business team to evaluate your location and receive a tailored ROI projection.</p>
-        <a href="pricing.html#enquiry" class="btn btn-primary btn-lg">Request Written Proposal</a>
-        <div style="margin-top: 16px; font-size: 14px; color: var(--muted);">
-          Email <a href="mailto:relivcustomercare.in@gmail.com" style="color: var(--orange); font-weight: 600;">relivcustomercare.in@gmail.com</a> or Call <a href="tel:+919163606455" style="color: var(--orange); font-weight: 600;">+91 91636 06455</a>
+      <div id="enquiry" class="enquiry-form-wrap">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <span class="eyebrow">BUY A FRANCHISE · OFFICIAL APPLICATION DESK</span>
+          <h3 style="font-size: clamp(24px, 3.8vw, 34px); margin-bottom: 10px;">Apply to Buy a Reliv Health ATM Franchise</h3>
+          <p style="color: var(--muted); font-size: 15px; max-width: 640px; margin: 0 auto;">
+            Enter your contact number, email, and preferred city/territory below. Your enquiry goes directly to <strong>relivcustomercare.in@gmail.com</strong> and our franchise partnerships desk will connect within 24 hours.
+          </p>
+          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:16px;">
+            <button type="button" data-select-model="Buy a Franchise" data-select-type="Franchise Partner / Entrepreneur" style="padding:8px 15px; border-radius:999px; border:1.5px solid var(--orange, #c33c0d); background:#fff4ec; color:#9e2a04; font-size:13px; font-weight:700; cursor:pointer;">★ Buy a Franchise</button>
+            <button type="button" data-select-model="Outright Purchase" style="padding:8px 15px; border-radius:999px; border:1px solid var(--border, #e6dccf); background:#ffffff; color:var(--ink, #1b1713); font-size:13px; font-weight:600; cursor:pointer;">Outright Purchase (₹95k)</button>
+            <button type="button" data-select-model="Monthly Plan" style="padding:8px 15px; border-radius:999px; border:1px solid var(--border, #e6dccf); background:#ffffff; color:var(--ink, #1b1713); font-size:13px; font-weight:600; cursor:pointer;">Monthly Rental (₹12k/mo)</button>
+            <button type="button" data-select-model="Revenue Partnership" style="padding:8px 15px; border-radius:999px; border:1px solid var(--border, #e6dccf); background:#ffffff; color:var(--ink, #1b1713); font-size:13px; font-weight:600; cursor:pointer;">Space &amp; Profit Share</button>
+          </div>
+        </div>
+
+        <div id="orgFormContainer">
+          <form id="orgForm" action="https://formsubmit.co/relivcustomercare.in@gmail.com" method="POST">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="New Reliv Franchise Buyer Enquiry">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://relivkiosk.vercel.app/health-atm-franchise.html?submitted=true">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName">Your Full Name *</label>
+                <input type="text" id="contactName" name="name" placeholder="Dr. / Prof. / Mr. / Ms." required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="orgName">Applicant / Business / Institution Name *</label>
+                <input type="text" id="orgName" name="organization" placeholder="e.g. Individual Franchise Buyer / Wellness Ventures" required autocomplete="organization">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="orgType">Applicant / Venue Profile</label>
+                <select id="orgType" name="type">
+                  <option value="Franchise Partner / Entrepreneur" selected>Franchise Partner / Individual Buyer</option>
+                  <option value="Hospital/Clinic">Hospital / Diagnostic Center / Pharmacy</option>
+                  <option value="Fitness/Gym">Fitness Center / Gym</option>
+                  <option value="College/University">College / University</option>
+                  <option value="Corporate Workplace">Corporate Workplace / IT Park</option>
+                  <option value="Commercial Space">Commercial / Transit Hub / Mall</option>
+                  <option value="Other">Other Institutional Venue</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="prefModel">Preferred Franchise / Commercial Model</label>
+                <select id="prefModel" name="model">
+                  <option value="Buy a Franchise" selected>Buy a Franchise (Single / Multi-Unit / Territory Partner)</option>
+                  <option value="Outright Purchase">Outright Purchase (Own Device — ₹95,000 only)</option>
+                  <option value="Monthly Plan">Monthly Plan / Rent (₹12,000/mo)</option>
+                  <option value="Revenue Partnership">Space &amp; Profit Sharing (High-Footfall / Public Spaces)</option>
+                  <option value="Undecided">Undecided / Need Guidance</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone / WhatsApp Contact Number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label for="email">Official Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="name@domain.com" required autocomplete="email">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="city">City &amp; State / Preferred Franchise Territory *</label>
+              <input type="text" id="city" name="city" placeholder="e.g. Kolkata, West Bengal (or target city / district)" required autocomplete="address-level2">
+            </div>
+
+            <div class="form-group">
+              <label for="message">Number of Kiosks / Target Locations / Notes</label>
+              <textarea id="message" name="notes" rows="3" placeholder="Tell us how many kiosk units you plan to deploy, target locations, or questions for our franchise team..."></textarea>
+            </div>
+
+            <p class="enquiry-privacy">Your details are sent through FormSubmit to Reliv (relivcustomercare.in@gmail.com) for this enquiry. Please do not include medical information. <a href="legal/privacy.html">Privacy policy</a>.</p>
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 8px; justify-content: center;">
+              Submit Franchise Application &amp; Request Call Back
+            </button>
+          </form><div id="orgFormStatus" class="enquiry-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
+        </div>
+
+        <div style="margin-top: 22px; text-align: center; font-size: 14px; color: var(--muted);">
+          Direct Franchise Desk: Email <a href="mailto:relivcustomercare.in@gmail.com" style="color: var(--orange); font-weight: 600;">relivcustomercare.in@gmail.com</a> or Call / WhatsApp <a href="tel:+919163606455" style="color: var(--orange); font-weight: 600;">+91 91636 06455</a>
         </div>
       </div>
     </section>
@@ -395,5 +557,6 @@
   </aside>
 
   <script src="nav.js" defer></script>
+  <script src="enquiry.js" defer></script>
 </body>
 </html>

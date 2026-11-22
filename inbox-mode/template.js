@@ -81,6 +81,72 @@ function renderCorpRecordsMarkup() {
   ).join('\n');
 }
 
+const RELIV_WORDMARK_PATHS = `
+  <path d="M39.77 106.00 L17.36 106.00 L17.36 11.42 L56.08 11.42 Q66.75 11.42 74.49 15.26 Q82.24 19.10 86.39 26.15 Q90.55 33.19 90.55 42.84 L90.55 42.84 Q90.55 52.55 86.30 59.44 Q82.05 66.33 74.17 69.88 Q66.30 73.44 55.45 73.44 L55.45 73.44 L30.76 73.44 L30.76 55.73 L51.39 55.73 Q56.66 55.73 60.18 54.33 Q63.70 52.93 65.51 50.08 Q67.32 47.22 67.32 42.84 L67.32 42.84 Q67.32 38.40 65.51 35.48 Q63.70 32.56 60.15 31.07 Q56.59 29.57 51.32 29.57 L51.32 29.57 L39.77 29.57 L39.77 106.00 Z M93.85 106.00 L69.29 106.00 L46.25 62.77 L70.24 62.77 L93.85 106.00 Z M136.45 107.33 L136.45 107.33 Q125.34 107.33 117.28 102.92 Q109.21 98.51 104.93 90.32 Q100.64 82.13 100.64 70.77 L100.64 70.77 Q100.64 59.85 104.93 51.60 Q109.21 43.35 117.08 38.75 Q124.96 34.14 135.62 34.14 L135.62 34.14 Q143.11 34.14 149.36 36.49 Q155.62 38.84 160.22 43.44 Q164.82 48.05 167.33 54.77 Q169.83 61.50 169.83 70.33 L169.83 70.33 L169.83 75.91 L108.52 75.91 L108.52 63.03 L159.30 63.03 L148.95 66.07 Q148.95 61.12 147.46 57.57 Q145.97 54.01 143.05 52.11 Q140.13 50.20 135.81 50.20 L135.81 50.20 Q131.49 50.20 128.51 52.14 Q125.53 54.08 123.97 57.54 Q122.42 61.00 122.42 65.63 L122.42 65.63 L122.42 74.90 Q122.42 80.36 124.23 84.01 Q126.04 87.66 129.27 89.46 Q132.51 91.27 136.83 91.27 L136.83 91.27 Q139.81 91.27 142.25 90.45 Q144.70 89.62 146.44 87.97 Q148.19 86.32 149.08 83.97 L149.08 83.97 L168.82 87.21 Q167.04 93.30 162.69 97.84 Q158.34 102.38 151.71 104.86 Q145.08 107.33 136.45 107.33 Z M229.31 26.72 L229.31 26.72 Q224.61 26.72 221.25 23.58 Q217.89 20.43 217.89 16.05 L217.89 16.05 Q217.89 11.61 221.25 8.50 Q224.61 5.39 229.31 5.39 L229.31 5.39 Q234.07 5.39 237.44 8.47 Q240.80 11.55 240.80 16.05 L240.80 16.05 Q240.80 20.50 237.44 23.61 Q234.07 26.72 229.31 26.72 Z" fill="#FF7A00"/>
+  <path d="M181.45 11.42 L203.60 11.42 L203.60 106.00 L181.45 106.00 L181.45 11.42 Z M240.42 106.00 L218.27 106.00 L218.27 35.03 L240.42 35.03 L240.42 106.00 Z M300.53 106.00 L274.89 106.00 L249.18 35.03 L272.54 35.03 L283.14 69.75 Q285.30 76.74 286.88 84.04 Q288.47 91.34 290.12 99.46 L290.12 99.46 L286.06 99.46 Q287.65 91.34 289.20 84.07 Q290.76 76.80 292.85 69.75 L292.85 69.75 L303.26 35.03 L326.37 35.03 L300.53 106.00 Z" fill="#111111"/>
+`;
+
+function renderRelivCircleStampSvg({
+  id,
+  topText = 'RELIV PRIVATE',
+  bottomText = 'OPEN LETTER',
+  variant = 'rubber',
+  spinRing = false,
+}) {
+  const isSeal = variant === 'seal';
+  const outerFill = isSeal ? '#050505' : '#FFFFFF';
+  const ringTextFill = isSeal ? '#FFFFFF' : '#050505';
+  const dashedColor = isSeal ? '#FF7A00' : '#FF5A0A';
+  const outerBorder = isSeal
+    ? `<circle cx="60" cy="60" r="57" fill="${outerFill}" stroke="#FFFFFF" stroke-width="2"/><circle cx="60" cy="60" r="52.5" fill="none" stroke="${dashedColor}" stroke-width="1.5" stroke-dasharray="3.2 2.8"/>`
+    : `<circle cx="60" cy="60" r="56" fill="${outerFill}" stroke="#050505" stroke-width="2.2"/><circle cx="60" cy="60" r="51.5" fill="none" stroke="${dashedColor}" stroke-width="1.4" stroke-dasharray="3.5 3"/>`;
+
+  return `<svg viewBox="0 0 120 120" width="100%" height="100%" aria-hidden="true">
+    <defs>
+      <filter id="${id}-ink" x="-8%" y="-8%" width="116%" height="116%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" seed="7" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.25" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+      <path id="${id}-arc-top" d="M 19,60 A 41,41 0 1,1 101,60" fill="none"/>
+      <path id="${id}-arc-bot" d="M 15.5,60 A 44.5,44.5 0 1,0 104.5,60" fill="none"/>
+    </defs>
+    <g filter="${isSeal ? '' : `url(#${id}-ink)`}">
+      ${outerBorder}
+      <g class="${spinRing ? 'seal-ring-spin' : ''}">
+        <circle cx="17.5" cy="60" r="2" fill="#FF7A00"/>
+        <circle cx="102.5" cy="60" r="2" fill="#FF7A00"/>
+        <text fill="${ringTextFill}" font-family="'Manrope', sans-serif" font-weight="800" font-size="7.4" letter-spacing="1.45">
+          <textPath href="#${id}-arc-top" startOffset="50%" text-anchor="middle">${topText}</textPath>
+        </text>
+        <text fill="${ringTextFill}" font-family="'Manrope', sans-serif" font-weight="800" font-size="7.2" letter-spacing="1.45">
+          <textPath href="#${id}-arc-bot" startOffset="50%" text-anchor="middle">${bottomText}</textPath>
+        </text>
+      </g>
+    </g>
+    <circle cx="60" cy="60" r="31.5" fill="#FFFFFF" stroke="#050505" stroke-width="1.8"/>
+    <circle cx="60" cy="60" r="29" fill="none" stroke="#FF7A00" stroke-width="0.9" stroke-dasharray="2 2"/>
+    <svg x="33.5" y="50" width="53" height="20.5" viewBox="0 0 338 130">${RELIV_WORDMARK_PATHS}</svg>
+  </svg>`;
+}
+
+function renderConfidentialStampSvg(id) {
+  return `<svg viewBox="0 0 220 78" width="100%" height="100%" aria-hidden="true">
+    <defs>
+      <filter id="${id}" x="-6%" y="-6%" width="112%" height="112%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.09" numOctaves="2" seed="11" result="grunge"/>
+        <feDisplacementMap in="SourceGraphic" in2="grunge" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+    <g filter="url(#${id})">
+      <rect x="4" y="4" width="212" height="70" rx="6" fill="rgba(255, 90, 10, 0.04)" stroke="#FF5A0A" stroke-width="3.2"/>
+      <rect x="10" y="10" width="200" height="58" rx="3" fill="none" stroke="#050505" stroke-width="1.4" stroke-dasharray="5 2"/>
+      <text x="110" y="38" text-anchor="middle" font-family="'Barlow Condensed', 'Arial Narrow', Impact, sans-serif" font-weight="800" font-size="27" letter-spacing="3.2" fill="#FF5A0A">CONFIDENTIAL</text>
+      <line x1="26" y1="45" x2="194" y2="45" stroke="#050505" stroke-width="1.2"/>
+      <text x="110" y="59" text-anchor="middle" font-family="'Manrope', sans-serif" font-weight="800" font-size="8.6" letter-spacing="2.1" fill="#050505">✦ EYES ONLY · RELIV BRIEF ✦</text>
+    </g>
+  </svg>`;
+}
+
 export function renderInboxModeHtml() {
   const mailtoSubject = encodeURIComponent("Re: Reliv — Knocked on our inbox");
   const mailtoBody = encodeURIComponent(
@@ -602,26 +668,32 @@ export function renderInboxModeHtml() {
       border-radius: 50%;
       background: radial-gradient(closest-side, rgba(5, 5, 5, 0.24), transparent 82%);
       z-index: -1;
-      animation: shadow-breathe 3.4s ease-in-out infinite;
+      animation: shadow-breathe 3.2s ease-in-out infinite;
     }
 
-    /* Circular Swiss stamp seal in upper-right corner */
+    /* Circular Reliv postal stamp seal in upper-right corner (wordmark stays upright) */
     .swiss-seal {
       position: absolute;
-      top: 10px;
-      right: clamp(4px, 2vw, 24px);
-      width: 96px;
-      height: 96px;
+      top: 6px;
+      right: clamp(2px, 2vw, 20px);
+      width: 108px;
+      height: 108px;
       z-index: 6;
       pointer-events: none;
-      transform: translate3d(calc(var(--mx, 0px) * -0.45), calc(var(--my, 0px) * -0.45), 0);
+      transform: translate3d(calc(var(--mx, 0px) * -0.45), calc(var(--my, 0px) * -0.45), 0) rotate(-6deg);
       transition: transform 0.28s var(--ease-out);
+      filter: drop-shadow(0 6px 14px rgba(5, 5, 5, 0.14));
     }
 
     .swiss-seal svg {
       width: 100%;
       height: 100%;
-      animation: spin-slow 24s linear infinite;
+      display: block;
+    }
+
+    .seal-ring-spin {
+      transform-origin: 60px 60px;
+      animation: spin-slow 26s linear infinite;
     }
 
     /* Cheeky interactive postage tag in lower-left orbit */
@@ -671,14 +743,16 @@ export function renderInboxModeHtml() {
       background: transparent;
       cursor: pointer;
       perspective: 1100px;
-      animation: envelope-float 3.4s ease-in-out infinite;
+      animation: envelope-knock 3.2s ease-in-out infinite;
+      transform-origin: center 58%;
       transform: rotate(-4deg);
       transition: transform 0.35s var(--ease-out), filter 0.35s var(--ease-out);
       filter: drop-shadow(0 22px 24px rgba(5, 5, 5, 0.22));
     }
 
     .envelope-btn:hover {
-      transform: rotate(-1.5deg) scale(1.025);
+      animation: none;
+      transform: rotate(-1.5deg) scale(1.03);
       filter: drop-shadow(0 28px 32px rgba(5, 5, 5, 0.28));
     }
 
@@ -720,7 +794,7 @@ export function renderInboxModeHtml() {
       );
     }
 
-    /* Emerging interior white letter card (safely inset above bottom pocket edge) */
+    /* Emerging interior white letter card (nudges subtly during idle knock) */
     .env-letter-sheet {
       position: absolute;
       left: 10%;
@@ -735,15 +809,18 @@ export function renderInboxModeHtml() {
       text-align: left;
       box-shadow: 0 -4px 12px rgba(5, 5, 5, 0.08);
       transform: translateY(4%);
+      animation: sheet-peek 3.2s ease-in-out infinite;
       transition: transform 0.65s var(--ease-out);
       overflow: hidden;
     }
 
     .envelope-btn:hover .env-letter-sheet {
-      transform: translateY(-6%);
+      animation: none;
+      transform: translateY(-7%);
     }
 
     .envelope-btn.is-open .env-letter-sheet {
+      animation: none;
       transform: translateY(-38%);
     }
 
@@ -801,7 +878,7 @@ export function renderInboxModeHtml() {
     .env-fold-left {
       position: absolute;
       inset: 0;
-      background: var(--white);
+      background: linear-gradient(135deg, var(--white) 45%, var(--offwhite) 100%);
       clip-path: polygon(0 0, 52% 52%, 0 100%);
       border-left: 1.5px solid var(--black);
       border-bottom: 1.5px solid var(--black);
@@ -810,7 +887,7 @@ export function renderInboxModeHtml() {
     .env-fold-right {
       position: absolute;
       inset: 0;
-      background: var(--offwhite);
+      background: linear-gradient(225deg, var(--offwhite) 25%, #ECECE7 100%);
       clip-path: polygon(100% 0, 48% 52%, 100% 100%);
       border-right: 1.5px solid var(--black);
       border-bottom: 1.5px solid var(--black);
@@ -819,7 +896,7 @@ export function renderInboxModeHtml() {
     .env-fold-bottom {
       position: absolute;
       inset: 0;
-      background: var(--white);
+      background: linear-gradient(180deg, var(--white) 35%, var(--offwhite) 100%);
       clip-path: polygon(0 100%, 50% 44%, 100% 100%);
       filter: drop-shadow(0 -1.5px 0 var(--black));
     }
@@ -833,7 +910,7 @@ export function renderInboxModeHtml() {
       z-index: 6;
     }
 
-    /* Top hinged postal flap */
+    /* Top hinged postal flap (subtle breathing peek on knock) */
     .env-flap {
       position: absolute;
       left: 2%;
@@ -844,6 +921,7 @@ export function renderInboxModeHtml() {
       clip-path: polygon(0 0, 100% 0, 50% 100%);
       transform-origin: top center;
       transform: rotateX(0deg);
+      animation: flap-nudge 3.2s ease-in-out infinite;
       transition: transform 0.62s var(--ease-out), z-index 0s 0.18s;
       z-index: 7;
       filter: drop-shadow(0 2px 0 var(--black)) drop-shadow(0 8px 12px rgba(5, 5, 5, 0.08));
@@ -857,68 +935,80 @@ export function renderInboxModeHtml() {
     }
 
     .envelope-btn:hover .env-flap {
-      transform: rotateX(24deg);
+      animation: none;
+      transform: rotateX(22deg);
     }
 
     .envelope-btn.is-open .env-flap {
+      animation: none;
       transform: rotateX(174deg);
       z-index: 2;
     }
 
-    /* Centered embossed R® stamp on the envelope seam */
+    /* Centered circular Reliv stamp seal right on the flap seam (elevated on Z axis above 3D flap peek) */
     .env-wax-seal {
       position: absolute;
       left: 50%;
-      top: 57%;
-      width: 56px;
-      height: 56px;
+      top: 58%;
+      width: 74px;
+      height: 74px;
       border-radius: 50%;
-      background: var(--black);
-      color: var(--white);
-      border: 2px solid var(--white);
-      box-shadow: 0 4px 12px rgba(5, 5, 5, 0.25);
-      transform: translate(-50%, -50%) scale(1);
-      z-index: 8;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.35s var(--ease-out), opacity 0.25s ease, background-color 0.2s ease;
+      box-shadow: 0 6px 14px rgba(5, 5, 5, 0.28);
+      transform: translate3d(-50%, -50%, 60px) scale(1);
+      animation: seal-pulse 3.2s ease-in-out infinite;
+      z-index: 9;
+      display: block;
+      pointer-events: none;
+      transition: transform 0.35s var(--ease-out), opacity 0.25s ease;
     }
 
-    .env-wax-seal strong {
-      font-family: var(--font-display);
-      font-size: 20px;
-      line-height: 0.9;
-      color: var(--orange);
-    }
-
-    .env-wax-seal span {
-      font-size: 7px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .env-wax-seal svg {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 
     .envelope-btn:hover .env-wax-seal {
-      transform: translate(-50%, -50%) scale(1.08);
+      animation: none;
+      transform: translate3d(-50%, -50%, 64px) scale(1.1);
     }
 
     .envelope-btn.is-open .env-wax-seal {
+      animation: none;
       opacity: 0;
-      transform: translate(-50%, -50%) scale(0.7);
+      transform: translate3d(-50%, -50%, 24px) scale(0.7);
     }
 
-    /* Cheeky corner stamp pinned directly on pocket front */
+    /* Distressed Pinterest-style CONFIDENTIAL rubber stamp pressed on envelope pocket */
+    .env-conf-stamp {
+      position: absolute;
+      left: 5.5%;
+      bottom: 11%;
+      z-index: 8;
+      width: clamp(104px, 28%, 126px);
+      aspect-ratio: 220 / 78;
+      pointer-events: none;
+      transform: rotate(-10deg);
+      mix-blend-mode: multiply;
+      opacity: 0.92;
+      transition: transform 0.28s var(--ease-out);
+    }
+
+    .envelope-btn:hover .env-conf-stamp {
+      transform: rotate(-7deg) scale(1.03);
+    }
+
+    /* Cheeky corner airmail stamp pinned directly on pocket front */
     .env-postage-stamp {
       position: absolute;
       right: 6%;
       bottom: 10%;
       z-index: 8;
-      width: 56px;
-      padding: 5px 4px;
-      background: var(--offwhite);
+      width: 58px;
+      padding: 6px 4px;
+      background: var(--white);
       border: 1.5px dashed var(--black);
+      box-shadow: 2px 2px 0 rgba(5, 5, 5, 0.14);
       color: var(--black);
       display: flex;
       flex-direction: column;
@@ -952,6 +1042,20 @@ export function renderInboxModeHtml() {
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
+    }
+
+    .caption-touch {
+      display: none;
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .caption-desktop {
+        display: none;
+      }
+
+      .caption-touch {
+        display: inline;
+      }
     }
 
     .hero-bottom-bar {
@@ -1578,6 +1682,7 @@ export function renderInboxModeHtml() {
       display: block;
       object-fit: cover;
       object-position: center 45%;
+      filter: contrast(1.06) brightness(1.05);
     }
 
     .field-badge {
@@ -1829,7 +1934,187 @@ export function renderInboxModeHtml() {
       font-size: 12px;
       letter-spacing: 0.06em;
       color: var(--muted-dark);
-      margin-bottom: clamp(48px, 7vw, 76px);
+      margin-bottom: 28px;
+    }
+
+    .inbox-franchise-card {
+      width: 100%;
+      max-width: 780px;
+      margin: 0 auto clamp(44px, 6vw, 68px);
+      padding: clamp(22px, 3.6vw, 36px);
+      border-radius: 22px;
+      border: 1.5px solid rgba(255, 122, 0, 0.45);
+      background: linear-gradient(160deg, rgba(20, 20, 20, 0.96) 0%, rgba(10, 10, 10, 0.98) 100%);
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      text-align: left;
+    }
+
+    .inbox-franchise-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .inbox-franchise-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(255, 122, 0, 0.14);
+      border: 1px solid rgba(255, 122, 0, 0.45);
+      color: var(--orange);
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .inbox-franchise-title {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3.2vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.02;
+      margin-bottom: 8px;
+    }
+
+    .inbox-franchise-title span {
+      color: var(--orange);
+    }
+
+    .inbox-franchise-desc {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--muted-dark);
+      margin-bottom: 18px;
+    }
+
+    .inbox-track-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .inbox-track-pill {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.04);
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .inbox-track-pill:hover,
+    .inbox-track-pill.is-active {
+      border-color: var(--orange);
+      background: var(--orange);
+      color: var(--black);
+    }
+
+    .inbox-field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .inbox-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .inbox-field.is-full {
+      grid-column: 1 / -1;
+    }
+
+    .inbox-field label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .inbox-field input,
+    .inbox-field select,
+    .inbox-field textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--white);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      outline: none;
+      user-select: text;
+      -webkit-user-select: text;
+      transition: border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .inbox-field select option {
+      background: #121212;
+      color: #ffffff;
+    }
+
+    .inbox-field input:focus,
+    .inbox-field select:focus,
+    .inbox-field textarea:focus {
+      border-color: var(--orange);
+      background: rgba(255, 255, 255, 0.09);
+    }
+
+    .inbox-dispatch-footer {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .inbox-dispatch-note {
+      font-size: 11.5px;
+      color: var(--muted-dark);
+      line-height: 1.45;
+    }
+
+    .inbox-dispatch-status {
+      margin-top: 14px;
+      padding: 13px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--orange);
+      background: rgba(255, 122, 0, 0.12);
+      color: var(--white);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .inbox-dispatch-status[data-state="sent"] {
+      border-color: #34d399;
+      background: rgba(16, 185, 129, 0.14);
+    }
+
+    @media (max-width: 640px) {
+      .inbox-field-grid {
+        grid-template-columns: 1fr;
+      }
+      .inbox-dispatch-footer .cta-orange {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     .closing-email-hint a {
@@ -1961,31 +2246,18 @@ export function renderInboxModeHtml() {
 
     .letter-postmark {
       position: absolute;
-      top: 78px;
-      right: clamp(20px, 4vw, 38px);
-      width: 78px;
-      height: 78px;
-      border-radius: 50%;
-      border: 2px dashed var(--orange);
-      color: var(--orange);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transform: rotate(12deg);
+      top: 66px;
+      right: clamp(18px, 4vw, 34px);
+      width: 90px;
+      height: 90px;
+      transform: rotate(9deg);
       pointer-events: none;
-      font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 800;
-      line-height: 0.9;
     }
 
-    .letter-postmark span {
-      font-family: var(--font-sans);
-      font-size: 7px;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      margin-top: 3px;
+    .letter-postmark svg {
+      width: 100%;
+      height: 100%;
+      display: block;
     }
 
     .letter-to {
@@ -2088,21 +2360,78 @@ export function renderInboxModeHtml() {
       }
     }
 
-    @keyframes envelope-float {
-      0%, 100% {
-        transform: rotate(-4deg) translateY(0);
+    @keyframes envelope-knock {
+      0%, 42%, 86%, 100% {
+        transform: rotate(-4deg) translate3d(0, 0, 0) scale(1);
       }
-      50% {
-        transform: rotate(-2.5deg) translateY(-9px);
+      21% {
+        transform: rotate(-3deg) translate3d(0, -6px, 0) scale(1);
+      }
+      48% {
+        transform: rotate(-4deg) translate3d(0, -3px, 0) scale(1.01);
+      }
+      52% {
+        transform: rotate(-7.2deg) translate3d(-3px, -7px, 0) scale(1.02);
+      }
+      56% {
+        transform: rotate(-0.8deg) translate3d(3px, -6px, 0) scale(1.022);
+      }
+      60% {
+        transform: rotate(-6.8deg) translate3d(-2.5px, -8px, 0) scale(1.025);
+      }
+      64% {
+        transform: rotate(-1.2deg) translate3d(2.5px, -6px, 0) scale(1.02);
+      }
+      68% {
+        transform: rotate(-5.6deg) translate3d(-1.5px, -7px, 0) scale(1.015);
+      }
+      72% {
+        transform: rotate(-2.4deg) translate3d(1.2px, -4px, 0) scale(1.008);
+      }
+      78% {
+        transform: rotate(-4.6deg) translate3d(0, -2px, 0) scale(1);
+      }
+    }
+
+    @keyframes flap-nudge {
+      0%, 46%, 82%, 100% {
+        transform: rotateX(0deg);
+      }
+      54% {
+        transform: rotateX(10deg);
+      }
+      62% {
+        transform: rotateX(14deg);
+      }
+      70% {
+        transform: rotateX(7deg);
+      }
+    }
+
+    @keyframes sheet-peek {
+      0%, 46%, 82%, 100% {
+        transform: translateY(4%);
+      }
+      56%, 66% {
+        transform: translateY(-5%);
+      }
+    }
+
+    @keyframes seal-pulse {
+      0%, 46%, 82%, 100% {
+        transform: translate3d(-50%, -50%, 60px) scale(1) rotate(0deg);
+      }
+      56%, 64% {
+        transform: translate3d(-50%, -50%, 60px) scale(1.09) rotate(-4deg);
       }
     }
 
     @keyframes shadow-breathe {
-      0%, 100% {
+      0%, 42%, 86%, 100% {
         transform: scaleX(1);
         opacity: 0.9;
       }
-      50% {
+      21%, 60% {
         transform: scaleX(0.92);
         opacity: 0.65;
       }
@@ -2276,6 +2605,7 @@ export function renderInboxModeHtml() {
       }
 
       .envelope-stage {
+        width: 100%;
         max-width: 420px;
         margin: 0 auto;
         min-height: 310px;
@@ -2300,10 +2630,33 @@ export function renderInboxModeHtml() {
       }
 
       .swiss-seal {
-        width: 68px;
-        height: 68px;
+        width: 78px;
+        height: 78px;
         top: 0;
         right: 2px;
+      }
+
+      .env-wax-seal {
+        width: 60px;
+        height: 60px;
+      }
+
+      .env-conf-stamp {
+        left: 4.5%;
+        bottom: 10%;
+        width: clamp(86px, 28%, 106px);
+      }
+
+      .env-postage-stamp {
+        width: 48px;
+        padding: 4px 3px;
+        right: 5%;
+        bottom: 9%;
+        font-size: 6px;
+      }
+
+      .env-postage-stamp b {
+        font-size: 13px;
       }
 
       .stamp-tag {
@@ -2368,6 +2721,7 @@ export function renderInboxModeHtml() {
       }
 
       .kiosk-stage {
+        width: 100%;
         max-width: 420px;
         margin: 0 auto;
         min-height: 380px;
@@ -2764,20 +3118,21 @@ export function renderInboxModeHtml() {
             <div class="stage-disc" aria-hidden="true"></div>
             <div class="envelope-floor-shadow" aria-hidden="true"></div>
 
-            <!-- Rotating circular Swiss seal -->
+            <!-- Circular Reliv postal stamp seal (wordmark stays upright while ring orbits) -->
             <div class="swiss-seal" aria-hidden="true">
-              <svg viewBox="0 0 120 120">
-                <circle cx="60" cy="60" r="54" fill="#FFFFFF" stroke="#050505" stroke-width="2"/>
-                <circle cx="60" cy="60" r="44" fill="none" stroke="#FF7A00" stroke-width="1.5" stroke-dasharray="4 4"/>
-                <text x="60" y="55" text-anchor="middle" font-family="'Barlow Condensed', sans-serif" font-weight="800" font-size="18" fill="#050505">RELIV</text>
-                <text x="60" y="71" text-anchor="middle" font-family="'Manrope', sans-serif" font-weight="800" font-size="8" letter-spacing="1.5" fill="#FF7A00">SEALED</text>
-              </svg>
+              ${renderRelivCircleStampSvg({
+                id: 'relivSealTop',
+                topText: 'RELIV MEDICARE',
+                bottomText: 'SEALED BRIEF',
+                variant: 'rubber',
+                spinRing: true,
+              })}
             </div>
 
             <!-- Cheeky cursor-shifted postal status badge -->
             <div class="stamp-tag" aria-hidden="true">
               <span class="stamp-tag-dot"></span>
-              <span>CONFIDENTIAL · EYES ONLY</span>
+              <span>PRIVATE · ZERO PUBLIC SPOILERS</span>
             </div>
 
             <div class="envelope-parallax">
@@ -2813,8 +3168,17 @@ export function renderInboxModeHtml() {
                   <span class="env-flap"><span class="env-flap-inner"></span></span>
 
                   <span class="env-wax-seal">
-                    <strong>R®</strong>
-                    <span>OPEN</span>
+                    ${renderRelivCircleStampSvg({
+                      id: 'relivSealFlap',
+                      topText: 'RELIV SEALED',
+                      bottomText: 'TAP TO OPEN',
+                      variant: 'seal',
+                      spinRing: false,
+                    })}
+                  </span>
+
+                  <span class="env-conf-stamp">
+                    ${renderConfidentialStampSvg('relivConfStampEnv')}
                   </span>
 
                   <span class="env-postage-stamp">
@@ -2825,7 +3189,10 @@ export function renderInboxModeHtml() {
               </button>
             </div>
 
-            <div class="stage-caption" aria-hidden="true">CLICK ENVELOPE TO UNFOLD ↗</div>
+            <div class="stage-caption" aria-hidden="true">
+              <span class="caption-desktop">CLICK ENVELOPE TO UNFOLD ↗</span>
+              <span class="caption-touch">TAP ENVELOPE TO OPEN ↗</span>
+            </div>
           </div>
         </div>
 
@@ -3111,6 +3478,10 @@ ${renderCorpRecordsMarkup()}
             </span>
           </a>
 
+          <a class="cta-outline-white" href="#inboxFranchiseBox" data-inbox-track="Buy a Franchise">
+            <span>Buy a Franchise</span>
+          </a>
+
           <a class="cta-outline-white" href="tel:+919163606455">
             <span>Call +91 91636 06455</span>
           </a>
@@ -3122,6 +3493,74 @@ ${renderCorpRecordsMarkup()}
 
         <div class="closing-email-hint">
           Direct desk: <a href="tel:+919163606455">+91 91636 06455</a> · <a href="${mailtoHref}">relivcustomercare.in@gmail.com</a>
+        </div>
+
+        <!-- Franchise & Partner Direct Dispatch Card (non-form element for Inbox Mode verification) -->
+        <div class="inbox-franchise-card" id="inboxFranchiseBox" role="region" aria-label="Buy a Franchise and Partner Enquiry">
+          <div class="inbox-franchise-top">
+            <span class="inbox-franchise-kicker">FRANCHISE &amp; PARTNER DESK · DIRECT DISPATCH</span>
+            <span style="font-size:11px; font-weight:700; letter-spacing:0.1em; color:rgba(255,255,255,0.6);">TO: RELIVCUSTOMERCARE.IN@GMAIL.COM</span>
+          </div>
+          <h3 class="inbox-franchise-title">BUY A <span>RELIV FRANCHISE</span> OR REQUEST BRIEF</h3>
+          <p class="inbox-franchise-desc">
+            Leave your contact number and preferred city below to apply for a Reliv kiosk franchise, hospital lobby deployment, or private commercial brief. Sent directly to our founders at <strong>relivcustomercare.in@gmail.com</strong>.
+          </p>
+
+          <div class="inbox-track-pills" role="group" aria-label="Select enquiry track">
+            <button type="button" class="inbox-track-pill is-active" data-inbox-track="Buy a Franchise">★ Buy a Franchise</button>
+            <button type="button" class="inbox-track-pill" data-inbox-track="Outright Purchase">Outright Kiosk Purchase</button>
+            <button type="button" class="inbox-track-pill" data-inbox-track="Monthly Rental">Monthly Rental Plan</button>
+            <button type="button" class="inbox-track-pill" data-inbox-track="Hospital / Strategic Partner">Hospital / Investor Brief</button>
+          </div>
+
+          <div class="inbox-field-grid">
+            <div class="inbox-field">
+              <label for="inboxName">Your Full Name *</label>
+              <input type="text" id="inboxName" placeholder="Dr. / Prof. / Mr. / Ms." autocomplete="name">
+            </div>
+            <div class="inbox-field">
+              <label for="inboxOrg">Applicant / Organisation Name *</label>
+              <input type="text" id="inboxOrg" placeholder="e.g. Franchise Buyer / Hospital / Campus" autocomplete="organization">
+            </div>
+            <div class="inbox-field">
+              <label for="inboxPhone">Phone / WhatsApp Contact Number *</label>
+              <input type="tel" id="inboxPhone" placeholder="+91 98765 43210" autocomplete="tel">
+            </div>
+            <div class="inbox-field">
+              <label for="inboxEmail">Official Email Address *</label>
+              <input type="email" id="inboxEmail" placeholder="name@domain.com" autocomplete="email">
+            </div>
+            <div class="inbox-field">
+              <label for="inboxCity">City &amp; State / Preferred Territory *</label>
+              <input type="text" id="inboxCity" placeholder="e.g. Kolkata, West Bengal" autocomplete="address-level2">
+            </div>
+            <div class="inbox-field">
+              <label for="inboxModel">Selected Track</label>
+              <select id="inboxModel">
+                <option value="Buy a Franchise" selected>Buy a Franchise (Single / Multi-Unit Territory)</option>
+                <option value="Outright Purchase">Outright Kiosk Purchase</option>
+                <option value="Monthly Rental">Monthly Rental Plan</option>
+                <option value="Hospital / Strategic Partner">Hospital / Campus / Investor Brief</option>
+              </select>
+            </div>
+            <div class="inbox-field is-full">
+              <label for="inboxNotes">Territory / Units / Specific Notes</label>
+              <textarea id="inboxNotes" rows="2" placeholder="Number of units, target city/venue, or preferred callback time..."></textarea>
+            </div>
+          </div>
+
+          <div class="inbox-dispatch-footer">
+            <span class="inbox-dispatch-note">Dispatched via FormSubmit to <strong>relivcustomercare.in@gmail.com</strong> · Or call <strong>+91 91636 06455</strong></span>
+            <button type="button" class="cta-orange" id="inboxDispatchSubmit">
+              <span>Send Franchise &amp; Partner Enquiry</span>
+              <span class="cta-circle" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div id="inboxDispatchStatus" class="inbox-dispatch-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
         </div>
 
         <!-- Bottom signature colophon (non-footer element for clean Inbox Mode boundaries) -->
@@ -3160,8 +3599,13 @@ ${renderCorpRecordsMarkup()}
       <button type="button" class="close-letter" id="closeLetter" aria-label="Close letter">×</button>
 
       <div class="letter-postmark" aria-hidden="true">
-        HI!
-        <span>RELIV 2026</span>
+        ${renderRelivCircleStampSvg({
+          id: 'relivSealModal',
+          topText: 'RELIV POST 2026',
+          bottomText: 'CONFIDENTIAL',
+          variant: 'rubber',
+          spinRing: true,
+        })}
       </div>
 
       <span class="letter-to">TO: HEALTHCARE LEADERS, HOSPITAL TEAMS &amp; INVESTORS</span>
@@ -3368,6 +3812,92 @@ ${renderCorpRecordsMarkup()}
         }
       }
 
+      // Franchise & Partner Direct Dispatch handler (FormSubmit AJAX to relivcustomercare.in@gmail.com)
+      const trackTriggers = document.querySelectorAll('[data-inbox-track]');
+      const inboxModel = document.getElementById('inboxModel');
+      const inboxSubmit = document.getElementById('inboxDispatchSubmit');
+      const inboxStatus = document.getElementById('inboxDispatchStatus');
+
+      trackTriggers.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const track = btn.getAttribute('data-inbox-track');
+          if (track && inboxModel) {
+            inboxModel.value = track;
+            document.querySelectorAll('.inbox-track-pill').forEach((pill) => {
+              pill.classList.toggle('is-active', pill.getAttribute('data-inbox-track') === track);
+            });
+          }
+        });
+      });
+
+      if (inboxModel) {
+        inboxModel.addEventListener('change', () => {
+          document.querySelectorAll('.inbox-track-pill').forEach((pill) => {
+            pill.classList.toggle('is-active', pill.getAttribute('data-inbox-track') === inboxModel.value);
+          });
+        });
+      }
+
+      if (inboxSubmit && inboxStatus) {
+        inboxSubmit.addEventListener('click', async () => {
+          const name = (document.getElementById('inboxName')?.value || '').trim();
+          const organization = (document.getElementById('inboxOrg')?.value || '').trim();
+          const phone = (document.getElementById('inboxPhone')?.value || '').trim();
+          const email = (document.getElementById('inboxEmail')?.value || '').trim();
+          const city = (document.getElementById('inboxCity')?.value || '').trim();
+          const model = inboxModel?.value || 'Buy a Franchise';
+          const notes = (document.getElementById('inboxNotes')?.value || '').trim();
+
+          if (!name || !phone || !email || !city) {
+            inboxStatus.hidden = false;
+            inboxStatus.dataset.state = 'fallback';
+            inboxStatus.textContent = 'Please enter your Name, Phone / WhatsApp Contact Number, Official Email, and City / Territory.';
+            return;
+          }
+
+          inboxSubmit.disabled = true;
+          const labelSpan = inboxSubmit.querySelector('span');
+          const prevLabel = labelSpan ? labelSpan.textContent : '';
+          if (labelSpan) labelSpan.textContent = 'Sending Dispatch...';
+          inboxStatus.hidden = true;
+
+          const payload = new FormData();
+          payload.append('_captcha', 'false');
+          payload.append('_subject', 'New Reliv Franchise / Inbox Dispatch Enquiry (' + model + ')');
+          payload.append('_template', 'table');
+          payload.append('name', name);
+          payload.append('organization', organization || 'Franchise / Direct Applicant');
+          payload.append('phone', phone);
+          payload.append('email', email);
+          payload.append('city', city);
+          payload.append('model', model);
+          payload.append('notes', notes);
+
+          try {
+            const response = await fetch('https://formsubmit.co/ajax/relivcustomercare.in@gmail.com', {
+              method: 'POST',
+              headers: { Accept: 'application/json' },
+              body: payload,
+            });
+            const data = await response.json().catch(() => ({}));
+            if (!response.ok || data.success === 'false' || data.success === false) throw new Error('Submission was not accepted');
+            inboxStatus.dataset.state = 'sent';
+            inboxStatus.innerHTML = '<strong>Enquiry dispatched to relivcustomercare.in@gmail.com.</strong> Thank you, ' + name.replace(/[<>&"]/g, '') + '. Our partnerships desk will reach you at ' + phone.replace(/[<>&"]/g, '') + ' within 24 hours.';
+            ['inboxName', 'inboxOrg', 'inboxPhone', 'inboxEmail', 'inboxCity', 'inboxNotes'].forEach((id) => {
+              const el = document.getElementById(id);
+              if (el) el.value = '';
+            });
+          } catch {
+            inboxStatus.dataset.state = 'fallback';
+            inboxStatus.innerHTML = 'We could not complete the online dispatch. Please email <a href="mailto:relivcustomercare.in@gmail.com" style="color:var(--orange);font-weight:700;">relivcustomercare.in@gmail.com</a> or call / WhatsApp <a href="tel:+919163606455" style="color:var(--orange);font-weight:700;">+91 91636 06455</a>.';
+          } finally {
+            inboxStatus.hidden = false;
+            inboxSubmit.disabled = false;
+            if (labelSpan) labelSpan.textContent = prevLabel;
+          }
+        });
+      }
+
       // Prevent accidental pinch-zoom, double-tap zoom, and text/image copy across mobile & desktop
       ['gesturestart', 'gesturechange', 'gestureend'].forEach((evt) => {
         document.addEventListener(evt, (e) => e.preventDefault(), { passive: false });
@@ -3384,7 +3914,7 @@ ${renderCorpRecordsMarkup()}
       let lastTouchEnd = 0;
       document.addEventListener('touchend', (e) => {
         const now = Date.now();
-        if (now - lastTouchEnd <= 320 && !e.target?.closest?.('a, button')) {
+        if (now - lastTouchEnd <= 320 && !e.target?.closest?.('a, button, input, textarea, select, label')) {
           e.preventDefault();
         }
         lastTouchEnd = now;
@@ -3395,10 +3925,14 @@ ${renderCorpRecordsMarkup()}
       }, { passive: false });
 
       ['copy', 'cut', 'contextmenu', 'selectstart', 'dragstart'].forEach((evt) => {
-        document.addEventListener(evt, (e) => e.preventDefault());
+        document.addEventListener(evt, (e) => {
+          if (e.target?.closest?.('input, textarea, select')) return;
+          e.preventDefault();
+        });
       });
 
       document.addEventListener('keydown', (e) => {
+        if (e.target?.closest?.('input, textarea, select')) return;
         if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'a', 's', 'u'].includes(e.key.toLowerCase())) {
           e.preventDefault();
         }

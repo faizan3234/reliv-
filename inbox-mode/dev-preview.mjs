@@ -63,6 +63,9 @@ const server = http.createServer(async (req, res) => {
   if (existsSync(filePath) && statSync(filePath).isDirectory()) {
     filePath = join(filePath, 'index.html');
   }
+  if (!existsSync(filePath) && !extname(filePath) && existsSync(filePath + '.html')) {
+    filePath = filePath + '.html';
+  }
   if (!existsSync(filePath)) {
     const notFound = resolve(root, '404.html');
     res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8' });

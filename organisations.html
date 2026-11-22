@@ -163,7 +163,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
 <link rel="stylesheet" href="discovery.css">
-
   <!-- RELIV SEO START -->
   <title>Host a Health ATM in Your Space | Free Setup &amp; Revenue Share | Reliv</title>
   <meta name="description" content="Install a smart Health ATM kiosk in your college, gym, hospital, or transit space with ₹0 Capex. Earn passive revenue sharing with autonomous self-service healthcare.">
@@ -814,16 +813,22 @@
     <!-- Commercial Enquiry Form -->
     <section id="enquiry" class="wrap" style="padding-bottom: clamp(60px, 9vw, 100px);">
       <div class="enquiry-form-wrap">
-        <div style="text-align: center; margin-bottom: 32px;">
-          <span class="eyebrow">GET IN TOUCH</span>
-          <h2 style="font-size: clamp(26px, 4vw, 36px); margin-bottom: 10px;">Request Commercial Details</h2>
-          <p class="body-secondary">Share your institution details and deployment goals. Our team will prepare a customized proposal within 24 hours.</p>
+        <div style="text-align: center; margin-bottom: 24px;">
+          <span class="eyebrow">GET IN TOUCH · COMMERCIAL &amp; FRANCHISE DESK</span>
+          <h2 style="font-size: clamp(26px, 4vw, 36px); margin-bottom: 10px;">Request Commercial or Franchise Details</h2>
+          <p class="body-secondary">Share your contact number, institution or franchise details, and deployment goals. Our team at <strong>relivcustomercare.in@gmail.com</strong> will prepare a customized proposal within 24 hours.</p>
+          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:16px;">
+            <button type="button" data-select-model="Buy a Franchise" data-select-type="Franchise Partner / Entrepreneur" style="padding:8px 15px; border-radius:999px; border:1.5px solid var(--orange, #c33c0d); background:#fff4ec; color:#9e2a04; font-size:13px; font-weight:700; cursor:pointer;">★ Buy a Franchise</button>
+            <button type="button" data-select-model="Outright Purchase" style="padding:8px 15px; border-radius:999px; border:1px solid var(--border, #e6dccf); background:#ffffff; color:var(--ink, #1b1713); font-size:13px; font-weight:600; cursor:pointer;">Outright Purchase (₹95k)</button>
+            <button type="button" data-select-model="Monthly Plan" style="padding:8px 15px; border-radius:999px; border:1px solid var(--border, #e6dccf); background:#ffffff; color:var(--ink, #1b1713); font-size:13px; font-weight:600; cursor:pointer;">Monthly Rental (₹12k/mo)</button>
+            <button type="button" data-select-model="Revenue Partnership" style="padding:8px 15px; border-radius:999px; border:1px solid var(--border, #e6dccf); background:#ffffff; color:var(--ink, #1b1713); font-size:13px; font-weight:600; cursor:pointer;">Space &amp; Profit Share</button>
+          </div>
         </div>
 
         <div id="orgFormContainer">
         <form id="orgForm" action="https://formsubmit.co/relivcustomercare.in@gmail.com" method="POST">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_subject" value="New Reliv Commercial / Institutional Enquiry">
+          <input type="hidden" name="_subject" value="New Reliv Commercial / Franchise / Institutional Enquiry">
           <input type="hidden" name="_template" value="table">
           <input type="hidden" name="_next" value="https://relivkiosk.vercel.app/organisations.html?submitted=true">
           <div class="form-row">
@@ -832,19 +837,20 @@
               <input type="text" id="contactName" name="name" placeholder="Dr. / Prof. / Mr. / Ms." required autocomplete="name">
             </div>
             <div class="form-group">
-              <label for="orgName">Organisation / Institution *</label>
-              <input type="text" id="orgName" name="organization" placeholder="e.g. Techno India University / Fitness Hub" required autocomplete="organization">
+              <label for="orgName">Organisation / Franchise Applicant Name *</label>
+              <input type="text" id="orgName" name="organization" placeholder="e.g. Individual Franchise Buyer / Techno India University" required autocomplete="organization">
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="orgType">Facility Type</label>
+              <label for="orgType">Applicant / Facility Type</label>
               <select id="orgType" name="type">
+                <option value="Franchise Partner / Entrepreneur">Franchise Partner / Individual Buyer</option>
                 <option value="College/University">College / University</option>
                 <option value="Corporate Workplace">Corporate Workplace / IT Park</option>
                 <option value="Fitness/Gym">Fitness Center / Gym</option>
-                <option value="Hospital/Clinic">Hospital / Diagnostic Center</option>
+                <option value="Hospital/Clinic">Hospital / Diagnostic Center / Pharmacy</option>
                 <option value="Commercial Space">Commercial / Transit Hub</option>
                 <option value="Other">Other Institutional Venue</option>
               </select>
@@ -852,6 +858,7 @@
             <div class="form-group">
               <label for="prefModel">Preferred Model</label>
               <select id="prefModel" name="model">
+                <option value="Buy a Franchise">Buy a Franchise (Single / Multi-Unit / Territory Partner)</option>
                 <option value="Outright Purchase">Outright Purchase (Own Device — ₹95,000 only)</option>
                 <option value="Monthly Plan">Monthly Plan / Lease (₹12,000/mo)</option>
                 <option value="Revenue Partnership">Space &amp; Profit Sharing (High-Footfall / Public Spaces)</option>
