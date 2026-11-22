@@ -35,7 +35,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="immersive.css">
   <link rel="stylesheet" href="reliv-refinement.css">
   <link rel="stylesheet" href="seo-content.css">
@@ -213,7 +213,7 @@
       <h2 id="start-title">WHO IS RELIV<br><em>FOR TODAY?</em></h2>
       <p>Whether you represent a college or hospital campus, want to buy a franchise for your own shop or locality, or are a student requesting a kiosk for your school — pick your exact path below.</p>
     </div>
-    <div class="reliv-paths-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    <div class="reliv-paths-grid">
       <a class="reliv-path reliv-path--partners" href="organisations.html#enquiry">
         <span class="reliv-path-label">01 / For Institutions &amp; Campuses</span>
         <strong class="reliv-path-title">Deploy at Your Institution.</strong>
@@ -221,7 +221,7 @@
         <span class="reliv-path-action">Request Institution Deployment</span>
         <span class="reliv-path-arrow" aria-hidden="true"><svg class="ri ri-ur" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg></span>
       </a>
-      <a class="reliv-path reliv-path--people" href="health-atm-franchise.html#enquiry" style="border-color: var(--orange, #cf420a);">
+      <a class="reliv-path reliv-path--franchise" href="health-atm-franchise.html#enquiry">
         <span class="reliv-path-label">02 / Personal, Shop or Locality</span>
         <strong class="reliv-path-title">Buy a Reliv Franchise.</strong>
         <span class="reliv-path-description">Want a kiosk for your own locality, medical shop, clinic, or neighborhood? Own &amp; operate from ₹95,000 with 100% checkup revenue and 0% royalty cuts.</span>
@@ -239,30 +239,61 @@
     <div class="reliv-trustline"><span><strong>Looking to visit a station?</strong> <a href="locations.html" style="color:inherit;text-decoration:underline;">Find active Kolkata kiosks</a>.</span><span><strong>Guided screening.</strong> English, Hindi &amp; Bengali voice guidance.</span><span><strong>Direct Desk.</strong> +91 91636 06455 · relivcustomercare.in@gmail.com</span></div>
   </div>
 </section>
-<section class="intro section-pad" id="story">
-  <div class="eyebrow">01 / WHAT IS RELIV? · RELIEF + RE-LIVE</div>
-  <div>
-    <h2>RELIEF IN MINUTES.<br><em>RE-LIVE</em> EVERY DAY.</h2>
-    <div class="intro-copy">
-      <p><strong>Why do we call it Reliv?</strong> Because everyday healthcare should give you two simple things — immediate <strong>Relief</strong> from uncertainty, and the confidence to <strong>Re-Live</strong> your daily life at full strength. Conceived in Kolkata in 2023 and incorporated as <strong>Reliv Medicare Private Limited</strong> (DPIIT Recognised Startup <code>DIPP287544</code>), Reliv brings a walk-up, self-service health station right to the places life already happens.</p>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:16px; margin:24px 0;">
-        <div style="background:#ffffff; border:1.5px solid rgba(24,21,18,0.12); border-radius:20px; padding:22px 20px;">
-          <span style="display:inline-block; font-size:11px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:#cf420a; margin-bottom:6px;">01 · RELIEF</span>
-          <h3 style="font-size:21px; margin:0 0 8px;">Instant Peace of Mind.</h3>
-          <p style="font-size:14px; line-height:1.6; margin:0; opacity:0.86;">No hospital queues, no needles, no appointment anxiety. Step up in your everyday clothes, check your core vitals in 3 minutes, and feel immediate relief knowing where your numbers stand.</p>
-        </div>
-        <div style="background:#ffffff; border:1.5px solid rgba(24,21,18,0.12); border-radius:20px; padding:22px 20px;">
-          <span style="display:inline-block; font-size:11px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:#cf420a; margin-bottom:6px;">02 · RE-LIVE</span>
-          <h3 style="font-size:21px; margin:0 0 8px;">Live Lighter &amp; Stronger.</h3>
-          <p style="font-size:14px; line-height:1.6; margin:0; opacity:0.86;">Over 70% of major health problems start as silent lifestyle signals. When you spot changes early and track them on your phone, you get back to living your campus, work, and family life with confidence.</p>
-        </div>
-        <div style="background:#fff7f1; border:1.5px solid #cf420a; border-radius:20px; padding:22px 20px;">
-          <span style="display:inline-block; font-size:11px; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; color:#cf420a; margin-bottom:6px;">03 · WHAT IT IS &amp; DOES</span>
-          <h3 style="font-size:21px; margin:0 0 8px;">Your 4×4 ft. Health ATM.</h3>
-          <p style="font-size:14px; line-height:1.6; margin:0; opacity:0.9;">A self-service station measuring Blood Pressure, SpO₂, Pulse, Temperature, Height, Weight &amp; BMI (plus optional eyesight check &amp; 24/7 health-essentials kits) with voice guidance in English, Hindi &amp; Bengali.</p>
+<section class="story-showcase section-pad" id="story" aria-labelledby="story-title">
+  <div class="story-inner">
+    <div class="story-header">
+      <div class="story-heading-col">
+        <span class="eyebrow">01 / WHAT IS RELIV? · RELIEF + RE-LIVE</span>
+        <h2 id="story-title">RELIEF IN MINUTES.<br><em>Re-Live</em> EVERY DAY.</h2>
+      </div>
+      <div class="story-lead-col">
+        <p><strong>Why do we call it Reliv?</strong> Because everyday health care should offer two simple promises — immediate <strong>Relief</strong> from uncertainty, and the confidence to <strong>Re-Live</strong> your daily routine at full strength. Conceived in Kolkata in 2023 and incorporated as <strong>Reliv Medicare Private Limited</strong> (DPIIT Startup India <code>DIPP287544</code>), Reliv brings preventive care directly into everyday spaces.</p>
+        <div class="story-meta-pills">
+          <span class="story-meta-pill">4×4 sq. ft. Footprint</span>
+          <span class="story-meta-pill">3-Minute Guided Check-in</span>
+          <span class="story-meta-pill">English · Hindi · Bengali</span>
         </div>
       </div>
-      <div style="display:flex; flex-wrap:wrap; gap:18px; align-items:center;">
+    </div>
+
+    <div class="story-meaning-grid">
+      <article class="story-card">
+        <div class="story-card-top">
+          <span class="story-card-num">01</span>
+          <span class="story-card-kicker">RELIEF · PEACE OF MIND</span>
+        </div>
+        <h3>Instant clarity, without clinic friction.</h3>
+        <p>No hospital queues, no needles, and no waiting-room anxiety. Step up in your everyday clothes, check your key vitals in minutes, and leave with calm relief knowing where your numbers stand.</p>
+      </article>
+
+      <article class="story-card">
+        <div class="story-card-top">
+          <span class="story-card-num">02</span>
+          <span class="story-card-kicker">RE-LIVE · EVERYDAY ENERGY</span>
+        </div>
+        <h3>Catch silent signals before they grow.</h3>
+        <p>Over 70% of major health events begin as silent lifestyle shifts. Checking in early — and keeping your history in your pocket — lets you step back into campus, work, and family life with confidence.</p>
+      </article>
+
+      <article class="story-card story-card--dark">
+        <div class="story-card-top">
+          <span class="story-card-num">03</span>
+          <span class="story-card-kicker">WHAT IT IS &amp; DOES</span>
+        </div>
+        <h3>Your compact, walk-up Smart Health Station.</h3>
+        <p>Built for colleges, schools, hospitals, workplaces, medical shops, and neighborhoods — delivering guided self-service vital checks and optional 24/7 health-essentials kits with zero on-site operator needed.</p>
+        <div class="story-spec-tags">
+          <span>Blood Pressure</span>
+          <span>SpO₂ &amp; Pulse</span>
+          <span>Temperature</span>
+          <span>Height · Weight · BMI</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="story-footer">
+      <p class="story-footer-note"><strong>Conceived 2023 · Incorporated 2026.</strong> Built in Kolkata by Reliv Medicare Private Limited.</p>
+      <div class="story-footer-links">
         <a class="text-link" href="about.html">Read the full Reliv story <svg class="ri ri-ur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg></a>
         <a class="text-link" href="health-atm-franchise.html#enquiry">Buy a Franchise or Deploy at Your Institution <svg class="ri ri-ur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><polyline points="7 7 17 7 17 17"/></svg></a>
       </div>

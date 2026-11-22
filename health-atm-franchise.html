@@ -430,29 +430,29 @@
           </p>
 
           <!-- 3-Way Decision Cards (Personal Franchise vs. Institution vs. Student/Public Place) -->
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin:20px 0 16px; text-align:left;">
-            <button type="button" data-track-card data-select-model="Buy a Franchise" data-select-type="Franchise Partner / Entrepreneur" data-org-label="Your Shop / Pharmacy / Clinic / Locality Name *" data-org-placeholder="e.g. Personal Franchise / Salt Lake Medical Shop / New Town Locality" data-notes-placeholder="Tell us the locality, shop, or city where you want to buy &amp; operate your Reliv franchise (1 unit or multi-unit)..." style="padding:14px 16px; border-radius:16px; border:2px solid var(--orange, #c33c0d); background:#fff7f1; cursor:pointer; text-align:left;">
-              <span style="display:block; font-size:10.5px; font-weight:800; letter-spacing:0.12em; color:var(--orange, #c33c0d); text-transform:uppercase; margin-bottom:4px;">01 · PERSONAL / SHOP / LOCALITY</span>
-              <strong style="display:block; font-size:15px; color:var(--ink, #1b1713); margin-bottom:4px;">★ Buy a Reliv Franchise</strong>
-              <span style="display:block; font-size:12.5px; color:var(--muted, #6b635b); line-height:1.45;">For individuals, shop/pharmacy owners, or entrepreneurs wanting a kiosk in their locality (0% royalty).</span>
+          <div class="reliv-track-grid">
+            <button type="button" class="reliv-track-card is-selected-track" data-track-card data-select-model="Buy a Franchise" data-select-type="Franchise Partner / Entrepreneur" data-org-label="Your Shop / Pharmacy / Locality Name *" data-org-placeholder="e.g. Personal Franchise / Salt Lake Medical Shop" data-notes-placeholder="Tell us the locality, shop, or city where you want to buy &amp; operate your Reliv franchise...">
+              <span class="reliv-track-kicker">01 · PERSONAL / SHOP / LOCALITY</span>
+              <strong class="reliv-track-title">★ Buy a Reliv Franchise</strong>
+              <span class="reliv-track-desc">For individuals, shop/pharmacy owners, or entrepreneurs wanting a kiosk in their locality (0% royalty).</span>
             </button>
-            <button type="button" data-track-card data-select-model="Outright Purchase" data-select-type="College/University" data-org-label="Institution / College / Hospital / Office Name *" data-org-placeholder="e.g. Birla Campus / IEM Kolkata / Apollo Clinic" data-notes-placeholder="Tell us about your campus/institution, student or staff count, and preferred deployment plan..." style="padding:14px 16px; border-radius:16px; border:1.5px solid var(--border, #e6dccf); background:#ffffff; cursor:pointer; text-align:left;">
-              <span style="display:block; font-size:10.5px; font-weight:800; letter-spacing:0.12em; color:var(--orange, #c33c0d); text-transform:uppercase; margin-bottom:4px;">02 · FOR INSTITUTIONS</span>
-              <strong style="display:block; font-size:15px; color:var(--ink, #1b1713); margin-bottom:4px;">Deploy at Our Institution</strong>
-              <span style="display:block; font-size:12.5px; color:var(--muted, #6b635b); line-height:1.45;">For colleges (like Birla/IEM), schools, hospitals, corporate offices &amp; gyms.</span>
+            <button type="button" class="reliv-track-card" data-track-card data-select-model="Outright Purchase" data-select-type="College/University" data-org-label="Institution / College / Hospital Name *" data-org-placeholder="e.g. Birla Campus / IEM Kolkata / Apollo Clinic" data-notes-placeholder="Tell us about your campus/institution, student or staff count, and preferred deployment plan...">
+              <span class="reliv-track-kicker">02 · FOR INSTITUTIONS</span>
+              <strong class="reliv-track-title">Deploy at Our Institution</strong>
+              <span class="reliv-track-desc">For colleges (like Birla/IEM), schools, hospitals, corporate offices &amp; gyms.</span>
             </button>
-            <button type="button" data-track-card data-select-model="Student / Public Venue Request" data-select-type="Student / Public Place Request" data-org-label="School / College / Public Place Name *" data-org-placeholder="e.g. My School / College Campus / Public Park or Metro Hub" data-notes-placeholder="Share the school, college, or public place details so our team can coordinate a deployment..." style="padding:14px 16px; border-radius:16px; border:1.5px solid var(--border, #e6dccf); background:#ffffff; cursor:pointer; text-align:left;">
-              <span style="display:block; font-size:10.5px; font-weight:800; letter-spacing:0.12em; color:var(--orange, #c33c0d); text-transform:uppercase; margin-bottom:4px;">03 · STUDENTS &amp; CITIZENS</span>
-              <strong style="display:block; font-size:15px; color:var(--ink, #1b1713); margin-bottom:4px;">Need Reliv at My School / Public Place</strong>
-              <span style="display:block; font-size:12.5px; color:var(--muted, #6b635b); line-height:1.45;">For students or residents nominating their school, college, or public neighborhood.</span>
+            <button type="button" class="reliv-track-card" data-track-card data-select-model="Student / Public Venue Request" data-select-type="Student / Public Place Request" data-org-label="School / College / Public Place Name *" data-org-placeholder="e.g. My School / College Campus / Eco Park" data-notes-placeholder="Share the school, college, or public place details so our team can coordinate a deployment...">
+              <span class="reliv-track-kicker">03 · STUDENTS &amp; CITIZENS</span>
+              <strong class="reliv-track-title">Need Reliv at My School / Area</strong>
+              <span class="reliv-track-desc">For students or residents nominating their school, college, or public neighborhood.</span>
             </button>
           </div>
 
-          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:12px;">
-            <button type="button" data-select-model="Buy a Franchise" data-select-type="Franchise Partner / Entrepreneur" style="padding:8px 15px; border-radius:999px; border:1.5px solid var(--orange, #c33c0d); background:#fff4ec; color:#9e2a04; font-size:13px; font-weight:700; cursor:pointer;">★ Buy a Franchise</button>
-            <button type="button" data-select-model="Outright Purchase" style="padding:8px 15px; border-radius:999px; border:1px solid var(--border, #e6dccf); background:#ffffff; color:var(--ink, #1b1713); font-size:13px; font-weight:600; cursor:pointer;">Outright Purchase (₹95k)</button>
-            <button type="button" data-select-model="Monthly Plan" style="padding:8px 15px; border-radius:999px; border:1px solid var(--border, #e6dccf); background:#ffffff; color:var(--ink, #1b1713); font-size:13px; font-weight:600; cursor:pointer;">Monthly Rental (₹12k/mo)</button>
-            <button type="button" data-select-model="Revenue Partnership" style="padding:8px 15px; border-radius:999px; border:1px solid var(--border, #e6dccf); background:#ffffff; color:var(--ink, #1b1713); font-size:13px; font-weight:600; cursor:pointer;">Space &amp; Profit Share</button>
+          <div class="reliv-plan-strip">
+            <button type="button" class="reliv-plan-pill is-accent" data-select-model="Buy a Franchise" data-select-type="Franchise Partner / Entrepreneur">★ Buy a Franchise</button>
+            <button type="button" class="reliv-plan-pill" data-select-model="Outright Purchase">Outright Purchase (₹95k)</button>
+            <button type="button" class="reliv-plan-pill" data-select-model="Monthly Plan">Monthly Rental (₹12k/mo)</button>
+            <button type="button" class="reliv-plan-pill" data-select-model="Revenue Partnership">Space &amp; Profit Share</button>
           </div>
         </div>
 
@@ -468,8 +468,8 @@
                 <input type="text" id="contactName" name="name" placeholder="Dr. / Prof. / Mr. / Ms. / Student Name" required autocomplete="name">
               </div>
               <div class="form-group">
-                <label for="orgName">Your Shop / Locality / Institution / School Name *</label>
-                <input type="text" id="orgName" name="organization" placeholder="e.g. Personal Franchise / My Medical Shop / Birla Campus / School Name" required autocomplete="organization">
+                <label for="orgName">Shop / Locality / Institution / School *</label>
+                <input type="text" id="orgName" name="organization" placeholder="e.g. Personal Franchise / My Shop / Birla Campus" required autocomplete="organization">
               </div>
             </div>
 
@@ -477,24 +477,24 @@
               <div class="form-group">
                 <label for="orgType">Who Are You Enquiring As?</label>
                 <select id="orgType" name="type">
-                  <option value="Franchise Partner / Entrepreneur" selected>Personal / Shop / Locality — Buy a Franchise</option>
-                  <option value="College/University">Institution — College / University / School (e.g. Birla / IEM)</option>
-                  <option value="Student / Public Place Request">Student / Resident — Requesting for School, College or Public Place</option>
+                  <option value="Franchise Partner / Entrepreneur" selected>Personal / Shop — Buy a Franchise</option>
+                  <option value="College/University">Institution (College / School / Campus)</option>
+                  <option value="Student / Public Place Request">Student / Citizen (School or Public Place)</option>
                   <option value="Hospital/Clinic">Hospital / Diagnostic Center / Pharmacy</option>
                   <option value="Fitness/Gym">Fitness Center / Gym</option>
                   <option value="Corporate Workplace">Corporate Workplace / IT Park</option>
-                  <option value="Commercial Space">Public Venue / Mall / Metro / Transit Hub</option>
-                  <option value="Other">Other Institutional Venue</option>
+                  <option value="Commercial Space">Public Venue / Mall / Transit Hub</option>
+                  <option value="Other">Other Venue</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="prefModel">Preferred Franchise / Commercial Model</label>
                 <select id="prefModel" name="model">
-                  <option value="Buy a Franchise" selected>Buy a Franchise (Personal / Shop / Locality / Territory)</option>
-                  <option value="Outright Purchase">Outright Purchase (Own Device — ₹95,000 only)</option>
+                  <option value="Buy a Franchise" selected>Buy a Franchise (Shop / Locality / Territory)</option>
+                  <option value="Outright Purchase">Outright Purchase (₹95,000 one-time)</option>
                   <option value="Monthly Plan">Monthly Plan / Rent (₹12,000/mo)</option>
-                  <option value="Revenue Partnership">Space &amp; Profit Sharing (High-Footfall / Public Spaces)</option>
-                  <option value="Student / Public Venue Request">Nominate My School, College or Public Place for a Kiosk</option>
+                  <option value="Revenue Partnership">Space &amp; Profit Sharing (High-Footfall)</option>
+                  <option value="Student / Public Venue Request">Nominate School, College or Public Place</option>
                   <option value="Undecided">Undecided / Need Guidance</option>
                 </select>
               </div>

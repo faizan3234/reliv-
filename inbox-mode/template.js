@@ -391,11 +391,11 @@ export function renderInboxModeHtml() {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     .topbar-jump-link {
-      padding: 6px 11px;
+      padding: 7px 12px;
       border-radius: 999px;
       border: 1px solid rgba(5, 5, 5, 0.14);
       background: #ffffff;
@@ -404,6 +404,7 @@ export function renderInboxModeHtml() {
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      text-decoration: none;
       transition: all 0.18s ease;
       white-space: nowrap;
     }
@@ -412,6 +413,7 @@ export function renderInboxModeHtml() {
       border-color: var(--black);
       background: var(--black);
       color: var(--white);
+      text-decoration: none;
     }
 
     .topbar-jump-link.is-accent {
@@ -424,6 +426,25 @@ export function renderInboxModeHtml() {
       background: var(--black);
       border-color: var(--black);
       color: var(--white);
+    }
+
+    #reliv-kiosk,
+    #reliv-about,
+    #reliv-awards,
+    #inboxFranchiseBox {
+      scroll-margin-top: 88px;
+    }
+
+    @media (max-width: 1360px) {
+      .dispatch-edition {
+        display: none;
+      }
+    }
+
+    @media (max-width: 1120px) {
+      .topbar-jumps {
+        display: none;
+      }
     }
 
     .relief-relive-strip {
@@ -490,12 +511,13 @@ export function renderInboxModeHtml() {
     }
 
     .relief-card h3 {
-      font-family: var(--font-display);
-      font-size: 23px;
+      font-family: var(--font-sans);
+      font-size: 18px;
       font-weight: 800;
-      text-transform: uppercase;
-      line-height: 1.02;
+      letter-spacing: -0.02em;
+      line-height: 1.24;
       color: var(--black);
+      margin-top: 2px;
     }
 
     .relief-card p {
@@ -3218,11 +3240,11 @@ export function renderInboxModeHtml() {
       </div>
 
       <div class="topbar-jumps" role="toolbar" aria-label="Quick section jump">
-        <a class="topbar-jump-link" href="#hero-headline">01 / Top</a>
-        <a class="topbar-jump-link" href="#reliv-kiosk">02 / Hardware</a>
-        <a class="topbar-jump-link" href="#reliv-about">03 / Relief &amp; Re-Live</a>
-        <a class="topbar-jump-link" href="#reliv-awards">04 / Awards</a>
-        <a class="topbar-jump-link is-accent" href="#inboxFranchiseBox">05 / Institutions &amp; Franchise</a>
+        <a class="topbar-jump-link" href="#hero-headline">Top</a>
+        <a class="topbar-jump-link" href="#reliv-kiosk">Hardware</a>
+        <a class="topbar-jump-link" href="#reliv-about">Relief &amp; Re-Live</a>
+        <a class="topbar-jump-link" href="#reliv-awards">Awards</a>
+        <a class="topbar-jump-link is-accent" href="#inboxFranchiseBox">Franchise &amp; Deploy</a>
       </div>
 
       <div class="dispatch-status">
@@ -3747,8 +3769,8 @@ ${renderCorpRecordsMarkup()}
               <input type="text" id="inboxName" placeholder="Dr. / Prof. / Mr. / Ms. / Student Name" autocomplete="name">
             </div>
             <div class="inbox-field">
-              <label for="inboxOrg" id="inboxOrgLabel">Your Shop / Locality / Institution / School Name *</label>
-              <input type="text" id="inboxOrg" placeholder="e.g. Personal Franchise / Birla Campus / My School or Shop" autocomplete="organization">
+              <label for="inboxOrg" id="inboxOrgLabel">Shop / Institution / School Name *</label>
+              <input type="text" id="inboxOrg" placeholder="e.g. Personal Franchise / Birla Campus / My School" autocomplete="organization">
             </div>
             <div class="inbox-field">
               <label for="inboxPhone">Phone / WhatsApp Contact Number *</label>
@@ -3765,11 +3787,11 @@ ${renderCorpRecordsMarkup()}
             <div class="inbox-field">
               <label for="inboxModel">Selected Track / Requirement</label>
               <select id="inboxModel">
-                <option value="Buy a Franchise" selected>Buy a Franchise (Personal / Shop / Locality / Territory)</option>
-                <option value="Institution Campus Deployment">Institution Deployment (College like Birla, School, Hospital, Office)</option>
+                <option value="Buy a Franchise" selected>Buy a Franchise (Shop / Locality)</option>
+                <option value="Institution Campus Deployment">Institution Deployment (Campus / Hospital)</option>
                 <option value="Outright Purchase">Outright Kiosk Purchase</option>
                 <option value="Monthly Rental">Monthly Rental Plan</option>
-                <option value="Student / Public Venue Request">Student / Citizen — Nominate a School or Public Place</option>
+                <option value="Student / Public Venue Request">Student / Public Place Request</option>
                 <option value="Hospital / Strategic Partner">Hospital / Investor Brief</option>
               </select>
             </div>

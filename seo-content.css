@@ -53,9 +53,9 @@
   .guide-table th, .guide-table td { padding: 12px; overflow-wrap: anywhere; }
 }
 
-/* Keep the skip link available to keyboard users without adding a layout row. */
-.skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; padding: 12px 18px; background: #fff; color: #1d2824; transform: translateY(-160%); }
-.skip-link:focus { transform: translateY(0); }
+/* Keep the skip link available to keyboard users without adding a layout row or appearing off-focus. */
+.skip-link { position: fixed; top: -120px; left: 10px; z-index: 10000; padding: 12px 18px; background: #fff; color: #1d2824; border-radius: 10px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14); opacity: 0; pointer-events: none; clip-path: inset(50%); }
+.skip-link:focus { top: 10px; opacity: 1; pointer-events: auto; clip-path: none; }
 
 /* --- PLANS & ROI PROFITABILITY MATHEMATICS & CALCULATOR --- */
 .roi-section {

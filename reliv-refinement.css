@@ -70,17 +70,17 @@ input:focus-visible, textarea:focus-visible, summary:focus-visible {
 }
 .reliv-paths-intro h2 em { color: var(--reliv-orange); }
 .reliv-paths-intro > p { font-size: clamp(15px,1.35vw,18px); max-width: 33ch; color: var(--reliv-ink-soft); }
-.reliv-paths-grid { display:grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.reliv-paths-grid { display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; align-items: stretch; }
 .reliv-path {
   display: flex; flex-direction: column; align-items:flex-start;
-  min-height: clamp(320px, 32vw, 475px); padding: clamp(26px,3.4vw,52px);
-  border: 1px solid #d8cbbc; border-radius: 22px; overflow:hidden; position: relative;
+  min-height: clamp(320px, 28vw, 415px); padding: clamp(26px,2.8vw,38px);
+  border: 1px solid #d8cbbc; border-radius: 24px; overflow:hidden; position: relative;
   color: var(--reliv-ink); text-decoration:none;
   transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
 }
 .reliv-path-arrow {
-  position:absolute; right:32px; bottom:26px;
-  display:grid; place-items:center; width:52px; height:52px;
+  position:absolute; right:26px; bottom:24px;
+  display:grid; place-items:center; width:46px; height:46px;
   border:1px solid currentColor; border-radius:50%;
   transition: transform .3s cubic-bezier(.22,1,.36,1), background-color .3s ease, color .3s ease, border-color .3s ease;
 }
@@ -95,17 +95,28 @@ input:focus-visible, textarea:focus-visible, summary:focus-visible {
   background: #f36c21; border-color: #f36c21; color: #1d1815;
 }
 .reliv-path--people { background: #eae4db; }
-.reliv-path--partners { background: #26211d; color: #fff9f2; border-color:#26211d; }
-.reliv-path--partners:hover, .reliv-path--partners:focus-visible { color: #fff9f2; }
-.reliv-path-label { font-size: 11px; letter-spacing:.16em; font-weight: 800; text-transform:uppercase; }
-.reliv-path-title {
-  display:block; max-width: 10ch; margin: auto 0 12px;
-  font: 700 clamp(44px,5vw,84px)/.92 var(--reliv-display);
-  letter-spacing:-.025em; text-transform:uppercase;
+.reliv-path--franchise {
+  background: linear-gradient(160deg, #fffdf9 0%, #fff2e6 100%);
+  border: 1.5px solid #cf420a;
+  color: var(--reliv-ink);
 }
-.reliv-path--partners .reliv-path-title { max-width: 12ch; }
-.reliv-path-description { display: block; max-width: 38ch; padding-right: 45px; font-size: 14px; line-height:1.7; opacity:.83; }
-.reliv-path-action { display:block; margin-top:32px; padding-bottom:4px; font-size:13px; font-weight:800; text-decoration:underline; text-underline-offset:5px; }
+.reliv-path--franchise .reliv-path-label { color: #c33c0d; }
+.reliv-path--partners { background: #201c19; color: #fff9f2; border-color:#201c19; }
+.reliv-path--partners:hover, .reliv-path--partners:focus-visible { color: #fff9f2; }
+.reliv-path-label { font-size: 11px; letter-spacing:.15em; font-weight: 800; text-transform:uppercase; opacity: .88; }
+.reliv-path-title {
+  display:block; max-width: 14ch; margin: 22px 0 14px;
+  font: 700 clamp(34px,3.2vw,50px)/.98 var(--reliv-display);
+  letter-spacing:-.02em; text-transform:uppercase;
+}
+.reliv-path--partners .reliv-path-title { max-width: 14ch; }
+.reliv-path-description { display: block; max-width: 38ch; padding-right: 12px; font-size: 14.5px; line-height:1.68; opacity:.85; }
+.reliv-path-action { display:block; margin-top:auto; padding-top:28px; padding-right:62px; padding-bottom:4px; font-size:13.5px; font-weight:800; text-decoration:underline; text-underline-offset:5px; }
+@media (max-width: 960px) {
+  .reliv-paths-grid { grid-template-columns: 1fr; gap: 14px; }
+  .reliv-path { min-height: 270px; padding: 26px 24px; }
+  .reliv-path-title { font-size: clamp(34px, 9vw, 48px); margin: 16px 0 12px; }
+}
 .reliv-trustline {
   max-width:1440px; margin: 26px auto 0; padding-top:24px;
   border-top:1px solid var(--reliv-rule); display:flex; align-items:center;
@@ -465,6 +476,221 @@ body > header.is-scrolled, .site-header.is-scrolled {
     justify-content: center;
   }
   .back-top-fab { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); width: 44px; height: 44px; }
+}
+
+/* ---------- Classy Brand Meaning & Zero-Confusion 3-Track Enquiry System ---------- */
+#enquiry, #story, #kiosk {
+  scroll-margin-top: 96px;
+}
+.enquiry-form-wrap {
+  max-width: 900px !important;
+}
+.reliv-track-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0 18px;
+  text-align: left;
+}
+.reliv-track-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 18px 20px;
+  border-radius: 18px;
+  border: 1.5px solid #e4d8ca;
+  background: #ffffff;
+  color: var(--reliv-ink);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--reliv-body);
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background-color 0.22s ease;
+}
+.reliv-track-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(195, 60, 13, 0.55);
+  box-shadow: 0 12px 26px -14px rgba(33, 28, 25, 0.2);
+}
+.reliv-track-card.is-selected-track {
+  border: 2px solid var(--reliv-orange);
+  background: #fff7f1;
+  box-shadow: 0 12px 28px -14px rgba(195, 60, 13, 0.28);
+}
+.reliv-track-kicker {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--reliv-orange);
+}
+.reliv-track-title {
+  display: block;
+  font-family: var(--reliv-body) !important;
+  font-size: 15.5px;
+  font-weight: 800;
+  line-height: 1.28;
+  letter-spacing: -0.015em;
+  color: var(--reliv-ink);
+}
+.reliv-track-desc {
+  display: block;
+  font-size: 12.8px;
+  line-height: 1.55;
+  color: var(--reliv-ink-soft);
+}
+.reliv-plan-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid #eee4d8;
+}
+.reliv-plan-pill {
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid #dfd3c5;
+  background: #fcfaf7;
+  color: var(--reliv-ink);
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+.reliv-plan-pill:hover {
+  border-color: var(--reliv-orange);
+  color: var(--reliv-orange);
+  background: #fff6ef;
+}
+.reliv-plan-pill.is-accent {
+  border-color: var(--reliv-orange);
+  background: #fff2e8;
+  color: #9e2a04;
+}
+
+/* About Page: Relief + Re-Live Classy Editorial Panel */
+.meaning-panel {
+  background: linear-gradient(155deg, #fffdf9 0%, #f9f0e6 100%);
+  border: 1px solid #e2d4c4;
+  border-radius: 32px;
+  padding: clamp(32px, 5vw, 58px) clamp(22px, 4vw, 48px);
+  box-shadow: 0 20px 54px -26px rgba(33, 28, 25, 0.14);
+}
+.meaning-header {
+  max-width: 740px;
+  margin: 0 auto clamp(28px, 3.8vw, 42px);
+  text-align: center;
+}
+.meaning-header h2 {
+  font-family: var(--reliv-display) !important;
+  font-size: clamp(34px, 4.6vw, 58px) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.02em;
+  margin: 10px 0 14px;
+  color: var(--reliv-ink);
+}
+.meaning-header h2 em {
+  font-family: 'Instrument Serif', Georgia, serif !important;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--reliv-orange);
+}
+.meaning-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+.meaning-card {
+  background: #ffffff;
+  border: 1px solid #e4d8ca;
+  border-radius: 22px;
+  padding: 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.motion-ok .meaning-card.rv {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.meaning-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 44px -20px rgba(33, 28, 25, 0.16);
+  border-color: rgba(195, 60, 13, 0.4);
+}
+.meaning-card-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #efe6dc;
+}
+.meaning-card-num {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--reliv-orange);
+}
+.meaning-card-kicker {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7c6f64;
+}
+.meaning-card h3 {
+  font-family: var(--reliv-body) !important;
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  line-height: 1.28 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--reliv-ink);
+  margin: 4px 0 0;
+}
+.meaning-card p {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--reliv-ink-soft);
+  margin: 0;
+}
+.meaning-card--dark {
+  background: #201c19;
+  border-color: #201c19;
+  color: #fff9f2;
+}
+.meaning-card--dark .meaning-card-top { border-bottom-color: rgba(255, 249, 242, 0.14); }
+.meaning-card--dark .meaning-card-num { color: #f36c21; }
+.meaning-card--dark .meaning-card-kicker { color: rgba(255, 249, 242, 0.6); }
+.meaning-card--dark h3 { color: #fff9f2; }
+.meaning-card--dark p { color: rgba(255, 249, 242, 0.8); }
+.meaning-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 13px;
+  font-weight: 800;
+}
+.meaning-card-links a {
+  color: #ff9a52;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 860px) {
+  .reliv-track-grid,
+  .meaning-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
