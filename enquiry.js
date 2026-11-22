@@ -28,11 +28,18 @@
     const orgInput = document.getElementById('orgName');
     const orgLabel = typeof document.querySelector === 'function' ? document.querySelector('label[for="orgName"]') : null;
     const notesInput = document.getElementById('message');
+    const syncTrackHighlight = (modelVal) => {
+      document.querySelectorAll('[data-track-card]').forEach((card) => {
+        card.classList.toggle('is-selected-track', card.getAttribute('data-select-model') === modelVal);
+      });
+    };
+    if (plans[requestedPlan]) syncTrackHighlight(plans[requestedPlan]);
     document.querySelectorAll('[data-select-model], [data-select-type]').forEach((trigger) => {
       trigger.addEventListener('click', () => {
         const selectedModel = trigger.getAttribute('data-select-model');
         if (selectedModel && form.elements.model) {
           form.elements.model.value = selectedModel;
+          syncTrackHighlight(selectedModel);
         }
         const selectedType = trigger.getAttribute('data-select-type');
         if (selectedType && form.elements.type) {
@@ -44,9 +51,6 @@
         if (orgPlaceholder && orgInput) orgInput.placeholder = orgPlaceholder;
         const notesPlaceholder = trigger.getAttribute('data-notes-placeholder');
         if (notesPlaceholder && notesInput) notesInput.placeholder = notesPlaceholder;
-        document.querySelectorAll('[data-track-card]').forEach((card) => {
-          card.classList.toggle('is-selected-track', card === trigger);
-        });
       });
     });
   }

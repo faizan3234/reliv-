@@ -647,8 +647,7 @@ export function renderInboxModeHtml() {
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--black);
-      opacity: 0;
-      animation: fade-up 0.65s var(--ease-out) 0.05s forwards;
+      animation: fade-up 0.65s var(--ease-out) 0.05s both;
     }
 
     .eyebrow-star {
@@ -700,8 +699,7 @@ export function renderInboxModeHtml() {
       max-width: 520px;
       font-weight: 500;
       margin-bottom: 18px;
-      opacity: 0;
-      animation: fade-up 0.7s var(--ease-out) 0.18s forwards;
+      animation: fade-up 0.7s var(--ease-out) 0.18s both;
     }
 
     .hero-lead strong {
@@ -718,8 +716,7 @@ export function renderInboxModeHtml() {
       line-height: 1.55;
       color: var(--black);
       margin-bottom: clamp(22px, 3vh, 30px);
-      opacity: 0;
-      animation: fade-up 0.7s var(--ease-out) 0.25s forwards;
+      animation: fade-up 0.7s var(--ease-out) 0.25s both;
     }
 
     .hero-note strong {
@@ -733,8 +730,7 @@ export function renderInboxModeHtml() {
       flex-wrap: wrap;
       align-items: center;
       gap: 12px;
-      opacity: 0;
-      animation: fade-up 0.7s var(--ease-out) 0.32s forwards;
+      animation: fade-up 0.7s var(--ease-out) 0.32s both;
     }
 
     .cta-dark,
@@ -3753,14 +3749,6 @@ ${renderCorpRecordsMarkup()}
               <span class="inbox-decision-title">Need One at My School / Public Place</span>
               <span class="inbox-decision-sub">For a student or resident nominating their school, college, or public locality.</span>
             </button>
-          </div>
-
-          <div class="inbox-track-pills" role="group" aria-label="Select enquiry track">
-            <button type="button" class="inbox-track-pill is-active" data-inbox-track="Buy a Franchise">★ Buy a Franchise</button>
-            <button type="button" class="inbox-track-pill" data-inbox-track="Institution Campus Deployment">Institution / College Deployment</button>
-            <button type="button" class="inbox-track-pill" data-inbox-track="Outright Purchase">Outright Kiosk Purchase</button>
-            <button type="button" class="inbox-track-pill" data-inbox-track="Monthly Rental">Monthly Rental Plan</button>
-            <button type="button" class="inbox-track-pill" data-inbox-track="Student / Public Venue Request">Student / School / Public Place</button>
           </div>
 
           <div class="inbox-field-grid">

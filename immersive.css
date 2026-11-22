@@ -390,10 +390,10 @@ a:hover { color: #b64417; }
 .hero-outline { color: var(--orange); }
 .hero-product {
   position: absolute;
-  top: clamp(64px, 9.5vh, 92px);
+  top: clamp(54px, 7.6vh, 80px);
   left: 39%;
   width: 22%;
-  height: clamp(410px, 60vh, 565px);
+  height: clamp(360px, 52vh, 495px);
   z-index: 2;
   pointer-events: none;
   filter: drop-shadow(22px 24px 28px rgba(32, 24, 18, 0.16));

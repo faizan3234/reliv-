@@ -615,9 +615,41 @@ body > header.is-scrolled, .site-header.is-scrolled {
   gap: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-.motion-ok .meaning-card.rv {
+.motion-ok .meaning-card.rv,
+.motion-ok .meaning-panel .rv,
+.motion-ok .meaning-header .rv {
   opacity: 1 !important;
   transform: none !important;
+}
+.guide-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 20px !important;
+}
+.franchise-models-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-bottom: 40px;
+  align-items: stretch;
+}
+.franchise-model-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1.5px solid var(--border, #e6dccf);
+  border-radius: 20px;
+  padding: 28px 26px;
+}
+.franchise-model-card--accent {
+  background: linear-gradient(155deg, #fffdf9 0%, #fff3ea 100%);
+  border: 2px solid var(--orange, #c33c0d);
+}
+@media (max-width: 760px) {
+  .guide-grid,
+  .franchise-models-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 .meaning-card:hover {
   transform: translateY(-4px);
